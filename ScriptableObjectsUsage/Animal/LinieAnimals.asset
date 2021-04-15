@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747a273850d2e424e844a4d123d45205, type: 3}
+  m_Name: LinieAnimals
+  m_EditorClassIdentifier: 
+  animalDict:
+    keys: 8d2d0700
+    values:
+    - animalName: Baby
+      type: Goose
+      breed: Generic
+      sold: 0
+      id: 470413
+      location: {x: -46.98, y: 27.08}
+      age: 0
+      scene: 
+      mood: Excited
+      follow: 1
+      characterOwned: 1
+      gender: Female
+      home: Barn1
+      cost: 40
+      shopCost: 80
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 13.800268
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      gaveGift: 0
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+  breedName: 

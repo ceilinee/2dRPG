@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a047bfb704754d77a0963bcceb1a131, type: 3}
+  m_Name: AnimalColors2
+  m_EditorClassIdentifier: 
+  LlamaArray:
+  - ColorName: White
+    color: {r: 1, g: 1, b: 1, a: 1}
+    id: 0
+    probability: 20
+    cost: 20
+  - ColorName: Baby Pink
+    color: {r: 1, g: 0.7877358, b: 0.7877358, a: 1}
+    id: 1
+    probability: 15
+    cost: 30
+  - ColorName: Fairy Tale
+    color: {r: 1, g: 0.7490196, b: 0.841696, a: 1}
+    id: 2
+    probability: 3
+    cost: 50
+  - ColorName: Cherry Blossom
+    color: {r: 1, g: 0.5896226, b: 0.5896226, a: 1}
+    id: 3
+    probability: 2
+    cost: 60
+  - ColorName: Coral
+    color: {r: 0.8396226, g: 0.42345613, b: 0.33664113, a: 1}
+    id: 4
+    probability: 1
+    cost: 70
+  - ColorName: Rose
+    color: {r: 0.764151, g: 0.26312745, b: 0.26312745, a: 1}
+    id: 5
+    probability: 0
+    cost: 100
+  - ColorName: Cherry
+    color: {r: 0.49056602, g: 0.0763617, b: 0.0763617, a: 1}
+    id: 6
+    probability: 10
+    cost: 40
+  - ColorName: Burgendy
+    color: {r: 0.2830189, g: 0.057404775, b: 0.057404775, a: 1}
+    id: 7
+    probability: 15
+    cost: 30
+  - ColorName: Vanilla
+    color: {r: 1, g: 0.8806014, b: 0.7877358, a: 1}
+    id: 8
+    probability: 20
+    cost: 20
+  - ColorName: Cream
+    color: {r: 1, g: 0.8018868, b: 0.6556604, a: 1}
+    id: 9
+    probability: 15
+    cost: 30
+  - ColorName: Peach
+    color: {r: 0.9528302, g: 0.6934344, b: 0.4988875, a: 1}
+    id: 10
+    probability: 15
+    cost: 30
+  - ColorName: Sunshine
+    color: {r: 1, g: 0.74175143, b: 0.3726415, a: 1}
+    id: 11
+    probability: 5
+    cost: 40
+  - ColorName: Orange
+    color: {r: 0.9433962, g: 0.4682887, b: 0.12014952, a: 1}
+    id: 12
+    probability: 3
+    cost: 50
+  - ColorName: Pumpkin
+    color: {r: 0.62352943, g: 0.30525967, b: 0, a: 1}
+    id: 13
+    probability: 15
+    cost: 30
+  - ColorName: Chocolate
+    color: {r: 0.21698111, g: 0.089170314, b: 0, a: 1}
+    id: 14
+    probability: 3
+    cost: 50
+  - ColorName: Lemon
+    color: {r: 1, g: 0.9444957, b: 0.4575472, a: 1}
+    id: 15
+    probability: 5
+    cost: 50
+  - ColorName: Mint
+    color: {r: 0.5298594, g: 0.764151, b: 0.5298594, a: 1}
+    id: 16
+    probability: 0
+    cost: 80
+  - ColorName: Celadon
+    color: {r: 0.6745098, g: 0.88235295, b: 0.6862745, a: 1}
+    id: 17
+    probability: 0
+    cost: 100
+  - ColorName: Tea
+    color: {r: 0.8156863, g: 0.9411765, b: 0.7529412, a: 1}
+    id: 18
+    probability: 1
+    cost: 70
+  - ColorName: Powder Blue
+    color: {r: 0.6901961, g: 0.8784314, b: 0.9019608, a: 1}
+    id: 19
+    probability: 1
+    cost: 80
+  - ColorName: Baby Blue
+    color: {r: 0.6084906, g: 0.8613404, b: 1, a: 1}
+    id: 20
+    probability: 3
+    cost: 50
+  - ColorName: Ocean Blue
+    color: {r: 0.3476326, g: 0.63703364, b: 0.7924528, a: 1}
+    id: 21
+    probability: 3
+    cost: 50
+  - ColorName: Porcelain Blue
+    color: {r: 0.085039176, g: 0.32754093, b: 0.46226418, a: 1}
+    id: 22
+    probability: 3
+    cost: 50
+  - ColorName: Midnight
+    color: {r: 0.06755073, g: 0.15754844, b: 0.20754719, a: 1}
+    id: 23
+    probability: 2
+    cost: 60
+  - ColorName: 'Periwinkle '
+    color: {r: 0.8, g: 0.8, b: 1, a: 1}
+    id: 24
+    probability: 3
+    cost: 50
+  - ColorName: Lavender
+    color: {r: 0.5896226, g: 0.5896226, b: 1, a: 1}
+    id: 25
+    probability: 0
+    cost: 100
+  - ColorName: Royal Purple
+    color: {r: 0.2488875, g: 0.2488875, b: 0.4433962, a: 1}
+    id: 26
+    probability: 0
+    cost: 120
+  - ColorName: Invisible
+    color: {r: 1, g: 1, b: 1, a: 0}
+    id: 27
+    probability: 0
+    cost: 0
+  FaceArray: 
+  EyesArray: 
+  colorDictionary:
+    keys: 
+    values: []
+  BreedMatrix: []

@@ -1,0 +1,570 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413242f2ac9594f84984ed9aa5642e08, type: 3}
+  m_Name: AnimalMood
+  m_EditorClassIdentifier: 
+  reactions:
+    keys:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - sick
+    - pregnant
+    - question
+    - shock
+    - angry
+    - sad
+    - sleep
+    - shyhappy
+    - shylove
+    - evilshy
+    - evillove
+    - evilangry
+    - evilsmile
+    - heart
+    - heart1
+    - brokenheart
+    - spoiled0
+    - spoiled1
+    - spoiled2
+    - spoiled3
+    - spoiled4
+    - yummy
+    - jealous
+    - gross
+    - happycry
+    - laughcry
+    - shyangry
+    values:
+    - {fileID: -7873523860663863126, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: -1043614127912016185, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 6417081480637259516, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: -47307256930472232, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 1236968940463846004, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 6748126278146393293, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 7754481979191123065, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: -4336250842875644937, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 2830279056031383659, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: -4573141985062607907, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 5720152532764795735, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: 2600608309789540088, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -7270817575041114761, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 2793734129704652342, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -1113479312103834650, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -5057343803441669829, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 734700004668979344, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 8043623293556062375, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -8399433550313846346, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 2593520475584375506, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 5495245931883901768, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 8252779638642340288, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 1909490897029697230, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 7483220480750720021, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -3424193511897018370, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -3424193511897018370, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 8257613066515447467, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 7483220480750720021, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -8261988193003253188, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -8414050829887362215, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: -8514190673697607171, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+    - {fileID: 1841834135632042972, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  giftReactions:
+  - {fileID: -7873523860663863126, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: -1043614127912016185, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 6417081480637259516, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: -47307256930472232, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 1236968940463846004, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 6748126278146393293, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 7754481979191123065, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: -4336250842875644937, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 2830279056031383659, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: -4573141985062607907, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 5720152532764795735, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+  - {fileID: 2600608309789540088, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -7270817575041114761, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 2793734129704652342, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -1113479312103834650, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -5057343803441669829, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 734700004668979344, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 8043623293556062375, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -8399433550313846346, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 2593520475584375506, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 5495245931883901768, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 8252779638642340288, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 1909490897029697230, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 7483220480750720021, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -3424193511897018370, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -3424193511897018370, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 8257613066515447467, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 7483220480750720021, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -8261988193003253188, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -8414050829887362215, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: -8514190673697607171, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  - {fileID: 1841834135632042972, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
+  reactionIds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - sick
+  - pregnant
+  - question
+  - shock
+  - angry
+  - sad
+  - sleep
+  - shyhappy
+  - shylove
+  - evilshy
+  - evillove
+  - evilangry
+  - evilsmile
+  - heart
+  - heart1
+  - brokenheart
+  - spoiled0
+  - spoiled1
+  - spoiled2
+  - spoiled3
+  - spoiled4
+  - yummy
+  - jealous
+  - gross
+  - happycry
+  - laughcry
+  - shyangry
+  personalityMoodDict:
+    keys: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+    values:
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Throwing a tandrum about the gift
+        - Miffed because the gift was subpar
+        - Thinks you need to bring better gifts
+        - Acknowledging your gift with a nod
+        - Pleased that you finally learned what gift they like
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+    - keys:
+      - Llama
+      - Rabbit
+      - Goose
+      - Sheep
+      - Pig
+      values:
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []
+      - array:
+        - Offended about the awful gift
+        - Too shy to express dislike of gift
+        - Feeling neutral about the gift
+        - 'Shyly showing appreciation of gift '
+        - Too ecstatic to contain their excitement
+        giftReactions: []

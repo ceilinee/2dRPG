@@ -1,0 +1,1602 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747a273850d2e424e844a4d123d45205, type: 3}
+  m_Name: CurAnimals
+  m_EditorClassIdentifier: 
+  animalDict:
+    keys: 1ff20900be2205000eac0d00127a06004c0307007e3c0a00421b0b0051ce05003a2a00009ae00900512c0f00d8de06004f4809002e1a0800ef410e00bf370d00d33b090050f20200c3dd03002f390000768a020058660700c8e60e0063340e008dbc0c00727e080003370200e70b09003fac0c001d44040099b6010053ce0500a2f5030081de02002d0d0d00b8d50e004f3e0800d21b040012ea0e002eb20300b4750200d4730200c0b8010051360c00
+    values:
+    - animalName: Cutie
+      type: Llama
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 651807
+      location: {x: 26.177795, y: -13.193602}
+      target: {x: 0, y: 0}
+      age: 49
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 138
+      shopCost: 276
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 3
+        tail: 3
+        eyes: 7
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Starry
+      type: Llama
+      breed: Star
+      health: 105
+      sold: 0
+      id: 336574
+      location: {x: 11.585897, y: -1.4283196}
+      target: {x: 19.8, y: -9}
+      age: 32
+      scene: MainScene
+      mood: Feeling content
+      follow: 1
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 328
+      shopCost: 656
+      presentsDaily: 3
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 416.00024
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 3
+        tail: 3
+        eyes: 16
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 0
+    - animalName: Cream
+      type: Llama
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 896014
+      location: {x: -1.2518147, y: -29.893986}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 82
+      shopCost: 164
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 16
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Vanilla
+      type: Rabbit
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 424466
+      location: {x: -9.269157, y: -34.06136}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 28
+      shopCost: 56
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 22
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby Pink
+      type: Llama
+      breed: Generic
+      health: 96
+      sold: 0
+      id: 459596
+      location: {x: 28.50894, y: -17.519545}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling content
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 90
+      shopCost: 180
+      presentsDaily: 1
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 28
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Chocolate
+      type: Llama
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 670846
+      location: {x: -35.922276, y: -20.535547}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn2
+      cost: 86
+      shopCost: 172
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 7
+        tail: 7
+        eyes: 14
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Vanilla
+      type: Rabbit
+      breed: Spotted
+      health: 90
+      sold: 0
+      id: 727874
+      location: {x: 3.022757, y: -20.656054}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 94
+      shopCost: 188
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 52.932102
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 25
+        dots: 8
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Pumpkin
+      type: Llama
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 380497
+      location: {x: 18.080603, y: -27.760887}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 86
+      shopCost: 172
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 13
+        eyes: 25
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Boots
+      type: Llama
+      breed: Boots
+      health: 90
+      sold: 0
+      id: 10810
+      location: {x: 36.11579, y: 1.161955}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 206
+      shopCost: 412
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0.05999999
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 22
+        dots: 27
+        face: 0
+        legs: 10
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: Winter
+      type: Rabbit
+      breed: Winter
+      health: 90
+      sold: 0
+      id: 647322
+      location: {x: 6.025902, y: -24.39436}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 384
+      shopCost: 768
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 16
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: Snowy
+      type: Rabbit
+      breed: Winter
+      health: 90
+      sold: 0
+      id: 994385
+      location: {x: 7.9937034, y: -23.818758}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 408
+      shopCost: 816
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 26
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: ' Emerald'
+      type: Rabbit
+      breed: Winter
+      health: 90
+      sold: 0
+      id: 450264
+      location: {x: 14.672228, y: -14.120951}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 408
+      shopCost: 816
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 3.1850255
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 28
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: ' Snowy'
+      type: Llama
+      breed: Winter
+      health: 90
+      sold: 0
+      id: 608335
+      location: {x: 27.57523, y: -8.509735}
+      target: {x: 0, y: 0}
+      age: 32
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 594
+      shopCost: 1188
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 13
+        dots: 0
+        face: 0
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: j
+      type: Llama
+      breed: Snow
+      health: 90
+      sold: 0
+      id: 530990
+      location: {x: 0.6649677, y: -26.210314}
+      target: {x: 0, y: 0}
+      age: 30
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 624
+      shopCost: 1248
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 45.225456
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 14
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: o
+      type: Llama
+      breed: Snow
+      health: 90
+      sold: 0
+      id: 934383
+      location: {x: 31.869326, y: 5.9025803}
+      target: {x: 0, y: 0}
+      age: 30
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 568
+      shopCost: 1136
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 6.285096
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 13
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: Goosey
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 866239
+      location: {x: 18.709831, y: -8.000547}
+      target: {x: 0, y: 0}
+      age: 28
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: c8e60e00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Snowy
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 605139
+      location: {x: -46.98, y: 28.08}
+      target: {x: 0, y: 0}
+      age: 28
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 1
+      characterOwned: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 58660700
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Pinkie
+      type: Goose
+      breed: Generic
+      health: 85
+      sold: 0
+      id: 193104
+      location: {x: 27.955225, y: -19.580147}
+      target: {x: 0, y: 0}
+      age: 28
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 2d0d0d00
+      love: 53.44221
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: ' Frosty'
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 253379
+      location: {x: 21.841074, y: -10.712558}
+      target: {x: 0, y: 0}
+      age: 28
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 6.285096
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Beigy
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 14639
+      location: {x: 16.14993, y: -25.495953}
+      target: {x: 0, y: 0}
+      age: 28
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Swan
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 166518
+      location: {x: 5.473505, y: -13.916389}
+      target: {x: 0, y: 0}
+      age: 20
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: beigy
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 484952
+      location: {x: 25.269375, y: -11.1328335}
+      target: {x: 0, y: 0}
+      age: 20
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 2.995021
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      breed: Generic
+      health: 93
+      sold: 0
+      id: 976584
+      location: {x: 11.585895, y: -1.4283254}
+      target: {x: -16.3, y: -2.1}
+      age: 21
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 1
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn2
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 398.6383
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Boots
+      type: Pig
+      breed: Boots
+      health: 90
+      sold: 0
+      id: 930915
+      location: {x: 35.50338, y: 2.7717357}
+      target: {x: 0, y: 0}
+      age: 17
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn2
+      cost: 404
+      shopCost: 808
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 21
+        dots: 27
+        face: 27
+        legs: 0
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: GreenEars
+      type: Pig
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 834701
+      location: {x: 28.929972, y: -14.199118}
+      target: {x: 0, y: 0}
+      age: 17
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 96
+      shopCost: 192
+      presentsDaily: 0
+      pregnant: 1
+      deliveryDate: 10
+      babyId: c0b80100
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 7
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 28
+        back: 27
+        star: 27
+    - animalName: Starry
+      type: Sheep
+      breed: Star
+      health: 90
+      sold: 0
+      id: 556658
+      location: {x: 23.06844, y: -9.61002}
+      target: {x: 0, y: 0}
+      age: 16
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 164
+      shopCost: 328
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: a7ab0c00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 22
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 7
+    - animalName: ' Snowy'
+      type: Sheep
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 145155
+      location: {x: 13.883737, y: -15.7351675}
+      target: {x: 0, y: 0}
+      age: 16
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 70
+      shopCost: 140
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 13
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Goldilocks
+      type: Sheep
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 592871
+      location: {x: 23.71026, y: -1.3131388}
+      target: {x: 0, y: 0}
+      age: 16
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 152
+      shopCost: 304
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 11
+        tail: 11
+        eyes: 26
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Barbie
+      type: Pig
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 830527
+      location: {x: 20.138931, y: -18.011425}
+      target: {x: 0, y: 0}
+      age: 16
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 148
+      shopCost: 296
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 26
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 19
+        star: 13
+    - animalName: chocolate
+      type: Pig
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 279581
+      location: {x: 23.709826, y: -9.0552635}
+      target: {x: 0, y: 0}
+      age: 16
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 70
+      shopCost: 140
+      presentsDaily: 0
+      pregnant: 1
+      deliveryDate: 9
+      babyId: 51360c00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 27
+        eyes: 22
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: goose
+      type: Goose
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 112281
+      location: {x: -1.2, y: -4.5}
+      target: {x: 0, y: 0}
+      age: 16
+      scene: Barn1
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: okok
+      type: Sheep
+      breed: Snow
+      health: 99
+      sold: 0
+      id: 380499
+      location: {x: 24.944519, y: -25.852158}
+      target: {x: 0, y: 0}
+      age: 4
+      scene: MainScene
+      mood: Feeling content
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 664
+      shopCost: 1328
+      presentsDaily: 1
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 22
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: princess
+      type: Pig
+      breed: Generic
+      health: 90
+      sold: 0
+      id: 259490
+      location: {x: 12.060094, y: -10.724745}
+      target: {x: 0, y: 0}
+      age: 9
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 208
+      shopCost: 416
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 26
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 24
+        star: 10
+    - animalName: hi
+      type: Rabbit
+      breed: Masked
+      health: 90
+      sold: 0
+      id: 188033
+      location: {x: 12.527745, y: -1.7343359}
+      target: {x: 0, y: 0}
+      age: 8
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 1
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 78
+      shopCost: 156
+      presentsDaily: 0
+      pregnant: 1
+      deliveryDate: 10
+      babyId: d4730200
+      love: 35.523384
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 8
+        eyes: 22
+        dots: 27
+        face: 7
+        legs: 27
+        ears: 7
+        back: 27
+        star: 27
+    - animalName: ppiinnkk
+      type: Goose
+      breed: Generic
+      health: 96
+      sold: 0
+      id: 855341
+      location: {x: 2.7398715, y: -8.784943}
+      target: {x: 0, y: 0}
+      age: 0
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Cutie
+      type: Rabbit
+      breed: Generic
+      health: 96
+      sold: 0
+      id: 972216
+      location: {x: -0.7757021, y: -18.242332}
+      target: {x: 0, y: 0}
+      age: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 56
+      shopCost: 112
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 25
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Hiss
+      type: Pig
+      breed: Generic
+      health: 96
+      sold: 0
+      id: 540239
+      location: {x: 1.0724857, y: -25.5783}
+      target: {x: 0, y: 0}
+      age: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 36
+      shopCost: 72
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 13
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Aiden
+      type: Sheep
+      breed: Generic
+      health: 96
+      sold: 0
+      id: 269266
+      location: {x: 4.110579, y: 22.139854}
+      target: {x: 0, y: 0}
+      age: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 117
+      shopCost: 234
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0.8249994
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 26
+        dots: 8
+        face: 1
+        legs: 1
+        ears: 27
+        back: 27
+        star: 8
+    - animalName: Jayden
+      type: Sheep
+      breed: Sailor
+      health: 101
+      sold: 0
+      id: 977426
+      location: {x: -13.285424, y: -15.676947}
+      target: {x: 0, y: 0}
+      age: 1
+      scene: MainScene
+      mood: Feeling content
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 1632
+      shopCost: 3264
+      presentsDaily: 1
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 7.545125
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 27
+        legs: 22
+        ears: 22
+        back: 27
+        star: 22
+    - animalName: Angela
+      type: Rabbit
+      breed: Sailor
+      health: 101
+      sold: 0
+      id: 242222
+      location: {x: 0.66051376, y: 1.2005352}
+      target: {x: 0, y: 0}
+      age: 1
+      scene: MainScene
+      mood: Feeling content
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 1032
+      shopCost: 2064
+      presentsDaily: 1
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 5.2950735
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 27
+        legs: 22
+        ears: 22
+        back: 27
+        star: 22
+    - animalName: iVyZhAnG
+      type: Sheep
+      breed: Generic
+      health: 96
+      sold: 0
+      id: 161204
+      location: {x: 7.643902, y: 6.3409104}
+      target: {x: 0, y: 0}
+      age: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 68
+      shopCost: 136
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 14
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Cuteie
+      type: Rabbit
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 160724
+      location: {x: 2.1178353, y: -1.254193}
+      target: {x: 0, y: 0}
+      age: -1
+      scene: MainScene
+      mood: Excited
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 230
+      shopCost: 460
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 24
+        tail: 19
+        eyes: 22
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: Bluey
+      type: Pig
+      breed: Star
+      health: 100
+      sold: 0
+      id: 112832
+      location: {x: 1.1324508, y: -1.9317858}
+      target: {x: 0, y: 0}
+      age: -1
+      scene: MainScene
+      mood: Excited
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 180
+      shopCost: 360
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 23
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 8
+    - animalName: Nighte
+      type: Pig
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 800337
+      location: {x: 2.3427956, y: -1.9187284}
+      target: {x: 0, y: 0}
+      age: -1
+      scene: MainScene
+      mood: Excited
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 208
+      shopCost: 416
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 26
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 24
+        star: 13
+  breedName: 

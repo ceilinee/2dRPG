@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e304a220572147318114032929be6d9, type: 3}
+  m_Name: Blueberries
+  m_EditorClassIdentifier: 
+  itemName: Blueberries
+  id: 1
+  itemSprite: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6,
+    type: 3}
+  healthBonus: 3
+  antiAge: 0
+  itemDescription: Yum!
+  cost: 50
+  sellCost: 26
+  spawnLocations:
+  - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
+  spawnProbability: 32000000
