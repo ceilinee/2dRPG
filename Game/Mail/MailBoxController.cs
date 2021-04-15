@@ -10,9 +10,21 @@ public class MailBoxController : Interactable
     // Start is called before the first frame update
     void Start()
     {
-
+      if(mailbox.unread > 0){
+        alert.SetActive(true);
+      }
+      else{
+        alert.SetActive(false);
+      }
     }
-
+    public void checkAlert(){
+      if(mailbox.unread > 0){
+        alert.SetActive(true);
+      }
+      else{
+        alert.SetActive(false);
+      }
+    }
     // Update is called once per frame
     void Update()
     {

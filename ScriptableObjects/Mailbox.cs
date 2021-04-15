@@ -18,4 +18,16 @@ public class Mail {
 public class Mailbox : ScriptableObject
 {
   public Mail[] mailbox;
+  public int unread;
+  public void addMessage(Mail mail){
+    List<Mail> temp = new List<Mail>(mailbox);
+    temp.Insert(0, mail);
+    mailbox = temp.ToArray();
+    unread += 1;
+  }
+  public void deleteMessage(Mail mail){
+    List<Mail> temp = new List<Mail>(mailbox);
+    temp.Remove(mail);
+    mailbox = temp.ToArray();
+  }
 }

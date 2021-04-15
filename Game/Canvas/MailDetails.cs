@@ -15,6 +15,9 @@ public class MailDetails : MonoBehaviour
     public void updateDetails(Mail newMail){
       mail = newMail;
       title.text = newMail.title;
+      if(!mail.read){
+        gameObject.GetComponent<Image>().color = new Color(255/255f, 189/255f,189/255f);
+      }
     }
     public void selectMail(){
         mailInformation.GetComponent<MailInformation>().updateSelectedMail(mail);

@@ -16,8 +16,9 @@ MonoBehaviour:
   - message: Hello!
     title: Hellooooo!
     senderId: 0
+    id: 0
     item: {fileID: 0}
-    read: 0
+    read: 1
     animal:
       animalName: 
       type: 
@@ -64,3 +65,56 @@ MonoBehaviour:
         ears: 0
         back: 0
         star: 0
+  - message: Hheheheho!
+    title: ajsdchlakjsdhfkjads
+    senderId: 0
+    id: 1
+    item: {fileID: 0}
+    read: 1
+    animal:
+      animalName: 
+      type: 
+      momId: 0
+      dadId: 0
+      breed: 
+      health: 0
+      sold: 0
+      id: 0
+      adoption: 0
+      location: {x: 0, y: 0}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: 
+      mood: 
+      moodId: 
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: 
+      home: 
+      cost: 0
+      shopCost: 0
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+  unread: 0

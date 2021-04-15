@@ -15,7 +15,7 @@ public class MailList : MonoBehaviour
         private int numberOfItems = 3;
         public Mailbox mailbox;
         public GameObject mailInformation;
-        public Characters curCharacters;
+        public Characters charList;
 
         void Start () {
 
@@ -30,12 +30,12 @@ public class MailList : MonoBehaviour
           //setContent Holder Height;
           int numberOfItemsInRow = 1;
           numberOfItems = mailbox.mailbox.Length;
-          content.sizeDelta = new Vector2(0, System.Math.Max(numberOfItems/numberOfItemsInRow, 3) * 45 + 90);
+          content.sizeDelta = new Vector2(0, System.Math.Max(numberOfItems/numberOfItemsInRow, 3) * 45);
           for (int i = 0; i < numberOfItems; i++)
           {
             float spawnY = (int)System.Math.Floor((double)i/numberOfItemsInRow) * 45;
             //newSpawn Position
-            Vector3 pos = new Vector3(35.49f, -spawnY, 0);
+            Vector3 pos = new Vector3(35.49f, 15+ -spawnY, 0);
             //instantiate item
             GameObject SpawnedItem = Instantiate(item, pos, SpawnPoint.rotation);
             //setParent
@@ -44,6 +44,9 @@ public class MailList : MonoBehaviour
             MailDetails mailDetails = SpawnedItem.GetComponent<MailDetails>();
             mailDetails.updateDetails(mailbox.mailbox[i]);
             mailDetails.mailInformation = mailInformation;
+            if(charList.characterDict[mailbox.mailbox[i].senderId].image){
+              mailDetails.charImage.sprite = charList.characterDict[mailbox.mailbox[i].senderId].image;
+            }
           }
         }
   }
