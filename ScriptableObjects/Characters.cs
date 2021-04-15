@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 [CreateAssetMenu]
@@ -14,6 +15,11 @@ public class Characters : ScriptableObject
     if(characterDict.ContainsKey(character.id)){
       characterDict[character.id] = character;
     }
+  }
+  public Character getRandomCharacter(){
+    System.Random random = new System.Random();
+    int index = random.Next(characterDict.Count);
+    return characterDict.Values.ElementAt(index);
   }
   public void Clear(){
     characterDict = new DictionaryOfCharacters();

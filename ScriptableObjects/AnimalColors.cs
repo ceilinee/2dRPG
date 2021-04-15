@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 
 [CreateAssetMenu]
 [System.Serializable]
@@ -19,4 +19,10 @@ public class AnimalColors : ScriptableObject
       public int[] array;
   }
   public intArray[] BreedMatrix;
+
+  public int getRandomColor(){
+    System.Random random = new System.Random();
+    int index = random.Next(colorDictionary.Count);
+    return colorDictionary.Values.ElementAt(index).id;
+  }
 }

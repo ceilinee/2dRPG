@@ -230,14 +230,7 @@ public class BreedScript : MonoBehaviour {
     }
     public Animal.Personality generatePersonality(bool shop){
       if(shop){
-        List<Animal.Personality> tempList = new List<Animal.Personality>();
-        foreach(Animal.Personality curPersonality in personalityList.personalityList){
-          for(int i =0; i<curPersonality.probability; i++){
-            tempList.Add(curPersonality);
-          }
-        }
-        Animal.Personality[] tempArray = tempList.ToArray();
-        return tempArray[Random.Range(0, tempArray.Length)];
+        return personalityList.getRandomPersonality();
       }
       else{
         if(Random.Range(0, 4) < 3 && maleAnimal.personality != null && femaleAnimal.personality != null ){
@@ -318,8 +311,37 @@ public class BreedScript : MonoBehaviour {
     public void clearSpecialShop(){
        shopBreedAnimals.animalDict = new Animals.DictionaryOfAnimals();
     }
+    public Animal.StringAndAnimalColor adoptionGenericAnimal(Animal.StringAndAnimalColor coloring){
+      int[] curTypes = new int[]{coloring.body, coloring.tail, coloring.face, coloring.star, coloring.eyes, coloring.legs, coloring.dots, coloring.back, coloring.ears};
+      for(int i =0; i<curTypes.Length; i++){
+        if(curTypes[i] == 32){
+          if(i == 4){
+            curTypes[i] = animalColors.EyesArray[Random.Range(0, animalColors.EyesArray.Length)];
+          }
+          else{
+            curTypes[i] = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
+          }
+        }
+      }
+      coloring.body = curTypes[0];
+      coloring.tail = curTypes[1];
+      coloring.face = curTypes[2];
+      coloring.star = curTypes[3];
+      coloring.eyes = curTypes[4];
+      coloring.legs = curTypes[5];
+      coloring.dots = curTypes[6];
+      coloring.back = curTypes[7];
+      coloring.ears = curTypes[8];
+      return coloring;
+    }
+    public string getType(bool nogoose){
+      if(nogoose){
+        return types[Random.Range(0, 4)];
+      }
+      return types[Random.Range(0, types.Length)];
+    }
     public void RandomBreedAnimal(AnimalBreed.Breed curBreed){
-      string type = types[Random.Range(0, 4)];
+      string type = getType(true);
       Animal.StringAndAnimalColor breedColoring = curBreed.coloring;
       Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
       int color1 = -1;

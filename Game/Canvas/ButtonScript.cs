@@ -12,6 +12,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject animalTab;
     public GameObject sellTab;
     public GameObject buyTab;
+    public GameObject adoptionTab;
+    public GameObject adoptionAnimalsTab;
     public GameObject buyAnimalsTab;
     public GameObject buySpecialAnimalsTab;
     public GameObject accountSelection;
@@ -26,6 +28,14 @@ public class ButtonScript : MonoBehaviour
     void Update()
     {
 
+    }
+    public void toggleAdoption(){
+      adoptionTab.SetActive(true);
+      adoptionAnimalsTab.SetActive(false);
+    }
+    public void toggleAdoptionAnimal(){
+      adoptionAnimalsTab.SetActive(true);
+      adoptionTab.SetActive(false);
     }
     public void toggleMainMenu(){
       Loader.Load(Loader.Scene.MainScene);

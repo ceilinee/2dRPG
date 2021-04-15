@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 
 [CreateAssetMenu]
 [System.Serializable]
@@ -18,6 +18,11 @@ public class AnimalBreed : ScriptableObject
   public Breed[] breedArray;
   [System.Serializable] public class DictionaryOfBreed : SerializableDictionary<string, Breed> {}
   public DictionaryOfBreed breedDictionary = new DictionaryOfBreed();
+  public Breed getRandomBreed(){
+    System.Random random = new System.Random();
+    int index = random.Next(breedDictionary.Count);
+    return breedDictionary.Values.ElementAt(index);
+  }
   public int isBreed(Animal.StringAndAnimalColor coloring){
     int selected = -1;
     for(int j = 0; j<breedArray.Length; j++){

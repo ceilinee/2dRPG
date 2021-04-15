@@ -9,4 +9,5 @@ public class Player : ScriptableObject
   public string playerName;
   public bool female;
   public bool married;
+  public float experience;
 }

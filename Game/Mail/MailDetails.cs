@@ -7,16 +7,20 @@ public class MailDetails : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Text charName;
     public Text title;
     public Image charImage;
+    public Text charName;
     public Mail mail;
+    public GameObject unread;
     public GameObject mailInformation;
     public void updateDetails(Mail newMail){
       mail = newMail;
       title.text = newMail.title;
       if(!mail.read){
-        gameObject.GetComponent<Image>().color = new Color(255/255f, 189/255f,189/255f);
+        unread.SetActive(true);
+      }
+      else{
+        unread.SetActive(false);
       }
     }
     public void selectMail(){

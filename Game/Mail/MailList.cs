@@ -44,6 +44,7 @@ public class MailList : MonoBehaviour
             MailDetails mailDetails = SpawnedItem.GetComponent<MailDetails>();
             mailDetails.updateDetails(mailbox.mailbox[i]);
             mailDetails.mailInformation = mailInformation;
+            mailDetails.charName.text = charList.characterDict[mailbox.mailbox[i].senderId].name;
             if(charList.characterDict[mailbox.mailbox[i].senderId].image){
               mailDetails.charImage.sprite = charList.characterDict[mailbox.mailbox[i].senderId].image;
             }

@@ -21,14 +21,18 @@ public class MailInformation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      if(mailbox.mailbox.Length > 0){
-        updateSelectedMail(mailbox.mailbox[0]);
-      }
+      // if(mailbox.mailbox.Length > 0){
+      //   updateSelectedMail(mailbox.mailbox[0]);
+      // }
+      // else{
+      //   aboutTab.SetActive(false);
+      // }
+      aboutTab.SetActive(false);
       updateList();
 
     }
     public void deleteSelectedMail(){
-      mailbox.delete(newMail.id);
+      mailbox.deleteMessage(selectedMail);
       updateList();
       if(mailbox.mailbox.Length > 0){
         updateSelectedMail(mailbox.mailbox[0]);

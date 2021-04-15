@@ -14,7 +14,9 @@ public class Character
     public int currentPoint;
     public Sprite image;
     public Sprite[] portrait;
+    public string[] preferredAnimals;
     public string gender;
+    public float multiplier;
     public string[] travelTimes;
     public CharacterPath[] path;
     public CharacterPath selectedPath;

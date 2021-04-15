@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class AdoptionRequest {
   public int charId;
   public string type;
   public Animal.StringAndAnimalColor coloring;
+  public string breed;
+  public Animal.Personality personality;
+  public bool completed = false;
+  public string message;
   public int price;
 }
 [CreateAssetMenu]
@@ -13,4 +18,9 @@ public class AdoptionRequest {
 public class AdoptionRequests : ScriptableObject
 {
   public AdoptionRequest[] requests;
+  public void addRequest(AdoptionRequest request){
+    List<AdoptionRequest> temp = new List<AdoptionRequest>(requests);
+    temp.Insert(0, request);
+    requests = temp.ToArray();
+  }
 }
