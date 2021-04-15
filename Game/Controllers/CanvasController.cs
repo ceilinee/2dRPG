@@ -14,6 +14,7 @@ public class CanvasController : MonoBehaviour
     public GameObject buildingShop;
     public GameObject notification;
     public GameObject shop;
+    public GameObject mailInformation;
     public GameObject selection;
     public GameObject background;
     public bool open;
@@ -59,6 +60,9 @@ public class CanvasController : MonoBehaviour
     }
     public void closeCanvasIfAllElseClosed(){
       if(playerMenu && playerMenu.activeInHierarchy){
+        return;
+      }
+      if(mailInformation && mailInformation.activeInHierarchy){
         return;
       }
       if(animalMenu && animalMenu.activeInHierarchy){
@@ -121,6 +125,9 @@ public class CanvasController : MonoBehaviour
       }
       if(birthAlert){
         birthAlert.SetActive(false);
+      }
+      if(mailInformation){
+        mailInformation.SetActive(false);
       }
       if(confirmation){
         confirmation.SetActive(false);

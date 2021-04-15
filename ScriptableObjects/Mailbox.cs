@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Mail {
   public string message;
-  public string senderId;
+  public string title;
+  public int senderId;
+  public int id;
   public Item item;
   public bool read;
   public Animal animal;
