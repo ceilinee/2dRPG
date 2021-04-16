@@ -12,6 +12,7 @@ public class AdoptionInformation : MonoBehaviour
     public Text from;
     public Text dots;
     public Text back;
+    public Text type;
     public Text legs;
     public Text tail;
     public Text star;
@@ -21,11 +22,14 @@ public class AdoptionInformation : MonoBehaviour
     public Text ears;
     public Text personality;
     public Image portrait;
+    public Animals curAnimals;
     public AnimalColors animalColors;
     public GameObject adoptionController;
     public GameObject adoptionView;
     public Characters charList;
     public GameObject aboutTab;
+    public GameObject animalView;
+    public GameObject buySellAnimal;
     public GameObject CanvasController;
 
     // Start is called before the first frame update
@@ -44,8 +48,22 @@ public class AdoptionInformation : MonoBehaviour
     //     aboutTab.SetActive(false);
     //   }
     // }
+    public void adoptAnimal(Animal selectedAnimal){
+      buySellAnimal.GetComponent<BuySellAnimal>().adoptOutAnimal(selectedAnimal, charList.characterDict[selectedAdoption.charId]);
+      deleteRequest();
+    }
+    public void deleteRequest(){
+      adoptionRequests.deleteRequest(selectedAdoption);
+      updateList();
+      aboutTab.SetActive(false);
+    }
     public void updateSelectedRequest(AdoptionRequest request){
       aboutTab.SetActive(true);
+      selectedAdoption = request;
+      if(charList.characterDict[request.charId].portrait.Length >0){
+        portrait.sprite = charList.characterDict[request.charId].portrait[0];
+      }
+      from.text = charList.characterDict[request.charId].name;
       dots.text = animalColors.colorDictionary[request.coloring.dots].ColorName;
       back.text = animalColors.colorDictionary[request.coloring.back].ColorName;
       legs.text = animalColors.colorDictionary[request.coloring.legs].ColorName;
@@ -53,38 +71,28 @@ public class AdoptionInformation : MonoBehaviour
       star.text = animalColors.colorDictionary[request.coloring.star].ColorName;
       body.text = animalColors.colorDictionary[request.coloring.body].ColorName;
       breed.text = request.breed;
+      type.text = request.type;
+      if(type.text == ""){
+        type.text = "Any";
+      }
+      if(breed.text == ""){
+        breed.text = "Any";
+      }
       eyes.text = animalColors.colorDictionary[request.coloring.eyes].ColorName;
       ears.text = animalColors.colorDictionary[request.coloring.ears].ColorName;
       personality.text = request.personality.personality;
+      if(personality.text == ""){
+        personality.text = "Any";
+      }
+      message.text = request.message;
+      findAnimals(request);
     }
-    // public void updateSelectedMail(Mail newMail){
-    //   if(!aboutTab.activeInHierarchy){
-    //     aboutTab.SetActive(true);
-    //   }
-    //   title.text = newMail.title;
-    //   from.text = charList.characterDict[newMail.senderId].name;
-    //   if(charList.characterDict[newMail.senderId].portrait.Length > 0){
-    //     portrait.sprite = charList.characterDict[newMail.senderId].portrait[0];
-    //   }
-    //   message.text = newMail.message;
-    //   for(int i = 0 ;i<mailbox.mailbox.Length; i++){
-    //     if(mailbox.mailbox[i].id == newMail.id){
-    //       if(!mailbox.mailbox[i].read){
-    //         mailbox.unread -= 1;
-    //         newMail.read = true;
-    //         mailbox.mailbox[i].read = true;
-    //         updateList();
-    //         if(mailboxController){
-    //           mailboxController.GetComponent<MailBoxController>().checkAlert();
-    //         }
-    //       }
-    //       break;
-    //     }
-    //   }
-    //   selectedMail = newMail;
-    //   inbox.text = mailbox.unread == 0 ? "Inbox" : "Inbox (" + mailbox.unread + " new)";
-    // }
-
+    public void findAnimals(AdoptionRequest request){
+      animalView.GetComponent<ListCreator>().Clear();
+      animalView.GetComponent<ListCreator>().adopt = true;
+      animalView.GetComponent<ListCreator>().adoptionInformation = gameObject;
+      animalView.GetComponent<ListCreator>().MatchAnimals(request);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -98,6 +106,7 @@ public class AdoptionInformation : MonoBehaviour
     }
     public void Clear(){
       adoptionView.GetComponent<AdoptionList>().Clear();
+      animalView.GetComponent<ListCreator>().Clear();
     }
     public void updateList(){
       Clear();

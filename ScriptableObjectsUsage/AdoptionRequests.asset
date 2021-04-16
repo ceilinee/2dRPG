@@ -18,6 +18,279 @@ MonoBehaviour:
     coloring:
       body: 31
       tail: 31
+      eyes: 21
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: Eye
+    personality:
+      personality: Introverted
+      multiplier: 1
+      probability: 10
+      id: 0
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 1
+    type: 
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: 
+    personality:
+      personality: Trusting
+      multiplier: 1
+      probability: 13
+      id: 6
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 1
+    type: Llama
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 0
+      star: 31
+    breed: Back
+    personality:
+      personality: Friendly
+      multiplier: 1
+      probability: 15
+      id: 5
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 0
+    type: Llama
+    coloring:
+      body: 12
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: Body
+    personality:
+      personality: 
+      multiplier: 0
+      probability: 0
+      id: 0
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 0
+    type: 
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: 
+    personality:
+      personality: Trusting
+      multiplier: 1
+      probability: 13
+      id: 6
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 0
+    type: Rabbit
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: All
+    personality:
+      personality: Lazy
+      multiplier: 1
+      probability: 10
+      id: 4
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 0
+    type: Pig
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 8
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: Spots
+    personality:
+      personality: 
+      multiplier: 0
+      probability: 0
+      id: 0
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 0
+    type: Pig
+    coloring:
+      body: 12
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: Body
+    personality:
+      personality: Lazy
+      multiplier: 1
+      probability: 10
+      id: 4
+    completed: 0
+    message: I want this llamamaaa
+    price: 0
+  - charId: 0
+    type: Sheep
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 8
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: Spots
+    personality:
+      personality: Friendly
+      multiplier: 1
+      probability: 15
+      id: 5
+    completed: 0
+    message: 
+    price: 0
+  - charId: 0
+    type: 
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: 
+    personality:
+      personality: Loyal
+      multiplier: 1
+      probability: 10
+      id: 3
+    completed: 0
+    message: 
+    price: 0
+  - charId: 0
+    type: Llama
+    coloring:
+      body: 31
+      tail: 1
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: Tail
+    personality:
+      personality: 
+      multiplier: 0
+      probability: 0
+      id: 0
+    completed: 0
+    message: 
+    price: 0
+  - charId: 0
+    type: Llama
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: All
+    personality:
+      personality: 
+      multiplier: 0
+      probability: 0
+      id: 0
+    completed: 0
+    message: 
+    price: 0
+  - charId: 0
+    type: 
+    coloring:
+      body: 31
+      tail: 31
+      eyes: 31
+      dots: 31
+      face: 31
+      legs: 31
+      ears: 31
+      back: 31
+      star: 31
+    breed: 
+    personality:
+      personality: Introverted
+      multiplier: 1
+      probability: 10
+      id: 0
+    completed: 0
+    message: 
+    price: 0
+  - charId: 0
+    type: Llama
+    coloring:
+      body: 31
+      tail: 31
       eyes: 31
       dots: 8
       face: 31

@@ -22,6 +22,7 @@ public class ListCreator : MonoBehaviour {
     public Sprite[] itemImages = null;
     public GameObject animalInformation;
     public GameObject playerInformation;
+    public GameObject adoptionInformation;
     public GameObject shopInformation;
     public GameObject spawnAnimal;
     public AnimalColors animalColors;
@@ -34,8 +35,10 @@ public class ListCreator : MonoBehaviour {
     public bool isShop;
     public bool isSell;
     public string gender;
+    public AnimalBreed animalBreeds;
     public Inventory inventory;
     public Inventory shop;
+    public bool adopt;
     public Item[] selectedItems;
     public Animal[] selectedAnimals;
     public SceneInfo[] selectedBuildings;
@@ -61,6 +64,23 @@ public class ListCreator : MonoBehaviour {
         }
         else if(kvp.Value.type == type && kvp.Value.gender != gender && kvp.Value.pregnant == false && kvp.Value.age >= 5){
           selectedAnimalsList.Add(kvp.Value);
+        }
+      }
+      selectedAnimals = selectedAnimalsList.ToArray();
+      numberOfItems = selectedAnimals.Length;
+      PopulateList();
+    }
+    public void MatchAnimals(AdoptionRequest request){
+      List<Animal> selectedAnimalsList = new List<Animal>();
+      foreach(KeyValuePair<int, Animal> kvp in curAnimals.animalDict){
+        if(request.type == "" || kvp.Value.type == request.type){
+          // Debug.Log(kvp.Value.type);
+          if(request.personality.personality == "" || request.personality.personality == kvp.Value.personality.personality){
+            // Debug.Log(kvp.Value.personality.personality);
+            if(animalBreeds.matchRequest(kvp.Value.coloring, request.coloring)){
+              selectedAnimalsList.Add(kvp.Value);
+            }
+          }
         }
       }
       selectedAnimals = selectedAnimalsList.ToArray();
@@ -133,6 +153,9 @@ public class ListCreator : MonoBehaviour {
                 itemDetails.buySellAnimal = buySellAnimal;
                 itemDetails.shop = shopInformation;
                 itemDetails.shopAnimals = curAnimals;
+              }
+              if(adopt){
+                itemDetails.adoptionInformation = adoptionInformation;
               }
               else{
                 itemDetails.itemName.text = selectedAnimals[i+j].animalName;

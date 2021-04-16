@@ -14,6 +14,7 @@ public class ItemDetails : MonoBehaviour {
     public Animal selectedAnimal;
     public GameObject animalInformation;
     public GameObject playerInformation;
+    public GameObject adoptionInformation;
     public GameObject shop;
     public SceneInfos buildings;
     public Animals shopAnimals;
@@ -32,6 +33,9 @@ public class ItemDetails : MonoBehaviour {
     }
     public void SelectItem(){
       playerInformation.GetComponent<PlayerInformation>().selectItem(item);
+    }
+    public void AdoptOut(){
+      adoptionInformation.GetComponent<AdoptionInformation>().adoptAnimal(selectedAnimal);
     }
     public void Breed(){
       animalInformation.GetComponent<AnimalInformation>().Breed(selectedAnimal);

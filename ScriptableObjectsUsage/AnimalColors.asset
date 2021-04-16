@@ -168,17 +168,17 @@ MonoBehaviour:
     id: 30
     probability: 1
     cost: 80
-  - ColorName: AnyDisregard
+  - ColorName: Any
     color: {r: 1, g: 1, b: 1, a: 0}
     id: 31
     probability: 0
     cost: 0
-  - ColorName: Any2
+  - ColorName: Color1
     color: {r: 1, g: 1, b: 1, a: 0}
     id: 32
     probability: 0
     cost: 0
-  - ColorName: Any3
+  - ColorName: Color2
     color: {r: 1, g: 1, b: 1, a: 0}
     id: 33
     probability: 0
@@ -344,17 +344,17 @@ MonoBehaviour:
       id: 30
       probability: 1
       cost: 80
-    - ColorName: AnyDisregard
+    - ColorName: Any
       color: {r: 1, g: 1, b: 1, a: 0}
       id: 31
       probability: 0
       cost: 0
-    - ColorName: Any2
+    - ColorName: Color1
       color: {r: 1, g: 1, b: 1, a: 0}
       id: 32
       probability: 0
       cost: 0
-    - ColorName: Any3
+    - ColorName: Color2
       color: {r: 1, g: 1, b: 1, a: 0}
       id: 33
       probability: 0

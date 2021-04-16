@@ -17,10 +17,10 @@ public class AdoptionController : MonoBehaviour
     void Start()
     {
       //to update generic Animals
-      for(int i = 0;i<genericAnimals.breedArray.Length; i++){
-        genericAnimals.breedDictionary[genericAnimals.breedArray[i].breedName] = genericAnimals.breedArray[i];
-      }
-      startRequest();
+      // for(int i = 0;i<genericAnimals.breedArray.Length; i++){
+      //   genericAnimals.breedDictionary[genericAnimals.breedArray[i].breedName] = genericAnimals.breedArray[i];
+      // }
+      // startRequest();
     }
     public void startRequest(){
       if(player.experience <= 0.3){
