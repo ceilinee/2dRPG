@@ -16,18 +16,20 @@ public class TimeController : MonoBehaviour
     public GameObject animalList;
     public GameObject animalSpawner;
     public GameObject birthModal;
-    public GameObject seasonController;
+    public GameObject dateController;
     public GameObject backgroundController;
     public GameObject CanvasController;
     public GameObject ShopController;
     public GameObject BreedAnimal;
     public GameObject SpawnObject;
     public GameObject charAnimals;
-    public GameObject WeatherController;
+    public GameObject AdoptionController;
     public Animals runaways;
     public GameObject lamps;
     private string curName;
     public GameObject characterManager;
+    [System.Serializable] public class DictionaryOfIntAndString : SerializableDictionary<int, string> {}
+    public DictionaryOfIntAndString seasonDict = new DictionaryOfIntAndString();
     private bool confirmVar = false;
 
     [SerializeField] Color nightLightColor;
@@ -101,6 +103,9 @@ public class TimeController : MonoBehaviour
       curTimeText = newText;
       if((curTimeText == "08:00" || curTimeText == "22:00" || curTimeText == "12:00" || curTimeText == "17:00" ) && SpawnObject){
         SpawnObject.GetComponent<SpawnObject>().Spawn();
+        if(Random.Range(0,100) >= 80){
+          AdoptionController.GetComponent<AdoptionController>().startRequest();
+        }
       }
       characterManager.GetComponent<CharacterManager>().checkCharacter(newText);
       if(backgroundController){
@@ -136,18 +141,8 @@ public class TimeController : MonoBehaviour
           SpawnObject.GetComponent<SpawnObject>().Spawn();
         }
         dateString = "";
-        seasonController.GetComponent<SeasonController>().UpdateSeason();
-        if(WeatherController){
-          updateWeather();
-        }
+        dateController.GetComponent<DateController>().UpdateDays();
         setAnimalsToSleep();
-    }
-    public void updateWeather(){
-      WeatherState[] weatherArray = new WeatherState[]{
-        WeatherState.rain, WeatherState.snow, WeatherState.cloudy, WeatherState.sun
-      };
-      currentTime.weather = weatherArray[Random.Range(0, weatherArray.Length-1)];
-      WeatherController.GetComponent<WeatherController>().updateWeather();
     }
     public void confirm(string name, int id){
       curAnimals.animalDict[id].animalName = name;

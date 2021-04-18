@@ -20,7 +20,6 @@ public class AdoptionController : MonoBehaviour
       // for(int i = 0;i<genericAnimals.breedArray.Length; i++){
       //   genericAnimals.breedDictionary[genericAnimals.breedArray[i].breedName] = genericAnimals.breedArray[i];
       // }
-      // startRequest();
     }
     public void startRequest(){
       if(player.experience <= 0.3){
@@ -76,8 +75,11 @@ public class AdoptionController : MonoBehaviour
       }
     }
     public void generateRequest(bool personality, bool generic, bool breed){
-      Character selectedChar = charList.getRandomCharacter();
       AdoptionRequest request = new AdoptionRequest();
+      Character selectedChar = charList.getRandomCharacter();
+      int id = Random.Range(0, 10000000);
+      request.charId = selectedChar.id;
+      request.id = id;
       if(personality){
         Animal.Personality selectedPersonality = personalities.getRandomPersonality();
         AnimalBreed.Breed selectedBreed = genericAnimals.breedDictionary["All"];
@@ -125,6 +127,6 @@ public class AdoptionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      // startRequest();
     }
 }

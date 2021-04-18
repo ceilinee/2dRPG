@@ -247,7 +247,6 @@ public class GenericAnimal : AnimalState
     public void setRest(){
       currentState = AnimalStates.rest;
       anim = GetComponent<Animator>();
-      Debug.Log("rest");
       anim.SetBool("Follow", false);
       SetGearSocketFollow(false);
     }

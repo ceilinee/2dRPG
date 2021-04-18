@@ -154,12 +154,13 @@ public class ListCreator : MonoBehaviour {
                 itemDetails.shop = shopInformation;
                 itemDetails.shopAnimals = curAnimals;
               }
-              if(adopt){
-                itemDetails.adoptionInformation = adoptionInformation;
-              }
               else{
                 itemDetails.itemName.text = selectedAnimals[i+j].animalName;
                 itemDetails.price.text = "$" + selectedAnimals[i+j].cost.ToString();
+              }
+              if(adopt){
+                itemDetails.adoptionInformation = adoptionInformation;
+                itemDetails.price.text = "";
               }
               if(selectedAnimals[i+j].gender == "Female"){
                 itemDetails.itemName.color = new Color(255f/255f,129f/255f,130f/255f, 1f);

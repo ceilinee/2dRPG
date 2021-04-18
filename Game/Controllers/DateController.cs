@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeasonController : MonoBehaviour
+public class DateController : MonoBehaviour
 {
     public CurTime curtime;
+    public Calendar calendar;
+    public Events events;
+    public GameObject WeatherController;
     public List<GameObject> spring;
     public List<GameObject> summer;
     public List<GameObject> fall;
@@ -13,10 +16,46 @@ public class SeasonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      //called to initialize calendar
+      // for(int i =0; i<calendar.season.Length; i++){
+      //   calendar.dateArray.dates = calendar.dates;
+      //   calendar.seasonDict[calendar.season[i]] = calendar.dateArray;
+      //   Debug.Log(calendar.seasonDict[calendar.season[i]]);
+      // }
+      //called to initialize Events
+      // for(int i =0; i<events.events.Length; i++){
+      //   events.eventDict[events.events[i].eventId] = events.events[i];
+      // }
       UpdateSeason();
     }
 
     // Update is called once per frame
+    public void UpdateDays(){
+      curtime.curDate = calendar.seasonDict[curtime.season].dates[curtime.date];
+      curtime.curEvent = events.eventDict[calendar.seasonDict[curtime.season].dates[curtime.date].eventId];
+      curtime.birthdayCharId = calendar.seasonDict[curtime.season].dates[curtime.date].birthdayCharId;
+      UpdateSeason();
+      if(WeatherController){
+        updateWeather();
+      }
+    }
+    public void updateWeather(){
+      WeatherState[] weatherArray = new WeatherState[]{
+        WeatherState.rain, WeatherState.snow, WeatherState.cloudy, WeatherState.sun
+      };
+      if(curtime.season == 1|curtime.season == 2){
+        weatherArray = new WeatherState[]{
+          WeatherState.rain, WeatherState.cloudy, WeatherState.sun
+        };
+      }
+      if(curtime.season == 3){
+        weatherArray = new WeatherState[]{
+          WeatherState.snow, WeatherState.cloudy, WeatherState.sun
+        };
+      }
+      curtime.weather = weatherArray[Random.Range(0, weatherArray.Length-1)];
+      WeatherController.GetComponent<WeatherController>().updateWeather();
+    }
     public void UpdateSeason()
     {
       if(curtime.season == 0){

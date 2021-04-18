@@ -13,19 +13,28 @@ MonoBehaviour:
   m_Name: CurAnimals
   m_EditorClassIdentifier: 
   animalDict:
-    keys: 1ff20900be2205000eac0d00127a06004c0307007e3c0a00421b0b0051ce05003a2a00009ae00900512c0f00d8de06004f4809002e1a0800ef410e00bf370d00d33b090050f20200c3dd03002f390000768a020058660700c8e60e0063340e008dbc0c00727e080003370200e70b09003fac0c001d44040099b6010053ce0500a2f5030081de02002d0d0d00b8d50e004f3e0800d21b040012ea0e002eb20300b4750200d4730200c0b8010051360c00
+    keys: 1ff20900be2205000eac0d00127a06004c0307007e3c0a00421b0b0051ce05003a2a00009ae00900512c0f00d8de06004f4809002e1a0800ef410e00bf370d00d33b090050f20200c3dd03002f390000768a020058660700c8e60e0063340e008dbc0c00727e080003370200e70b09003fac0c001d44040099b6010053ce0500a2f5030081de02002d0d0d00b8d50e004f3e0800d21b040012ea0e002eb20300b4750200f32d0400bb6a0a0086000500ecc40c00a52b0600
     values:
     - animalName: Cutie
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 651807
-      location: {x: 26.177795, y: -13.193602}
+      adoption: 0
+      location: {x: 27.616581, y: 6.4415846}
       target: {x: 0, y: 0}
-      age: 49
+      age: 53
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -53,15 +62,24 @@ MonoBehaviour:
         star: 27
     - animalName: Starry
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Star
-      health: 105
+      health: 109
       sold: 0
       id: 336574
-      location: {x: 11.585897, y: -1.4283196}
+      adoption: 0
+      location: {x: -1.8947408, y: 2.6913552}
       target: {x: 19.8, y: -9}
-      age: 32
+      age: 36
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
       scene: MainScene
       mood: Feeling content
+      moodId: 4
       follow: 1
       characterOwned: 0
       charId: 0
@@ -73,7 +91,7 @@ MonoBehaviour:
       pregnant: 0
       deliveryDate: 0
       babyId: 
-      love: 416.00024
+      love: 487.96045
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
       walked: 0
@@ -89,15 +107,24 @@ MonoBehaviour:
         star: 0
     - animalName: Cream
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 896014
-      location: {x: -1.2518147, y: -29.893986}
+      adoption: 0
+      location: {x: -3.3034418, y: -27.313688}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -125,15 +152,24 @@ MonoBehaviour:
         star: 27
     - animalName: Vanilla
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 424466
-      location: {x: -9.269157, y: -34.06136}
+      adoption: 0
+      location: {x: -14.668141, y: -33.580936}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -161,15 +197,24 @@ MonoBehaviour:
         star: 27
     - animalName: Baby Pink
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 96
+      health: 100
       sold: 0
       id: 459596
-      location: {x: 28.50894, y: -17.519545}
+      adoption: 0
+      location: {x: 27.729246, y: 7.6103654}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
       scene: MainScene
       mood: Feeling content
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -197,15 +242,24 @@ MonoBehaviour:
         star: 27
     - animalName: Chocolate
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 670846
-      location: {x: -35.922276, y: -20.535547}
+      adoption: 0
+      location: {x: -31.196497, y: -18.04099}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -233,15 +287,24 @@ MonoBehaviour:
         star: 27
     - animalName: Vanilla
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Spotted
-      health: 90
+      health: 82
       sold: 0
       id: 727874
-      location: {x: 3.022757, y: -20.656054}
+      adoption: 0
+      location: {x: 11.893578, y: -32.625195}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -269,15 +332,24 @@ MonoBehaviour:
         star: 27
     - animalName: Pumpkin
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 380497
-      location: {x: 18.080603, y: -27.760887}
+      adoption: 0
+      location: {x: -3.9394064, y: -17.70058}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -305,15 +377,24 @@ MonoBehaviour:
         star: 27
     - animalName: Boots
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Boots
-      health: 90
+      health: 82
       sold: 0
       id: 10810
-      location: {x: 36.11579, y: 1.161955}
+      adoption: 0
+      location: {x: 33.334957, y: 8.702015}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -341,15 +422,24 @@ MonoBehaviour:
         star: 27
     - animalName: Winter
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Winter
-      health: 90
+      health: 82
       sold: 0
       id: 647322
-      location: {x: 6.025902, y: -24.39436}
+      adoption: 0
+      location: {x: -4.9762354, y: -26.020914}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -377,15 +467,24 @@ MonoBehaviour:
         star: 27
     - animalName: Snowy
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Winter
-      health: 90
+      health: 82
       sold: 0
       id: 994385
-      location: {x: 7.9937034, y: -23.818758}
+      adoption: 0
+      location: {x: 19.23394, y: -9.34758}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -413,15 +512,24 @@ MonoBehaviour:
         star: 27
     - animalName: ' Emerald'
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Winter
-      health: 90
+      health: 82
       sold: 0
       id: 450264
-      location: {x: 14.672228, y: -14.120951}
+      adoption: 0
+      location: {x: 19.319555, y: -12.973531}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -449,15 +557,24 @@ MonoBehaviour:
         star: 27
     - animalName: ' Snowy'
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Winter
-      health: 90
+      health: 82
       sold: 0
       id: 608335
-      location: {x: 27.57523, y: -8.509735}
+      adoption: 0
+      location: {x: 12.962477, y: -20.832237}
       target: {x: 0, y: 0}
-      age: 32
+      age: 36
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -485,15 +602,24 @@ MonoBehaviour:
         star: 27
     - animalName: j
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Snow
-      health: 90
+      health: 82
       sold: 0
       id: 530990
-      location: {x: 0.6649677, y: -26.210314}
+      adoption: 0
+      location: {x: -10.987197, y: -23.344719}
       target: {x: 0, y: 0}
-      age: 30
+      age: 34
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -521,15 +647,24 @@ MonoBehaviour:
         star: 27
     - animalName: o
       type: Llama
+      momId: 0
+      dadId: 0
       breed: Snow
-      health: 90
+      health: 82
       sold: 0
       id: 934383
-      location: {x: 31.869326, y: 5.9025803}
+      adoption: 0
+      location: {x: 28.258991, y: -20.31521}
       target: {x: 0, y: 0}
-      age: 30
+      age: 34
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -557,15 +692,24 @@ MonoBehaviour:
         star: 27
     - animalName: Goosey
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 866239
-      location: {x: 18.709831, y: -8.000547}
+      adoption: 0
+      location: {x: 4.164061, y: -0.9778788}
       target: {x: 0, y: 0}
-      age: 28
+      age: 32
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -593,15 +737,24 @@ MonoBehaviour:
         star: 27
     - animalName: Snowy
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 605139
+      adoption: 0
       location: {x: -46.98, y: 28.08}
       target: {x: 0, y: 0}
-      age: 28
+      age: 32
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 
       follow: 1
       characterOwned: 1
       charId: 0
@@ -629,15 +782,24 @@ MonoBehaviour:
         star: 27
     - animalName: Pinkie
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 85
+      health: 77
       sold: 0
       id: 193104
-      location: {x: 27.955225, y: -19.580147}
+      adoption: 0
+      location: {x: 23.005272, y: -6.058289}
       target: {x: 0, y: 0}
-      age: 28
+      age: 32
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -665,15 +827,24 @@ MonoBehaviour:
         star: 27
     - animalName: ' Frosty'
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 253379
-      location: {x: 21.841074, y: -10.712558}
+      adoption: 0
+      location: {x: 19.707817, y: -14.333289}
       target: {x: 0, y: 0}
-      age: 28
+      age: 32
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -701,15 +872,24 @@ MonoBehaviour:
         star: 27
     - animalName: Beigy
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 14639
-      location: {x: 16.14993, y: -25.495953}
+      adoption: 0
+      location: {x: 32.253456, y: -28.28379}
       target: {x: 0, y: 0}
-      age: 28
+      age: 32
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -737,15 +917,24 @@ MonoBehaviour:
         star: 27
     - animalName: Swan
       type: Goose
-      breed: Generic
-      health: 90
+      momId: 0
+      dadId: 0
+      breed: Body
+      health: 82
       sold: 0
       id: 166518
-      location: {x: 5.473505, y: -13.916389}
+      adoption: 0
+      location: {x: 24.107872, y: -0.09411624}
       target: {x: 0, y: 0}
-      age: 20
+      age: 24
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -762,7 +951,7 @@ MonoBehaviour:
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
       walked: 0
       coloring:
-        body: 0
+        body: 12
         tail: 27
         eyes: 27
         dots: 27
@@ -773,15 +962,24 @@ MonoBehaviour:
         star: 27
     - animalName: beigy
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 484952
-      location: {x: 25.269375, y: -11.1328335}
+      adoption: 0
+      location: {x: -1.982957, y: -27.423548}
       target: {x: 0, y: 0}
-      age: 20
+      age: 24
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -809,15 +1007,24 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 93
+      health: 85
       sold: 0
       id: 976584
-      location: {x: 11.585895, y: -1.4283254}
+      adoption: 0
+      location: {x: -1.7775685, y: 3.4790273}
       target: {x: -16.3, y: -2.1}
-      age: 21
+      age: 25
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 1
       characterOwned: 0
       charId: 0
@@ -829,7 +1036,7 @@ MonoBehaviour:
       pregnant: 0
       deliveryDate: 0
       babyId: 
-      love: 398.6383
+      love: 470.62854
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
       walked: 0
@@ -845,15 +1052,24 @@ MonoBehaviour:
         star: 27
     - animalName: Boots
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Boots
-      health: 90
+      health: 82
       sold: 0
       id: 930915
-      location: {x: 35.50338, y: 2.7717357}
+      adoption: 0
+      location: {x: 27.008142, y: 8.013984}
       target: {x: 0, y: 0}
-      age: 17
+      age: 21
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -881,15 +1097,24 @@ MonoBehaviour:
         star: 27
     - animalName: GreenEars
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 834701
-      location: {x: 28.929972, y: -14.199118}
+      adoption: 0
+      location: {x: 40.312843, y: -0.83209866}
       target: {x: 0, y: 0}
-      age: 17
+      age: 21
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -898,9 +1123,9 @@ MonoBehaviour:
       cost: 96
       shopCost: 192
       presentsDaily: 0
-      pregnant: 1
-      deliveryDate: 10
-      babyId: c0b80100
+      pregnant: 0
+      deliveryDate: 0
+      babyId: a2f50300
       love: 0
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
@@ -917,15 +1142,24 @@ MonoBehaviour:
         star: 27
     - animalName: Starry
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Star
-      health: 90
+      health: 77
       sold: 0
       id: 556658
-      location: {x: 23.06844, y: -9.61002}
+      adoption: 0
+      location: {x: 11.17911, y: -12.631078}
       target: {x: 0, y: 0}
-      age: 16
+      age: 20
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -936,7 +1170,7 @@ MonoBehaviour:
       presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
-      babyId: a7ab0c00
+      babyId: a52b0600
       love: 0
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
@@ -953,15 +1187,24 @@ MonoBehaviour:
         star: 7
     - animalName: ' Snowy'
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 145155
-      location: {x: 13.883737, y: -15.7351675}
+      adoption: 0
+      location: {x: -17.962671, y: -17.943989}
       target: {x: 0, y: 0}
-      age: 16
+      age: 20
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -989,15 +1232,24 @@ MonoBehaviour:
         star: 27
     - animalName: Goldilocks
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 592871
-      location: {x: 23.71026, y: -1.3131388}
+      adoption: 0
+      location: {x: 21.119951, y: 0.1914252}
       target: {x: 0, y: 0}
-      age: 16
+      age: 20
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1025,15 +1277,24 @@ MonoBehaviour:
         star: 27
     - animalName: Barbie
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 830527
-      location: {x: 20.138931, y: -18.011425}
+      adoption: 0
+      location: {x: 20.789452, y: -27.732563}
       target: {x: 0, y: 0}
-      age: 16
+      age: 20
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1061,15 +1322,24 @@ MonoBehaviour:
         star: 13
     - animalName: chocolate
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 279581
-      location: {x: 23.709826, y: -9.0552635}
+      adoption: 0
+      location: {x: 38.149277, y: -1.343049}
       target: {x: 0, y: 0}
-      age: 16
+      age: 20
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1078,9 +1348,9 @@ MonoBehaviour:
       cost: 70
       shopCost: 140
       presentsDaily: 0
-      pregnant: 1
-      deliveryDate: 9
-      babyId: 51360c00
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
@@ -1097,15 +1367,24 @@ MonoBehaviour:
         star: 27
     - animalName: goose
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 112281
-      location: {x: -1.2, y: -4.5}
+      adoption: 0
+      location: {x: 17.466534, y: -21.511375}
       target: {x: 0, y: 0}
-      age: 16
-      scene: Barn1
+      age: 20
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1133,15 +1412,24 @@ MonoBehaviour:
         star: 27
     - animalName: okok
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Snow
-      health: 99
+      health: 103
       sold: 0
       id: 380499
-      location: {x: 24.944519, y: -25.852158}
+      adoption: 0
+      location: {x: 18.183844, y: -23.862036}
       target: {x: 0, y: 0}
-      age: 4
+      age: 8
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
       scene: MainScene
       mood: Feeling content
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1169,15 +1457,24 @@ MonoBehaviour:
         star: 27
     - animalName: princess
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 90
+      health: 82
       sold: 0
       id: 259490
-      location: {x: 12.060094, y: -10.724745}
+      adoption: 0
+      location: {x: 17.260895, y: -21.703648}
       target: {x: 0, y: 0}
-      age: 9
+      age: 13
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1205,16 +1502,25 @@ MonoBehaviour:
         star: 10
     - animalName: hi
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Masked
-      health: 90
+      health: 82
       sold: 0
       id: 188033
-      location: {x: 12.527745, y: -1.7343359}
+      adoption: 0
+      location: {x: -1.3013787, y: 1.3432896}
       target: {x: 0, y: 0}
-      age: 8
+      age: 12
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
-      follow: 1
+      moodId: 4
+      follow: 0
       characterOwned: 0
       charId: 0
       gender: Female
@@ -1222,10 +1528,10 @@ MonoBehaviour:
       cost: 78
       shopCost: 156
       presentsDaily: 0
-      pregnant: 1
-      deliveryDate: 10
-      babyId: d4730200
-      love: 35.523384
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
       walked: 0
@@ -1241,15 +1547,24 @@ MonoBehaviour:
         star: 27
     - animalName: ppiinnkk
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 96
+      health: 88
       sold: 0
       id: 855341
-      location: {x: 2.7398715, y: -8.784943}
+      adoption: 0
+      location: {x: 7.787644, y: -3.8486292}
       target: {x: 0, y: 0}
-      age: 0
+      age: 4
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1277,15 +1592,24 @@ MonoBehaviour:
         star: 27
     - animalName: Cutie
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 96
+      health: 88
       sold: 0
       id: 972216
-      location: {x: -0.7757021, y: -18.242332}
+      adoption: 0
+      location: {x: -4.542898, y: -20.42002}
       target: {x: 0, y: 0}
-      age: 1
+      age: 5
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1313,15 +1637,24 @@ MonoBehaviour:
         star: 27
     - animalName: Hiss
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 96
+      health: 88
       sold: 0
       id: 540239
-      location: {x: 1.0724857, y: -25.5783}
+      adoption: 0
+      location: {x: -3.5668538, y: -37.17102}
       target: {x: 0, y: 0}
-      age: 1
+      age: 5
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1349,15 +1682,24 @@ MonoBehaviour:
         star: 27
     - animalName: Aiden
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 96
+      health: 88
       sold: 0
       id: 269266
-      location: {x: 4.110579, y: 22.139854}
+      adoption: 0
+      location: {x: 18.444313, y: 20.22888}
       target: {x: 0, y: 0}
-      age: 1
+      age: 5
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1385,15 +1727,24 @@ MonoBehaviour:
         star: 8
     - animalName: Jayden
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Sailor
-      health: 101
+      health: 105
       sold: 0
       id: 977426
-      location: {x: -13.285424, y: -15.676947}
+      adoption: 0
+      location: {x: -10.416091, y: -38.22454}
       target: {x: 0, y: 0}
-      age: 1
+      age: 5
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
       scene: MainScene
       mood: Feeling content
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1421,15 +1772,24 @@ MonoBehaviour:
         star: 22
     - animalName: Angela
       type: Rabbit
+      momId: 0
+      dadId: 0
       breed: Sailor
-      health: 101
+      health: 105
       sold: 0
       id: 242222
-      location: {x: 0.66051376, y: 1.2005352}
+      adoption: 0
+      location: {x: 29.093523, y: 5.368259}
       target: {x: 0, y: 0}
-      age: 1
+      age: 5
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
       scene: MainScene
       mood: Feeling content
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1457,15 +1817,24 @@ MonoBehaviour:
         star: 22
     - animalName: iVyZhAnG
       type: Sheep
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 96
+      health: 88
       sold: 0
       id: 161204
-      location: {x: 7.643902, y: 6.3409104}
+      adoption: 0
+      location: {x: 2.9846637, y: -2.8974018}
       target: {x: 0, y: 0}
-      age: 1
+      age: 5
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
       scene: MainScene
       mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
@@ -1491,24 +1860,33 @@ MonoBehaviour:
         ears: 27
         back: 27
         star: 27
-    - animalName: Cuteie
-      type: Rabbit
+    - animalName: asd
+      type: Llama
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 100
+      health: 92
       sold: 0
-      id: 160724
-      location: {x: 2.1178353, y: -1.254193}
+      id: 273907
+      adoption: 0
+      location: {x: -18.267235, y: 21.933008}
       target: {x: 0, y: 0}
-      age: -1
+      age: 3
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
       scene: MainScene
-      mood: Excited
+      mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
       gender: Female
       home: Barn1
-      cost: 230
-      shopCost: 460
+      cost: 60
+      shopCost: 120
       presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
@@ -1518,69 +1896,87 @@ MonoBehaviour:
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
       walked: 0
       coloring:
-        body: 24
-        tail: 19
-        eyes: 22
-        dots: 27
-        face: 27
-        legs: 27
-        ears: 0
-        back: 27
-        star: 27
-    - animalName: Bluey
-      type: Pig
-      breed: Star
-      health: 100
-      sold: 0
-      id: 112832
-      location: {x: 1.1324508, y: -1.9317858}
-      target: {x: 0, y: 0}
-      age: -1
-      scene: MainScene
-      mood: Excited
-      follow: 0
-      characterOwned: 0
-      charId: 0
-      gender: Female
-      home: Barn1
-      cost: 180
-      shopCost: 360
-      presentsDaily: 0
-      pregnant: 0
-      deliveryDate: 0
-      babyId: 
-      love: 0
-      spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      walked: 0
-      coloring:
-        body: 1
-        tail: 1
+        body: 8
+        tail: 8
         eyes: 23
         dots: 27
         face: 27
         legs: 27
         ears: 27
         back: 27
-        star: 8
-    - animalName: Nighte
+        star: 27
+    - animalName: ee
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
-      health: 100
+      health: 92
       sold: 0
-      id: 800337
-      location: {x: 2.3427956, y: -1.9187284}
+      id: 682683
+      adoption: 0
+      location: {x: 3.984321, y: 7.4917984}
       target: {x: 0, y: 0}
-      age: -1
+      age: 3
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
       scene: MainScene
-      mood: Excited
+      mood: Feeling lonely, would like to go on a walk
+      moodId: 4
       follow: 0
       characterOwned: 0
       charId: 0
       gender: Male
       home: Barn1
-      cost: 208
-      shopCost: 416
+      cost: 126
+      shopCost: 252
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 28
+        dots: 22
+        face: 27
+        legs: 11
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: starry
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Star
+      health: 92
+      sold: 0
+      id: 327814
+      adoption: 0
+      location: {x: 16.610064, y: 6.864789}
+      target: {x: 0, y: 0}
+      age: 3
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: 4
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 156
+      shopCost: 312
       presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
@@ -1592,11 +1988,101 @@ MonoBehaviour:
       coloring:
         body: 1
         tail: 27
-        eyes: 26
+        eyes: 7
         dots: 27
         face: 27
         legs: 27
         ears: 27
-        back: 24
-        star: 13
+        back: 27
+        star: 8
+    - animalName: spots
+      type: Rabbit
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 92
+      sold: 0
+      id: 836844
+      adoption: 0
+      location: {x: 24.429312, y: -3.4688964}
+      target: {x: 0, y: 0}
+      age: 3
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: 4
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 76
+      shopCost: 152
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 16
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 8
+    - animalName: Test
+      type: Sheep
+      momId: 556658
+      dadId: 592871
+      breed: Generic
+      health: 94
+      sold: 0
+      id: 404389
+      adoption: 0
+      location: {x: 13.726741, y: -19.063093}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: 4
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 147
+      shopCost: 294
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 11.780222
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 11
+        tail: 8
+        eyes: 26
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
   breedName: 

@@ -203,6 +203,7 @@ public class CharacterManager : MonoBehaviour
         }
       }
       //update characterTrait
+      characterTrait.characterMovement = new Character.DictionaryOfTimeAndLocation();
       for(int j = 0; j<characterTrait.travelTimes.Length; j++){
         characterTrait.characterMovement[characterTrait.travelTimes[j]] = characterTrait.path[j];
       }

@@ -125,7 +125,7 @@ public class BreedScript : MonoBehaviour {
         breed =  animalBreed.breedArray[breedId].breedName;
         price *= animalBreed.breedArray[breedId].multiplier;
       }
-      int randomNumber = Random.Range(0, 1000000);
+      int randomNumber = Random.Range(0, 10000000);
       Animal.Personality personality = generatePersonality(false);
       Vector2 location = new Vector2 (Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
       curAnimals.addAnimal(GenerateName(), femaleAnimal.type, randomNumber, location, -1, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] {}, 0.0f, breed, femaleAnimal.scene, false, 0, animalColors, personality, femaleAnimal.id, maleAnimal.id);

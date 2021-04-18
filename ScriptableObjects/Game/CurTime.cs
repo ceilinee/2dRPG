@@ -11,6 +11,9 @@ public class CurTime : ScriptableObject
   public int days;
   public int season = 0;
   public int date = 0;
+  public Event curEvent;
+  public Date curDate;
+  public int birthdayCharId;
   public int years = 0;
   public WeatherState weather;
   public void UpdateTime(float curTime){
@@ -23,10 +26,10 @@ public class CurTime : ScriptableObject
       years = (int)System.Math.Floor((double)days / 60f);
   }
   public void getSeason () {
-      season = (int)System.Math.Floor((double)(days % 60)/15f);
+      season = (int)System.Math.Floor((double)(days % 60)/20f);
   }
   public void getDate () {
-      date = (days % 60) % 15;
+      date = ((days % 60) % 20) + 1;
   }
   public string getSeasonInWords(){
     if(season == 0){
