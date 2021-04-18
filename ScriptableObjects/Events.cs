@@ -7,6 +7,7 @@ using UnityEngine;
 public class Event {
   public int eventId;
   public string eventName;
+  public Sprite event
 }
 
 [CreateAssetMenu]
