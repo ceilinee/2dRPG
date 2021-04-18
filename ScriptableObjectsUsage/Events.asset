@@ -15,16 +15,31 @@ MonoBehaviour:
   events:
   - eventId: 0
     eventName: New Years
+    eventIcon: {fileID: 1723488056442737195, guid: 1970b2a60855b4e06a851980793990d4,
+      type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
   - eventId: 1
     eventName: Valentine
+    eventIcon: {fileID: -5877628255780156409, guid: 1970b2a60855b4e06a851980793990d4,
+      type: 3}
+    color: {r: 0, g: 0, b: 0, a: 0}
   - eventId: 2
     eventName: Fool's Day
+    eventIcon: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
   eventDict:
     keys: 000000000100000002000000
     values:
     - eventId: 0
       eventName: New Years
+      eventIcon: {fileID: 1723488056442737195, guid: 1970b2a60855b4e06a851980793990d4,
+        type: 3}
+      color: {r: 1, g: 0.5424528, b: 0.5516018, a: 1}
     - eventId: 1
       eventName: Valentine
+      eventIcon: {fileID: 0}
+      color: {r: 1, g: 0.5896226, b: 0.76344603, a: 1}
     - eventId: 2
       eventName: Fool's Day
+      eventIcon: {fileID: 0}
+      color: {r: 0.7198081, g: 0.9716981, b: 0.5454343, a: 1}

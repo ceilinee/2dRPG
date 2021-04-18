@@ -7,7 +7,8 @@ using UnityEngine;
 public class Event {
   public int eventId;
   public string eventName;
-  public Sprite event
+  public Sprite eventIcon;
+  public Color color;
 }
 
 [CreateAssetMenu]

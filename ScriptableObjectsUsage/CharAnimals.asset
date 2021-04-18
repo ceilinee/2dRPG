@@ -17,13 +17,24 @@ MonoBehaviour:
     values:
     - animalName: Baby
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 372698
-      location: {x: -46.98, y: 28.08}
+      adoption: 0
+      location: {x: 9.944117, y: -0.5928953}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
+      moodId: 
       follow: 1
       characterOwned: 1
       charId: 0
@@ -31,13 +42,13 @@ MonoBehaviour:
       home: Barn1
       cost: 40
       shopCost: 80
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 0
@@ -51,13 +62,24 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 930357
-      location: {x: 11.87, y: -0.76}
+      adoption: 0
+      location: {x: 12.852037, y: -0.7503389}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
+      moodId: 
       follow: 1
       characterOwned: 1
       charId: 1
@@ -65,13 +87,13 @@ MonoBehaviour:
       home: Barn1
       cost: 30
       shopCost: 60
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 8
@@ -85,13 +107,24 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 301717
-      location: {x: -46.98, y: 28.08}
+      adoption: 0
+      location: {x: -17.018919, y: -1.0235639}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
+      moodId: 
       follow: 1
       characterOwned: 1
       charId: 2
@@ -99,13 +132,13 @@ MonoBehaviour:
       home: Barn1
       cost: 100
       shopCost: 200
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 15
@@ -119,27 +152,38 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 11528
-      location: {x: 1.1694694, y: -2.4106455}
+      adoption: 0
+      location: {x: -46.98, y: 28.08}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
-      follow: 0
+      moodId: 
+      follow: 1
       characterOwned: 1
-      charId: 0
+      charId: 6
       gender: Male
       home: Barn1
       cost: 60
       shopCost: 120
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
       walked: 0
       coloring:
         body: 1
@@ -153,27 +197,38 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Goose
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 828804
-      location: {x: 2.7780406, y: -2.7888052}
+      adoption: 0
+      location: {x: 10.899246, y: -0.7026758}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
-      follow: 0
+      moodId: 
+      follow: 1
       characterOwned: 1
       charId: 0
       gender: Female
       home: Barn1
       cost: 100
       shopCost: 200
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 12
@@ -187,13 +242,24 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 461527
-      location: {x: -46.98, y: 28.08}
+      adoption: 0
+      location: {x: 8.043442, y: -0.5340346}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
+      moodId: 
       follow: 1
       characterOwned: 1
       charId: 0
@@ -201,13 +267,13 @@ MonoBehaviour:
       home: Barn1
       cost: 82
       shopCost: 164
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 1
@@ -221,27 +287,38 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Sunbeam
+      health: 100
       sold: 0
       id: 899587
-      location: {x: 1.5180416, y: -1.675591}
+      adoption: 0
+      location: {x: 12.346783, y: -0.7553098}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
-      follow: 0
+      moodId: 
+      follow: 1
       characterOwned: 1
       charId: 1
       gender: Female
       home: Barn1
       cost: 360
       shopCost: 720
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 13
@@ -255,13 +332,24 @@ MonoBehaviour:
         star: 0
     - animalName: Baby
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Boots
+      health: 100
       sold: 0
       id: 558478
-      location: {x: -46.98, y: 28.08}
+      adoption: 0
+      location: {x: -1.880978, y: 7.663908}
+      target: {x: 0, y: 0}
       age: -3
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
+      moodId: 
       follow: 1
       characterOwned: 1
       charId: 2
@@ -269,13 +357,13 @@ MonoBehaviour:
       home: Barn1
       cost: 200
       shopCost: 400
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 1
@@ -289,27 +377,38 @@ MonoBehaviour:
         star: 27
     - animalName: Baby
       type: Pig
+      momId: 0
+      dadId: 0
       breed: Generic
+      health: 100
       sold: 0
       id: 608132
-      location: {x: 1.3577304, y: -2.4658756}
+      adoption: 0
+      location: {x: -9.05, y: 17.91}
+      target: {x: 0, y: 0}
       age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
       scene: MainScene
       mood: Excited
-      follow: 0
+      moodId: 
+      follow: 1
       characterOwned: 1
       charId: 2
       gender: Male
       home: Barn1
       cost: 116
       shopCost: 232
+      presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
       love: 0
       spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      gaveGift: 0
+      animalColors: {fileID: 0}
       walked: 0
       coloring:
         body: 11

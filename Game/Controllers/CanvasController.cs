@@ -16,6 +16,8 @@ public class CanvasController : MonoBehaviour
     public GameObject shop;
     public GameObject mailInformation;
     public GameObject selection;
+    public GameObject calendarInformation;
+    public GameObject adoptionInformation;
     public GameObject background;
     public bool open;
     // public GameObject currentlyOpen;
@@ -86,6 +88,12 @@ public class CanvasController : MonoBehaviour
       if(background && background.activeInHierarchy){
         return;
       }
+      if(calendarInformation && calendarInformation.activeInHierarchy){
+        return;
+      }
+      if(adoptionInformation && adoptionInformation.activeInHierarchy){
+        return;
+      }
       if(selection && selection.activeInHierarchy){
         return;
       }
@@ -119,6 +127,12 @@ public class CanvasController : MonoBehaviour
       }
       if(itemShop){
         itemShop.SetActive(false);
+      }
+      if(adoptionInformation){
+        adoptionInformation.SetActive(false);
+      }
+      if(calendarInformation){
+        calendarInformation.SetActive(false);
       }
       if(buildingShop){
         buildingShop.SetActive(false);
