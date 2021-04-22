@@ -7,6 +7,7 @@ public class ButtonScript : MonoBehaviour
     public GameObject about;
     public GameObject offspring;
     public GameObject aboutTab;
+    public GameObject breeds;
     public GameObject traitTab;
     public GameObject inventoryTab;
     public GameObject animalTab;
@@ -115,15 +116,24 @@ public class ButtonScript : MonoBehaviour
       aboutTab.SetActive(true);
       inventoryTab.SetActive(false);
       animalTab.SetActive(false);
+      breeds.SetActive(false);
     }
     public void toggleInventoryTabButton(){
       inventoryTab.SetActive(true);
       aboutTab.SetActive(false);
       animalTab.SetActive(false);
+      breeds.SetActive(false);
     }
     public void toggleAnimalTabButton(){
       animalTab.SetActive(true);
       inventoryTab.SetActive(false);
       aboutTab.SetActive(false);
+      breeds.SetActive(false);
+    }
+    public void toggleBreedsTabButton(){
+      animalTab.SetActive(false);
+      inventoryTab.SetActive(false);
+      aboutTab.SetActive(false);
+      breeds.SetActive(true);
     }
 }
