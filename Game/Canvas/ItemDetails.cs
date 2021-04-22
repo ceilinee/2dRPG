@@ -7,6 +7,7 @@ public class ItemDetails : MonoBehaviour {
 
     public Text itemName;
     public Text quantity;
+    public GameObject question;
     public Text price;
     public Image itemImage;
     public GameObject LlamaImage;

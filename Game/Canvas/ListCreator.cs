@@ -33,6 +33,7 @@ public class ListCreator : MonoBehaviour {
     public bool building = false;
     public bool isItem;
     public bool isShop;
+    public bool isBreed;
     public bool isSell;
     public string gender;
     public AnimalBreed animalBreeds;
@@ -42,6 +43,7 @@ public class ListCreator : MonoBehaviour {
     public Item[] selectedItems;
     public Animal[] selectedAnimals;
     public SceneInfo[] selectedBuildings;
+    public AnimalBreed.Breed[] selectedBreeds;
     public GameObject buySellAnimal;
 
     // Use this for initialization
@@ -107,6 +109,16 @@ public class ListCreator : MonoBehaviour {
       numberOfItems = selectedItems.Length;
       PopulateList();
     }
+    public void GetBreedItems(){
+      List<AnimalBreed.Breed> selectedAnimalsList = new List<AnimalBreed.Breed>();
+      foreach (KeyValuePair<string, AnimalBreed.Breed> kvp in animalBreeds.breedDictionary)
+      {
+        selectedAnimalsList.Add(kvp.Value);
+      }
+      selectedBreeds = selectedAnimalsList.ToArray();
+      numberOfItems = selectedBreeds.Length;
+      PopulateList();
+    }
     public void GetBuildingItems(){
       List<SceneInfo> buildingList = new List<SceneInfo>();
       foreach(int id in buildings.sceneArray){
@@ -136,8 +148,24 @@ public class ListCreator : MonoBehaviour {
             SpawnedItem.transform.SetParent(SpawnPoint, false);
             //get ItemDetails Component
             ItemDetails itemDetails = SpawnedItem.GetComponent<ItemDetails>();
+            if(isBreed){
+              AnimalBreed.Breed breed = selectedBreeds[i+j];
+              itemDetails.itemName.text = breed.breedName;
+              if(breed.unlocked){
+                itemDetails.price.text = "Unlocked";
+                itemDetails.question.SetActive(false);
+                Animal tempAnimal = new Animal();
+                tempAnimal.coloring = breed.exampleColoring;
+                tempAnimal.animalColors = animalColors;
+                tempAnimal.colorAnimal(itemDetails.LlamaImage);
+              }
+              else{
+                itemDetails.price.text = "Locked";
+                itemDetails.LlamaImage.SetActive(false);
+              }
+            }
             //set name
-            if(building){
+            else if(building){
               itemDetails.itemName.text = selectedBuildings[i+j].sceneName;
               itemDetails.itemImage.sprite = selectedBuildings[i+j].image;
               itemDetails.price.text = "$" + selectedBuildings[i+j].cost.ToString();

@@ -16,10 +16,8 @@ public class AdoptionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      //to update generic Animals
-      // for(int i = 0;i<genericAnimals.breedArray.Length; i++){
-      //   genericAnimals.breedDictionary[genericAnimals.breedArray[i].breedName] = genericAnimals.breedArray[i];
-      // }
+      // animalBreeds.updateBreedDictionary();
+      // genericAnimals.updateBreedDictionary();
     }
     public void startRequest(){
       if(player.experience <= 0.3){

@@ -16,6 +16,7 @@ public class TimeController : MonoBehaviour
     public GameObject animalList;
     public GameObject animalSpawner;
     public GameObject birthModal;
+    public GameObject notification;
     public GameObject dateController;
     public GameObject backgroundController;
     public GameObject CanvasController;
@@ -25,6 +26,7 @@ public class TimeController : MonoBehaviour
     public GameObject charAnimals;
     public GameObject AdoptionController;
     public Animals runaways;
+    public AnimalBreed animalBreeds;
     public GameObject lamps;
     private string curName;
     public GameObject characterManager;
@@ -176,6 +178,12 @@ public class TimeController : MonoBehaviour
             CanvasController.GetComponent<CanvasController>().openCanvas();
             birthModal.GetComponent<Alert>().initiateBirthAlert("Last night, " + kvp.Value.animalName + " gave birth! What should the baby be called?", ((string name, int newId) => confirm(name, id)), curAnimals.animalDict[id], id);
             while(!confirmVar) yield return null;
+            if(!animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked){
+              animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked = true;
+              animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].exampleColoring = curAnimals.animalDict[id].coloring;
+              notification.GetComponent<Notification>().initiateNotification("Congratulations, you've discovered the " + curAnimals.animalDict[id].breed + " breed!");
+              while(notification.activeInHierarchy) yield return null;
+            }
           }
           CanvasController.GetComponent<CanvasController>().closeCanvas();
           kvp.Value.pregnant = false;
@@ -190,6 +198,12 @@ public class TimeController : MonoBehaviour
           CanvasController.GetComponent<CanvasController>().openCanvas();
           birthModal.GetComponent<Alert>().initiateBirthAlert("Shopkeeper brought this baby over! What should he be called?", ((string name, int newId) => confirm(name, newId)), kvp.Value, kvp.Value.id);
           while(!confirmVar) yield return null;
+          if(!animalBreeds.breedDictionary[kvp.Value.breed].unlocked){
+            animalBreeds.breedDictionary[kvp.Value.breed].unlocked = true;
+            animalBreeds.breedDictionary[kvp.Value.breed].exampleColoring = kvp.Value.coloring;
+            notification.GetComponent<Notification>().initiateNotification("Congratulations, you've discovered the " + kvp.Value.breed + " breed!");
+            while(notification.activeInHierarchy) yield return null;
+          }
           CanvasController.GetComponent<CanvasController>().closeCanvas();
         }
       }

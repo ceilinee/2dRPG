@@ -11,6 +11,7 @@ public class AnimalBreed : ScriptableObject
   public class Breed
   {
       public bool unlocked;
+      public Animal.StringAndAnimalColor exampleColoring = new Animal.StringAndAnimalColor();
       public int multiplier;
       public string breedName;
       public Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
@@ -18,11 +19,20 @@ public class AnimalBreed : ScriptableObject
   public Breed[] breedArray;
   [System.Serializable] public class DictionaryOfBreed : SerializableDictionary<string, Breed> {}
   public DictionaryOfBreed breedDictionary = new DictionaryOfBreed();
+
   public Breed getRandomBreed(){
     System.Random random = new System.Random();
     int index = random.Next(breedDictionary.Count);
     return breedDictionary.Values.ElementAt(index);
   }
+
+  public void updateBreedDictionary(){
+    breedDictionary = new DictionaryOfBreed();
+    for(int i = 0;i<breedArray.Length; i++){
+      breedDictionary[breedArray[i].breedName] = breedArray[i];
+    }
+  }
+
   public int isBreed(Animal.StringAndAnimalColor coloring){
     int selected = -1;
     for(int j = 0; j<breedArray.Length; j++){
@@ -71,6 +81,7 @@ public class AnimalBreed : ScriptableObject
     }
     return selected;
   }
+  
   public bool matchRequest(Animal.StringAndAnimalColor coloring, Animal.StringAndAnimalColor request){
       bool selected = false;
       Animal.StringAndAnimalColor breedColor = request;

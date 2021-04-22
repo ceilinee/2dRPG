@@ -11,6 +11,7 @@ public class PlayerInformation : MonoBehaviour
     public Text married;
     public GameObject friendListView;
     public GameObject inventoryListView;
+    public GameObject breedListView;
     public GameObject animalList;
     public GameObject CanvasController;
     public GameObject inventoryHold;
@@ -86,6 +87,8 @@ public class PlayerInformation : MonoBehaviour
         friendListView.GetComponent<CharacterListCreator>().GetCharacters();
         animalListView.GetComponent<ListCreator>().type = "all";
         animalListView.GetComponent<ListCreator>().GetAnimals();
+        breedListView.GetComponent<ListCreator>().isBreed = true;
+        breedListView.GetComponent<ListCreator>().GetBreedItems();
         inventoryListView.GetComponent<ListCreator>().GetItems();
     }
 }
