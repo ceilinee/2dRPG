@@ -14,12 +14,13 @@ public class CalendarInformation : MonoBehaviour
     public Sprite birthdayIcon;
     public Color birthdayColor;
     public GameObject CanvasController;
+    public GameObject questView;
 
     // Start is called before the first frame update
     void Start()
     {
       updateCalendar();
-      // updateList();
+      updateList();
     }
 
     // Update is called once per frame
@@ -66,5 +67,13 @@ public class CalendarInformation : MonoBehaviour
           curItem.birthdayIcon.gameObject.SetActive(false);
         }
       }
+    }
+    public void Clear(){
+      questView.GetComponent<QuestList>().Clear();
+    }
+    public void updateList(){
+      Clear();
+      questView.GetComponent<QuestList>().calendarInformation = gameObject;
+      questView.GetComponent<QuestList>().PopulateList();
     }
 }

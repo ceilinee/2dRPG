@@ -23,6 +23,7 @@ public class TimeController : MonoBehaviour
     public GameObject ShopController;
     public GameObject BreedAnimal;
     public GameObject SpawnObject;
+    public GameObject QuestController;
     public GameObject charAnimals;
     public GameObject AdoptionController;
     public Animals runaways;
@@ -143,6 +144,7 @@ public class TimeController : MonoBehaviour
           SpawnObject.GetComponent<SpawnObject>().Spawn();
         }
         dateString = "";
+        QuestController.GetComponent<QuestController>().increaseDate(days, 1);
         dateController.GetComponent<DateController>().UpdateDays();
         setAnimalsToSleep();
     }
@@ -178,7 +180,7 @@ public class TimeController : MonoBehaviour
             CanvasController.GetComponent<CanvasController>().openCanvas();
             birthModal.GetComponent<Alert>().initiateBirthAlert("Last night, " + kvp.Value.animalName + " gave birth! What should the baby be called?", ((string name, int newId) => confirm(name, id)), curAnimals.animalDict[id], id);
             while(!confirmVar) yield return null;
-            if(!animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked){
+            if(animalBreeds.breedDictionary.ContainsKey(curAnimals.animalDict[id].breed) && !animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked){
               animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked = true;
               animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].exampleColoring = curAnimals.animalDict[id].coloring;
               notification.GetComponent<Notification>().initiateNotification("Congratulations, you've discovered the " + curAnimals.animalDict[id].breed + " breed!");
@@ -198,7 +200,7 @@ public class TimeController : MonoBehaviour
           CanvasController.GetComponent<CanvasController>().openCanvas();
           birthModal.GetComponent<Alert>().initiateBirthAlert("Shopkeeper brought this baby over! What should he be called?", ((string name, int newId) => confirm(name, newId)), kvp.Value, kvp.Value.id);
           while(!confirmVar) yield return null;
-          if(!animalBreeds.breedDictionary[kvp.Value.breed].unlocked){
+          if(animalBreeds.breedDictionary.ContainsKey(kvp.Value.breed) && !animalBreeds.breedDictionary[kvp.Value.breed].unlocked){
             animalBreeds.breedDictionary[kvp.Value.breed].unlocked = true;
             animalBreeds.breedDictionary[kvp.Value.breed].exampleColoring = kvp.Value.coloring;
             notification.GetComponent<Notification>().initiateNotification("Congratulations, you've discovered the " + kvp.Value.breed + " breed!");

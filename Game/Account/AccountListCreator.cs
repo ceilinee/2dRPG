@@ -9,6 +9,7 @@ public class AccountListCreator : MonoBehaviour
     public GameObject accountManager;
     public GameObject gameSaveManager;
     public GameObject birthModal;
+    public GameObject selectBackground;
     public Text text0;
     public Text text1;
     public Text text2;
@@ -26,6 +27,9 @@ public class AccountListCreator : MonoBehaviour
     public Player player;
     public bool confirmVar;
     // public GameObject nameGame;
+    public GameObject confirmationModal;
+    public GameObject confirmationBackground;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,32 +129,41 @@ public class AccountListCreator : MonoBehaviour
         GetPlayerName();
       }
     }
-    public void deleteGame0(){
-      if(accounts.accountDict.ContainsKey(0)){
-        clearObjects();
-        accounts.removeExistingAccount(0);
-        accountManager.GetComponent<AccountManager>().DeleteScriptables(0);
-        accountManager.GetComponent<AccountManager>().SaveAccounts();
-        updateList();
+
+    private void renderDeleteConfirmationModal(int gameNum) {
+      if (!accounts.accountDict.ContainsKey(gameNum)) {
+        return;
       }
+
+      selectBackground.SetActive(false);
+      confirmationBackground.SetActive(true);
+
+      confirmationModal.GetComponent<Confirmation>().initiateConfirmation(
+        "Are you sure you want to delete this save file?",
+        () => {
+          clearObjects();
+          accounts.removeExistingAccount(gameNum);
+          accountManager.GetComponent<AccountManager>().DeleteScriptables(gameNum);
+          accountManager.GetComponent<AccountManager>().SaveAccounts();
+          updateList();
+        },
+        () => {},
+        () => {
+          selectBackground.SetActive(true);
+          confirmationBackground.SetActive(false);
+        }
+      );
     }
+
+    public void deleteGame0() {
+      renderDeleteConfirmationModal(0);
+    }
+
     public void deleteGame1(){
-      if(accounts.accountDict.ContainsKey(1)){
-        clearObjects();
-        accounts.removeExistingAccount(1);
-        accountManager.GetComponent<AccountManager>().DeleteScriptables(1);
-        accountManager.GetComponent<AccountManager>().SaveAccounts();
-        updateList();
-      }
+      renderDeleteConfirmationModal(1);
     }
     public void deleteGame2(){
-      if(accounts.accountDict.ContainsKey(2)){
-        clearObjects();
-        accounts.removeExistingAccount(2);
-        accountManager.GetComponent<AccountManager>().DeleteScriptables(2);
-        accountManager.GetComponent<AccountManager>().SaveAccounts();
-        updateList();
-      }
+      renderDeleteConfirmationModal(2);
     }
     // Update is called once per frame
     void Update()

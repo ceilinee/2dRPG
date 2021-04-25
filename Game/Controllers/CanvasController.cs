@@ -43,7 +43,11 @@ public class CanvasController : MonoBehaviour
     public bool openCanvas(){
       if(!open){
         closeAllCanvas();
-        background.SetActive(true);
+
+        if (background) {
+          background.SetActive(true);
+        }
+
         open = true;
         return true;
       }
@@ -57,7 +61,9 @@ public class CanvasController : MonoBehaviour
       };
     }
     public void closeCanvas(){
-      background.SetActive(false);
+      if (background) {
+        background.SetActive(false);
+      }
       open = false;
     }
     public void closeCanvasIfAllElseClosed(){

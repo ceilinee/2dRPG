@@ -11,12 +11,23 @@ public class Confirmation : MonoBehaviour
     public Action confirmFunction;
     public Action cancelFunction;
 
+    // Optional
+    // Always runs after confirmFunction and cancelFunction
+    public Action finallyFunction;
+
     public void initiateConfirmation(string newQuestion, Action newConfirmFunction, Action newCancelFunction){
+      initiateConfirmation(newQuestion, newConfirmFunction, newCancelFunction, null);
+    }
+
+    public void initiateConfirmation(
+      string newQuestion, Action newConfirmFunction, Action newCancelFunction, Action newFinallyFunction) {
       question.text = newQuestion;
       confirmFunction = newConfirmFunction;
       cancelFunction = newCancelFunction;
+      finallyFunction = newFinallyFunction;
       gameObject.SetActive(true);
     }
+
     void Update()
     {
         if(gameObject.activeInHierarchy && Time.timeScale != 0){
@@ -25,11 +36,17 @@ public class Confirmation : MonoBehaviour
     }
     public void confirm(){
       confirmFunction();
+      if (finallyFunction != null) {
+        finallyFunction();
+      }
       CanvasController.GetComponent<CanvasController>().closeCanvas();
       gameObject.SetActive(false);
     }
     public void cancel(){
       cancelFunction();
+      if (finallyFunction != null) {
+        finallyFunction();
+      }
       gameObject.SetActive(false);
       CanvasController.GetComponent<CanvasController>().closeCanvasIfAllElseClosed();
     }

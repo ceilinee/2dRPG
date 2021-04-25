@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af262b7bb7aea4d56b1714678421dedf, type: 3}
   m_Name: PlayerBuildings
   m_EditorClassIdentifier: 
-  sceneArray: 01000000
+  sceneArray: 0100000002000000
   sceneInfoArray: []
   sceneDict:
     keys: 
