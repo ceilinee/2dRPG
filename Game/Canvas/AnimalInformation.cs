@@ -190,12 +190,10 @@ public class AnimalInformation : MonoBehaviour
         curAnimals.updateAnimal(animalTraitInformation);
       }
       else{
-        animal.GetComponent<GenericAnimal>().animalTrait.follow = true;
-        animal.GetComponent<GenericAnimal>().moveSpeed *= Random.Range(3f, 5f);
-        animal.GetComponent<GenericAnimal>().unsetRest();
+        animal.GetComponent<GenericAnimal>().setAnimalFollow();
         animalTraitInformation = animal.GetComponent<GenericAnimal>().animalTrait;
         curAnimals.updateAnimal(animalTraitInformation);
-    }
+      }
       SetFollowText();
       Close();
     }

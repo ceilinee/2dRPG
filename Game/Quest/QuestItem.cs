@@ -11,18 +11,25 @@ public class QuestItem : MonoBehaviour
     public Text message;
     public Text charName;
     public Quest quest;
-    public GameObject unread;
-    public GameObject calendarInformation;
+    public GameObject isNew;
+    public GameObject complete;
+    public GameObject questInformation;
     public void updateDetails(Quest newQuest){
       quest = newQuest;
       message.text = newQuest.message;
       if(!newQuest.accepted){
-        unread.SetActive(true);
+        isNew.SetActive(true);
+        complete.SetActive(false);
       }
       else{
-        unread.SetActive(false);
+        isNew.SetActive(false);
+        complete.SetActive(false);
+      }
+      if(newQuest.completed){
+        complete.SetActive(true);
       }
     }
-    public void selectMail(){
+    public void selectQuest(){
+      questInformation.GetComponent<QuestInformation>().displayQuest(quest);
     }
 }

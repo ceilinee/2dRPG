@@ -17,6 +17,9 @@ public class QuestController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      for(int i =0 ;i< 20; i++){
+        generateQuest(10);
+      }
     }
     public void increaseDate(int date, int repeat){
       Debug.Log("increase Days");
@@ -40,6 +43,7 @@ public class QuestController : MonoBehaviour
     public void generateQuest(int date){
       newQuest = new Quest();
       newQuest.expirationDate = date;
+      newQuest.id = Random.Range(0, 100000000);
       newQuest.type = (QuestType)Random.Range(0, 8);
       System.Random random = new System.Random();
       switch(newQuest.type){
@@ -47,7 +51,7 @@ public class QuestController : MonoBehaviour
             Debug.Log("adoption");
             newQuest.adoptionCount = Random.Range(1,3);
             newQuest.reward = 100 * newQuest.adoptionCount;
-            newQuest.experiencePoints = 10 * newQuest.adoptionCount;
+            newQuest.reputationPoints = 10 * newQuest.adoptionCount;
             newQuest.posterCharId = 1;
             newQuest.message = "The adoption waitlist seems a bit long, can you try to do " + newQuest.adoptionCount + " adoptions today?";
             break;
@@ -55,7 +59,7 @@ public class QuestController : MonoBehaviour
             Debug.Log("talk");
             newQuest.talk = Random.Range(5,10);
             newQuest.reward = 10 * newQuest.talk;
-            newQuest.experiencePoints = 1 * newQuest.talk;
+            newQuest.reputationPoints = 1 * newQuest.talk;
             newQuest.posterCharId = 0;
             newQuest.message = "Hey! Today seems like a perfect day for some mingling! Try to talk to " + newQuest.talk + " Town folks today!";
             break;
@@ -63,7 +67,7 @@ public class QuestController : MonoBehaviour
             Debug.Log("walk");
             newQuest.walk = Random.Range(1, (int)System.Math.Min(10, curAnimals.animalDict.Count));
             newQuest.reward = 10 * newQuest.walk;
-            newQuest.experiencePoints = 1 * newQuest.walk;
+            newQuest.reputationPoints = 1 * newQuest.walk;
             newQuest.posterCharId = 1;
             newQuest.message = "Passed by your farm yesterday and some of your animals seemed a bit bored, want to walk " + newQuest.walk + " today?";
             break;
@@ -72,13 +76,13 @@ public class QuestController : MonoBehaviour
             List<int> selectedItems = new List<int>();
             int count = Random.Range(1,4);
             newQuest.reward = 50 * count;
-            newQuest.experiencePoints = 5 * count;
+            newQuest.reputationPoints = 5 * count;
             int index = random.Next(items.Count);
             string itemString = "";
             for(int i = 0; i < count; i++){
-              selectedItems.Add(items[index].id);
               index = random.Next(items.Count);
-              itemString += items[index].name;
+              selectedItems.Add(items[index].id);
+              itemString += items[index].itemName;
               if(i < count-1){
                 itemString += ", ";
               }
@@ -101,7 +105,7 @@ public class QuestController : MonoBehaviour
               }
             }
             newQuest.reward = 10 * count;
-            newQuest.experiencePoints = 1 * count;
+            newQuest.reputationPoints = 1 * count;
             newQuest.talkQuestCharId = selectedCharacters.Distinct().ToArray();
             newQuest.posterCharId = 0;
             newQuest.message = "Hey! I saw " + charString + " lounging around, you should go say hi to them today!";
@@ -112,6 +116,8 @@ public class QuestController : MonoBehaviour
             Character selected = curCharacters.characterDict.Values.ElementAt(index);
             newQuest.giftQuestCharId = selected.id;
             index = random.Next(items.Count);
+            newQuest.reward = 10 + index;
+            newQuest.reputationPoints = 1;
             newQuest.giftQuestItemId = items[index].id;
             newQuest.posterCharId = 0;
             newQuest.message = "Hey! I saw " + selected.name + " mopping around, you should give them a present!";
@@ -120,7 +126,7 @@ public class QuestController : MonoBehaviour
         case QuestType.giftAnimal:
             newQuest.giftAnimalCount = Random.Range(1, (int)System.Math.Min(10, curAnimals.animalDict.Count));
             newQuest.reward = 10 * newQuest.giftAnimalCount;
-            newQuest.experiencePoints = 1 * newQuest.giftAnimalCount;
+            newQuest.reputationPoints = 1 * newQuest.giftAnimalCount;
             newQuest.posterCharId = 1;
             newQuest.message = "Hey! You should give " + newQuest.giftAnimalCount + " animals presents today!";
             Debug.Log("giftAnimal");
@@ -128,6 +134,8 @@ public class QuestController : MonoBehaviour
         case QuestType.scene:
             Debug.Log("scene");
             index = random.Next(sceneInfos.sceneDict.Count);
+            newQuest.reward = 10;
+            newQuest.reputationPoints = 1;
             SceneInfo selectedSceneInfo = sceneInfos.sceneDict.Values.ElementAt(index);
             newQuest.sceneId = selectedSceneInfo.id;
             newQuest.message = "Hey! You should check out " + selectedSceneInfo.name + " today!";

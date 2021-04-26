@@ -31,7 +31,15 @@ public class Shopkeeper : GenericCharacter
             CanvasController.SetActive(true);
           }
           if(CanvasController.GetComponent<CanvasController>().openCanvas()){
-            giveGift();
+            if(characterTrait.presentsDaily <= 2){
+              if(characterTrait.presentsDaily == 0){
+                spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
+              }
+              giveGift();
+            }
+            else{
+              CanvasController.GetComponent<CanvasController>().initiateNotification("You've given " + characterTrait.name + " enough presents today!");
+            }
           }
         }
         else if(shopKeeper && !conversation && !DialogueManager.activeInHierarchy && shop){
@@ -52,7 +60,9 @@ public class Shopkeeper : GenericCharacter
     }
     public void subscribe(){
       talk = selection.transform.Find("Talk").gameObject.GetComponent<Button>();
+      selection.transform.Find("Talk").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Talk";
       shopButton = selection.transform.Find("Shop").gameObject.GetComponent<Button>();
+      selection.transform.Find("Shop").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Shop";
       talk.onClick.AddListener(dialogue);
       shopButton.onClick.AddListener(openShop);
       subscribed = true;

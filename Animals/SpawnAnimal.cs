@@ -15,6 +15,7 @@ public class SpawnAnimal : MonoBehaviour{
     public Inventory playerInventory;
     public AnimalBreed animalBreeds;
     public AnimalColors animalColors;
+    public Player player;
     // public GameObject BreedAnimal;
     public GameObject animalGameObject;
     public GameObject cameraGameObject;
@@ -59,6 +60,20 @@ public class SpawnAnimal : MonoBehaviour{
             kvp.Value.animalColors = animalColors;
           }
         }
+    }
+    public void playerWalkAnimal(){
+      player.dailyWalk += 1;
+    }
+    public void playerTalkCharacter(int id){
+      player.dailyTalk += 1;
+      player.dailyTalkedTo.Add(id);
+    }
+    public void playerGiftCharacter(int id){
+      player.dailyGiftCharacter += 1;
+      player.dailyGiftedTo.Add(id);
+    }
+    public void playerGiftAnimal(){
+      player.dailyGiftAnimal += 1;
     }
     public void setAnimalImage(GameObject animalImage, Animal animalTrait){
       GameObject instance = animalImage;
@@ -105,7 +120,7 @@ public class SpawnAnimal : MonoBehaviour{
     public void Spawn(Animal a){
       GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
       instance.GetComponent<GenericAnimal>().animalModal = animalModal;
-      instance.GetComponent<GenericAnimal>().cameraObject = cameraGameObject;
+      // instance.GetComponent<GenericAnimal>().cameraObject = cameraGameObject;
 
       instance.GetComponent<GenericAnimal>().createAnimal(a);
       instance.GetComponent<GenericAnimal>().updateAnimal();
@@ -221,7 +236,7 @@ public class SpawnAnimal : MonoBehaviour{
       defineAnimalDictionary();
       GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
       instance.GetComponent<GenericAnimal>().animalModal = animalModal;
-      instance.GetComponent<GenericAnimal>().cameraObject = cameraGameObject;
+      // instance.GetComponent<GenericAnimal>().cameraObject = cameraGameObject;
       instance.GetComponent<GenericAnimal>().createAnimal(a);
       instance.GetComponent<GenericAnimal>().updateAnimal();
       if(a.personality != null){

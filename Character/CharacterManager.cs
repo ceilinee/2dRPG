@@ -13,6 +13,7 @@ public class CharacterManager : MonoBehaviour
     public Characters curCharacters;
     public GameObject animalList;
     public CurTime curTime;
+    public Player player;
     public GameObject spawnAnimal;
     [System.Serializable] public class DictionaryOfTimeAndLocationList : SerializableDictionary<string, List<CharacterPath>> {}
     public DictionaryOfTimeAndLocationList movementDictionaryObject = new DictionaryOfTimeAndLocationList();
@@ -27,6 +28,12 @@ public class CharacterManager : MonoBehaviour
     public void updateCharacters(){
       foreach (Transform child in characterHolder.transform){
         characters.Add(child.gameObject);
+      }
+    }
+    public void ClearDailies(){
+      curCharacters.ClearDailies();
+      foreach (KeyValuePair<int, GameObject> kvp in characterGameObjectDictionary){
+        kvp.Value.GetComponent<GenericCharacter>().ClearDailies();
       }
     }
     public void UpdateManager(){

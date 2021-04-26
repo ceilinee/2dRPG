@@ -19,6 +19,11 @@ public class Mailbox : ScriptableObject
 {
   public Mail[] mailbox;
   public int unread;
+
+  public void Clear(){
+    mailbox = new Mail[0];
+    unread = 0;
+  }
   public void addMessage(Mail mail){
     List<Mail> temp = new List<Mail>(mailbox);
     temp.Insert(0, mail);

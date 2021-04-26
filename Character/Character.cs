@@ -23,8 +23,10 @@ public class Character
     public int friendship;
     public int friendshipScore;
     public int currentAnimalId = 0;
+    public int presentsDaily;
     public bool married;
     public bool date;
+    public bool talked;
     [System.Serializable] public class DictionaryOfTimeAndLocation : SerializableDictionary<string, CharacterPath> {}
     public DictionaryOfTimeAndLocation characterMovement = new DictionaryOfTimeAndLocation();
     [System.Serializable]

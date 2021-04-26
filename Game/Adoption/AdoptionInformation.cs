@@ -23,6 +23,7 @@ public class AdoptionInformation : MonoBehaviour
     public Text personality;
     public Image portrait;
     public Animals curAnimals;
+    public Player player;
     public AnimalColors animalColors;
     public GameObject adoptionController;
     public GameObject adoptionView;

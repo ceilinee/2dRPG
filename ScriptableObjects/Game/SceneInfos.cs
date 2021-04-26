@@ -9,9 +9,16 @@ public class SceneInfos : ScriptableObject
 {
   public List<int> sceneArray;
   public List<SceneInfo> sceneInfoArray;
+  public List<int> initialSceneArray;
   [System.Serializable] public class DictionaryOfSceneInfo : SerializableDictionary<int, SceneInfo> {}
   public DictionaryOfSceneInfo sceneDict = new DictionaryOfSceneInfo();
 
+  public void Clear(){
+    resetSceneArray();
+  }
+  public void resetSceneArray(){
+    sceneArray = initialSceneArray;
+  }
   public void updateSceneDict(){
     foreach(SceneInfo scene in sceneInfoArray){
       sceneDict[scene.id] = scene;

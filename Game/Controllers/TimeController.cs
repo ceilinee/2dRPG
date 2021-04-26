@@ -26,6 +26,7 @@ public class TimeController : MonoBehaviour
     public GameObject QuestController;
     public GameObject charAnimals;
     public GameObject AdoptionController;
+    public Player player;
     public Animals runaways;
     public AnimalBreed animalBreeds;
     public GameObject lamps;
@@ -134,6 +135,7 @@ public class TimeController : MonoBehaviour
         time = 0;
         days += 1;
         currentTime.UpdateDays(days);
+        player.clearDailies();
         characterManager.GetComponent<CharacterManager>().updateCharAnimal();
         UpdateAnimals();
         ShopController.GetComponent<Shop>().updateShop();
@@ -154,6 +156,7 @@ public class TimeController : MonoBehaviour
     }
     IEnumerator waitConfirm(){
       curAnimals.ageAnimals(1);
+      curAnimals.ClearDailies();
       curAnimals.dailyAnimalUpdate();
       List<int> remove = new List<int>();
       foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict)

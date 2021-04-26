@@ -12,6 +12,7 @@ public class BuySellAnimal : MonoBehaviour
     public SceneInfos playerBuildings;
     public Animals charAnimals;
     public FloatValue playerMoney;
+    public Player player;
     public Text playerMoneyText;
     public Text topbarMoney;
     public Inventory shop;
@@ -50,6 +51,7 @@ public class BuySellAnimal : MonoBehaviour
       newAnimal.characterOwned = true;
       newAnimal.charId = character.id;
       charAnimals.addExistingAnimal(newAnimal);
+      player.dailyAdoption +=1;
     }
     public bool buyItem(Item item){
       if(playerMoney.initialValue >= item.cost){
@@ -76,6 +78,7 @@ public class BuySellAnimal : MonoBehaviour
     public void pickUpItem(Item item){
       playerInventory.Additem(item);
       itemAlert.GetComponent<ItemAlert>().startAlert(item);
+      player.dailyCollected.Add(item.id);
     }
     public void sellItem(Item item){
       playerMoney.initialValue += item.sellCost;

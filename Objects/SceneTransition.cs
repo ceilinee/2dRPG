@@ -11,6 +11,7 @@ public class SceneTransition : MonoBehaviour
     public Animals curAnimals;
     public Characters curCharacters;
     public GameObject gameSaveManager;
+    public Player player;
     public Vector2 playerPosition;
     public VectorValue playerStorage;
     void Start(){
@@ -22,6 +23,9 @@ public class SceneTransition : MonoBehaviour
         gameSaveManager.GetComponent<GameSaveManager>().updateAnimalAndCharacter();
         // characterManager.GetComponent<CharacterManager>().updateCurCharacter();
         // animalList.GetComponent<AnimalList>().updateList();
+        if(!player.dailyScenesVisited.Contains(sceneinfo.id)){
+          player.dailyScenesVisited.Add(sceneinfo.id);
+        }
         SceneManager.LoadScene(sceneinfo.sceneName);
       }
       else if(other.CompareTag("pet") && !other.isTrigger){

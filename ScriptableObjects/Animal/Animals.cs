@@ -23,6 +23,13 @@ public class Animals : ScriptableObject
   public void addExistingAnimal(Animal newAnimal){
     animalDict[newAnimal.id] = newAnimal;
   }
+  public void ClearDailies(){
+    foreach (KeyValuePair<int, Animal> kvp in animalDict)
+    {
+      kvp.Value.walked = false;
+      kvp.Value.presentsDaily = 0;
+    }
+  }
   public void Clear(){
     animalDict = new DictionaryOfAnimals();
     breedName = null;

@@ -22,7 +22,7 @@ public class GenericAnimal : AnimalState
     public Animals curAnimals;
     public GameObject contextClue;
     public GameObject animalModal;
-    public GameObject cameraObject;
+    // public GameObject cameraObject;
     public GameObject spawnAnimal;
     public Signal contextOff;
     public Animal animalTrait;
@@ -49,6 +49,9 @@ public class GenericAnimal : AnimalState
           if(Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy){
             if(!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null){
               if(animalTrait.presentsDaily <= 2){
+                if(animalTrait.presentsDaily == 0){
+                  spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
+                }
                 giveGift();
               }
               else{
@@ -160,6 +163,16 @@ public class GenericAnimal : AnimalState
       if(animalTrait.target == new Vector2(0,0)){
         randomTarget = new Vector3 (transform.position.x+Random.Range(-5.0F, 5.0F), transform.position.y+Random.Range(5.0F, -5.0F), 0);
       }
+    }
+    public void setAnimalFollow(){
+      animalTrait.follow = true;
+      moveSpeed *= Random.Range(3f, 5f);
+      if(!animalTrait.walked){
+        spawnAnimal.GetComponent<SpawnAnimal>().playerWalkAnimal();
+        animalTrait.walked = true;
+        curAnimals.animalDict[animalTrait.id].walked = true;
+      }
+      unsetRest();
     }
     // private void OnTriggerEnter2D(Collider2D other){
     //   Debug.Log("Enter");

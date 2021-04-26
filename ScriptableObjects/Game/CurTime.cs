@@ -28,8 +28,31 @@ public class CurTime : ScriptableObject
   public void getSeason () {
       season = (int)System.Math.Floor((double)(days % 60)/20f);
   }
+  public int getSeasonVar (int curDate) {
+      return (int)System.Math.Floor((double)(curDate % 60)/20f);
+  }
   public void getDate () {
       date = ((days % 60) % 20) + 1;
+  }
+  public int getDateVar (int curDate) {
+      return ((curDate % 60) % 20) + 1;
+  }
+  public string daysToDateSeason(int curDate) {
+    return getSeasonInWordsVar(getSeasonVar(curDate)) + ", " + getDateVar(curDate);
+  }
+  public string getSeasonInWordsVar(int curSeason){
+    if(curSeason == 0){
+      return "Spring";
+    }
+    if(curSeason == 1){
+      return "Summer";
+    }
+    if(curSeason == 2){
+      return "Fall";
+    }
+    else{
+      return "Winter";
+    }
   }
   public string getSeasonInWords(){
     if(season == 0){

@@ -30,4 +30,4 @@ MonoBehaviour:
       today?
     reward: 0
     multiplier: 0
-    experiencePoints: 0
+    reputationPoints: 0

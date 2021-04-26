@@ -52,7 +52,15 @@ public class GenericCharacter : MonoBehaviour
                  CanvasController.SetActive(true);
                }
                if(CanvasController.GetComponent<CanvasController>().openCanvas()){
-                 giveGift();
+                 if(characterTrait.presentsDaily <= 2){
+                   if(characterTrait.presentsDaily == 0){
+                     spawnAnimal.GetComponent<SpawnAnimal>().playerGiftCharacter(characterTrait.id);
+                   }
+                   giveGift();
+                 }
+                 else{
+                   CanvasController.GetComponent<CanvasController>().initiateNotification("You've given " + characterTrait.name + " enough presents today!");
+                 }
                }
              }
              else{
@@ -73,6 +81,10 @@ public class GenericCharacter : MonoBehaviour
         }
     }
     public void charDialogue(){
+      if(!characterTrait.talked){
+        spawnAnimal.GetComponent<SpawnAnimal>().playerTalkCharacter(characterTrait.id);
+        characterTrait.talked = true;
+      }
       if(!CanvasController.activeInHierarchy){
         CanvasController.SetActive(true);
       }
@@ -84,8 +96,13 @@ public class GenericCharacter : MonoBehaviour
         increaseFriendship(3);
       }
     }
+    public void ClearDailies(){
+      characterTrait.talked = false;
+      characterTrait.presentsDaily = 0;
+    }
     public void giveGift(){
       conversation = true;
+      characterTrait.presentsDaily+=1;
       int like = getLike(playerInventory.currentItem);
       playerInventory.Removeitem(playerInventory.currentItem);
       if(playerInventory.currentItem == null){

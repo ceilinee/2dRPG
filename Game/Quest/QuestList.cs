@@ -14,7 +14,7 @@ public class QuestList : MonoBehaviour
         public RectTransform content = null;
         private int numberOfItems = 3;
         public Quests quests;
-        public GameObject calendarInformation;
+        public GameObject questInformation;
         public Characters charList;
 
         void Start () {
@@ -42,7 +42,7 @@ public class QuestList : MonoBehaviour
             SpawnedItem.transform.SetParent(SpawnPoint, false);
             QuestItem questItem = SpawnedItem.GetComponent<QuestItem>();
             questItem.updateDetails(quests.curQuests[i]);
-            questItem.calendarInformation = calendarInformation;
+            questItem.questInformation = questInformation;
             questItem.charName.text = charList.characterDict[quests.curQuests[i].posterCharId].name;
             if(charList.characterDict[quests.curQuests[i].posterCharId].image){
               questItem.charImage.sprite = charList.characterDict[quests.curQuests[i].posterCharId].image;

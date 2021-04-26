@@ -19,6 +19,10 @@ public class AdoptionRequest {
 public class AdoptionRequests : ScriptableObject
 {
   public AdoptionRequest[] requests;
+
+  public void Clear(){
+    requests = new AdoptionRequest[0];
+  }
   public void addRequest(AdoptionRequest request){
     List<AdoptionRequest> temp = new List<AdoptionRequest>(requests);
     temp.Insert(0, request);

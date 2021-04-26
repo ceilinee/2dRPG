@@ -25,6 +25,12 @@ public class AccountListCreator : MonoBehaviour
     public VectorValue playerLocation;
     public CurTime curTime;
     public Player player;
+    public SceneInfos buildingShop;
+    public SceneInfos playerBuildings;
+    public AdoptionRequests adoptionRequests;
+    public Mailbox mailbox;
+    public Quests playerQuests;
+    public Quests availableQuests;
     public bool confirmVar;
     // public GameObject nameGame;
     public GameObject confirmationModal;
@@ -66,6 +72,12 @@ public class AccountListCreator : MonoBehaviour
       playerMoney.Clear();
       playerLocation.Clear();
       curTime.Clear();
+      buildingShop.Clear();
+      playerBuildings.Clear();
+      adoptionRequests.Clear();
+      mailbox.Clear();
+      playerQuests.Clear();
+      availableQuests.Clear();
     }
     public void selectGame0(){
       if(accounts.accountDict.ContainsKey(0)){
