@@ -43,34 +43,38 @@ public class GenericAnimal : AnimalState
     {
         animalTrait = trait;
     }
-    void Update()
-    {
-        if(!animalTrait.characterOwned){
-          if(Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy){
-            if(!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null){
-              if(animalTrait.presentsDaily <= 2){
-                if(animalTrait.presentsDaily == 0){
-                  spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
-                }
-                giveGift();
+    void Update() {
+      if(!animalTrait.characterOwned){
+        if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
+          updatePlayerInRange();
+          if (playerInRange) {
+            unsetRest();
+          }
+        } else if(Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy){
+          if(!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null){
+            if(animalTrait.presentsDaily <= 2){
+              if(animalTrait.presentsDaily == 0){
+                spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
               }
-              else{
-                animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(animalTrait.animalName + " says they got enough presents already today!");
-              }
+              giveGift();
             }
             else{
-              if(!animalModal.GetComponent<AnimalInformation>().CanvasController.activeInHierarchy){
-                animalModal.GetComponent<AnimalInformation>().CanvasController.SetActive(true);
-              }
-              if(animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().openCanvas()){
-                openAnimalInformation();
-              }
+              animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(animalTrait.animalName + " says they got enough presents already today!");
             }
           }
-          if(Input.GetButtonDown("Cancel") && animalModal.activeInHierarchy){
-            animalModal.GetComponent<AnimalInformation>().CloseIfPlayerMenuNotOpen();
+          else{
+            if(!animalModal.GetComponent<AnimalInformation>().CanvasController.activeInHierarchy){
+              animalModal.GetComponent<AnimalInformation>().CanvasController.SetActive(true);
+            }
+            if(animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().openCanvas()){
+              openAnimalInformation();
+            }
           }
         }
+        if(Input.GetButtonDown("Cancel") && animalModal.activeInHierarchy){
+          animalModal.GetComponent<AnimalInformation>().CloseIfPlayerMenuNotOpen();
+        }
+      }
     }
     public void giveGift(){
       float like = getLike(playerInventory.currentItem);

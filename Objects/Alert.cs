@@ -13,6 +13,7 @@ public class Alert : MonoBehaviour
     public GameObject input;
     public GameObject picture;
     public GameObject spawnAnimal;
+    public AnimalColors animalColors;
 
     void Start(){
       input.GetComponent<InputField>().onEndEdit.AddListener(displayText);
@@ -25,6 +26,7 @@ public class Alert : MonoBehaviour
       question.text = newQuestion;
       id = newId;
       confirmFunction = newConfirmFunction;
+      instance.animalColors = animalColors;
       spawnAnimal.GetComponent<SpawnAnimal>().setAnimalImage(picture, instance);
       instance.colorAnimal(picture);
       gameObject.SetActive(true);

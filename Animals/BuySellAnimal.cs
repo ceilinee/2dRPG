@@ -24,7 +24,11 @@ public class BuySellAnimal : MonoBehaviour
     void Start(){
       playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
-
+    public void redeemQuest(Quest quest){
+      playerMoney.initialValue += quest.reward;
+      player.reputation += quest.reputationPoints;
+      playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
+    }
     public bool buyAnimal(Animal newAnimal, Animals newShop){
       Debug.Log("buy");
       if(playerMoney.initialValue >= newAnimal.shopCost){

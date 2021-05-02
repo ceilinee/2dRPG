@@ -32,7 +32,12 @@ public class DateController : MonoBehaviour
     // Update is called once per frame
     public void UpdateDays(){
       curtime.curDate = calendar.seasonDict[curtime.season].dates[curtime.date];
-      curtime.curEvent = events.eventDict[calendar.seasonDict[curtime.season].dates[curtime.date].eventId];
+      if(events.eventDict.ContainsKey(calendar.seasonDict[curtime.season].dates[curtime.date].eventId)){
+        curtime.curEvent = events.eventDict[calendar.seasonDict[curtime.season].dates[curtime.date].eventId];
+      }
+      else{
+        curtime.curEvent = new Event();
+      }
       curtime.birthdayCharId = calendar.seasonDict[curtime.season].dates[curtime.date].birthdayCharId;
       UpdateSeason();
       if(WeatherController){

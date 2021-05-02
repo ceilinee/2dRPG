@@ -28,17 +28,17 @@ public class CurTime : ScriptableObject
   public void getSeason () {
       season = (int)System.Math.Floor((double)(days % 60)/20f);
   }
-  public int getSeasonVar (int curDate) {
-      return (int)System.Math.Floor((double)(curDate % 60)/20f);
+  public int getSeasonVar (int curDateInt) {
+      return (int)System.Math.Floor((double)(curDateInt % 60)/20f);
   }
   public void getDate () {
-      date = ((days % 60) % 20) + 1;
+      date = ((days % 60) % 20);
   }
-  public int getDateVar (int curDate) {
-      return ((curDate % 60) % 20) + 1;
+  public int getDateVar (int curDateInt) {
+      return ((curDateInt % 60) % 20);
   }
-  public string daysToDateSeason(int curDate) {
-    return getSeasonInWordsVar(getSeasonVar(curDate)) + ", " + getDateVar(curDate);
+  public string daysToDateSeason(int curDateInt) {
+    return getSeasonInWordsVar(getSeasonVar(curDateInt)) + ", " + getDateVar(curDateInt);
   }
   public string getSeasonInWordsVar(int curSeason){
     if(curSeason == 0){
@@ -75,6 +75,12 @@ public class CurTime : ScriptableObject
     time = 0f;
     days = 0;
     years = 0;
+    birthdayCharId = -1;
+    getSeason();
+    getDate();
+    curEvent = new Event();
+    curDate = new Date();
+
   }
   public bool isCurrentTimeBigger(string time){
     string[] split = time.Split(':');

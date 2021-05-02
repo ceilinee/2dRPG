@@ -17,10 +17,11 @@ public class QuestDisplay : MonoBehaviour
     public GameObject acceptQuest;
     public GameObject submitQuest;
     public GameObject removeQuest;
+    public GameObject BuySellAnimal;
     public Characters charList;
     public Quests availableQuests;
     public Quests playerQuests;
-    public FloatValue playerMoney;
+    // public FloatValue playerMoney;
     public GameObject CanvasController;
     public GameObject QuestInformation;
     public CurTime curTime;
@@ -65,9 +66,7 @@ public class QuestDisplay : MonoBehaviour
     public void submitQuestFunction(){
       quest.redeemed = true;
       availableQuests.SetQuestRedeemed(quest);
-      playerMoney.initialValue += quest.reward;
-      player.reputation += quest.reputationPoints;
-      availableQuests.deleteQuest(quest);
+      BuySellAnimal.GetComponent<BuySellAnimal>().redeemQuest(quest);
       QuestInformation.GetComponent<QuestInformation>().refresh();
     }
     void Update()
