@@ -70,34 +70,35 @@ public class CharacterListCreator : MonoBehaviour
               //set image
               characterItem.image.sprite = curCharactersSorted[i+j].image;
 
-              characterItem.friendship.text = determineFriendship(curCharactersSorted[i+j].friendship);
+              characterItem.friendship.text = determineFriendship(curCharactersSorted[i+j].friendshipScore);
             }
             i = i + numberOfItemsInRow - 1;
         }
       }
-      public string determineFriendship(int friendship){
-        if(friendship == -2){
+      public string determineFriendship(int friendshipScore){
+        if(friendshipScore <= 75){
           return "Nemesis";
         }
-        if(friendship == -1){
+        else if(friendshipScore <= 150){
           return "Enemy";
         }
-        if(friendship == 0){
+        else if(friendshipScore <= 200){
           return "Stranger";
         }
-        if(friendship == 1){
+        else if(friendshipScore <= 300){
           return "Acquaintance";
+
         }
-        if(friendship == 2){
+        else if(friendshipScore <= 400){
           return "Friend";
         }
-        if(friendship == 3){
+        else if(friendshipScore <= 500){
           return "Good friend";
         }
-        if(friendship == 4){
+        else if(friendshipScore <= 600){
           return "Close friend";
         }
-        if(friendship == 5){
+        else if(friendshipScore <= 700){
           return "Best Friend";
         }
         return "Unknown";

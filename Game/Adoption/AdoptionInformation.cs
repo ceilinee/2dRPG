@@ -32,6 +32,7 @@ public class AdoptionInformation : MonoBehaviour
     public GameObject animalView;
     public GameObject buySellAnimal;
     public GameObject CanvasController;
+    public GameObject confirmationModal;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +51,16 @@ public class AdoptionInformation : MonoBehaviour
     //   }
     // }
     public void adoptAnimal(Animal selectedAnimal){
-      buySellAnimal.GetComponent<BuySellAnimal>().adoptOutAnimal(selectedAnimal, charList.characterDict[selectedAdoption.charId]);
-      deleteRequest();
+      confirmationModal.GetComponent<Confirmation>().initiateConfirmation(
+        "Are you sure?",
+        () => {
+          buySellAnimal.GetComponent<BuySellAnimal>().adoptOutAnimal(selectedAnimal, charList.characterDict[selectedAdoption.charId]);
+          deleteRequest();
+          CanvasController.GetComponent<CanvasController>().openCanvasAgain();
+        },
+        () => {},
+        () => {}
+      );
     }
     public void deleteRequest(){
       adoptionRequests.deleteRequest(selectedAdoption);

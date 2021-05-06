@@ -20,6 +20,9 @@ MonoBehaviour:
   antiAge: 0
   itemDescription: Yum!
   cost: 50
+  date: 1
+  marriage: 0
+  divorce: 0
   sellCost: 26
   spawnLocations:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}

@@ -36,6 +36,14 @@ public class Character
     }
     public dialogueArray[] characterSpeechArray;
     public dialogueArray[] characterGiftReceiveSpeechArray;
+    public dialogueArray[] characterExSpeechArray;
+    public dialogueArray[] characterExGiftReceiveSpeechArray;
+    public Dialogue characterDivorceSpeech;
+    public Dialogue characterBreakUpSpeech;
+    public Dialogue characterMarriageSpeech;
+    public Dialogue characterDatingSpeech;
+    public Dialogue characterConfusionSpeech;
+    public Dialogue characterRejectionSpeech;
     [System.Serializable]
     public class ItemArray
     {

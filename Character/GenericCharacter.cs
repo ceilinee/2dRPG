@@ -20,6 +20,7 @@ public class GenericCharacter : MonoBehaviour
     public bool shopKeeper;
     public GameObject shop;
     private Transform target;
+    public Player player;
     public GameObject speechBubble;
     private Vector3 randomTarget;
     // private Vector3 previousLocation;
@@ -103,23 +104,81 @@ public class GenericCharacter : MonoBehaviour
     public void giveGift(){
       conversation = true;
       characterTrait.presentsDaily+=1;
-      int like = getLike(playerInventory.currentItem);
-      playerInventory.Removeitem(playerInventory.currentItem);
+      Item curItem = playerInventory.currentItem;
+      int like = getLike(curItem);
+      increaseFriendship(like*2);
+      if(!curItem.date && !curItem.marriage && !curItem.divorce){
+        if(player.exCharId.Contains(characterTrait.id)){
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterExGiftReceiveSpeechArray[like].array[Math.Min(characterTrait.friendship, Math.Max(0, characterTrait.characterExGiftReceiveSpeechArray[like].array.Length-1))]);
+        }
+        else{
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterGiftReceiveSpeechArray[like].array[Math.Min(characterTrait.friendship, Math.Max(0, characterTrait.characterGiftReceiveSpeechArray[like].array.Length-1))]);
+        }
+      }
+      else{
+        updateCharacterStatus(curItem);
+      }
+      playerInventory.Removeitem(curItem);
       if(playerInventory.currentItem == null){
         target.Find("InventoryHold").GetComponent<PlayerInventory>().removeSprite();
       }
-      increaseFriendship(like*2);
-      DialogueManager.SetActive(true);
-      DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterGiftReceiveSpeechArray[like].array[Math.Min(characterTrait.friendship, Math.Max(0, characterTrait.characterGiftReceiveSpeechArray[like].array.Length-1))]);
+    }
+    public void updateCharacterStatus(Item curItem){
+      if(curItem.date){
+        Debug.Log("date");
+        if(characterTrait.friendshipScore >= 600){
+          player.date(characterTrait.id);
+          characterTrait.date = true;
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterDatingSpeech);
+        }
+        else{
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterRejectionSpeech);
+        }
+      }
+      else if(curItem.marriage){
+        if(characterTrait.friendshipScore >= 1000 && player.datingCharId.Contains(characterTrait.id)){
+          characterTrait.married = true;
+          player.marry(characterTrait.id);
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterMarriageSpeech);
+          // make all other dating characters hate player
+        }
+        else{
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterRejectionSpeech);
+        }
+        //add marriage event
+      }
+      else if(curItem.divorce){
+        if(player.marriedCharId == characterTrait.id){
+          player.divorce();
+          characterTrait.married = false;
+          characterTrait.date = false;
+          characterTrait.friendshipScore = 0;
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterBreakUpSpeech);
+        }
+        else if(player.datingCharId.Contains(characterTrait.id)){
+          player.breakUp(characterTrait.id);
+          characterTrait.date = false;
+          characterTrait.friendshipScore = 0;
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterBreakUpSpeech);
+        }
+        else{
+          DialogueManager.SetActive(true);
+          DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterConfusionSpeech);
+        }
+      }
+      curCharacters.updateCharacter(characterTrait);
     }
     public void increaseFriendship(int points){
       characterTrait.friendshipScore += points;
       curCharacters.characterDict[characterTrait.id].friendshipScore = characterTrait.friendshipScore;
-      if(characterTrait.friendshipScore/100 != characterTrait.friendship){
-        characterTrait.friendship = characterTrait.friendshipScore/100;
-        // curCharacters.characterDict[characterTrait.id].friendship = characterTrait.friendship;
-        curCharacters.updateCharacter(characterTrait);
-      }
     }
     public int getLike(Item item){
       int like = 0;

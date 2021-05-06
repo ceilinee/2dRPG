@@ -14,6 +14,9 @@ public class Item : ScriptableObject
     public int antiAge;
     public string itemDescription;
     public float cost;
+    public bool date;
+    public bool marriage;
+    public bool divorce;
     public float sellCost;
     public Square[] spawnLocations;
     public int[] spawnProbability;

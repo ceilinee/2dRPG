@@ -19,6 +19,9 @@ MonoBehaviour:
   antiAge: 0
   itemDescription: It's a bush.. You wonder why on earth you need a bush..
   cost: 20
+  date: 0
+  marriage: 0
+  divorce: 1
   sellCost: 10
   spawnLocations:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}

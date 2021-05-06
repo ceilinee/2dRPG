@@ -35,19 +35,19 @@ public class Confirmation : MonoBehaviour
         }
     }
     public void confirm(){
+      CanvasController.GetComponent<CanvasController>().closeCanvas();
+      gameObject.SetActive(false);
       confirmFunction();
       if (finallyFunction != null) {
         finallyFunction();
       }
-      CanvasController.GetComponent<CanvasController>().closeCanvas();
-      gameObject.SetActive(false);
     }
     public void cancel(){
+      gameObject.SetActive(false);
+      CanvasController.GetComponent<CanvasController>().closeCanvasIfAllElseClosed();
       cancelFunction();
       if (finallyFunction != null) {
         finallyFunction();
       }
-      gameObject.SetActive(false);
-      CanvasController.GetComponent<CanvasController>().closeCanvasIfAllElseClosed();
     }
 }

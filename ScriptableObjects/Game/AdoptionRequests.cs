@@ -31,8 +31,6 @@ public class AdoptionRequests : ScriptableObject
   public void deleteRequest(AdoptionRequest request){
     List<AdoptionRequest> temp = new List<AdoptionRequest>();
     for(int i =0; i<requests.Length; i++){
-      Debug.Log(requests[i].id);
-      Debug.Log(request.id);
       if(requests[i].id != request.id){
         temp.Add(requests[i]);
       }
