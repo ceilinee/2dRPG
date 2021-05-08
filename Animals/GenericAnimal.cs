@@ -30,9 +30,8 @@ public class GenericAnimal : AnimalState {
     public AnimalMood.DictionaryOfStringAndSprite reactions;
     // public bool follow;
     public bool stop;
-    public Character.ItemArray[] giftArray;
+    public ItemArray[] giftArray;
     public Character.DictionaryOfItemAndInt giftDictionary;
-
 
     [SerializeField]
     public GearSocket[] gearSockets;

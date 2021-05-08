@@ -79,7 +79,7 @@ public class AdoptionController : MonoBehaviour
       request.charId = selectedChar.id;
       request.id = id;
       if(personality){
-        Animal.Personality selectedPersonality = personalities.getRandomPersonality();
+        Personality selectedPersonality = personalities.getRandomPersonality();
         AnimalBreed.Breed selectedBreed = genericAnimals.breedDictionary["All"];
         request.coloring = selectedBreed.coloring;
         request.personality = selectedPersonality;

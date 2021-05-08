@@ -9,7 +9,7 @@ public class AdoptionRequest {
   public string type;
   public Animal.StringAndAnimalColor coloring;
   public string breed;
-  public Animal.Personality personality;
+  public Personality personality;
   public bool completed = false;
   public string message;
   public int price;

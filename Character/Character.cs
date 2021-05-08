@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Character
-{
+public class ItemArray {
+    public Item[] array;
+}
+[System.Serializable]
+public class dialogueArray {
+    public Dialogue[] array;
+}
+
+[System.Serializable]
+public class Character {
     public string name;
     public float moveSpeed;
     public Vector2 location;
@@ -20,20 +28,14 @@ public class Character
     public string[] travelTimes;
     public CharacterPath[] path;
     public CharacterPath selectedPath;
-    public int friendship;
     public int friendshipScore;
     public int currentAnimalId = 0;
     public int presentsDaily;
     public bool married;
     public bool date;
     public bool talked;
-    [System.Serializable] public class DictionaryOfTimeAndLocation : SerializableDictionary<string, CharacterPath> {}
+    [System.Serializable] public class DictionaryOfTimeAndLocation : SerializableDictionary<string, CharacterPath> { }
     public DictionaryOfTimeAndLocation characterMovement = new DictionaryOfTimeAndLocation();
-    [System.Serializable]
-    public class dialogueArray
-    {
-        public Dialogue[] array;
-    }
     public dialogueArray[] characterSpeechArray;
     public dialogueArray[] characterGiftReceiveSpeechArray;
     public dialogueArray[] characterExSpeechArray;
@@ -44,12 +46,25 @@ public class Character
     public Dialogue characterDatingSpeech;
     public Dialogue characterConfusionSpeech;
     public Dialogue characterRejectionSpeech;
-    [System.Serializable]
-    public class ItemArray
-    {
-        public Item[] array;
-    }
+    public Dialogue[] characterEnoughGiftSpeech;
     public ItemArray[] giftArray;
-    [System.Serializable] public class DictionaryOfItemAndInt : SerializableDictionary<Item, int> {}
+    [System.Serializable] public class DictionaryOfItemAndInt : SerializableDictionary<Item, int> { }
     public DictionaryOfItemAndInt giftDictionary = new DictionaryOfItemAndInt();
+    //attributes for children
+    public bool child;
+    public int age;
+    public bool follow;
+    public int personality;
+
+    public void generateChildCharacter(int newPersonality,
+    dialogueArray[] newCharacterSpeechArray,
+    dialogueArray[] newCharacterGiftReceiveSpeechArray,
+    ItemArray[] newGiftArray,
+    int newId) {
+        personality = newPersonality;
+        characterSpeechArray = newCharacterSpeechArray;
+        characterGiftReceiveSpeechArray = newCharacterGiftReceiveSpeechArray;
+        giftArray = newGiftArray;
+        id = newId;
+    }
 }

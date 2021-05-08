@@ -126,7 +126,7 @@ public class BreedScript : MonoBehaviour {
         price *= animalBreed.breedArray[breedId].multiplier;
       }
       int randomNumber = Random.Range(0, 10000000);
-      Animal.Personality personality = generatePersonality(false);
+      Personality personality = generatePersonality(false);
       Vector2 location = new Vector2 (Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
       curAnimals.addAnimal(GenerateName(), femaleAnimal.type, randomNumber, location, -1, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] {}, 0.0f, breed, femaleAnimal.scene, false, 0, animalColors, personality, femaleAnimal.id, maleAnimal.id);
       return randomNumber;
@@ -191,7 +191,7 @@ public class BreedScript : MonoBehaviour {
       coloring.body = bodyColorArray[Random.Range(0, bodyColorArray.Length)];
       trans.Find("TailSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.tail].color;
       modelAnimal.GetComponent<Image>().color = animalColors.colorDictionary[coloring.body].color;
-      //Generate eye colour
+      //Generate eye colours
       var eyesColorArray = GenerateColorArray("eyes");
       coloring.eyes = eyesColorArray[Random.Range(0, eyesColorArray.Length)];
       trans.Find("EyesSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.eyes].color;
@@ -228,13 +228,13 @@ public class BreedScript : MonoBehaviour {
       var secondname = new string[] {"e", "ee", "ie", "y"};
       return firstname[Random.Range(0, firstname.Length)] + secondname[Random.Range(0, secondname.Length)];
     }
-    public Animal.Personality generatePersonality(bool shop){
+    public Personality generatePersonality(bool shop){
       if(shop){
         return personalityList.getRandomPersonality();
       }
       else{
         if(Random.Range(0, 4) < 3 && maleAnimal.personality != null && femaleAnimal.personality != null ){
-          Animal.Personality[] tempArray = new Animal.Personality[] {maleAnimal.personality, femaleAnimal.personality};
+          Personality[] tempArray = new Personality[] {maleAnimal.personality, femaleAnimal.personality};
           return tempArray[Random.Range(0, tempArray.Length)];
         }
         else{
@@ -297,7 +297,7 @@ public class BreedScript : MonoBehaviour {
         price *= animalBreed.breedArray[breedId].multiplier;
       }
       int randomNumber = Random.Range(0, 1000000);
-      Animal.Personality personality = generatePersonality(true);
+      Personality personality = generatePersonality(true);
       Vector2 location = new Vector2 (Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
       shopAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] {}, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
       // spawnAnimal.GetComponent<SpawnAnimal>().Spawn(curAnimals.animalDict[randomNumber]);
@@ -404,7 +404,7 @@ public class BreedScript : MonoBehaviour {
         price *= animalBreed.breedArray[breedId].multiplier;
       }
       int randomNumber = Random.Range(0, 1000000);
-      Animal.Personality personality = generatePersonality(true);
+      Personality personality = generatePersonality(true);
       Vector2 location = new Vector2 (Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
       shopBreedAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] {}, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
     }
