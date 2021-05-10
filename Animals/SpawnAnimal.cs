@@ -12,6 +12,7 @@ public class SpawnAnimal : MonoBehaviour {
     public DictionaryOfAnimals animalDictionary = new DictionaryOfAnimals();
     public GameObject animalModal;
     public Animals curAnimals;
+    public Animals wildAnimals;
     public Inventory playerInventory;
     public AnimalBreed animalBreeds;
     public AnimalColors animalColors;

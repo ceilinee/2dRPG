@@ -44,6 +44,7 @@ public class SpawnWildAnimal : MonoBehaviour {
         animal.location = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
         animal.wild = true;
         animal.age = Random.Range(1, 20);
+        animal.love = -20 - (animal.cost / 4);
         spawnAnimal.GetComponent<SpawnAnimal>().Spawn(animal);
     }
 }

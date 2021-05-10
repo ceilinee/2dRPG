@@ -42,7 +42,7 @@ public class GenericAnimal : AnimalState {
         animalTrait = trait;
     }
     void Update() {
-        if (!animalTrait.characterOwned) {
+        if (!animalTrait.characterOwned && !animalTrait.wild) {
             if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
                 updatePlayerInRange();
                 if (playerInRange) {
@@ -71,6 +71,28 @@ public class GenericAnimal : AnimalState {
                 animalModal.GetComponent<AnimalInformation>().CloseIfPlayerMenuNotOpen();
             }
         }
+        // if the animal is wild do this
+        if (animalTrait.wild) {
+            if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
+                updatePlayerInRange();
+                if (playerInRange) {
+                    unsetRest();
+                }
+            } else if (Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy) {
+                if (!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null) {
+                    if (animalTrait.presentsDaily <= 2) {
+                        if (animalTrait.presentsDaily == 0) {
+                            spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
+                        }
+                        giveGift();
+                    } else {
+                        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This wild " + animalTrait.type + " got enough presents today and is backing away!");
+                    }
+                } else {
+                    animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " is still wild! Maybe you can earn it's trust by offering some presents.. Your friendship score is currently: " + animalTrait.love);
+                }
+            }
+        }
     }
     public void giveGift() {
         float like = getLike(playerInventory.currentItem);
@@ -95,7 +117,15 @@ public class GenericAnimal : AnimalState {
     }
     public void increaseFriendship(float points) {
         animalTrait.love += points;
-        curAnimals.animalDict[animalTrait.id].love = animalTrait.love;
+        if (animalTrait.wild && animalTrait.love >= 0) {
+            setAnimalTamed();
+        }
+    }
+    public void setAnimalTamed() {
+        animalTrait.wild = false;
+        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " trusts you now! Why don't you get them to follow you and bring them home?");
+        curAnimals.addExistingAnimal(animalTrait);
+        spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
     }
     public void setContextClue(Sprite react) {
         if (!contextClue.activeInHierarchy) {

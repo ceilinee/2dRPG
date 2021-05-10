@@ -32,8 +32,8 @@ public class Animals : ScriptableObject {
         animalDict = new DictionaryOfAnimals();
         breedName = null;
     }
-    public void removeExistingAnimal(Animal newAnimal) {
-        animalDict.Remove(newAnimal.id);
+    public void removeExistingAnimal(int id) {
+        animalDict.Remove(id);
     }
     public void ageAnimals(int time) {
         foreach (KeyValuePair<int, Animal> kvp in animalDict) {
