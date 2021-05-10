@@ -14,10 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   name: style 1
-  bodyPartSprite: {fileID: -8680757028454254849, guid: 0dc5ec6128a154d6d8354c103b304f26,
+  bodyPartSprite: {fileID: -3318640803889795958, guid: 6222a9559ca534f55bef7a3f58d7fc9e,
     type: 3}
   bodyAnimation:
-    idleDown: {fileID: 0}
-    idleLeft: {fileID: 0}
-    idleRight: {fileID: 0}
-    idleUp: {fileID: 0}
+    attackDown: {fileID: 7400000, guid: 6dea1b1e1b50b4d0b938c1dc4f80ffa6, type: 2}
+    attackDownIdle: {fileID: 7400000, guid: 4a52ea8faf049426597d0d6651b5261d, type: 2}
+    attackLeft: {fileID: 7400000, guid: ee9bc397b91e945f6b58f3acd96aada4, type: 2}
+    attackLeftIdle: {fileID: 7400000, guid: fac58f72b2b52414b85d5120470546cb, type: 2}
+    attackRight: {fileID: 7400000, guid: 3977bdcdd15a64f64ba530db2fee2c06, type: 2}
+    attackRightIdle: {fileID: 7400000, guid: f5288009699854290bfba50a9617aff1, type: 2}
+    attackUp: {fileID: 7400000, guid: f724be14bf2c748d49de4b018d62dd41, type: 2}
+    attackUpIdle: {fileID: 7400000, guid: 51c44ead42f2f4490a23d31d79cebd8e, type: 2}
+    idleDown: {fileID: 7400000, guid: 1a1a4d1b119f9461ba6cb4b0a3e0b6f0, type: 2}
+    idleLeft: {fileID: 7400000, guid: 348c083a7c48c45fba3e80745fb2fcba, type: 2}
+    idleRight: {fileID: 7400000, guid: 0f3722538f9e649fd943a5172ca78f90, type: 2}
+    idleUp: {fileID: 7400000, guid: 434f1010184a24693a4faab461bb2921, type: 2}
+    walkDown: {fileID: 7400000, guid: 21cc05a6d18ac4b35a59a694a6ae6872, type: 2}
+    walkLeft: {fileID: 7400000, guid: ba0e4092139d14cc38357f8fcf1b4ff1, type: 2}
+    walkRight: {fileID: 7400000, guid: 6440060c6bc5d4b228f253e531fd88bb, type: 2}
+    walkUp: {fileID: 7400000, guid: d1e410f75b8ff4e339b7c995e2fbfef8, type: 2}
