@@ -60,11 +60,21 @@ public class Character {
     dialogueArray[] newCharacterSpeechArray,
     dialogueArray[] newCharacterGiftReceiveSpeechArray,
     ItemArray[] newGiftArray,
+    string[] newTravelTimes,
+    CharacterPath[] newPath,
     int newId) {
         personality = newPersonality;
         characterSpeechArray = newCharacterSpeechArray;
         characterGiftReceiveSpeechArray = newCharacterGiftReceiveSpeechArray;
         giftArray = newGiftArray;
         id = newId;
+        child = true;
+        age = 0;
+        scene = "MainScene";
+        travelTimes = newTravelTimes;
+        path = newPath;
+        for (int i = 0; i < travelTimes.Length; i++) {
+            characterMovement[travelTimes[i]] = path[i];
+        }
     }
 }

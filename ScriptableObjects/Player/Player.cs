@@ -5,6 +5,12 @@ using UnityEngine;
 [CreateAssetMenu]
 [System.Serializable]
 public class Player : ScriptableObject {
+    [System.Serializable]
+    public class Appearance {
+        public int hairId;
+        public int hairColorId;
+    }
+
     public string playerName;
     public bool female;
     public bool married;
@@ -24,6 +30,7 @@ public class Player : ScriptableObject {
     public List<int> dailyScenesVisited;
     public List<int> dailyCollected;
     public List<int> childrenCharId;
+    public Appearance appearance;
 
     public void divorce() {
         married = false;
@@ -52,5 +59,11 @@ public class Player : ScriptableObject {
         dailyCollected = new List<int>();
         dailyGiftedTo = new List<int>();
         dailyScenesVisited = new List<int>();
+    }
+
+    public void setAppearance(int hairId, int hairColorId) {
+        appearance = new Appearance();
+        appearance.hairId = hairId;
+        appearance.hairColorId = hairColorId;
     }
 }

@@ -31,6 +31,7 @@ public class Animal {
     public string moodId = "1";
     public bool follow;
     public bool characterOwned;
+    public bool wild;
     public int charId;
     public string gender;
     public string home;

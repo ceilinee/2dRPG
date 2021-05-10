@@ -186,7 +186,9 @@ public class GenericCharacter : MonoBehaviour {
         }
     }
     void Start() {
-        // updateCharacterMovement();
+        if (characterTrait.child) {
+            updateCharacterMovement();
+        }
         setControllers();
         characterTrait.image = GetComponent<SpriteRenderer>().sprite;
         myRigidbody = GetComponent<Rigidbody2D>();

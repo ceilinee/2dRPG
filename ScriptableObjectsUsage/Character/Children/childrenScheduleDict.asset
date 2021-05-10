@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2242b2cb26af4f7ea28bdb765569b27, type: 3}
-  m_Name: PlayerMoney
+  m_Script: {fileID: 11500000, guid: 9c3a30390d2bd446c9e6f604aa32ec5d, type: 3}
+  m_Name: childrenScheduleDict
   m_EditorClassIdentifier: 
-  initialValue: 8800
-  RunTimeValue: 1000
+  travelTimesDict:
+    keys: 
+    values: []
+  characterPathDict:
+    keys: 

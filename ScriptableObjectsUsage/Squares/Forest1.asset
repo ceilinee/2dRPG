@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3d9e69becf274157bdf16a3a3a33d6d, type: 3}
-  m_Name: Farm
+  m_Name: Forest1
   m_EditorClassIdentifier: 
-  start: {fileID: 11400000, guid: b57239ec6ea394efe980d088f3a8b1c0, type: 2}
-  end: {fileID: 11400000, guid: e1596af117a6a4784887eac6b90d1160, type: 2}
+  start: {fileID: 11400000, guid: c60d7b69c06e04bb8a0c9538afddd7f9, type: 2}
+  end: {fileID: 11400000, guid: b9d6c3923bf66442aa9694b70a9ac56a, type: 2}
   types:
   - Llama
   - Sheep
-  probability: 6400000064000000
+  - Rabbit
+  - Goose
+  - Pig
+  probability: 6400000064000000640000006400000064000000

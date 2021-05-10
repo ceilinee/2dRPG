@@ -19,7 +19,6 @@ public class SpawnAnimal : MonoBehaviour {
     // public GameObject BreedAnimal;
     public GameObject animalGameObject;
     public GameObject cameraGameObject;
-
     public static SpawnAnimal animalInstance;
 
     void Start() {

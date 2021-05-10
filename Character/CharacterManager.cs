@@ -9,6 +9,9 @@ public class CharacterManager : MonoBehaviour {
     [System.Serializable] public class DictionaryOfIntAndGameObject : SerializableDictionary<int, GameObject> { }
     public DictionaryOfIntAndGameObject prefabGameObjectDictionary = new DictionaryOfIntAndGameObject();
     public DictionaryOfIntAndGameObject characterGameObjectDictionary = new DictionaryOfIntAndGameObject();
+    public GameObject olderChild;
+    public GameObject youngerChild;
+    public GameObject baby;
     public Characters curCharacters;
     public GameObject animalList;
     public CurTime curTime;
@@ -23,6 +26,7 @@ public class CharacterManager : MonoBehaviour {
         //for all characters
         updateCharacters();
         UpdateManager();
+        UpdateChildren();
     }
     public void updateCharacters() {
         foreach (Transform child in characterHolder.transform) {
@@ -35,6 +39,53 @@ public class CharacterManager : MonoBehaviour {
             kvp.Value.GetComponent<GenericCharacter>().ClearDailies();
         }
     }
+    public GameObject instantiateChild(Character characterTrait) {
+        if (characterTrait.age < 3) {
+            //show baby
+            GameObject instance = GameObject.Instantiate(baby) as GameObject;
+            return instance;
+        } else if (characterTrait.age < 10) {
+            //show young kid
+            GameObject instance = GameObject.Instantiate(youngerChild) as GameObject;
+            return instance;
+        } else {
+            //show old kid
+            GameObject instance = GameObject.Instantiate(olderChild) as GameObject;
+            return instance;
+        }
+    }
+    public void UpdateChildren() {
+        //foreach child of player
+        foreach (int id in player.childrenCharId) {
+            Character characterTrait = curCharacters.characterDict[id];
+            //if child is currently in scene, instantiate 
+            if (characterTrait.selectedPath.scene == SceneManager.GetActiveScene().name) {
+                GameObject instance = instantiateChild(characterTrait);
+                instance.GetComponent<GenericCharacter>().characterTrait = characterTrait;
+                instance.transform.position = characterTrait.location;
+                addToMovementDictionaryObject(characterTrait);
+                instance.GetComponent<GenericCharacter>().spawnAnimal = spawnAnimal;
+                instance.GetComponent<GenericCharacter>().characterTrait = characterTrait;
+                instance.SetActive(true);
+                characterGameObjectDictionary[characterTrait.id] = instance;
+            }
+        }
+    }
+    public void ageChildren() {
+        //age all existing children
+        foreach (int id in player.childrenCharId) {
+            //make sure to get existing instances of character
+            if (characterGameObjectDictionary.ContainsKey(id)) {
+                if (characterGameObjectDictionary[id].GetComponent<GenericCharacter>().characterTrait.age < 16) {
+                    characterGameObjectDictionary[id].GetComponent<GenericCharacter>().characterTrait.age += 1;
+                }
+            }
+            //update curCharacters
+            else if (curCharacters.characterDict[id].age < 16) {
+                curCharacters.characterDict[id].age += 1;
+            }
+        }
+    }
     public void UpdateManager() {
         for (int i = 0; i < characters.Count; i++) {
             var script = characters[i].GetComponent<GenericCharacter>();
@@ -44,8 +95,8 @@ public class CharacterManager : MonoBehaviour {
             if (curCharacters.characterDict.ContainsKey(characterTrait.id)) {
                 updateCharacterTrait(characterTrait, curCharacters.characterDict[characterTrait.id]);
                 //update curChar with values from curCharacters
-                updateCharacterTraitPath(characterTrait, new Character(), false);
-                // updateCharacterTraitPath(characterTrait, curCharacters.characterDict[characterTrait.id], true);
+                // updateCharacterTraitPath(characterTrait, new Character(), false);
+                updateCharacterTraitPath(characterTrait, curCharacters.characterDict[characterTrait.id], true);
             } else {
                 curCharacters.characterDict[characterTrait.id] = characterTrait;
                 updateCharacterTraitPath(characterTrait, new Character(), false);

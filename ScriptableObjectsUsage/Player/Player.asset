@@ -15,3 +15,22 @@ MonoBehaviour:
   playerName: Stew
   female: 0
   married: 0
+  marriedCharId: 0
+  datingCharId: 
+  reputation: 2
+  dailyAdoption: 0
+  dailyTalk: 1
+  dailyWalk: 7
+  dailyGiftCharacter: 0
+  dailyGiftAnimal: 0
+  earnedMoney: 0
+  earnedreputation: 0
+  exCharId: 
+  dailyTalkedTo: 06000000
+  dailyGiftedTo: 
+  dailyScenesVisited: 0100000000000000
+  dailyCollected: 0300000008000000
+  childrenCharId: 64000000
+  appearance:
+    hairId: 0
+    hairColorId: 0
