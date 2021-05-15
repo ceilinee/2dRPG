@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 [System.Serializable]
 
-public class VectorPoints : ScriptableObject
-{
+public class VectorPoints : ScriptableObject {
     public Vector2 value;
 }

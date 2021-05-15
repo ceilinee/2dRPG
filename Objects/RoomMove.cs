@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RoomMove : MonoBehaviour
-{
+public class RoomMove : MonoBehaviour {
     public Vector2 cameraChangeMin;
     public Vector2 cameraChangeMax;
     public Vector3 playerChange;
@@ -15,32 +14,30 @@ public class RoomMove : MonoBehaviour
     public Text placeText;
 
     // Start is called before the first frame update
-    void Start()
-    {
-      cam = Camera.main.GetComponent<CameraMovement>();
+    void Start() {
+        cam = Camera.main.GetComponent<CameraMovement>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
     }
-    private void OnTriggerEnter2D(Collider2D other){
-      if(other.CompareTag("Player") && !other.isTrigger){
-        cam.minPosition.x += cameraChangeMin.x;
-        cam.minPosition.y += cameraChangeMin.y;
-        cam.maxPosition.x += cameraChangeMax.x;
-        cam.maxPosition.y += cameraChangeMax.y;
-        other.transform.position += playerChange;
-        if(needText){
-          StartCoroutine(placeNameCo());
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player") && !other.isTrigger) {
+            cam.minPosition.x += cameraChangeMin.x;
+            cam.minPosition.y += cameraChangeMin.y;
+            cam.maxPosition.x += cameraChangeMax.x;
+            cam.maxPosition.y += cameraChangeMax.y;
+            other.transform.position += playerChange;
+            if (needText) {
+                StartCoroutine(placeNameCo());
+            }
         }
-      }
     }
-    private IEnumerator placeNameCo(){
-      text.SetActive(true);
-      placeText.text = placeName;
-      yield return new WaitForSeconds(4f);
-      text.SetActive(false);
+    private IEnumerator placeNameCo() {
+        text.SetActive(true);
+        placeText.text = placeName;
+        yield return new WaitForSeconds(4f);
+        text.SetActive(false);
     }
 }

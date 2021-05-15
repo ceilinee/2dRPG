@@ -4,14 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CharacterManager : MonoBehaviour {
+    // Populated on Start to contain all the character game objects in characterHolder
     public List<GameObject> characters;
     public GameObject characterHolder;
     [System.Serializable] public class DictionaryOfIntAndGameObject : SerializableDictionary<int, GameObject> { }
+
+    // Populated on Start to map from character ids to game objects in Mainscene/Characters
     public DictionaryOfIntAndGameObject prefabGameObjectDictionary = new DictionaryOfIntAndGameObject();
     public DictionaryOfIntAndGameObject characterGameObjectDictionary = new DictionaryOfIntAndGameObject();
     public GameObject olderChild;
     public GameObject youngerChild;
     public GameObject baby;
+
+    // Stores saved character trait information
     public Characters curCharacters;
     public GameObject animalList;
     public CurTime curTime;
@@ -23,14 +28,116 @@ public class CharacterManager : MonoBehaviour {
     public DictionaryOfTimeAndLocationArray movementDictionary = new DictionaryOfTimeAndLocationArray();
 
     void Start() {
-        //for all characters
-        updateCharacters();
+        UpdateCharacters();
         UpdateManager();
         UpdateChildren();
     }
-    public void updateCharacters() {
+    public void UpdateCharacters() {
         foreach (Transform child in characterHolder.transform) {
             characters.Add(child.gameObject);
+        }
+    }
+    public void UpdateCharacterTraitBasic(Character characterTrait, Character savedCharacter) {
+        characterTrait.friendshipScore = savedCharacter.friendshipScore;
+        characterTrait.married = savedCharacter.married;
+        characterTrait.date = savedCharacter.date;
+    }
+
+    // Find the character path the character should take given the current time
+    public CharacterPath FindTime(Character characterTrait) {
+        List<string> travelTimes = new List<string>();
+        List<CharacterPath> path = new List<CharacterPath>();
+        string latestSpawn = null;
+        //find previous spawn
+        for (int i = 0; i < characterTrait.path.Length; i++) {
+            if (curTime.isCurrentTimeBigger(characterTrait.travelTimes[i]) && characterTrait.path[i].spawn) {
+                latestSpawn = characterTrait.path[i].scene;
+            }
+            if (characterTrait.path[i].scene == SceneManager.GetActiveScene().name) {
+                travelTimes.Add(characterTrait.travelTimes[i]);
+                path.Add(characterTrait.path[i]);
+            }
+        }
+        if (latestSpawn == SceneManager.GetActiveScene().name) {
+            for (int i = 0; i < travelTimes.Count; i++) {
+                if (i + 1 == travelTimes.Count) {
+                    return path[i];
+                } else if (curTime.isCurrentTimeBigger(travelTimes[i]) && curTime.isCurrentTimeSmaller(travelTimes[i + 1])) {
+                    return path[i];
+                }
+            }
+        }
+        return new CharacterPath();
+    }
+
+    // Update fields of characterTrait related to movement
+    public void UpdateCharacterTraitPath(Character characterTrait, Character savedCharacter, bool savedChar) {
+        CharacterPath prevPath = new CharacterPath();
+        if (savedChar) {
+            prevPath = savedCharacter.selectedPath;
+        }
+        // find curChar's current selected path
+        characterTrait.selectedPath = FindTime(characterTrait);
+        // reset current point if selected path is different
+        if (characterTrait.selectedPath != prevPath) {
+            characterTrait.currentPoint = 0;
+        } else if (savedChar) {
+            characterTrait.currentPoint = savedCharacter.currentPoint;
+        }
+        if (characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
+            // if character is at the last point then put them there, else put them at current point - 1
+            if (characterTrait.currentPoint == characterTrait.selectedPath.pathArray.Length - 1 && Vector3.Distance(characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value, curCharacters.characterDict[characterTrait.id].location) <= 1) {
+                characterTrait.location = characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value;
+            } else {
+                characterTrait.location = characterTrait.selectedPath.pathArray[System.Math.Min(System.Math.Max(characterTrait.currentPoint - 1, 0), characterTrait.selectedPath.pathArray.Length - 1)].value;
+            }
+        }
+        // update characterTrait
+        characterTrait.characterMovement = new Character.DictionaryOfTimeAndLocation();
+        for (int j = 0; j < characterTrait.travelTimes.Length; j++) {
+            characterTrait.characterMovement[characterTrait.travelTimes[j]] = characterTrait.path[j];
+        }
+    }
+    public void addToMovementDictionaryObject(Character characterTrait) {
+        foreach (KeyValuePair<string, CharacterPath> kvp in characterTrait.characterMovement) {
+            if (kvp.Value.scene == SceneManager.GetActiveScene().name) {
+                if (!movementDictionaryObject.ContainsKey(kvp.Key)) {
+                    movementDictionaryObject[kvp.Key] = new List<CharacterPath>();
+                }
+                kvp.Value.charId = characterTrait.id;
+                movementDictionaryObject[kvp.Key].Add(kvp.Value);
+            }
+        }
+    }
+    public void UpdateManager() {
+        foreach (GameObject character in characters) {
+            var script = character.GetComponent<GenericCharacter>();
+            Character characterTrait = script.characterTrait;
+            // Transfer saved information from scriptable object curCharacters to character
+            if (curCharacters.characterDict.ContainsKey(characterTrait.id)) {
+                UpdateCharacterTraitBasic(characterTrait, curCharacters.characterDict[characterTrait.id]);
+                UpdateCharacterTraitPath(characterTrait, curCharacters.characterDict[characterTrait.id], true);
+            } else {
+                curCharacters.characterDict[characterTrait.id] = characterTrait;
+                UpdateCharacterTraitPath(characterTrait, new Character(), false);
+            }
+            // update gameobject
+            curCharacters.characterDict[characterTrait.id] = characterTrait;
+
+            prefabGameObjectDictionary[characterTrait.id] = character;
+            addToMovementDictionaryObject(characterTrait);
+            if (characterTrait.selectedPath.scene == SceneManager.GetActiveScene().name) {
+                GameObject instance = GameObject.Instantiate(character) as GameObject;
+                // GameObject instance = characters[i];
+                instance.transform.position = characterTrait.location;
+                instance.GetComponent<GenericCharacter>().spawnAnimal = spawnAnimal;
+                instance.GetComponent<GenericCharacter>().characterTrait = characterTrait;
+                instance.SetActive(true);
+                characterGameObjectDictionary[characterTrait.id] = instance;
+            }
+        }
+        foreach (KeyValuePair<string, List<CharacterPath>> kvp in movementDictionaryObject) {
+            movementDictionary[kvp.Key] = kvp.Value.ToArray();
         }
     }
     public void ClearDailies() {
@@ -86,41 +193,7 @@ public class CharacterManager : MonoBehaviour {
             }
         }
     }
-    public void UpdateManager() {
-        for (int i = 0; i < characters.Count; i++) {
-            var script = characters[i].GetComponent<GenericCharacter>();
-            var characterTrait = script.characterTrait;
-            //Add to curCharacters
-            script.curCharacters = curCharacters;
-            if (curCharacters.characterDict.ContainsKey(characterTrait.id)) {
-                updateCharacterTrait(characterTrait, curCharacters.characterDict[characterTrait.id]);
-                //update curChar with values from curCharacters
-                // updateCharacterTraitPath(characterTrait, new Character(), false);
-                updateCharacterTraitPath(characterTrait, curCharacters.characterDict[characterTrait.id], true);
-            } else {
-                curCharacters.characterDict[characterTrait.id] = characterTrait;
-                updateCharacterTraitPath(characterTrait, new Character(), false);
-            }
-            //update gameobject
-            curCharacters.characterDict[characterTrait.id] = characterTrait;
 
-            //Add to movementDictionaryObject
-            prefabGameObjectDictionary[characterTrait.id] = characters[i];
-            addToMovementDictionaryObject(characterTrait);
-            if (characterTrait.selectedPath.scene == SceneManager.GetActiveScene().name) {
-                GameObject instance = GameObject.Instantiate(characters[i]) as GameObject;
-                // GameObject instance = characters[i];
-                instance.transform.position = characterTrait.location;
-                instance.GetComponent<GenericCharacter>().spawnAnimal = spawnAnimal;
-                instance.GetComponent<GenericCharacter>().characterTrait = characterTrait;
-                instance.SetActive(true);
-                characterGameObjectDictionary[characterTrait.id] = instance;
-            }
-        }
-        foreach (KeyValuePair<string, List<CharacterPath>> kvp in movementDictionaryObject) {
-            movementDictionary[kvp.Key] = kvp.Value.ToArray();
-        }
-    }
     public void updateCharAnimal() {
         animalList.GetComponent<AnimalList>().deleteCharAnimals();
         foreach (KeyValuePair<int, Character> kvp in curCharacters.characterDict) {
@@ -128,31 +201,6 @@ public class CharacterManager : MonoBehaviour {
             characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().characterTrait.currentAnimalId = 0;
             characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().getAnimal();
         }
-    }
-    public CharacterPath FindTime(Character characterTrait) {
-        List<string> _travelTimes = new List<string>();
-        List<CharacterPath> _path = new List<CharacterPath>();
-        string latestSpawn = null;
-        //find previous spawn
-        for (int i = 0; i < characterTrait.path.Length; i++) {
-            if (curTime.isCurrentTimeBigger(characterTrait.travelTimes[i]) && characterTrait.path[i].spawn) {
-                latestSpawn = characterTrait.path[i].scene;
-            }
-            if (characterTrait.path[i].scene == SceneManager.GetActiveScene().name) {
-                _travelTimes.Add(characterTrait.travelTimes[i]);
-                _path.Add(characterTrait.path[i]);
-            }
-        }
-        if (latestSpawn == SceneManager.GetActiveScene().name) {
-            for (int i = 0; i < _travelTimes.Count; i++) {
-                if (i + 1 == _travelTimes.Count) {
-                    return _path[i];
-                } else if (curTime.isCurrentTimeBigger(_travelTimes[i]) && curTime.isCurrentTimeSmaller(_travelTimes[i + 1])) {
-                    return _path[i];
-                }
-            }
-        }
-        return new CharacterPath();
     }
     public void updateCurCharacter() {
         foreach (KeyValuePair<int, GameObject> kvp in characterGameObjectDictionary) {
@@ -165,11 +213,32 @@ public class CharacterManager : MonoBehaviour {
     }
     public void initiateCharacter(int id) {
         GameObject instance = GameObject.Instantiate(prefabGameObjectDictionary[id]) as GameObject;
-        // GameObject instance = prefabGameObjectDictionary[id];
         instance.GetComponent<GenericCharacter>().spawnAnimal = spawnAnimal;
         instance.SetActive(true);
         characterGameObjectDictionary[id] = instance;
     }
+
+    public CharacterPath mergeCharPath(CharacterPath first, CharacterPath second) {
+        CharacterPath charPath = new CharacterPath();
+        List<VectorPoints> tempPath = new List<VectorPoints>();
+        for (int j = 0; j < first.pathArray.Length; j++) {
+            tempPath.Add(first.pathArray[j]);
+        }
+        for (int j = 0; j < second.pathArray.Length; j++) {
+            tempPath.Add(second.pathArray[j]);
+        }
+        charPath.pathArray = tempPath.ToArray();
+        charPath.charId = second.charId;
+        charPath.action = second.action;
+        charPath.scene = second.scene;
+        return charPath;
+    }
+
+    /// <summary>
+    /// `checkCharacter` checks if a character needs to move somewhere at time `time`; if so,
+    /// it initializes the location, selectedPath, and transform.position of the character.
+    /// It might also initialize a new character and set its currentPoint to 0.
+    /// </summary>
     public void checkCharacter(string time) {
         if (movementDictionary.ContainsKey(time)) {
             for (int i = 0; i < movementDictionary[time].Length; i++) {
@@ -205,66 +274,6 @@ public class CharacterManager : MonoBehaviour {
                     script.characterTrait.location = script.characterTrait.selectedPath.pathArray[System.Math.Min(System.Math.Max(script.characterTrait.currentPoint - 1, 0), script.characterTrait.selectedPath.pathArray.Length - 1)].value;
                     characterGameObjectDictionary[movementDictionary[time][i].charId].transform.position = script.characterTrait.location;
                 }
-            }
-        }
-    }
-    public CharacterPath mergeCharPath(CharacterPath first, CharacterPath second) {
-        CharacterPath charPath = new CharacterPath();
-        List<VectorPoints> tempPath = new List<VectorPoints>();
-        for (int j = 0; j < first.pathArray.Length; j++) {
-            tempPath.Add(first.pathArray[j]);
-        }
-        for (int j = 0; j < second.pathArray.Length; j++) {
-            tempPath.Add(second.pathArray[j]);
-        }
-        charPath.pathArray = tempPath.ToArray();
-        charPath.charId = second.charId;
-        charPath.action = second.action;
-        charPath.scene = second.scene;
-        return charPath;
-    }
-    public void updateCharacterTrait(Character characterTrait, Character savedCharacter) {
-        characterTrait.friendshipScore = savedCharacter.friendshipScore;
-        characterTrait.married = savedCharacter.married;
-        characterTrait.date = savedCharacter.date;
-    }
-    public void updateCharacterTraitPath(Character characterTrait, Character savedCharacter, bool savedChar) {
-        CharacterPath prevPath = new CharacterPath();
-        if (savedChar) {
-            prevPath = savedCharacter.selectedPath;
-        }
-        //find curChar's current selected path
-        characterTrait.selectedPath = FindTime(characterTrait);
-        //reset current point if selected path is different
-        if (characterTrait.selectedPath != prevPath) {
-            characterTrait.currentPoint = 0;
-        } else {
-            if (savedChar) {
-                characterTrait.currentPoint = savedCharacter.currentPoint;
-            }
-        }
-        if (characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
-            //if character is at the last point then put them there, else put them at current point - 1
-            if (characterTrait.currentPoint == characterTrait.selectedPath.pathArray.Length - 1 && Vector3.Distance(characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value, curCharacters.characterDict[characterTrait.id].location) <= 1) {
-                characterTrait.location = characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value;
-            } else {
-                characterTrait.location = characterTrait.selectedPath.pathArray[System.Math.Min(System.Math.Max(characterTrait.currentPoint - 1, 0), characterTrait.selectedPath.pathArray.Length - 1)].value;
-            }
-        }
-        //update characterTrait
-        characterTrait.characterMovement = new Character.DictionaryOfTimeAndLocation();
-        for (int j = 0; j < characterTrait.travelTimes.Length; j++) {
-            characterTrait.characterMovement[characterTrait.travelTimes[j]] = characterTrait.path[j];
-        }
-    }
-    public void addToMovementDictionaryObject(Character characterTrait) {
-        foreach (KeyValuePair<string, CharacterPath> kvp in characterTrait.characterMovement) {
-            if (kvp.Value.scene == SceneManager.GetActiveScene().name) {
-                if (!movementDictionaryObject.ContainsKey(kvp.Key)) {
-                    movementDictionaryObject[kvp.Key] = new List<CharacterPath>();
-                }
-                kvp.Value.charId = characterTrait.id;
-                movementDictionaryObject[kvp.Key].Add(kvp.Value);
             }
         }
     }

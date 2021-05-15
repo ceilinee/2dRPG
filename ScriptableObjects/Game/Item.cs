@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 [System.Serializable]
 
-public class Item : ScriptableObject
-{
+public class Item : ScriptableObject {
     public string itemName;
     public int id;
     public Sprite itemSprite;

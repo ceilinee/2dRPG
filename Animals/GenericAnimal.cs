@@ -154,15 +154,19 @@ public class GenericAnimal : AnimalState {
         animalModal.SetActive(true);
     }
     void Start() {
-        if (animalTrait.age < 5 && parent) {
-            followParent = true;
-            startAStar(parent);
-        }
-        myRigidbody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         if (!animalTrait.characterOwned) {
             target = GameObject.FindWithTag("Player").transform;
         }
+        if (animalTrait.age < 5 && parent) {
+            followParent = true;
+            startAStar(parent);
+        } else if (animalTrait.follow && !animalTrait.characterOwned) {
+            // The animal must be currently following the player
+            moveSpeed *= 3;
+            startAStar(target);
+        }
+        myRigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         if (animalName) {
             animalName.text = animalTrait.animalName;
         }
@@ -331,18 +335,22 @@ public class GenericAnimal : AnimalState {
     }
 
     public void setRest() {
+        // If the animal is following a person, it should not go to sleep
+        if (animalTrait.follow) {
+            return;
+        }
         currentState = AnimalStates.rest;
         anim = GetComponent<Animator>();
         anim.SetBool("Follow", false);
         SetGearSocketFollow(false);
-        if (animalTrait.follow || followParent) {
+        if (followParent) {
             disableAStar();
         }
     }
 
     public void unsetRest() {
         currentState = AnimalStates.walk;
-        if (animalTrait.follow || followParent) {
+        if (followParent) {
             enableAStar();
         }
     }

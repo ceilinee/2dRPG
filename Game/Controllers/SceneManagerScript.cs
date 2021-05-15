@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerScript : MonoBehaviour
-{
+public class SceneManagerScript : MonoBehaviour {
     public GameObject spawnAnimals;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
     }
     // void OnDisable () {

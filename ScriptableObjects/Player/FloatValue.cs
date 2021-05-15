@@ -5,13 +5,12 @@ using UnityEngine;
 [CreateAssetMenu]
 [System.Serializable]
 
-public class FloatValue : ScriptableObject
-{
+public class FloatValue : ScriptableObject {
     public float initialValue;
     public float RunTimeValue;
-    
-    public void Clear(){
-      initialValue = RunTimeValue;
+
+    public void Clear() {
+        initialValue = RunTimeValue;
     }
 
 }

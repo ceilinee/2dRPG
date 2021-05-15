@@ -9,6 +9,10 @@ public class Player : ScriptableObject {
     public class Appearance {
         public int hairId;
         public int hairColorId;
+        public int outfitId;
+        public int eyesId;
+        public int eyeColorId;
+        public int skinColorId;
     }
 
     public string playerName;
@@ -61,9 +65,19 @@ public class Player : ScriptableObject {
         dailyScenesVisited = new List<int>();
     }
 
-    public void setAppearance(int hairId, int hairColorId) {
+    public void setAppearance(
+        int hairId,
+        int hairColorId,
+        int outfitId,
+        int eyesId,
+        int eyeColorId,
+        int skinColorId) {
         appearance = new Appearance();
         appearance.hairId = hairId;
         appearance.hairColorId = hairColorId;
+        appearance.outfitId = outfitId;
+        appearance.eyesId = eyesId;
+        appearance.eyeColorId = eyeColorId;
+        appearance.skinColorId = skinColorId;
     }
 }

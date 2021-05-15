@@ -5,6 +5,7 @@ using UnityEngine;
 public class CanvasController : MonoBehaviour {
     public GameObject topBar;
     public GameObject playerMenu;
+    public GameObject dayController;
     public GameObject animalMenu;
     public GameObject dialogBox;
     public GameObject birthAlert;
@@ -67,6 +68,9 @@ public class CanvasController : MonoBehaviour {
         open = false;
     }
     public void closeCanvasIfAllElseClosed() {
+        if (dayController && dayController.activeInHierarchy) {
+            return;
+        }
         if (playerMenu && playerMenu.activeInHierarchy) {
             return;
         }
@@ -130,6 +134,9 @@ public class CanvasController : MonoBehaviour {
         }
         if (dialogBox) {
             dialogBox.SetActive(false);
+        }
+        if (dayController) {
+            dayController.SetActive(false);
         }
         if (itemShop) {
             itemShop.SetActive(false);

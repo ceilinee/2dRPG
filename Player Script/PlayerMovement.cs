@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour {
     public VectorValue startingPosition;
     public PlayerGearSocket[] gearSockets;
 
+    [Header("All the supported colors")]
+    public AnimalColors colors;
+
     // Start is called before the first frame update
     void Start() {
         currentState = PlayerState.walk;
@@ -34,6 +37,7 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
+        GetComponent<SpriteRenderer>().color = colors.colorDictionary[player.appearance.skinColorId].color;
     }
     public void setAnimator() {
         animator = GetComponent<Animator>();

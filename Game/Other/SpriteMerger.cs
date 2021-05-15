@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteMerger : MonoBehaviour {
-
     // public GameObject instance;// assumes you've dragged a reference into this
     // // public Animal.DictionaryOfStringAndColor newColoring;// a transform with a bunch of SpriteRenderers you want to merge
     // public Animals curAnimals;

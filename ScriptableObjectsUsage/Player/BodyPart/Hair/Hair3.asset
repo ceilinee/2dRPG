@@ -10,14 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a71b2d56f35324ed39aff326c3aba6f8, type: 3}
-  m_Name: Hair5
+  m_Name: Hair3
   m_EditorClassIdentifier: 
-  id: 4
-  name: style 5
-  bodyPartSprite: {fileID: 2593520475584375506, guid: 3bf94a6a13e9d4d89a3a54232005dd49,
+  id: 2
+  name: style 3
+  bodyPartSprite: {fileID: -7493662373440314518, guid: 1c8d01e9c6d57450f8ed35254bcb4938,
     type: 3}
   bodyAnimation:
+    attackDown: {fileID: 0}
+    attackDownIdle: {fileID: 0}
+    attackLeft: {fileID: 0}
+    attackLeftIdle: {fileID: 0}
+    attackRight: {fileID: 0}
+    attackRightIdle: {fileID: 0}
+    attackUp: {fileID: 0}
+    attackUpIdle: {fileID: 0}
     idleDown: {fileID: 0}
     idleLeft: {fileID: 0}
     idleRight: {fileID: 0}
     idleUp: {fileID: 0}
+    walkDown: {fileID: 0}
+    walkLeft: {fileID: 0}
+    walkRight: {fileID: 0}
+    walkUp: {fileID: 0}

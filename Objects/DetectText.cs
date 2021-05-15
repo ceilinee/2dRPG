@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectText : MonoBehaviour
-{
+public class DetectText : MonoBehaviour {
     // // Start is called before the first frame update
     // void Start()
     // {

@@ -256,11 +256,9 @@ public class GenericCharacter : MonoBehaviour {
         anim.SetBool("wakeUp", false);
     }
     public void CheckDistance() {
-        // Debug.Log(characterTrait.currentPoint);
-        // Debug.Log(characterTrait.selectedPath.pathArray);
         // if don't stop and path exists
         if (!stop && characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
-            //if theres still distance between goal and position
+            // if theres still distance between goal and position
             if (characterTrait.currentPoint < characterTrait.selectedPath.pathArray.Length
             && Vector3.Distance(transform.position, characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value) > 1) {
                 Vector3 temp = Vector3.MoveTowards(
@@ -268,16 +266,13 @@ public class GenericCharacter : MonoBehaviour {
                     characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value,
                     characterTrait.moveSpeed * Time.deltaTime
                 );
-                // Debug.Log(characterTrait.name + temp.ToString());
                 changeAnim(temp - transform.position);
                 myRigidbody.MovePosition(temp);
             } else {
                 ChangeGoal();
             }
             //if reached the end of selectedpath
-            // Debug.Log(Vector3.Distance(transform.position, characterTrait.selectedPath.pathArray[Mathf.Max(characterTrait.selectedPath.pathArray.Length-1, 0)].position));
             if (Vector3.Distance(transform.position, characterTrait.selectedPath.pathArray[Mathf.Max(characterTrait.selectedPath.pathArray.Length - 1, 0)].value) < 1) {
-                // Debug.Log(characterTrait.id);
                 SetWakeUpFalse();
             }
         }

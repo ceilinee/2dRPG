@@ -17,7 +17,19 @@ MonoBehaviour:
   bodyPartSprite: {fileID: -2604161903276222872, guid: ed2673c64fd0f43b487661eb9e87d7bd,
     type: 3}
   bodyAnimation:
+    attackDown: {fileID: 0}
+    attackDownIdle: {fileID: 0}
+    attackLeft: {fileID: 0}
+    attackLeftIdle: {fileID: 0}
+    attackRight: {fileID: 0}
+    attackRightIdle: {fileID: 0}
+    attackUp: {fileID: 0}
+    attackUpIdle: {fileID: 0}
     idleDown: {fileID: 0}
     idleLeft: {fileID: 0}
     idleRight: {fileID: 0}
     idleUp: {fileID: 0}
+    walkDown: {fileID: 0}
+    walkLeft: {fileID: 0}
+    walkRight: {fileID: 0}
+    walkUp: {fileID: 0}

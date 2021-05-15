@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Dialogue
-{
-  public string[] sentence;
-  public int[] portrait;
+public class Dialogue {
+    public string[] sentence;
+    public int[] portrait;
 }

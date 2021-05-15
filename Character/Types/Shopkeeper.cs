@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shopkeeper : GenericCharacter
-{
+public class Shopkeeper : GenericCharacter {
     public GameObject selection;
     private Button talk;
     private Button give;
@@ -17,90 +16,84 @@ public class Shopkeeper : GenericCharacter
     public string endTime;
     private bool subscribed;
     // Update is called once per frame
-    protected override void Update()
-    {
-      if(Input.GetKeyUp(KeyCode.Space) && playerInRange){
-        if(currentTime.isCurrentTimeBigger(startTime) && currentTime.isCurrentTimeSmaller(endTime)){
-          shopKeeper = true;
+    protected override void Update() {
+        if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
+            if (currentTime.isCurrentTimeBigger(startTime) && currentTime.isCurrentTimeSmaller(endTime)) {
+                shopKeeper = true;
+            } else {
+                shopKeeper = false;
+            }
+            if (playerInventory.currentItem != null) {
+                if (!CanvasController.activeInHierarchy) {
+                    CanvasController.SetActive(true);
+                }
+                if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
+                    if (characterTrait.presentsDaily <= 2) {
+                        if (characterTrait.presentsDaily == 0) {
+                            spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
+                        }
+                        giveGift();
+                    } else {
+                        CanvasController.GetComponent<CanvasController>().initiateNotification("You've given " + characterTrait.name + " enough presents today!");
+                    }
+                }
+            } else if (shopKeeper && !conversation && !DialogueManager.activeInHierarchy && shop) {
+                if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
+                    if (!subscribed) {
+                        subscribe();
+                    }
+                    selection.SetActive(true);
+                }
+            } else if (!shopKeeper && !conversation && !DialogueManager.activeInHierarchy) {
+                dialogue();
+            }
         }
-        else{
-          shopKeeper = false;
+        if (Input.GetButtonDown("Cancel") && selection.activeInHierarchy) {
+            closeSelection();
         }
-        if(playerInventory.currentItem != null){
-          if(!CanvasController.activeInHierarchy){
+    }
+    public void subscribe() {
+        talk = selection.transform.Find("Talk").gameObject.GetComponent<Button>();
+        selection.transform.Find("Talk").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Talk";
+        shopButton = selection.transform.Find("Shop").gameObject.GetComponent<Button>();
+        selection.transform.Find("Shop").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Shop";
+        talk.onClick.AddListener(dialogue);
+        shopButton.onClick.AddListener(openShop);
+        subscribed = true;
+    }
+    public void closeSelection() {
+        CanvasController.GetComponent<CanvasController>().closeAllCanvas();
+        talk.onClick.RemoveListener(dialogue);
+        shopButton.onClick.RemoveListener(openShop);
+        subscribed = false;
+    }
+    public void openShop() {
+        closeSelection();
+        if (!CanvasController.activeInHierarchy) {
             CanvasController.SetActive(true);
-          }
-          if(CanvasController.GetComponent<CanvasController>().openCanvas()){
-            if(characterTrait.presentsDaily <= 2){
-              if(characterTrait.presentsDaily == 0){
-                spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
-              }
-              giveGift();
+        }
+        if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
+            conversation = true;
+            if (characterTrait.portrait.Length > 0) {
+                shop.GetComponent<ShopInformation>().profileSprite = characterTrait.portrait[0];
             }
-            else{
-              CanvasController.GetComponent<CanvasController>().initiateNotification("You've given " + characterTrait.name + " enough presents today!");
+            shop.GetComponent<ShopInformation>().building = building;
+            if (building && buildings) {
+                shop.GetComponent<ShopInformation>().buildings = buildings;
+            } else if (items) {
+                shop.GetComponent<ShopInformation>().shopInventory = items;
             }
-          }
+            shop.GetComponent<ShopInformation>().thanks.text = thanksArray[0];
+            shop.GetComponent<ShopInformation>().thanksArray = thanksArray;
+            shop.GetComponent<ShopInformation>().character = gameObject;
+            shop.GetComponent<ShopInformation>().updateAbout();
+            shop.SetActive(true);
         }
-        else if(shopKeeper && !conversation && !DialogueManager.activeInHierarchy && shop){
-          if(CanvasController.GetComponent<CanvasController>().openCanvas()){
-            if(!subscribed){
-              subscribe();
-            }
-            selection.SetActive(true);
-          }
-        }
-        else if(!shopKeeper && !conversation && !DialogueManager.activeInHierarchy){
-          dialogue();
-        }
-      }
-      if(Input.GetButtonDown("Cancel") && selection.activeInHierarchy){
-        closeSelection();
-      }
     }
-    public void subscribe(){
-      talk = selection.transform.Find("Talk").gameObject.GetComponent<Button>();
-      selection.transform.Find("Talk").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Talk";
-      shopButton = selection.transform.Find("Shop").gameObject.GetComponent<Button>();
-      selection.transform.Find("Shop").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Shop";
-      talk.onClick.AddListener(dialogue);
-      shopButton.onClick.AddListener(openShop);
-      subscribed = true;
-    }
-    public void closeSelection(){
-      CanvasController.GetComponent<CanvasController>().closeAllCanvas();
-      talk.onClick.RemoveListener(dialogue);
-      shopButton.onClick.RemoveListener(openShop);
-      subscribed = false;
-    }
-    public void openShop(){
-      closeSelection();
-      if(!CanvasController.activeInHierarchy){
-        CanvasController.SetActive(true);
-      }
-      if(CanvasController.GetComponent<CanvasController>().openCanvas()){
-        conversation = true;
-        if(characterTrait.portrait.Length > 0){
-          shop.GetComponent<ShopInformation>().profileSprite = characterTrait.portrait[0];
+    public void dialogue() {
+        if (shopKeeper) {
+            closeSelection();
         }
-        shop.GetComponent<ShopInformation>().building = building;
-        if(building && buildings){
-          shop.GetComponent<ShopInformation>().buildings = buildings;
-        }
-        else if(items){
-          shop.GetComponent<ShopInformation>().shopInventory = items;
-        }
-        shop.GetComponent<ShopInformation>().thanks.text = thanksArray[0];
-        shop.GetComponent<ShopInformation>().thanksArray = thanksArray;
-        shop.GetComponent<ShopInformation>().character = gameObject;
-        shop.GetComponent<ShopInformation>().updateAbout();
-        shop.SetActive(true);
-      }
-    }
-    public void dialogue(){
-      if(shopKeeper){
-        closeSelection();
-      }
-      charDialogue();
+        charDialogue();
     }
 }

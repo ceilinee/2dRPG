@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class PlayerGearSocket : MonoBehaviour {
     public string bodyPart;
@@ -32,14 +33,22 @@ public class PlayerGearSocket : MonoBehaviour {
 
         var appearance = player.appearance;
 
+        BodyPart.BodyAnimation a = null;
         if (bodyPart == "hair") {
             spriteRenderer.color = colors.colorDictionary[appearance.hairColorId].color;
             BodyPart hairStyle = bodyPartManager.hairStyles[appearance.hairId];
-            BodyPart.BodyAnimation a = hairStyle.bodyAnimation;
+            a = hairStyle.bodyAnimation;
+        } else if (bodyPart == "outfit") {
+            BodyPart outfit = bodyPartManager.outfits[appearance.outfitId];
+            a = outfit.bodyAnimation;
+        } else if (bodyPart == "eyes") {
+            spriteRenderer.color = colors.colorDictionary[appearance.eyeColorId].color;
+            BodyPart eyes = bodyPartManager.eyes[appearance.eyesId];
+            a = eyes.bodyAnimation;
+        } else Assert.IsTrue(false);
 
-            foreach (string animationName in animationNames) {
-                animatorOverrideController[animationName] = (AnimationClip) a.GetType().GetField(animationName).GetValue(a);
-            }
+        foreach (string animationName in animationNames) {
+            animatorOverrideController[animationName] = (AnimationClip) a.GetType().GetField(animationName).GetValue(a);
         }
     }
 
