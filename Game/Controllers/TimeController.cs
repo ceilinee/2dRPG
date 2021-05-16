@@ -30,6 +30,8 @@ public class TimeController : MonoBehaviour {
     public AnimalBreed animalBreeds;
     public GameObject lamps;
     private string curName;
+    public GameObject DayUpdater;
+    public Image NightBackground;
     public GameObject characterManager;
     [System.Serializable] public class DictionaryOfIntAndString : SerializableDictionary<int, string> { }
     public DictionaryOfIntAndString seasonDict = new DictionaryOfIntAndString();
@@ -133,7 +135,6 @@ public class TimeController : MonoBehaviour {
         time = 0;
         days += 1;
         currentTime.UpdateDays(days);
-        player.clearDailies();
         characterManager.GetComponent<CharacterManager>().updateCharAnimal();
         UpdateAnimals();
         ShopController.GetComponent<Shop>().updateShop();
@@ -152,7 +153,66 @@ public class TimeController : MonoBehaviour {
         curAnimals.animalDict[id].animalName = name;
         confirmVar = true;
     }
+    public void fastForward() {
+        PauseGame();
+        //Get current color
+        Color spriteColor = Color.white;
+        NightBackground.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0f);
+        NextDay();
+        time = (secondsInDay / 24) * 4.5f;
+        int hh = (int) Hours;
+        int mm = (int) Minutes;
+        var newText = hh.ToString("00") + ":" + mm.ToString("00").Substring(0, 1) + "0";
+        UpdateTime(newText);
+        ResumeGame();
+        StartCoroutine(fadeOut(NightBackground, 2.0f));
+    }
+    // fade in the night background
+    IEnumerator fadeIn(Image blackOut, float duration) {
+        PauseGame();
+        float counter = 0;
+        //Get current color
+        Color spriteColor = Color.white;
+        blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0f);
+        while (counter < duration) {
+            counter += Time.deltaTime;
+            //Fade from 1 to 0
+            float alpha = Mathf.Lerp(0, 1, counter / duration);
+            blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            yield return null;
+        }
+        NextDay();
+        time = (secondsInDay / 24) * 6;
+        int hh = (int) Hours;
+        int mm = (int) Minutes;
+        var newText = hh.ToString("00") + ":" + mm.ToString("00").Substring(0, 1) + "0";
+        UpdateTime(newText);
+        ResumeGame();
+        StartCoroutine(fadeOut(NightBackground, 2.0f));
+    }
+    // fade out the night background
+    IEnumerator fadeOut(Image blackOut, float duration) {
+        float counter = 0;
+        //Get current color
+        Color spriteColor = Color.white;
+        blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 1f);
+        while (counter < duration) {
+            counter += Time.deltaTime;
+            //Fade from 1 to 0
+            float alpha = Mathf.Lerp(1, 0, counter / duration);
+
+            blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
+            yield return null;
+        }
+        ResumeGame();
+    }
     IEnumerator waitConfirm() {
+        if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
+            DayUpdater.SetActive(true);
+            DayUpdater.GetComponent<DayUpdater>().updateModal(player);
+            while (DayUpdater.activeInHierarchy) yield return null;
+        }
+        player.clearDailies();
         curAnimals.ageAnimals(1);
         curAnimals.ClearDailies();
         curAnimals.dailyAnimalUpdate();
@@ -177,7 +237,7 @@ public class TimeController : MonoBehaviour {
                     curAnimals.animalDict[id].location = kvp.Value.location;
                     curAnimals.animalDict[id].scene = kvp.Value.scene;
                     CanvasController.GetComponent<CanvasController>().openCanvas();
-                    birthModal.GetComponent<Alert>().initiateBirthAlert("Last night, " + kvp.Value.animalName + " gave birth! What should the baby be called?", ((string name, int newId) => confirm(name, id)), curAnimals.animalDict[id], id);
+                    birthModal.GetComponent<Alert>().initiateBirthAlert(kvp.Value.animalName + " gave birth! What should the baby be called?", ((string name, int newId) => confirm(name, id)), curAnimals.animalDict[id], id);
                     while (!confirmVar) yield return null;
                     if (animalBreeds.breedDictionary.ContainsKey(curAnimals.animalDict[id].breed) && !animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked) {
                         animalBreeds.breedDictionary[curAnimals.animalDict[id].breed].unlocked = true;

@@ -198,8 +198,10 @@ public class CharacterManager : MonoBehaviour {
         animalList.GetComponent<AnimalList>().deleteCharAnimals();
         foreach (KeyValuePair<int, Character> kvp in curCharacters.characterDict) {
             kvp.Value.currentAnimalId = 0;
-            characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().characterTrait.currentAnimalId = 0;
-            characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().getAnimal();
+            if (characterGameObjectDictionary.ContainsKey(kvp.Key)) {
+                characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().characterTrait.currentAnimalId = 0;
+                characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().getAnimal();
+            }
         }
     }
     public void updateCurCharacter() {

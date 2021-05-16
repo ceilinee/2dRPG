@@ -107,13 +107,7 @@ public class GenericAnimal : AnimalState {
         setContextClue(reactions[System.Math.Floor(like).ToString()]);
         animalTrait.mood = giftMoods[(int) System.Math.Floor(like)];
         animalTrait.moodId = System.Math.Floor(like).ToString();
-        updateCurAnimals();
         setContextClue(reactions[System.Math.Floor(like).ToString()]);
-        // DialogueManager.SetActive(true);
-        // DialogueManager.GetComponent<DialogueManager>().startDialog(gameObject, characterTrait.characterGiftReceiveSpeechArray[like].array[UnityEngine.Random.Range(0, characterTrait.characterGiftReceiveSpeechArray[like].array.Length)]);
-    }
-    public void updateCurAnimals() {
-        curAnimals.animalDict[animalTrait.id] = animalTrait;
     }
     public void increaseFriendship(float points) {
         animalTrait.love += points;
@@ -122,6 +116,7 @@ public class GenericAnimal : AnimalState {
         }
     }
     public void setAnimalTamed() {
+        Debug.Log("tamed");
         animalTrait.wild = false;
         animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " trusts you now! Why don't you get them to follow you and bring them home?");
         curAnimals.addExistingAnimal(animalTrait);
