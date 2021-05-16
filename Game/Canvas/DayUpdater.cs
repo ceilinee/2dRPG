@@ -18,6 +18,7 @@ public class DayUpdater : MonoBehaviour {
     public Text questRep;
     public Text moneyAnswer;
     public Text totalRep;
+    public Player player;
     public GameObject CanvasController;
     // Start is called before the first frame update
     void Update() {
@@ -52,6 +53,7 @@ public class DayUpdater : MonoBehaviour {
         questAnswer.text = player.dailyQuest.ToString();
         questRep.text = "+" + (player.dailyQuest * 2).ToString() + " rep";
         rep += (player.dailyQuest * 2);
+        player.reputation += rep;
         moneyAnswer.text = player.earnedMoney.ToString();
         totalRep.text = rep.ToString() + " rep earned!";
     }

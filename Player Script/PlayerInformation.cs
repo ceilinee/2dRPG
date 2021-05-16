@@ -25,8 +25,7 @@ public class PlayerInformation : MonoBehaviour {
     void Update() {
         if (Input.GetButtonDown("Cancel")) {
             if (animalModal.activeInHierarchy) {
-                animalModal.SetActive(false);
-                animalModal.GetComponent<AnimalInformation>().Clear();
+                animalModal.GetComponent<AnimalInformation>().CloseIfPlayerMenuNotOpen();
             } else {
                 Time.timeScale = 1;
                 gameObject.SetActive(false);

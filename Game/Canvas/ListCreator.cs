@@ -146,6 +146,8 @@ public class ListCreator : MonoBehaviour {
                 if (isBreed) {
                     AnimalBreed.Breed breed = selectedBreeds[i + j];
                     itemDetails.itemName.text = breed.breedName;
+                    itemDetails.selectedBreed = selectedBreeds[i + j];
+                    itemDetails.playerInformation = playerInformation;
                     if (breed.unlocked) {
                         itemDetails.price.text = "Unlocked";
                         itemDetails.question.SetActive(false);

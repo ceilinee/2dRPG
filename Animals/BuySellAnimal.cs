@@ -26,6 +26,7 @@ public class BuySellAnimal : MonoBehaviour {
     public void redeemQuest(Quest quest) {
         playerMoney.initialValue += quest.reward;
         player.reputation += quest.reputationPoints;
+        player.earnedMoney += quest.reward;
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
     public bool buyAnimal(Animal newAnimal, Animals newShop) {
@@ -43,12 +44,14 @@ public class BuySellAnimal : MonoBehaviour {
     public void sellAnimal(Animal newAnimal) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost;
+        player.earnedMoney += newAnimal.cost;
         animalList.GetComponent<AnimalList>().removeAnimal(newAnimal);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
     public void adoptOutAnimal(Animal newAnimal, Character character) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost * character.multiplier;
+        player.earnedMoney += newAnimal.cost * character.multiplier;
         animalList.GetComponent<AnimalList>().removeAnimal(newAnimal);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
         newAnimal.characterOwned = true;
@@ -85,6 +88,7 @@ public class BuySellAnimal : MonoBehaviour {
     }
     public void sellItem(Item item) {
         playerMoney.initialValue += item.sellCost;
+        player.earnedMoney += item.sellCost;
         playerInventory.Removeitem(item);
         if (playerInventory.currentItem == null) {
             target.Find("InventoryHold").GetComponent<PlayerInventory>().removeSprite();

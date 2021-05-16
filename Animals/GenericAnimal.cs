@@ -67,9 +67,6 @@ public class GenericAnimal : AnimalState {
                     }
                 }
             }
-            if (Input.GetButtonDown("Cancel") && animalModal.activeInHierarchy) {
-                animalModal.GetComponent<AnimalInformation>().CloseIfPlayerMenuNotOpen();
-            }
         }
         // if the animal is wild do this
         if (animalTrait.wild) {
@@ -157,7 +154,7 @@ public class GenericAnimal : AnimalState {
             startAStar(parent);
         } else if (animalTrait.follow && !animalTrait.characterOwned) {
             // The animal must be currently following the player
-            moveSpeed *= 3;
+            // moveSpeed *= 3;
             startAStar(target);
         }
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -195,7 +192,7 @@ public class GenericAnimal : AnimalState {
 
     public void setAnimalFollow() {
         animalTrait.follow = true;
-        moveSpeed *= 3;
+        // moveSpeed *= 3;
         if (!animalTrait.walked) {
             spawnAnimal.GetComponent<SpawnAnimal>().playerWalkAnimal();
             animalTrait.walked = true;
@@ -232,7 +229,7 @@ public class GenericAnimal : AnimalState {
 
     public void setAnimalUnfollow() {
         animalTrait.follow = false;
-        moveSpeed /= 3;
+        // moveSpeed /= 3;
 
         AIPath aipath = GetComponent<AIPath>();
         aipath.enabled = false;

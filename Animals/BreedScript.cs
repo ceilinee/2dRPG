@@ -154,8 +154,7 @@ public class BreedScript : MonoBehaviour {
         curAnimals.animalDict[femaleAnimal.id].babyId = newBabyId;
         curAnimals.animalDict[femaleAnimal.id].pregnant = true;
         curAnimals.animalDict[femaleAnimal.id].deliveryDate = timeController.GetComponent<TimeController>().days + Random.Range(1, 2 * (babyCount + 1));
-        animalModal.SetActive(false);
-        animalModal.GetComponent<AnimalInformation>().Clear();
+        animalModal.GetComponent<AnimalInformation>().CloseIfPlayerMenuNotOpen();
         timeController.GetComponent<TimeController>().ResumeGame();
     }
 

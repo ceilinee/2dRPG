@@ -56,10 +56,13 @@ public class CanvasController : MonoBehaviour {
         }
         open = true;
     }
-    public void initiateNotification(string text) {
+    public void initiateNotification(string text, bool _onlyCloseSelf = false) {
         if (openCanvas()) {
-            notification.GetComponent<Notification>().initiateNotification(text);
-        };
+            notification.GetComponent<Notification>().initiateNotification(text, _onlyCloseSelf);
+        } else {
+            openCanvasAgain();
+            notification.GetComponent<Notification>().initiateNotification(text, _onlyCloseSelf);
+        }
     }
     public void closeCanvas() {
         if (background) {

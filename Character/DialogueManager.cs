@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour {
     public GameObject dialogueBox;
     public Text dialogueText;
+    public Text dialogueName;
     public Image portraitImage;
     public GameObject CanvasController;
     public bool progress;
@@ -31,6 +32,7 @@ public class DialogueManager : MonoBehaviour {
         Time.timeScale = 1;
     }
     IEnumerator waitRead() {
+        dialogueName.text = character.GetComponent<GenericCharacter>().characterTrait.name;
         for (int i = 0; i < curDialogue.sentence.Length; i++) {
             progress = false;
             updateDialogueBox(curDialogue.sentence[i]);

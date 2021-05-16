@@ -14,7 +14,7 @@ public class Bed : Interactable {
 
     // If user interacts, speed up time and open DayUpdater
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && playerInRange && !sleptRecently) {
+        if (Input.GetKeyDown(KeyCode.Space) && playerInRange && !sleptRecently && !CanvasController.GetComponent<CanvasController>().open) {
             sleptRecently = true;
             TimeController.GetComponent<TimeController>().fastForward();
             sleptRecently = false;

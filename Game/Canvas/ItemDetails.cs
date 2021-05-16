@@ -9,6 +9,7 @@ public class ItemDetails : MonoBehaviour {
     public Text quantity;
     public GameObject question;
     public Text price;
+    public AnimalBreed.Breed selectedBreed;
     public Image itemImage;
     public GameObject LlamaImage;
     public Item item;
@@ -22,6 +23,13 @@ public class ItemDetails : MonoBehaviour {
     public SceneInfo building;
     public GameObject buySellAnimal;
 
+    public void BreedInfo() {
+        if (selectedBreed.unlocked) {
+            playerInformation.GetComponent<PlayerInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(selectedBreed.breedDescription, true);
+        } else {
+            playerInformation.GetComponent<PlayerInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("Sorry, you haven't unlocked this breed yet!", true);
+        }
+    }
     public void BuyBuilding() {
         bool buy = buySellAnimal.GetComponent<BuySellAnimal>().buyBuilding(building, buildings);
         if (buy) {

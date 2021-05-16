@@ -28,7 +28,6 @@ public class Player : ScriptableObject {
     public int dailyGiftAnimal = 0;
     public int dailyQuest = 0;
     public float earnedMoney;
-    public float earnedreputation;
     public List<int> exCharId;
     public List<int> dailyTalkedTo;
     public List<int> dailyGiftedTo;

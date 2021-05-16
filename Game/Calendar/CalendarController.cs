@@ -42,7 +42,7 @@ public class CalendarController : Interactable {
     public void closeSelection() {
         CanvasController.GetComponent<CanvasController>().closeAllCanvas();
         calendar.onClick.RemoveListener(openCalendar);
-        quest.onClick.RemoveListener(closeSelection);
+        quest.onClick.RemoveListener(openQuest);
         subscribed = false;
     }
     public void openQuest() {

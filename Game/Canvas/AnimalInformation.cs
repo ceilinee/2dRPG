@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AnimalInformation : MonoBehaviour {
@@ -41,7 +42,10 @@ public class AnimalInformation : MonoBehaviour {
     public Animals curAnimals;
     public GameObject buySellObject;
     public GameObject breedAnimal;
+    public GameObject SpawnAnimal;
+    public CurTime curTime;
 
+    public Transform player;
     // Start is called before the first frame update
     void Start() {
 
@@ -53,15 +57,16 @@ public class AnimalInformation : MonoBehaviour {
     }
     public void sellAnimal() {
         buySellObject.GetComponent<BuySellAnimal>().sellAnimal(animalTraitInformation);
-        gameObject.SetActive(false);
-        CanvasController.GetComponent<CanvasController>().closeCanvas();
-        Clear();
+        CloseIfPlayerMenuNotOpen();
         animal.SetActive(false);
         animal.GetComponent<GenericAnimal>().contextOff.Raise();
-        // GameObject myEventSystem = GameObject.Find("EventSystem");
-        // myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         if (playerInformation.activeInHierarchy) {
             playerInformation.GetComponent<PlayerInformation>().updateAbout();
+        }
+    }
+    void Update() {
+        if (Input.GetButtonDown("Cancel") && gameObject.activeInHierarchy) {
+            CloseIfPlayerMenuNotOpen();
         }
     }
     public string getFriendship(Animal animalTrait) {
@@ -145,7 +150,7 @@ public class AnimalInformation : MonoBehaviour {
         }
         if (animalTrait.pregnant) {
             offspringButton.GetComponent<Button>().interactable = false;
-            pregnant.text = "Yes! The little one(s) are coming on day " + animalTrait.deliveryDate.ToString();
+            pregnant.text = "Yes! The little one(s) are coming on " + curTime.getSeasonInWordsVar(curTime.getSeasonVar(animalTrait.deliveryDate)) + " " + curTime.getDateVar(animalTrait.deliveryDate).ToString();
         } else if (!animalTrait.pregnant && animalTrait.gender == "Female") {
             if (animalTrait.age >= 5 && animalTrait.age < 60) {
                 pregnant.text = "Not yet!";
@@ -179,12 +184,19 @@ public class AnimalInformation : MonoBehaviour {
         if (animalTraitInformation.follow) {
             animal.GetComponent<GenericAnimal>().setAnimalUnfollow();
         } else {
+            // if the animal is currently not in the scene, move it to the scene 
+            if (animalTraitInformation.scene != SceneManager.GetActiveScene().name) {
+                animalTraitInformation.scene = SceneManager.GetActiveScene().name;
+                animalTraitInformation.location = player.position;
+                SpawnAnimal.GetComponent<SpawnAnimal>().Spawn(animalTraitInformation);
+                animal = SpawnAnimal.GetComponent<SpawnAnimal>().animalGameObject.GetComponent<AnimalList>().findAnimal(animalTraitInformation.id).gameObject;
+            }
+            animal.SetActive(true);
             animal.GetComponent<GenericAnimal>().setAnimalFollow();
         }
-        animalTraitInformation = animal.GetComponent<GenericAnimal>().animalTrait;
         curAnimals.updateAnimal(animalTraitInformation);
         SetFollowText();
-        Close();
+        CloseIfPlayerMenuNotOpen();
     }
     public void SetFollowText() {
         if (animalTraitInformation.follow) {
@@ -196,6 +208,9 @@ public class AnimalInformation : MonoBehaviour {
     public void CloseIfPlayerMenuNotOpen() {
         if (!playerInformation.activeInHierarchy) {
             Close();
+        } else {
+            gameObject.SetActive(false);
+            Clear();
         }
     }
     public void Close() {

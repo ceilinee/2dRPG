@@ -12,6 +12,7 @@ public class AnimalBreed : ScriptableObject {
         public Animal.StringAndAnimalColor exampleColoring = new Animal.StringAndAnimalColor();
         public int multiplier;
         public string breedName;
+        public string breedDescription;
         public Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
     }
     public Breed[] breedArray;

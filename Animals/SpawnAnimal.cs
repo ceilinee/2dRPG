@@ -126,7 +126,7 @@ public class SpawnAnimal : MonoBehaviour {
         }
         instance.GetComponent<GenericAnimal>().reactions = animalMood.reactions;
 
-        instance.GetComponent<GenericAnimal>().moveSpeed = 1;
+        instance.GetComponent<GenericAnimal>().moveSpeed = 2;
         instance.GetComponent<GenericAnimal>().spawnAnimal = gameObject;
         // instance.GetComponent<GenericAnimal>().animalTrait.spawnAnimal = gameObject;
         instance.GetComponent<GenericAnimal>().playerInventory = playerInventory;
@@ -136,31 +136,28 @@ public class SpawnAnimal : MonoBehaviour {
         Transform trans = instance.transform;
         if (a.age <= 1) {
             Vector3 scaleChange = new Vector3(0.45f, 0.45f, 0);
-            instance.GetComponent<GenericAnimal>().moveSpeed *= 2;
             trans.localScale = scaleChange;
         }
         if (a.age == 2) {
             Vector3 scaleChange = new Vector3(0.5f, 0.5f, 0);
-            instance.GetComponent<GenericAnimal>().moveSpeed *= 2;
             trans.localScale = scaleChange;
         }
         if (a.age == 3) {
             Vector3 scaleChange = new Vector3(0.6f, 0.6f, 0);
-            instance.GetComponent<GenericAnimal>().moveSpeed *= 2;
             trans.localScale = scaleChange;
         }
         if (a.age == 4) {
             Vector3 scaleChange = new Vector3(0.7f, 0.7f, 0);
-            instance.GetComponent<GenericAnimal>().moveSpeed *= 2;
             trans.localScale = scaleChange;
         }
         if (a.age <= 4 && !a.characterOwned) {
+            instance.GetComponent<GenericAnimal>().moveSpeed *= 2;
             instance.GetComponent<GenericAnimal>().parent = findParent(a.momId);
             if (!instance.GetComponent<GenericAnimal>().parent) {
                 instance.GetComponent<GenericAnimal>().parent = findParent(a.dadId);
             }
         }
-        if (a.age > 30) {
+        if (a.age > 60) {
             instance.GetComponent<GenericAnimal>().moveSpeed /= 3;
         }
         // Debug.Log(a.coloring["body"]);

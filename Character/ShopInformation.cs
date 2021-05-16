@@ -57,16 +57,27 @@ public class ShopInformation : MonoBehaviour {
         updateList();
     }
     public void showThanks() {
-        thanks.text = thanksArray[1];
-        // "Wow, thanks for the business!";
+        if (thanksArray.Length >= 2) {
+            thanks.text = thanksArray[1];
+        } else {
+            thanks.text = "Wow, thanks for the business!";
+        }
     }
     public void showThanksAnimal() {
-        thanks.text = thanksArray[2];
-        // thanks.text = "I'm so glad this baby found a great home with you! I'll prepare their stuff and bring them over tonight. Please take care of them!";
+        if (thanksArray.Length >= 3) {
+
+            thanks.text = thanksArray[2];
+        } else {
+            thanks.text = "I'm so glad this baby found a great home with you! I'll prepare their stuff and bring them over tonight. Please take care of them!";
+        }
     }
     public void noMoney() {
-        thanks.text = thanksArray[3];
-        // thanks.text = "Sorry, " + player.playerName +  " but it looks like you don't have enough on you right now..";
+        if (thanksArray.Length >= 4) {
+
+            thanks.text = thanksArray[3];
+        } else {
+            thanks.text = "Sorry, " + player.playerName + " but it looks like you don't have enough on you right now..";
+        }
     }
     public void updateList() {
         Clear();

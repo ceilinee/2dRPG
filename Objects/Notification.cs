@@ -9,12 +9,16 @@ public class Notification : MonoBehaviour {
     public Text question;
     public GameObject CanvasController;
 
-    public void initiateNotification(string newQuestion) {
+    public bool onlyCloseSelf;
+    public void initiateNotification(string newQuestion, bool _onlyCloseSelf = false) {
         question.text = newQuestion;
+        onlyCloseSelf = _onlyCloseSelf;
         gameObject.SetActive(true);
     }
     public void submit() {
-        CanvasController.GetComponent<CanvasController>().closeCanvas();
+        if (!onlyCloseSelf) {
+            CanvasController.GetComponent<CanvasController>().closeCanvas();
+        }
         gameObject.SetActive(false);
     }
 }

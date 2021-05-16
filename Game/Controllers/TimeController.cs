@@ -167,29 +167,6 @@ public class TimeController : MonoBehaviour {
         ResumeGame();
         StartCoroutine(fadeOut(NightBackground, 2.0f));
     }
-    // fade in the night background
-    IEnumerator fadeIn(Image blackOut, float duration) {
-        PauseGame();
-        float counter = 0;
-        //Get current color
-        Color spriteColor = Color.white;
-        blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0f);
-        while (counter < duration) {
-            counter += Time.deltaTime;
-            //Fade from 1 to 0
-            float alpha = Mathf.Lerp(0, 1, counter / duration);
-            blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
-            yield return null;
-        }
-        NextDay();
-        time = (secondsInDay / 24) * 6;
-        int hh = (int) Hours;
-        int mm = (int) Minutes;
-        var newText = hh.ToString("00") + ":" + mm.ToString("00").Substring(0, 1) + "0";
-        UpdateTime(newText);
-        ResumeGame();
-        StartCoroutine(fadeOut(NightBackground, 2.0f));
-    }
     // fade out the night background
     IEnumerator fadeOut(Image blackOut, float duration) {
         float counter = 0;
@@ -213,9 +190,9 @@ public class TimeController : MonoBehaviour {
             while (DayUpdater.activeInHierarchy) yield return null;
         }
         player.clearDailies();
+        curAnimals.dailyAnimalUpdate();
         curAnimals.ageAnimals(1);
         curAnimals.ClearDailies();
-        curAnimals.dailyAnimalUpdate();
         List<int> remove = new List<int>();
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
             if (kvp.Value.health <= 5) {
