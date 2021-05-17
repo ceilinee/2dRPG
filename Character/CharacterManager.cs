@@ -24,7 +24,10 @@ public class CharacterManager : MonoBehaviour {
     public GameObject spawnAnimal;
     [System.Serializable] public class DictionaryOfTimeAndLocationList : SerializableDictionary<string, List<CharacterPath>> { }
     public DictionaryOfTimeAndLocationList movementDictionaryObject = new DictionaryOfTimeAndLocationList();
+
     [System.Serializable] public class DictionaryOfTimeAndLocationArray : SerializableDictionary<string, CharacterPath[]> { }
+
+    // Populated on Start and maps from character id to character paths
     public DictionaryOfTimeAndLocationArray movementDictionary = new DictionaryOfTimeAndLocationArray();
 
     void Start() {
@@ -43,12 +46,13 @@ public class CharacterManager : MonoBehaviour {
         characterTrait.date = savedCharacter.date;
     }
 
-    // Find the character path the character should take given the current time
+    // Find the character path (if there is one) the character should take given the current time
+    // The path should be in the current scene and happen at time t, where t is the largest s.t. t < curTime
     public CharacterPath FindTime(Character characterTrait) {
         List<string> travelTimes = new List<string>();
         List<CharacterPath> path = new List<CharacterPath>();
         string latestSpawn = null;
-        //find previous spawn
+        // Find previous spawn
         for (int i = 0; i < characterTrait.path.Length; i++) {
             if (curTime.isCurrentTimeBigger(characterTrait.travelTimes[i]) && characterTrait.path[i].spawn) {
                 latestSpawn = characterTrait.path[i].scene;
@@ -67,6 +71,7 @@ public class CharacterManager : MonoBehaviour {
                 }
             }
         }
+        // The character should not be present in the current scene
         return new CharacterPath();
     }
 
@@ -76,20 +81,11 @@ public class CharacterManager : MonoBehaviour {
         if (savedChar) {
             prevPath = savedCharacter.selectedPath;
         }
-        // find curChar's current selected path
+        // Find curChar's current selected path
         characterTrait.selectedPath = FindTime(characterTrait);
-        // reset current point if selected path is different
-        if (characterTrait.selectedPath != prevPath) {
-            characterTrait.currentPoint = 0;
-        } else if (savedChar) {
-            characterTrait.currentPoint = savedCharacter.currentPoint;
-        }
         if (characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
-            // if character is at the last point then put them there, else put them at current point - 1
-            if (characterTrait.currentPoint == characterTrait.selectedPath.pathArray.Length - 1 && Vector3.Distance(characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value, curCharacters.characterDict[characterTrait.id].location) <= 1) {
-                characterTrait.location = characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value;
-            } else {
-                characterTrait.location = characterTrait.selectedPath.pathArray[System.Math.Min(System.Math.Max(characterTrait.currentPoint - 1, 0), characterTrait.selectedPath.pathArray.Length - 1)].value;
+            if (savedChar) {
+                characterTrait.location = savedCharacter.location;
             }
         }
         // update characterTrait
@@ -117,9 +113,10 @@ public class CharacterManager : MonoBehaviour {
             if (curCharacters.characterDict.ContainsKey(characterTrait.id)) {
                 UpdateCharacterTraitBasic(characterTrait, curCharacters.characterDict[characterTrait.id]);
                 UpdateCharacterTraitPath(characterTrait, curCharacters.characterDict[characterTrait.id], true);
-            } else {
+            } else { // When game first starts
                 curCharacters.characterDict[characterTrait.id] = characterTrait;
                 UpdateCharacterTraitPath(characterTrait, new Character(), false);
+                // Invariant: characterTrait.selectedPath is the empty path
             }
             // update gameobject
             curCharacters.characterDict[characterTrait.id] = characterTrait;
@@ -133,6 +130,7 @@ public class CharacterManager : MonoBehaviour {
                 instance.GetComponent<GenericCharacter>().spawnAnimal = spawnAnimal;
                 instance.GetComponent<GenericCharacter>().characterTrait = characterTrait;
                 instance.SetActive(true);
+                instance.GetComponent<GenericCharacter>().SetWakeUpTrue();
                 characterGameObjectDictionary[characterTrait.id] = instance;
             }
         }
@@ -198,12 +196,12 @@ public class CharacterManager : MonoBehaviour {
         animalList.GetComponent<AnimalList>().deleteCharAnimals();
         foreach (KeyValuePair<int, Character> kvp in curCharacters.characterDict) {
             kvp.Value.currentAnimalId = 0;
-            if (characterGameObjectDictionary.ContainsKey(kvp.Key)) {
-                characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().characterTrait.currentAnimalId = 0;
-                characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().getAnimal();
-            }
+            characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().characterTrait.currentAnimalId = 0;
+            characterGameObjectDictionary[kvp.Key].GetComponent<GenericCharacter>().getAnimal();
         }
     }
+
+    // Transfer savable data from character game object to curCharacters scriptable object
     public void updateCurCharacter() {
         foreach (KeyValuePair<int, GameObject> kvp in characterGameObjectDictionary) {
             var characterTrait = kvp.Value.GetComponent<GenericCharacter>().characterTrait;
@@ -233,6 +231,8 @@ public class CharacterManager : MonoBehaviour {
         charPath.charId = second.charId;
         charPath.action = second.action;
         charPath.scene = second.scene;
+        charPath.src = second.src;
+        charPath.dest = second.dest;
         return charPath;
     }
 
@@ -255,8 +255,6 @@ public class CharacterManager : MonoBehaviour {
                 var script = characterGameObjectDictionary[movementDictionary[time][i].charId].GetComponent<GenericCharacter>();
                 // if charactermovement contains time
                 if (script.characterTrait.characterMovement.ContainsKey(time)) {
-                    // wake up
-                    script.SetWakeUpTrue();
                     // if char not at last point of selected path
                     if (script.characterTrait.selectedPath.pathArray.Length > 0 &&
                     Vector3.Distance(characterGameObjectDictionary[movementDictionary[time][i].charId].transform.position, script.characterTrait.selectedPath.pathArray[script.characterTrait.selectedPath.pathArray.Length - 1].value) > 1 &&
@@ -264,10 +262,19 @@ public class CharacterManager : MonoBehaviour {
                         CharacterPath charPath = mergeCharPath(script.characterTrait.selectedPath, movementDictionary[time][i]);
                         script.characterTrait.selectedPath = charPath;
                     } else {
-                        script.characterTrait.currentPoint = 0;
                         script.characterTrait.selectedPath = movementDictionary[time][i];
                     }
+                    // wake up
+                    script.SetWakeUpTrue();
                 }
+                // TODO: set script.characterTrait.location and characterGameObjectDictionary[X] appropriately
+                if (script.characterTrait.selectedPath.spawn) {
+                    script.characterTrait.location = script.characterTrait.selectedPath.src.value;
+                    characterGameObjectDictionary[movementDictionary[time][i].charId].transform.position = script.characterTrait.location;
+                } else {
+                    Debug.Log("hello");
+                }
+                /*
                 if (script.characterTrait.currentPoint == script.characterTrait.selectedPath.pathArray.Length - 1 &&
                 Vector3.Distance(script.characterTrait.selectedPath.pathArray[script.characterTrait.currentPoint].value, curCharacters.characterDict[script.characterTrait.id].location) <= 1) {
                     script.characterTrait.location = script.characterTrait.selectedPath.pathArray[script.characterTrait.currentPoint].value;
@@ -276,6 +283,7 @@ public class CharacterManager : MonoBehaviour {
                     script.characterTrait.location = script.characterTrait.selectedPath.pathArray[System.Math.Min(System.Math.Max(script.characterTrait.currentPoint - 1, 0), script.characterTrait.selectedPath.pathArray.Length - 1)].value;
                     characterGameObjectDictionary[movementDictionary[time][i].charId].transform.position = script.characterTrait.location;
                 }
+                */
             }
         }
     }

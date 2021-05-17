@@ -35,7 +35,6 @@ public class SceneTransition : MonoBehaviour {
             curCharacters.characterDict[other.gameObject.GetComponent<GenericCharacter>().characterTrait.id].scene = sceneinfo.sceneName;
             curCharacters.characterDict[other.gameObject.GetComponent<GenericCharacter>().characterTrait.id].location = sceneinfo.entrance;
             curCharacters.characterDict[other.gameObject.GetComponent<GenericCharacter>().characterTrait.id].selectedPath = new CharacterPath();
-            curCharacters.characterDict[other.gameObject.GetComponent<GenericCharacter>().characterTrait.id].currentPoint = 0;
             List<GameObject> list = animalList.GetComponent<AnimalList>().list;
             for (int i = 0; i < list.Count; i++) {
                 // Debug.Log(list[i].GetComponent<GenericAnimal>().animalTrait.charId);

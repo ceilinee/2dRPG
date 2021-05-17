@@ -28,7 +28,6 @@ public class Sign : Interactable {
                 dialogBox.SetActive(true);
                 dialogText.text = dialog;
                 // playerInventory.Additem(curItem);
-                characterManager.GetComponent<CharacterManager>().updateCurCharacter();
                 // playerInventory.currentItem = curItem;
                 playerPosition.updateInitialValue(transform.position - new Vector3(0, 2, 0));
                 // breedAnimal.GetComponent<BreedScript>().RandomAnimal();

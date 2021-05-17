@@ -19,7 +19,6 @@ public class Character {
     public string scene;
     public int id;
     public bool adoptAnimal;
-    public int currentPoint;
     public Sprite image;
     public Sprite[] portrait;
     public string[] preferredAnimals;
@@ -34,8 +33,11 @@ public class Character {
     public bool married;
     public bool date;
     public bool talked;
+
+    // Populated at runtime; maps from travelTimes to path
     [System.Serializable] public class DictionaryOfTimeAndLocation : SerializableDictionary<string, CharacterPath> { }
     public DictionaryOfTimeAndLocation characterMovement = new DictionaryOfTimeAndLocation();
+
     public dialogueArray[] characterSpeechArray;
     public dialogueArray[] characterGiftReceiveSpeechArray;
     public dialogueArray[] characterExSpeechArray;

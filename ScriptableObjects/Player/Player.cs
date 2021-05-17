@@ -14,7 +14,6 @@ public class Player : ScriptableObject {
         public int eyeColorId;
         public int skinColorId;
     }
-
     public string playerName;
     public bool female;
     public bool married;

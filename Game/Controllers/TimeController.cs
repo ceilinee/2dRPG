@@ -159,7 +159,7 @@ public class TimeController : MonoBehaviour {
         Color spriteColor = Color.white;
         NightBackground.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0f);
         NextDay();
-        time = (secondsInDay / 24) * 4.5f;
+        time = (secondsInDay / 24) * 8f;
         int hh = (int) Hours;
         int mm = (int) Minutes;
         var newText = hh.ToString("00") + ":" + mm.ToString("00").Substring(0, 1) + "0";

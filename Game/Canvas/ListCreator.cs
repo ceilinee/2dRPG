@@ -196,9 +196,7 @@ public class ListCreator : MonoBehaviour {
                     itemDetails.animalInformation = animalInformation;
                     //set image
                     spawnAnimal.GetComponent<SpawnAnimal>().setAnimalImage(itemDetails.LlamaImage, selectedAnimals[i + j]);
-                    if (selectedAnimals[i + j].animalColors == null) {
-                        selectedAnimals[i + j].animalColors = animalColors;
-                    }
+                    selectedAnimals[i + j].animalColors = animalColors;
                     selectedAnimals[i + j].colorAnimal(itemDetails.LlamaImage);
                     if (playerInformation.activeInHierarchy) {
                         itemDetails.playerInformation = playerInformation;

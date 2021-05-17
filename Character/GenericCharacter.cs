@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using Pathfinding;
 
 public enum CharacterStates {
     idle,
@@ -37,6 +38,12 @@ public class GenericCharacter : MonoBehaviour {
     [SerializeField]
     public GearSocket[] gearSockets;
     public SpriteRenderer sprite;
+
+    private AIPath aipath;
+
+    void Awake() {
+        aipath = GetComponent<AIPath>();
+    }
 
     // Start is called before the first frame update
     public void createCharacter(Character trait) {
@@ -250,40 +257,22 @@ public class GenericCharacter : MonoBehaviour {
         }
         stop = false;
         anim.SetBool("wakeUp", true);
+        aipath.enabled = true;
+        aipath.destination = characterTrait.selectedPath.dest.value;
     }
     public void SetWakeUpFalse() {
         stop = true;
         anim.SetBool("wakeUp", false);
+        aipath.enabled = false;
     }
     public void CheckDistance() {
         // if don't stop and path exists
         if (!stop && characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
-            // if theres still distance between goal and position
-            if (characterTrait.currentPoint < characterTrait.selectedPath.pathArray.Length
-            && Vector3.Distance(transform.position, characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value) > 1) {
-                Vector3 temp = Vector3.MoveTowards(
-                    transform.position,
-                    characterTrait.selectedPath.pathArray[characterTrait.currentPoint].value,
-                    characterTrait.moveSpeed * Time.deltaTime
-                );
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-            } else {
-                ChangeGoal();
-            }
-            //if reached the end of selectedpath
-            if (Vector3.Distance(transform.position, characterTrait.selectedPath.pathArray[Mathf.Max(characterTrait.selectedPath.pathArray.Length - 1, 0)].value) < 1) {
+            changeAnim(aipath.desiredVelocity);
+            if (Vector3.Distance(transform.position, characterTrait.selectedPath.dest.value) < 1) {
                 SetWakeUpFalse();
             }
         }
-        if (!stop && (characterTrait.selectedPath.pathArray.Length == 0 || characterTrait.currentPoint >= characterTrait.selectedPath.pathArray.Length)) {
-            SetWakeUpFalse();
-        }
-        // if(!stop && characterTrait.selectedPath.pathArray.Length > 0){
-        //   if(Vector3.Distance(transform.position, characterTrait.selectedPath.pathArray[Mathf.Max(characterTrait.selectedPath.pathArray.Length-1, 0)].position) < 1){
-        //     SetWakeUpFalse();
-        //   }
-        // }
         if (Vector3.Distance(target.position, transform.position) <= clickRange) {
             playerInRange = true;
             speechBubble.SetActive(true);
@@ -292,13 +281,6 @@ public class GenericCharacter : MonoBehaviour {
             playerInRange = false;
             speechBubble.SetActive(false);
             SetWakeUpTrue();
-        }
-    }
-    private void ChangeGoal() {
-        if (characterTrait.currentPoint >= characterTrait.selectedPath.pathArray.Length - 1) {
-            // characterTrait.currentPoint = 0;
-        } else {
-            characterTrait.currentPoint++;
         }
     }
     public void SetAnimFloat(Vector2 setVector) {
