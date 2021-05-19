@@ -22,3 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee5208813d5744c89a89863e04c123db, type: 2}
   eyes:
   - {fileID: 11400000, guid: 1b6e3bd9cad504fb59fbb7fd9072dc88, type: 2}
+  bodySprite: {fileID: -1880120661550918566, guid: 549dca70b73f544048781e2281d3fc36,
+    type: 3}
+  bodyHoldingSprite: {fileID: 6653161357245683487, guid: 84cfbe6f25e1f4470a9062a8fa95f310,
+    type: 3}

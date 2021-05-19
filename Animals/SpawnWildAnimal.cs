@@ -35,7 +35,7 @@ public class SpawnWildAnimal : MonoBehaviour {
     public void generateAnimal(Square square, string type) {
         int random = Random.Range(0, 100);
         int id = 0;
-        if (random <= 70 || type == "Goose") {
+        if (random <= 75 || type == "Goose") {
             id = breedScript.GetComponent<BreedScript>().RandomShopAnimal(paramAnimals: wildAnimals, type);
         } else {
             id = breedScript.GetComponent<BreedScript>().RandomBreedAnimal(animalBreed.getRandomBreed(), paramAnimals: wildAnimals, type);

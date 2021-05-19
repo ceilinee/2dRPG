@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
+/// <summary>
+/// This script controls the game object PlayerMenu
+/// </summary>
 public class PlayerInformation : MonoBehaviour {
     public Text playerName;
     public Text money;
@@ -21,6 +25,8 @@ public class PlayerInformation : MonoBehaviour {
     public GameObject animalListView;
     public GameObject animalModal;
     public GameObject spawnAnimal;
+    public GameObject currentlyHeldObject;
+    public PlayerDesignComplex playerDesign;
 
     void Update() {
         if (Input.GetButtonDown("Cancel")) {
@@ -36,6 +42,17 @@ public class PlayerInformation : MonoBehaviour {
             Time.timeScale = 0;
         }
     }
+
+    // Entrypoint of the script; does some setup and then makes the game object active
+    public void Open() {
+        Assert.IsFalse(gameObject.activeInHierarchy);
+        gameObject.SetActive(true);
+        updateAbout();
+        if (playerInventory.currentItem != null) {
+            playerDesign.SetHold(playerInventory.currentItem);
+        }
+    }
+
     public void openAnimal(Animal animalTrait) {
         GameObject curGameObject = getAnimal(animalTrait);
         // Debug.Log(curGameObject.GetComponent<GenericAnimal>().animalTrait.animalName);
@@ -62,16 +79,26 @@ public class PlayerInformation : MonoBehaviour {
         inventoryListView.GetComponent<ListCreator>().Clear();
         breedListView.GetComponent<ListCreator>().Clear();
     }
-    public void selectItem(Item item) {
+    public void selectItem(Item item, GameObject itemObject) {
         if (playerInventory.currentItem == item) {
             playerInventory.currentItem = null;
             playerInventory.currentItemId = 0;
             inventoryHold.GetComponent<PlayerInventory>().removeSprite();
+            playerDesign.UnsetHold();
+            currentlyHeldObject = null;
+            itemObject.GetComponent<ItemDetails>().SetUnselected();
         } else {
             playerInventory.currentItem = item;
+            if (currentlyHeldObject != null) {
+                currentlyHeldObject.GetComponent<ItemDetails>().SetUnselected();
+            }
+            currentlyHeldObject = itemObject;
+            itemObject.GetComponent<ItemDetails>().SetSelected();
             playerInventory.currentItemId = item.id;
             inventoryHold.GetComponent<PlayerInventory>().updateSprite();
+            playerDesign.SetHold(item);
         }
+        updateList();
     }
     public void updateAbout() {
         playerName.text = player.playerName;

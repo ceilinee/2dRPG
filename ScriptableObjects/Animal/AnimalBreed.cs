@@ -31,7 +31,11 @@ public class AnimalBreed : ScriptableObject {
             breedDictionary[breedArray[i].breedName] = breedArray[i];
         }
     }
-
+    public void Clear() {
+        for (int j = 0; j < breedArray.Length; j++) {
+            breedArray[j].unlocked = false;
+        }
+    }
     public int isBreed(Animal.StringAndAnimalColor coloring) {
         int selected = -1;
         for (int j = 0; j < breedArray.Length; j++) {

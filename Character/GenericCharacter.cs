@@ -267,7 +267,7 @@ public class GenericCharacter : MonoBehaviour {
     }
     public void CheckDistance() {
         // if don't stop and path exists
-        if (!stop && characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
+        if (!stop && characterTrait.selectedPath.scene != null) {
             changeAnim(aipath.desiredVelocity);
             if (Vector3.Distance(transform.position, characterTrait.selectedPath.dest.value) < 1) {
                 SetWakeUpFalse();

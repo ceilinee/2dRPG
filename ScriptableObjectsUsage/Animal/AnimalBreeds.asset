@@ -48,7 +48,7 @@ MonoBehaviour:
       ears: 0
       back: 0
       star: 0
-    multiplier: 6
+    multiplier: 4
     breedName: Dutch
     breedDescription: dutchie
     coloring:
@@ -217,7 +217,7 @@ MonoBehaviour:
       ears: 0
       back: 0
       star: 0
-    multiplier: 3
+    multiplier: 4
     breedName: Winter
     breedDescription: 
     coloring:
@@ -361,7 +361,7 @@ MonoBehaviour:
       ears: 0
       back: 0
       star: 0
-    multiplier: 3
+    multiplier: 4
     breedName: Peaches and Cream
     breedDescription: 
     coloring:
@@ -385,7 +385,7 @@ MonoBehaviour:
       ears: 0
       back: 0
       star: 0
-    multiplier: 3
+    multiplier: 4
     breedName: Cherries and Cream
     breedDescription: 
     coloring:
@@ -409,7 +409,7 @@ MonoBehaviour:
       ears: 0
       back: 0
       star: 0
-    multiplier: 3
+    multiplier: 4
     breedName: Tea and Cream
     breedDescription: 
     coloring:
@@ -734,6 +734,246 @@ MonoBehaviour:
       ears: 8
       back: 27
       star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 4
+    breedName: Sunkissed
+    breedDescription: 
+    coloring:
+      body: 11
+      tail: 12
+      eyes: 31
+      dots: 27
+      face: 31
+      legs: 12
+      ears: 12
+      back: 12
+      star: 12
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 5
+    breedName: Bubble Tea
+    breedDescription: 
+    coloring:
+      body: 8
+      tail: 13
+      eyes: 31
+      dots: 13
+      face: 31
+      legs: 14
+      ears: 31
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 4
+    breedName: Orange Juice
+    breedDescription: 
+    coloring:
+      body: 12
+      tail: 11
+      eyes: 31
+      dots: 11
+      face: 11
+      legs: 27
+      ears: 11
+      back: 11
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 5
+    breedName: Strawberry
+    breedDescription: 
+    coloring:
+      body: 5
+      tail: 5
+      eyes: 28
+      dots: 0
+      face: 8
+      legs: 28
+      ears: 31
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 5
+    breedName: Marble
+    breedDescription: 
+    coloring:
+      body: 0
+      tail: 29
+      eyes: 31
+      dots: 29
+      face: 31
+      legs: 27
+      ears: 29
+      back: 27
+      star: 29
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 5
+    breedName: Mint Tea
+    breedDescription: 
+    coloring:
+      body: 16
+      tail: 18
+      eyes: 31
+      dots: 27
+      face: 31
+      legs: 18
+      ears: 18
+      back: 27
+      star: 18
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 2
+    breedName: Semiformal
+    breedDescription: 
+    coloring:
+      body: 31
+      tail: 32
+      eyes: 31
+      dots: 27
+      face: 31
+      legs: 32
+      ears: 32
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 3
+    breedName: Tuxedo
+    breedDescription: 
+    coloring:
+      body: 31
+      tail: 32
+      eyes: 31
+      dots: 27
+      face: 31
+      legs: 32
+      ears: 32
+      back: 32
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 1
+    breedName: Uniform
+    breedDescription: 
+    coloring:
+      body: 32
+      tail: 32
+      eyes: 31
+      dots: 27
+      face: 31
+      legs: 27
+      ears: 32
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
+    multiplier: 5
+    breedName: Valentine
+    breedDescription: 
+    coloring:
+      body: 1
+      tail: 5
+      eyes: 31
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 5
+      back: 5
+      star: 27
   breedDictionary:
     keys:
     - CottonTail
@@ -766,6 +1006,16 @@ MonoBehaviour:
     - Rose Petals
     - Snow
     - Princess
+    - Sunkissed
+    - Bubble Tea
+    - Orange Juice
+    - Strawberry
+    - Marble
+    - Mint Tea
+    - Semiformal
+    - Tuxedo
+    - Uniform
+    - Valentine
     values:
     - unlocked: 0
       exampleColoring:
@@ -802,7 +1052,7 @@ MonoBehaviour:
         ears: 0
         back: 0
         star: 0
-      multiplier: 6
+      multiplier: 4
       breedName: Dutch
       breedDescription: dutchie
       coloring:
@@ -971,7 +1221,7 @@ MonoBehaviour:
         ears: 0
         back: 0
         star: 0
-      multiplier: 3
+      multiplier: 4
       breedName: Winter
       breedDescription: 
       coloring:
@@ -1115,7 +1365,7 @@ MonoBehaviour:
         ears: 0
         back: 0
         star: 0
-      multiplier: 3
+      multiplier: 4
       breedName: Peaches and Cream
       breedDescription: 
       coloring:
@@ -1139,7 +1389,7 @@ MonoBehaviour:
         ears: 0
         back: 0
         star: 0
-      multiplier: 3
+      multiplier: 4
       breedName: Cherries and Cream
       breedDescription: 
       coloring:
@@ -1163,7 +1413,7 @@ MonoBehaviour:
         ears: 0
         back: 0
         star: 0
-      multiplier: 3
+      multiplier: 4
       breedName: Tea and Cream
       breedDescription: 
       coloring:
@@ -1487,4 +1737,244 @@ MonoBehaviour:
         legs: 8
         ears: 8
         back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 4
+      breedName: Sunkissed
+      breedDescription: 
+      coloring:
+        body: 11
+        tail: 12
+        eyes: 31
+        dots: 27
+        face: 31
+        legs: 12
+        ears: 12
+        back: 12
+        star: 12
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 5
+      breedName: Bubble Tea
+      breedDescription: 
+      coloring:
+        body: 8
+        tail: 13
+        eyes: 31
+        dots: 13
+        face: 31
+        legs: 14
+        ears: 31
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 4
+      breedName: Orange Juice
+      breedDescription: 
+      coloring:
+        body: 12
+        tail: 11
+        eyes: 31
+        dots: 11
+        face: 11
+        legs: 27
+        ears: 11
+        back: 11
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 5
+      breedName: Strawberry
+      breedDescription: 
+      coloring:
+        body: 5
+        tail: 5
+        eyes: 28
+        dots: 0
+        face: 8
+        legs: 28
+        ears: 31
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 5
+      breedName: Marble
+      breedDescription: 
+      coloring:
+        body: 0
+        tail: 29
+        eyes: 31
+        dots: 29
+        face: 31
+        legs: 27
+        ears: 29
+        back: 27
+        star: 29
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 5
+      breedName: Mint Tea
+      breedDescription: 
+      coloring:
+        body: 16
+        tail: 18
+        eyes: 31
+        dots: 27
+        face: 31
+        legs: 18
+        ears: 18
+        back: 27
+        star: 18
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 2
+      breedName: Semiformal
+      breedDescription: 
+      coloring:
+        body: 31
+        tail: 32
+        eyes: 31
+        dots: 27
+        face: 31
+        legs: 32
+        ears: 32
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 3
+      breedName: Tuxedo
+      breedDescription: 
+      coloring:
+        body: 31
+        tail: 32
+        eyes: 31
+        dots: 27
+        face: 31
+        legs: 32
+        ears: 32
+        back: 32
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 1
+      breedName: Uniform
+      breedDescription: 
+      coloring:
+        body: 32
+        tail: 32
+        eyes: 31
+        dots: 27
+        face: 31
+        legs: 27
+        ears: 32
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
+      multiplier: 5
+      breedName: Valentine
+      breedDescription: 
+      coloring:
+        body: 1
+        tail: 5
+        eyes: 31
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 5
+        back: 5
         star: 27

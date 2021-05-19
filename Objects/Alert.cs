@@ -13,6 +13,7 @@ public class Alert : MonoBehaviour {
     public GameObject picture;
     public GameObject spawnAnimal;
     public AnimalColors animalColors;
+    private bool useSubmitName;
 
     void Start() {
         input.GetComponent<InputField>().onEndEdit.AddListener(displayText);
@@ -29,16 +30,22 @@ public class Alert : MonoBehaviour {
         instance.colorAnimal(picture);
         gameObject.SetActive(true);
     }
-    public void initiateNameAlert(string newQuestion, Action<string> newNameFunction) {
+    public void initiateNameAlert(string newQuestion, Action<string> newNameFunction, bool _submitName = false) {
+        useSubmitName = _submitName;
         question.text = newQuestion;
         nameFunction = newNameFunction;
         gameObject.SetActive(true);
     }
     public void submit() {
-        string name = input.GetComponent<InputField>().text;
-        input.GetComponent<InputField>().text = " ";
-        confirmFunction(name, id);
-        gameObject.SetActive(false);
+        if (useSubmitName) {
+            submitName();
+        } else {
+            string name = input.GetComponent<InputField>().text;
+            input.GetComponent<InputField>().text = " ";
+            confirmFunction(name, id);
+            gameObject.SetActive(false);
+        }
+
     }
     public void submitName() {
         string name = input.GetComponent<InputField>().text;

@@ -4,8 +4,6 @@ using UnityEngine;
 
 [System.Serializable]
 public class CharacterPath {
-    public VectorPoints[] pathArray = new VectorPoints[] { };
-
     [Header("The starting location of the character")]
     public VectorPoints src;
 

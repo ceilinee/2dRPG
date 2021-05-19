@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ItemDetails : MonoBehaviour {
 
     public Text itemName;
+    public GameObject frame;
     public Text quantity;
     public GameObject question;
     public Text price;
@@ -40,7 +41,17 @@ public class ItemDetails : MonoBehaviour {
         }
     }
     public void SelectItem() {
-        playerInformation.GetComponent<PlayerInformation>().selectItem(item);
+        playerInformation.GetComponent<PlayerInformation>().selectItem(item, gameObject);
+    }
+    public void SetSelected() {
+        if (frame) {
+            frame.SetActive(true);
+        }
+    }
+    public void SetUnselected() {
+        if (frame) {
+            frame.SetActive(false);
+        }
     }
     public void AdoptOut() {
         adoptionInformation.GetComponent<AdoptionInformation>().adoptAnimal(selectedAnimal);
@@ -73,5 +84,14 @@ public class ItemDetails : MonoBehaviour {
         buySellAnimal.GetComponent<BuySellAnimal>().sellItem(item);
         shop.GetComponent<ShopInformation>().updateAbout();
         shop.GetComponent<ShopInformation>().showThanks();
+    }
+
+    public void setButtonColorSelected() {
+        /*
+        ColorBlock cb = GetComponent<Button>().colors;
+        cb.normalColor = cb.selectedColor;
+        GetComponent<Button>().colors = cb;
+        */
+        GetComponent<Button>().Select();
     }
 }

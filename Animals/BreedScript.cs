@@ -384,7 +384,6 @@ public class BreedScript : MonoBehaviour {
         coloring.dots = curTypes[6];
         coloring.back = curTypes[7];
         coloring.ears = curTypes[8];
-        Debug.Log(coloring);
         int breedId = animalBreed.isBreed(coloring);
         int price = GetPrice(coloring, type);
         string breed = "Generic";

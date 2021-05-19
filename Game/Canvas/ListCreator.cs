@@ -170,6 +170,7 @@ public class ListCreator : MonoBehaviour {
                     itemDetails.buildings = buildings;
                     itemDetails.building = selectedBuildings[i + j];
                 } else if (!isItem) {
+                    selectedAnimals[i + j].animalColors = animalColors;
                     if (isShop) {
                         itemDetails.itemName.text = selectedAnimals[i + j].animalName;
                         itemDetails.price.text = "$" + selectedAnimals[i + j].shopCost.ToString();
@@ -220,7 +221,14 @@ public class ListCreator : MonoBehaviour {
                         itemDetails.playerInformation = playerInformation;
                     }
                 } else if (isItem) {
+                    if (selectedItems[i + j] == inventory.currentItem) {
+                        itemDetails.SetSelected();
+                        if (playerInformation) {
+                            playerInformation.GetComponent<PlayerInformation>().currentlyHeldObject = itemDetails.gameObject;
+                        }
+                    }
                     itemDetails.itemName.text = selectedItems[i + j].itemName;
+                    itemDetails.price.gameObject.SetActive(false);
                     itemDetails.quantity.text = 'x' + inventory.items[selectedItems[i + j]].ToString();
                     itemDetails.itemImage.sprite = selectedItems[i + j].itemSprite;
                     itemDetails.animalInformation = animalInformation;

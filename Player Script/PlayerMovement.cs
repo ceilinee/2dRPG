@@ -62,8 +62,7 @@ public class PlayerMovement : MonoBehaviour {
                 CanvasController.SetActive(true);
             }
             if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
-                playerMenu.SetActive(true);
-                playerMenu.GetComponent<PlayerInformation>().updateAbout();
+                playerMenu.GetComponent<PlayerInformation>().Open();
                 Time.timeScale = 0;
             }
         }

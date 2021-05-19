@@ -17,6 +17,7 @@ public class AnimalInformation : MonoBehaviour {
     public Text follow;
     public Text body;
     public Text breed;
+    public Text face;
     public Text eyes;
     public Text personality;
     public Image healthBar;
@@ -110,6 +111,7 @@ public class AnimalInformation : MonoBehaviour {
         body.text = animalColors.colorDictionary[animalTrait.coloring.body].ColorName;
         breed.text = animalTrait.breed;
         eyes.text = animalColors.colorDictionary[animalTrait.coloring.eyes].ColorName;
+        face.text = animalColors.colorDictionary[animalTrait.coloring.face].ColorName;
         ears.text = animalColors.colorDictionary[animalTrait.coloring.ears].ColorName;
         dropdownOptions = new List<string>();
         int position = 0;

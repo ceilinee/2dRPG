@@ -208,7 +208,9 @@ public class GenericAnimal : AnimalState {
         AstarPath.active.Scan();
 
         AIPath aipath = GetComponent<AIPath>();
-        aipath.maxSpeed = moveSpeed;
+        aipath.maxSpeed = moveSpeed * Random.Range(0.980f, 1.300f);
+        aipath.repathRate = Random.Range(0.370f, 0.650f);
+        aipath.endReachedDistance = Random.Range(1.000f, 3.500f);
 
         AIDestinationSetter astar = GetComponent<AIDestinationSetter>();
         // Necessary because target is not set in the inspector

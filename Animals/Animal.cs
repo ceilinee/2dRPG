@@ -123,6 +123,9 @@ public class Animal {
     public void colorAnimal(GameObject instance) {
         // setAnimalImage(instance, this);
         Transform trans = instance.transform;
+        if (!animalColors) {
+            return;
+        }
         instance.GetComponent<Image>().color = animalColors.colorDictionary[coloring.body].color;
 
         Transform childTrans = trans.Find("TailSocket");

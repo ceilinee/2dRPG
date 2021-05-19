@@ -27,5 +27,9 @@ public class BodyPart : ScriptableObject {
     public int id;
     public new string name;
     public Sprite bodyPartSprite;
+
+    // The equivalent of bodyPartSprite when the player is holding an item
+    // TODO: set this value on all relevant BodyPart instances
+    public Sprite holdingSprite;
     public BodyAnimation bodyAnimation;
 }

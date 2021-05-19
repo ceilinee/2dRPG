@@ -35,6 +35,7 @@ public class Inventory : ScriptableObject {
     }
     public void Clear() {
         items = new DictionaryOfItems();
+        itemInt = new DictionaryOfInt();
         currentItem = null;
         currentItemId = 0;
     }

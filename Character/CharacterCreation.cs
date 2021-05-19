@@ -21,9 +21,6 @@ public class CharacterCreation : MonoBehaviour {
 
     private int currHairColorIdx;
 
-    [Header("The currently selected hairstyle")]
-    public Image hair;
-
     [Header("The name of the currently selected hairstyle")]
     public Text hairName;
 
@@ -31,9 +28,6 @@ public class CharacterCreation : MonoBehaviour {
     public List<Image> hairColors;
 
     private int currOutfitIdx;
-
-    [Header("The currently selected outfit")]
-    public Image outfit;
 
     [Header("The name of the currently selected outfit")]
     public Text outfitName;
@@ -44,9 +38,6 @@ public class CharacterCreation : MonoBehaviour {
 
     private int currEyesColorIdx;
 
-    [Header("The currently selected eyes")]
-    public Image eyes;
-
     [Header("The name of the currently selected eyes")]
     public Text eyesName;
 
@@ -56,11 +47,10 @@ public class CharacterCreation : MonoBehaviour {
     private int leftSkinColorIdx;
     private int currSkinColorIdx;
 
-    [Header("The body of the player")]
-    public Image body;
-
     [Header("The currently displayed skin colors")]
     public List<Image> skinColors;
+
+    public PlayerDesign playerDesign;
 
     void Awake() {
         Assert.IsTrue(bodyPartManager.hairStyles.Count > 0, "Must provide at least one hairstyle");
@@ -127,8 +117,7 @@ public class CharacterCreation : MonoBehaviour {
 
     private void RenderHair() {
         BodyPart currHair = bodyPartManager.hairStyles[currHairstyleIdx];
-        hair.sprite = currHair.bodyPartSprite;
-        hair.color = colors.colorDictionary[currHairColorIdx].color;
+        playerDesign.UpdateHair(currHair.bodyPartSprite, colors.colorDictionary[currHairColorIdx].color);
         hairName.text = currHair.name;
         for (int i = 0; i < hairColors.Count; ++i) {
             int colorIdx = (leftHairColorIdx + i) % colors.colorDictionary.Count;
@@ -154,7 +143,7 @@ public class CharacterCreation : MonoBehaviour {
 
     private void RenderOutfit() {
         BodyPart currOutfit = bodyPartManager.outfits[currOutfitIdx];
-        outfit.sprite = currOutfit.bodyPartSprite;
+        playerDesign.UpdateOutfit(currOutfit.bodyPartSprite);
         outfitName.text = currOutfit.name;
     }
 
@@ -197,8 +186,7 @@ public class CharacterCreation : MonoBehaviour {
 
     private void RenderEyes() {
         BodyPart currEyes = bodyPartManager.eyes[currEyesIdx];
-        eyes.sprite = currEyes.bodyPartSprite;
-        eyes.color = colors.colorDictionary[currEyesColorIdx].color;
+        playerDesign.UpdateEyes(currEyes.bodyPartSprite, colors.colorDictionary[currEyesColorIdx].color);
         eyesName.text = currEyes.name;
         for (int i = 0; i < eyesColors.Count; ++i) {
             int colorIdx = (leftEyesColorIdx + i) % colors.colorDictionary.Count;
@@ -228,7 +216,7 @@ public class CharacterCreation : MonoBehaviour {
     }
 
     private void RenderSkin() {
-        body.color = colors.colorDictionary[currSkinColorIdx].color;
+        playerDesign.UpdateBody(colors.colorDictionary[currSkinColorIdx].color);
         for (int i = 0; i < skinColors.Count; ++i) {
             int colorIdx = (leftSkinColorIdx + i) % colors.colorDictionary.Count;
             skinColors[i].color = colors.colorDictionary[colorIdx].color;

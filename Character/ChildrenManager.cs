@@ -34,7 +34,7 @@ public class ChildrenManager : MonoBehaviour {
 
     }
 
-    public void generateChild() {
+    public void generateChild(int date) {
         if (player.childrenCharId.Count > 4) {
             return;
         }
@@ -52,10 +52,11 @@ public class ChildrenManager : MonoBehaviour {
         // fetch travel times and travel paths
         CharacterPathArray charPath = scheduleDictionary.characterPathDict[personality.id];
         StringArray travel = scheduleDictionary.travelTimesDict[personality.id];
-
+        // int birthday = date + 10 + Random.Range(0, 10);
+        int birthday = date + 1;
         // save arrays to character, generate new id as 100 + # of children
         int id = 100 + player.childrenCharId.Count;
-        newCharacter.generateChildCharacter(personality.id, speechArray.dialogue, giftReceiveSpeechArray.dialogue, itemArrayArray.array, travel.array, charPath.array, id);
+        newCharacter.generateChildCharacter(personality.id, speechArray.dialogue, giftReceiveSpeechArray.dialogue, itemArrayArray.array, travel.array, charPath.array, id, _birthday: birthday);
 
         //update curChar and player
         curChar.characterDict[id] = newCharacter;
