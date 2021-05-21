@@ -7,6 +7,7 @@ public class SpawnObject : MonoBehaviour {
     public List<GameObject> spawnedObjects;
     public GameObject buySellAnimal;
     public GameObject prefabObject;
+
     // void Update(){
     //   Spawn();
     // }

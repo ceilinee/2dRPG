@@ -62,6 +62,16 @@ public class AnimalList : MonoBehaviour {
         }
         return null;
     }
+
+    public GameObject findAnimalGameObject(int id) {
+        foreach (GameObject child in list) {
+            if (child.GetComponent<GenericAnimal>().animalTrait.id == id) {
+                return child;
+            }
+        }
+        return null;
+    }
+
     public void disableAnimals() {
         foreach (GameObject child in list) {
             if (child.activeInHierarchy) {

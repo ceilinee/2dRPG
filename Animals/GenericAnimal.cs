@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Assertions;
 
 public class GenericAnimal : AnimalState {
     public Rigidbody2D myRigidbody;
@@ -36,6 +37,20 @@ public class GenericAnimal : AnimalState {
     [SerializeField]
     public GearSocket[] gearSockets;
     SpriteRenderer sprite;
+
+    public GameObject animalList;
+
+    public AnimalMood animalMood;
+
+    private AIPath aiPath;
+    private AIDestinationSetter aiDest;
+
+    void Awake() {
+        aiPath = GetComponent<AIPath>();
+        Assert.IsNotNull(aiPath);
+        aiDest = GetComponent<AIDestinationSetter>();
+        Assert.IsNotNull(aiDest);
+    }
 
     // Start is called before the first frame update
     public void createAnimal(Animal trait) {
@@ -207,37 +222,35 @@ public class GenericAnimal : AnimalState {
         // through structural changes, such as a building being constructed
         AstarPath.active.Scan();
 
-        AIPath aipath = GetComponent<AIPath>();
-        aipath.maxSpeed = moveSpeed * Random.Range(0.980f, 1.300f);
-        aipath.repathRate = Random.Range(0.370f, 0.650f);
-        aipath.endReachedDistance = Random.Range(1.000f, 3.500f);
+        aiPath.maxSpeed = moveSpeed * Random.Range(0.980f, 1.300f);
+        aiPath.repathRate = Random.Range(0.370f, 0.650f);
+        aiPath.endReachedDistance = Random.Range(1.000f, 3.500f);
 
-        AIDestinationSetter astar = GetComponent<AIDestinationSetter>();
         // Necessary because target is not set in the inspector
-        astar.target = target;
+        aiDest.target = target;
 
         enableAStar();
     }
 
     public void enableAStar() {
-        GetComponent<AIPath>().enabled = true;
-        GetComponent<AIDestinationSetter>().enabled = true;
+        aiPath.enabled = true;
+        aiDest.enabled = true;
     }
 
     public void disableAStar() {
-        GetComponent<AIDestinationSetter>().enabled = false;
-        GetComponent<AIPath>().enabled = false;
+        aiDest.enabled = false;
+        aiPath.enabled = false;
     }
 
     public void setAnimalUnfollow() {
         animalTrait.follow = false;
-        // moveSpeed /= 3;
-
-        AIPath aipath = GetComponent<AIPath>();
-        aipath.enabled = false;
-
-        AIDestinationSetter astar = GetComponent<AIDestinationSetter>();
-        astar.enabled = false;
+        if (followParent) { // If the animal is still young, it must have been following a parent before
+            Assert.IsNotNull(parent);
+            aiDest.target = parent;
+        } else {
+            aiPath.enabled = false;
+            aiDest.enabled = false;
+        }
     }
 
     // private void OnTriggerEnter2D(Collider2D other){
@@ -277,25 +290,15 @@ public class GenericAnimal : AnimalState {
         // Runs for animals following you or NPCs
         if (!stop && animalTrait.follow && Vector3.Distance(target.position, transform.position) > attackRadius) {
             if (currentState == AnimalStates.idle || currentState == AnimalStates.walk) {
-                /*
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-                ChangeState(AnimalStates.walk);
-                anim.SetBool("Follow", true);
-                SetGearSocketFollow(true);
-                */
-                AIPath aipath = GetComponent<AIPath>();
-                changeAnim(aipath.desiredVelocity);
+                changeAnim(aiPath.desiredVelocity);
                 ChangeState(AnimalStates.walk);
                 anim.SetBool("Follow", true);
                 SetGearSocketFollow(true);
             }
             // Runs for baby animals following a parent
-        } else if (!stop && followParent && !animalTrait.follow && Vector3.Distance(parent.position, transform.position) > attackRadius) {
+        } else if (!stop && followParent && !animalTrait.follow && Vector3.Distance(parent.position, transform.position) > aiPath.endReachedDistance) {
             if (currentState == AnimalStates.idle || currentState == AnimalStates.walk) {
-                AIPath aipath = GetComponent<AIPath>();
-                changeAnim(aipath.desiredVelocity);
+                changeAnim(aiPath.desiredVelocity);
                 ChangeState(AnimalStates.walk);
                 anim.SetBool("Follow", true);
                 SetGearSocketFollow(true);
@@ -411,5 +414,30 @@ public class GenericAnimal : AnimalState {
         if (currentState != newState) {
             currentState = newState;
         }
+    }
+
+    // This method handles what happens when a parent of this animal gets sold
+    public void ParentSold() {
+        bool momSold = !curAnimals.ContainsAnimal(animalTrait.momId);
+        bool dadSold = !curAnimals.ContainsAnimal(animalTrait.dadId);
+        // If mom is sold, should be set to follow dad the next day in SpawnAnimal.cs
+        // If dad is sold, then do nothing, continue following mom
+        // If both parents sold, then be sad
+        if (momSold && !dadSold) {
+            var dadTransform = animalList.GetComponent<AnimalList>().findAnimal(animalTrait.dadId);
+            parent = dadTransform;
+            aiDest.target = dadTransform;
+        } else if (!momSold && dadSold) {
+            // NOOP
+        } else if (momSold && dadSold) {
+            parent = null;
+            followParent = false;
+            aiDest.target = null;
+            disableAStar();
+            animalTrait.target = new Vector2(0, 0);
+            setRandomPosition();
+            animalTrait.mood = "Feeling sad without its parents";
+            animalTrait.moodId = animalMood.GetSadId();
+        } else Assert.IsTrue(false);
     }
 }

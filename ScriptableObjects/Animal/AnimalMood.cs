@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [CreateAssetMenu]
 [System.Serializable]
@@ -17,4 +18,10 @@ public class AnimalMood : ScriptableObject {
     [System.Serializable] public class DictionaryOfMoodArray : SerializableDictionary<string, MoodArray> { }
     [System.Serializable] public class DictionaryOfPersonalityAndAnimal : SerializableDictionary<int, DictionaryOfMoodArray> { }
     public DictionaryOfPersonalityAndAnimal personalityMoodDict = new DictionaryOfPersonalityAndAnimal();
+
+
+    public string GetSadId() {
+        Assert.IsTrue(reactions.ContainsKey("sad"));
+        return "sad";
+    }
 }

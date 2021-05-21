@@ -151,6 +151,7 @@ public class BreedScript : MonoBehaviour {
             int id = GenerateAnimal();
             newBabyId[i] = id;
         }
+        curAnimals.animalDict[maleAnimal.id].babyId = newBabyId;
         curAnimals.animalDict[femaleAnimal.id].babyId = newBabyId;
         curAnimals.animalDict[femaleAnimal.id].pregnant = true;
         curAnimals.animalDict[femaleAnimal.id].deliveryDate = timeController.GetComponent<TimeController>().days + Random.Range(1, 2 * (babyCount + 1));

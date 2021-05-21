@@ -49,7 +49,7 @@ public class DateController : MonoBehaviour {
         WeatherState[] weatherArray = new WeatherState[]{
         WeatherState.rain, WeatherState.snow, WeatherState.cloudy, WeatherState.sun
       };
-        if (curtime.season == 1 | curtime.season == 2) {
+        if (curtime.season == 1 || curtime.season == 2) {
             weatherArray = new WeatherState[]{
           WeatherState.rain, WeatherState.cloudy, WeatherState.sun
         };
@@ -59,7 +59,7 @@ public class DateController : MonoBehaviour {
           WeatherState.snow, WeatherState.cloudy, WeatherState.sun
         };
         }
-        curtime.weather = weatherArray[Random.Range(0, weatherArray.Length - 1)];
+        curtime.weather = weatherArray[Random.Range(0, weatherArray.Length)];
         WeatherController.GetComponent<WeatherController>().updateWeather();
     }
     public void UpdateSeason() {

@@ -132,6 +132,7 @@ public class SpawnAnimal : MonoBehaviour {
         instance.GetComponent<GenericAnimal>().playerInventory = playerInventory;
         instance.GetComponent<GenericAnimal>().animalTrait.animalColors = animalColors;
         instance.GetComponent<GenericAnimal>().curAnimals = curAnimals;
+        instance.GetComponent<GenericAnimal>().animalList = animalGameObject;
         //for breed identification post update
         Transform trans = instance.transform;
         if (a.age <= 1) {
@@ -245,6 +246,7 @@ public class SpawnAnimal : MonoBehaviour {
         instance.GetComponent<GenericAnimal>().playerInventory = playerInventory;
         instance.GetComponent<GenericAnimal>().animalTrait.animalColors = animalColors;
         instance.GetComponent<GenericAnimal>().curAnimals = curAnimals;
+        instance.GetComponent<GenericAnimal>().animalList = animalGameObject;
         //for breed identification post update
         Transform trans = instance.transform;
         if (a.age <= 1) {
