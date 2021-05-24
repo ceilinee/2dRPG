@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishScript : MonoBehaviour {
+public class FishScript : GenericAnimal {
     // Start is called before the first frame update
-    private Vector2 randomTarget;
-    private int moveSpeed = 3;
-    public Animator anim;
-    public Rigidbody2D myRigidbody;
-    private bool stop;
-    private Transform target;
     private PolygonCollider2D waterArea;
     public GameObject water;
     private int range = 5;
@@ -17,13 +11,12 @@ public class FishScript : MonoBehaviour {
     private int curSuspect = 0;
     private int suspectMax = 50;
     public GameObject suspect;
-    private bool playerInRange = false;
     public bool playerInCatchRange = false;
     public GameObject buySellAnimal;
     public Player player;
     public Item item;
-
-    void Start() {
+    protected override void Awake() { }
+    protected override void Start() {
         // update all variables
         target = GameObject.FindGameObjectsWithTag("Player")[0].transform;
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -33,77 +26,67 @@ public class FishScript : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected override void Update() {
         // set player in range
-        if (Vector3.Distance(target.position, transform.position) <= range) {
-            playerInRange = true;
-        } else if (playerInRange == true) {
-            playerInRange = false;
-            if (curSuspect >= 0) {
-                curSuspect--;
+        if (!animalTrait.wild) {
+            ownAnimalUpdate();
+        } else {
+            if (Vector3.Distance(target.position, transform.position) <= range) {
+                playerInRange = true;
+            } else if (playerInRange == true) {
+                playerInRange = false;
+                if (curSuspect >= 0) {
+                    curSuspect--;
+                }
             }
-        }
-        // raise suspect 
-        if (playerInRange && !Input.GetKey(KeyCode.Space)) {
-            curSuspect++;
-            suspect.GetComponent<SpriteRenderer>().color = new Color(255 / 255f, 255 / 255f, 255 / 255f, curSuspect * 255 / 2550f);
-        }
-        if (playerInRange && Random.Range(0, 6) < 1) {
-            if (Random.Range(0, player.reputation + 20) >= 10) {
+            // raise suspect 
+            if (playerInRange && !Input.GetKey(KeyCode.Space)) {
                 curSuspect++;
+                suspect.GetComponent<SpriteRenderer>().color = new Color(255 / 255f, 255 / 255f, 255 / 255f, curSuspect * 255 / 2550f);
             }
-        }
-        // if too suspeect, disappear
-        if (curSuspect >= suspectMax) {
-            gameObject.SetActive(false);
-        }
-        // if player in catch range, set catch range 
-        if (Vector3.Distance(target.position, transform.position) <= catchRange) {
-            playerInCatchRange = true;
-        } else if (playerInCatchRange == true) {
-            playerInCatchRange = false;
-        }
-        // if player in catch range and escape button, add imp
-        if (playerInCatchRange && Input.GetKeyDown(KeyCode.Escape)) {
-            gameObject.SetActive(false);
-            buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
+            if (playerInRange && Random.Range(0, 6) < 1) {
+                if (Random.Range(0, player.reputation + 20) >= 10) {
+                    curSuspect++;
+                }
+            }
+            // if too suspeect, disappear
+            if (curSuspect >= suspectMax) {
+                gameObject.SetActive(false);
+            }
+            // if player in catch range, set catch range 
+            if (Vector3.Distance(target.position, transform.position) <= catchRange) {
+                playerInCatchRange = true;
+            } else if (playerInCatchRange == true) {
+                playerInCatchRange = false;
+            }
+            // if player in catch range and escape button, add imp
+            if (playerInCatchRange && Input.GetKeyDown(KeyCode.Escape)) {
+                gameObject.SetActive(false);
+                buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
+                animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("You've found a new fish friend! This little guy will go live in your pond now.");
+                curAnimals.addExistingAnimal(animalTrait);
+                spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
+            }
         }
     }
 
-    void FixedUpdate() {
-        CheckDistance();
+    protected override void FixedUpdate() {
+        CheckDistanceFish();
     }
-    public void changeAnim(Vector2 direction) {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) {
-            if (direction.x > 0) {
-                SetAnimFloat(Vector2.right);
-            } else {
-                SetAnimFloat(Vector2.left);
-            }
-        } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
-            if (direction.y > 0) {
-                SetAnimFloat(Vector2.up);
-            } else {
-                SetAnimFloat(Vector2.down);
-            }
-        }
-    }
-    public void SetAnimFloat(Vector2 setVector) {
-        anim.SetFloat("X", setVector.x);
-        anim.SetFloat("Y", setVector.y);
-    }
-    public virtual void CheckDistance() {
+    public virtual void CheckDistanceFish() {
         if (!stop && Vector3.Distance(randomTarget, transform.position) > 0.5) {
             Vector3 temp = Vector3.MoveTowards(transform.position, randomTarget, moveSpeed * Time.deltaTime);
             changeAnim(temp - transform.position);
             myRigidbody.MovePosition(temp);
             anim.SetBool("Follow", true);
+            SetGearSocketFollow(true);
             // Runs for animals randomly moving
         } else if (!stop && Vector3.Distance(randomTarget, transform.position) <= 0.5) {
             StartCoroutine(StopCo(5));
-            setRandomPosition();
+            setRandomPositionFish();
         } else {
             anim.SetBool("Follow", false);
+            SetGearSocketFollow(false);
         }
     }
     private IEnumerator StopCo(float knockTime) {
@@ -111,7 +94,7 @@ public class FishScript : MonoBehaviour {
         yield return new WaitForSeconds(knockTime);
         stop = false;
     }
-    public void setRandomPosition() {
+    public void setRandomPositionFish() {
         if (waterArea) {
             var bounds = waterArea.bounds;
             //generate random points

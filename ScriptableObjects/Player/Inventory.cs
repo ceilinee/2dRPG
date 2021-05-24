@@ -53,7 +53,7 @@ public class Inventory : ScriptableObject {
             itemInt[itemToAdd.id] -= 1;
         }
     }
-    public void RemoveCurrentItem() {
+    public void UnsetCurrentItem() {
         //is the item a key?
         currentItem = null;
         currentItemId = 0;

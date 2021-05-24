@@ -84,6 +84,8 @@ public class BuySellAnimal : MonoBehaviour {
     public void pickUpItem(Item item) {
         playerInventory.Additem(item);
         itemAlert.GetComponent<ItemAlert>().startAlert(item);
+        // TODO: if this item spawned as a wild item, the player picked it up, and then placed it down, and then
+        // picked it up, this function will run a 2nd time, but we don't want to add it to dailyCollected
         player.dailyCollected.Add(item.id);
     }
     public void sellItem(Item item) {

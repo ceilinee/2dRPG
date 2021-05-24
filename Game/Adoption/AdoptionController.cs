@@ -73,27 +73,20 @@ public class AdoptionController : MonoBehaviour {
             if (selectedChar.preferredAnimals.Length >= 1) {
                 request.type = selectedChar.preferredAnimals[Random.Range(0, selectedChar.preferredAnimals.Length)];
             } else {
-                request.type = BreedScript.GetComponent<BreedScript>().getType(false);
+                request.type = BreedScript.GetComponent<BreedScript>().getType();
             }
-            AnimalBreed.Breed selectedBreed = genericAnimals.getRandomBreed();
-            if (request.type == "Goose") {
-                selectedBreed = genericAnimals.breedDictionary["Body"];
-            }
-            Animal.StringAndAnimalColor coloring = BreedScript.GetComponent<BreedScript>().adoptionGenericAnimal(selectedBreed.coloring);
-            request.coloring = coloring;
+            AnimalBreed.Breed selectedBreed = genericAnimals.getRandomBreed(type: request.type);
+            request.coloring = BreedScript.GetComponent<BreedScript>().adoptionGenericAnimal(selectedBreed.coloring);
             request.breed = selectedBreed.breedName;
-            request.price = (int) System.Math.Floor(BreedScript.GetComponent<BreedScript>().GetPrice(coloring, request.type) * selectedBreed.multiplier * selectedChar.multiplier);
+            request.price = (int) System.Math.Floor(BreedScript.GetComponent<BreedScript>().GetPrice(request.coloring, request.type) * selectedBreed.multiplier * selectedChar.multiplier);
         }
         if (breed) {
             if (selectedChar.preferredAnimals.Length >= 1) {
                 request.type = selectedChar.preferredAnimals[Random.Range(0, selectedChar.preferredAnimals.Length)];
             } else {
-                request.type = BreedScript.GetComponent<BreedScript>().getType(true);
+                request.type = BreedScript.GetComponent<BreedScript>().getType();
             }
-            AnimalBreed.Breed selectedBreed = animalBreeds.getRandomBreed();
-            if (request.type == "Goose") {
-                request.type = BreedScript.GetComponent<BreedScript>().getType(true);
-            }
+            AnimalBreed.Breed selectedBreed = animalBreeds.getRandomBreed(type: request.type);
             Animal.StringAndAnimalColor coloring = selectedBreed.coloring;
             request.coloring = coloring;
             request.breed = selectedBreed.breedName;

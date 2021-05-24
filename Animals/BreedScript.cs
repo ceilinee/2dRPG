@@ -30,36 +30,36 @@ public class BreedScript : MonoBehaviour {
         // fillShopBreedAnimal();
         // Only run following code when animalColors has been changed
         // animalColors.BreedMatrix = new AnimalColors.intArray[animalColors.LlamaArray.Length];
-        // for(int i = 0; i<animalColors.LlamaArray.Length; i++){
-        //   Debug.Log(animalColors.BreedMatrix[i]);
-        //   animalColors.BreedMatrix[i] = new AnimalColors.intArray();
-        //   animalColors.BreedMatrix[i].array = new int[animalColors.LlamaArray.Length];
+        // for (int i = 0; i < animalColors.LlamaArray.Length; i++) {
+        //     Debug.Log(animalColors.BreedMatrix[i]);
+        //     animalColors.BreedMatrix[i] = new AnimalColors.intArray();
+        //     animalColors.BreedMatrix[i].array = new int[animalColors.LlamaArray.Length];
         // }
-        // for(int i = 0; i<animalColors.LlamaArray.Length; i++){
-        //   animalColors.colorDictionary[animalColors.LlamaArray[i].id] = animalColors.LlamaArray[i];
-        //   for(int j = 0; j<animalColors.LlamaArray.Length; j++){
-        //     Debug.Log(i);
-        //     Debug.Log(j);
-        //     Color mixture = new Color(
-        //     (animalColors.LlamaArray[i].color.r + animalColors.LlamaArray[j].color.r)/2f,
-        //     (animalColors.LlamaArray[i].color.g + animalColors.LlamaArray[j].color.g)/2f,
-        //     (animalColors.LlamaArray[i].color.b + animalColors.LlamaArray[j].color.b)/2f,
-        //     (animalColors.LlamaArray[i].color.a + animalColors.LlamaArray[j].color.a)/2f
-        //     );
-        //     if(animalColors.LlamaArray[i].color.a == 1 || animalColors.LlamaArray[j].color.a == 1){
-        //
+        // for (int i = 0; i < animalColors.LlamaArray.Length; i++) {
+        //     animalColors.colorDictionary[animalColors.LlamaArray[i].id] = animalColors.LlamaArray[i];
+        //     for (int j = 0; j < animalColors.LlamaArray.Length; j++) {
+        //         Debug.Log(i);
+        //         Debug.Log(j);
+        //         Color mixture = new Color(
+        //         (animalColors.LlamaArray[i].color.r + animalColors.LlamaArray[j].color.r) / 2f,
+        //         (animalColors.LlamaArray[i].color.g + animalColors.LlamaArray[j].color.g) / 2f,
+        //         (animalColors.LlamaArray[i].color.b + animalColors.LlamaArray[j].color.b) / 2f,
+        //         (animalColors.LlamaArray[i].color.a + animalColors.LlamaArray[j].color.a) / 2f
+        //         );
+        //         if (animalColors.LlamaArray[i].color.a == 1 || animalColors.LlamaArray[j].color.a == 1) {
+
+        //         }
+        //         int colorId = findClosestColor(animalColors.LlamaArray, mixture);
+        //         Debug.Log(colorId);
+        //         animalColors.BreedMatrix[animalColors.LlamaArray[i].id].array[animalColors.LlamaArray[j].id] = colorId;
+        //         animalColors.BreedMatrix[animalColors.LlamaArray[j].id].array[animalColors.LlamaArray[i].id] = colorId;
         //     }
-        //     int colorId = findClosestColor(animalColors.LlamaArray, mixture);
-        //     Debug.Log(colorId);
-        //     animalColors.BreedMatrix[animalColors.LlamaArray[i].id].array[animalColors.LlamaArray[j].id] = colorId;
-        //     animalColors.BreedMatrix[animalColors.LlamaArray[j].id].array[animalColors.LlamaArray[i].id] = colorId;
-        //   }
         // }
         // List<int> list = new List<int>();
-        // for(int i = 0; i<animalColors.LlamaArray.Length; i++){
-        //   for(int j =0; j<animalColors.LlamaArray[i].probability; j++){
-        //     list.Add(animalColors.LlamaArray[i].id);
-        //   }
+        // for (int i = 0; i < animalColors.LlamaArray.Length; i++) {
+        //     for (int j = 0; j < animalColors.LlamaArray[i].probability; j++) {
+        //         list.Add(animalColors.LlamaArray[i].id);
+        //     }
         // }
         // animalColors.ShopArray = list.ToArray();
     }
@@ -115,14 +115,14 @@ public class BreedScript : MonoBehaviour {
     public int GenerateAnimal() {
         Animal.StringAndAnimalColor coloring = GenerateColor();
         string gender = GenerateGender();
-        int breedId = animalBreed.isBreed(coloring);
+        int breedId = animalBreed.isBreed(coloring, femaleAnimal.type);
         int price = GetPrice(coloring, femaleAnimal.type);
         string breed = "Generic";
         if (breedId != -1) {
             breed = animalBreed.breedArray[breedId].breedName;
             price *= animalBreed.breedArray[breedId].multiplier;
         }
-        int randomNumber = Random.Range(0, 10000000);
+        int randomNumber = Random.Range(0, 1000000000);
         Personality personality = generatePersonality(false);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         curAnimals.addAnimal(GenerateName(), femaleAnimal.type, randomNumber, location, -1, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] { }, 0.0f, breed, femaleAnimal.scene, false, 0, animalColors, personality, femaleAnimal.id, maleAnimal.id);
@@ -182,7 +182,7 @@ public class BreedScript : MonoBehaviour {
         RectTransform trans = modelAnimal.GetComponent<RectTransform>();
         //Generate tail colouranimalColors.colorDictionary[]
         var tailColorArray = GenerateColorArray("tail");
-        coloring.tail = tailColorArray[Random.Range(0, tailColorArray.Length)];
+        coloring.tail = femaleAnimal.type == "Pig" ? 34 : tailColorArray[Random.Range(0, tailColorArray.Length)];
         //Generate body colour
         var bodyColorArray = GenerateColorArray("body");
         coloring.body = bodyColorArray[Random.Range(0, bodyColorArray.Length)];
@@ -210,13 +210,13 @@ public class BreedScript : MonoBehaviour {
         trans.Find("LegsSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.legs].color;
 
         var earsColorArray = GenerateColorArray("ears");
-        coloring.ears = earsColorArray[Random.Range(0, earsColorArray.Length)];
+        coloring.ears = femaleAnimal.type == "Fish" || femaleAnimal.type == "Goose" ? 34 : earsColorArray[Random.Range(0, earsColorArray.Length)];
         trans.Find("EarsSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.ears].color;
 
         var backColorArray = GenerateColorArray("back");
         coloring.back = backColorArray[Random.Range(0, backColorArray.Length)];
         trans.Find("BackSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.back].color;
-        animalBreed.isBreed(coloring);
+        animalBreed.isBreed(coloring, femaleAnimal.type);
         return coloring;
     }
 
@@ -241,56 +241,40 @@ public class BreedScript : MonoBehaviour {
     public int RandomShopAnimal(Animals paramAnimals, string curType = "") {
         string type = curType != "" ? curType : types[Random.Range(0, types.Length)];
         Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
-        if (type == "Goose") {
-            coloring.body = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            coloring.tail = 27;
-            coloring.face = 27;
-            coloring.star = 27;
-            coloring.eyes = 27;
-            coloring.legs = 27;
-            coloring.dots = 27;
-            coloring.back = 27;
-            coloring.ears = 27;
-        } else {
-            coloring.body = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            coloring.tail = coloring.body;
-            coloring.face = 27;
-            if (type == "Sheep") {
-                coloring.face = 1;
-            }
-            if (type == "Pig") {
-                coloring.tail = 27;
-            }
-            coloring.star = 27;
-            coloring.eyes = animalColors.EyesArray[Random.Range(0, animalColors.EyesArray.Length)];
-            coloring.legs = 27;
-            coloring.dots = 27;
-            coloring.back = 27;
-            coloring.ears = 27;
-            if (Random.Range(0, 10) >= 9) {
-                coloring.star = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            }
-            if (Random.Range(0, 10) >= 9) {
-                coloring.legs = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            }
-            if (Random.Range(0, 10) >= 9) {
-                coloring.dots = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            }
-            if (Random.Range(0, 10) >= 9) {
-                coloring.back = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            }
-            if (Random.Range(0, 10) >= 9) {
-                coloring.ears = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-            }
+        coloring.body = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
+        coloring.tail = type == "Pig" ? 34 : coloring.body;
+        coloring.face = animalColors.FaceArray[Random.Range(0, animalColors.FaceArray.Length)];
+        coloring.star = 27;
+        coloring.eyes = animalColors.EyesArray[Random.Range(0, animalColors.EyesArray.Length)];
+        coloring.legs = 27;
+        coloring.dots = 27;
+        coloring.back = 27;
+        coloring.ears = 27;
+        if (Random.Range(0, 10) >= 9) {
+            coloring.star = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
         }
-        int breedId = animalBreed.isBreed(coloring);
+        if (Random.Range(0, 10) >= 9) {
+            coloring.legs = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
+        }
+        if (Random.Range(0, 10) >= 9) {
+            coloring.dots = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
+        }
+        if (Random.Range(0, 10) >= 9) {
+            coloring.back = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
+        }
+        if (Random.Range(0, 10) >= 9) {
+            coloring.ears = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
+        } else if (type == "Fish" || type == "Goose") {
+            coloring.ears = 34;
+        }
+        int breedId = animalBreed.isBreed(coloring, type);
         int price = GetPrice(coloring, type);
         string breed = "Generic";
         if (breedId != -1) {
             breed = animalBreed.breedArray[breedId].breedName;
             price *= animalBreed.breedArray[breedId].multiplier;
         }
-        int randomNumber = Random.Range(0, 1000000);
+        int randomNumber = Random.Range(0, 1000000000);
         Personality personality = generatePersonality(true);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         if (paramAnimals != null) {
@@ -309,12 +293,17 @@ public class BreedScript : MonoBehaviour {
     public void clearSpecialShop() {
         shopBreedAnimals.animalDict = new Animals.DictionaryOfAnimals();
     }
-    public Animal.StringAndAnimalColor adoptionGenericAnimal(Animal.StringAndAnimalColor coloring) {
+    public Animal.StringAndAnimalColor adoptionGenericAnimal(Animal.StringAndAnimalColor modelColoring) {
+        // TODO: Check if we need to make deep copy
+        Animal.StringAndAnimalColor coloring = modelColoring.Clone();
         int[] curTypes = new int[] { coloring.body, coloring.tail, coloring.face, coloring.star, coloring.eyes, coloring.legs, coloring.dots, coloring.back, coloring.ears };
         for (int i = 0; i < curTypes.Length; i++) {
             if (curTypes[i] == 32) {
                 if (i == 4) {
                     curTypes[i] = animalColors.EyesArray[Random.Range(0, animalColors.EyesArray.Length)];
+                }
+                if (i == 2) {
+                    curTypes[i] = animalColors.FaceArray[Random.Range(0, animalColors.FaceArray.Length)];
                 } else {
                     curTypes[i] = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
                 }
@@ -331,14 +320,19 @@ public class BreedScript : MonoBehaviour {
         coloring.ears = curTypes[8];
         return coloring;
     }
-    public string getType(bool nogoose) {
-        if (nogoose) {
-            return types[Random.Range(0, 4)];
+    public string getType(List<string> notTypes = null) {
+        List<string> filtered = new List<string>();
+        for (int i = 0; i < types.Length; i++) {
+            if (notTypes == null) {
+                filtered.Add(types[i]);
+            } else if (!notTypes.Contains(types[i])) {
+                filtered.Add(types[i]);
+            }
         }
-        return types[Random.Range(0, types.Length)];
+        return filtered.ToArray()[Random.Range(0, filtered.ToArray().Length)];
     }
     public int RandomBreedAnimal(AnimalBreed.Breed curBreed, Animals paramAnimals, string curType = "") {
-        string type = curType != "" ? curType : getType(true);
+        string type = curType != "" ? curType : getType(curBreed.notIncludeType);
         Animal.StringAndAnimalColor breedColoring = curBreed.coloring;
         Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
         int color1 = -1;
@@ -348,11 +342,7 @@ public class BreedScript : MonoBehaviour {
         for (int i = 0; i < curTypes.Length; i++) {
             if (breedTypes[i] == 31) {
                 if (i == 2) {
-                    if (type == "Llama") {
-                        curTypes[i] = 0;
-                    } else {
-                        curTypes[i] = 27;
-                    }
+                    curTypes[i] = animalColors.FaceArray[Random.Range(0, animalColors.FaceArray.Length)];
                 } else if (i == 0 || i == 1) {
                     curTypes[i] = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
                 } else if (i == 4) {
@@ -375,6 +365,13 @@ public class BreedScript : MonoBehaviour {
             } else {
                 curTypes[i] = breedTypes[i];
             }
+            // for geese and fish's ear trait && pig tail trait, set as 34 - ignore
+            if (i == 8 && (type == "Fish" || type == "Goose")) {
+                curTypes[i] = 34;
+            }
+            if (i == 1 && (type == "Pig")) {
+                curTypes[i] = 34;
+            }
         }
         coloring.body = curTypes[0];
         coloring.tail = curTypes[1];
@@ -385,14 +382,14 @@ public class BreedScript : MonoBehaviour {
         coloring.dots = curTypes[6];
         coloring.back = curTypes[7];
         coloring.ears = curTypes[8];
-        int breedId = animalBreed.isBreed(coloring);
+        int breedId = animalBreed.isBreed(coloring, type);
         int price = GetPrice(coloring, type);
         string breed = "Generic";
         if (breedId != -1) {
             breed = animalBreed.breedArray[breedId].breedName;
             price *= animalBreed.breedArray[breedId].multiplier;
         }
-        int randomNumber = Random.Range(0, 1000000);
+        int randomNumber = Random.Range(0, 1000000000);
         Personality personality = generatePersonality(true);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         if (paramAnimals != null) {

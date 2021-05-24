@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public enum PlayerState {
     walk,
@@ -9,6 +10,14 @@ public enum PlayerState {
     stagger,
     idle
 }
+
+public enum Direction {
+    Left,
+    Up,
+    Right,
+    Down
+}
+
 public class PlayerMovement : MonoBehaviour {
     public PlayerState currentState;
     public float speed;
@@ -29,13 +38,24 @@ public class PlayerMovement : MonoBehaviour {
     [Header("All the supported colors")]
     public AnimalColors colors;
 
+    // The direction the player is currently facing
+    public Direction direction;
+
+    // The default value of the virtual axis at the start of the game
+    private const int initialChangeX = 0;
+    private const int initialChangeY = -1;
+
+    void Awake() {
+        UpdateDirection(initialChangeX, initialChangeY);
+    }
+
     // Start is called before the first frame update
     void Start() {
         currentState = PlayerState.walk;
         setAnimator();
         myRigidbody = GetComponent<Rigidbody2D>();
-        animator.SetFloat("moveX", 0);
-        animator.SetFloat("moveY", -1);
+        animator.SetFloat("moveX", initialChangeX);
+        animator.SetFloat("moveY", initialChangeY);
         transform.position = startingPosition.initialValue;
         GetComponent<SpriteRenderer>().color = colors.colorDictionary[player.appearance.skinColorId].color;
     }
@@ -53,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
         if (currentState == PlayerState.walk || currentState == PlayerState.idle) {
+            UpdateDirection(change.x, change.y);
             UpdateAnimationAndMove();
         }
     }
@@ -124,6 +145,19 @@ public class PlayerMovement : MonoBehaviour {
             myRigidbody.velocity = Vector2.zero;
             currentState = PlayerState.idle;
             myRigidbody.velocity = Vector2.zero;
+        }
+    }
+
+    // Set the direction the player is facing
+    private void UpdateDirection(float x, float y) {
+        if (x == -1 && y == 0) {
+            direction = Direction.Left;
+        } else if (x == 0 && y == 1) {
+            direction = Direction.Up;
+        } else if (x == 1 && y == 0) {
+            direction = Direction.Right;
+        } else if (x == 0 && y == -1) {
+            direction = Direction.Down;
         }
     }
 }

@@ -14,10 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breedArray:
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 2
     breedName: Body
+    breedDescription: 
     coloring:
-      body: 12
+      body: 32
       tail: 31
       eyes: 31
       dots: 31
@@ -27,12 +38,23 @@ MonoBehaviour:
       back: 31
       star: 31
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 2
     breedName: Eye
+    breedDescription: 
     coloring:
       body: 31
       tail: 31
-      eyes: 21
+      eyes: 32
       dots: 31
       face: 31
       legs: 31
@@ -40,8 +62,19 @@ MonoBehaviour:
       back: 31
       star: 31
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 2
     breedName: Back
+    breedDescription: 
     coloring:
       body: 31
       tail: 31
@@ -53,8 +86,19 @@ MonoBehaviour:
       back: 32
       star: 31
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 4
     breedName: Star
+    breedDescription: 
     coloring:
       body: 31
       tail: 31
@@ -64,10 +108,21 @@ MonoBehaviour:
       legs: 31
       ears: 31
       back: 31
-      star: 32
+      star: 2
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 2
     breedName: Tail
+    breedDescription: 
     coloring:
       body: 31
       tail: 32
@@ -79,8 +134,19 @@ MonoBehaviour:
       back: 31
       star: 31
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 2
-    breedName: Leg
+    breedName: Leg/Fin
+    breedDescription: 
     coloring:
       body: 31
       tail: 31
@@ -92,21 +158,43 @@ MonoBehaviour:
       back: 31
       star: 31
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 3
     breedName: Spots
+    breedDescription: 
     coloring:
       body: 31
       tail: 31
       eyes: 31
-      dots: 8
+      dots: 32
       face: 31
       legs: 31
       ears: 31
       back: 31
       star: 31
   - unlocked: 0
+    exampleColoring:
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
+      face: 0
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 3
     breedName: All
+    breedDescription: 
     coloring:
       body: 31
       tail: 31
@@ -129,8 +217,19 @@ MonoBehaviour:
     - All
     values:
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 2
       breedName: Body
+      breedDescription: 
       coloring:
         body: 12
         tail: 31
@@ -142,8 +241,19 @@ MonoBehaviour:
         back: 31
         star: 31
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 2
       breedName: Eye
+      breedDescription: 
       coloring:
         body: 31
         tail: 31
@@ -155,8 +265,19 @@ MonoBehaviour:
         back: 31
         star: 31
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 2
       breedName: Back
+      breedDescription: 
       coloring:
         body: 31
         tail: 31
@@ -168,8 +289,19 @@ MonoBehaviour:
         back: 32
         star: 31
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 4
       breedName: Star
+      breedDescription: 
       coloring:
         body: 31
         tail: 31
@@ -181,8 +313,19 @@ MonoBehaviour:
         back: 31
         star: 32
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 2
       breedName: Tail
+      breedDescription: 
       coloring:
         body: 31
         tail: 32
@@ -194,8 +337,19 @@ MonoBehaviour:
         back: 31
         star: 31
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 2
       breedName: Leg
+      breedDescription: 
       coloring:
         body: 31
         tail: 31
@@ -207,8 +361,19 @@ MonoBehaviour:
         back: 31
         star: 31
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 3
       breedName: Spots
+      breedDescription: 
       coloring:
         body: 31
         tail: 31
@@ -220,8 +385,19 @@ MonoBehaviour:
         back: 31
         star: 31
     - unlocked: 0
+      exampleColoring:
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
+        face: 0
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 3
       breedName: All
+      breedDescription: 
       coloring:
         body: 31
         tail: 31

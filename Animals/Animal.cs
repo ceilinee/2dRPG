@@ -54,6 +54,17 @@ public class Animal {
         public int ears;
         public int back;
         public int star;
+        public StringAndAnimalColor Clone() => new StringAndAnimalColor {
+            body = this.body,
+            tail = this.tail,
+            eyes = this.eyes,
+            dots = this.dots,
+            face = this.face,
+            legs = this.legs,
+            ears = this.ears,
+            back = this.back,
+            star = this.star,
+        };
     }
     public StringAndAnimalColor coloring = new StringAndAnimalColor();
     // [System.Serializable] public class DictionaryOfStringAndAnimalColor : SerializableDictionary<string, AnimalColor> {}

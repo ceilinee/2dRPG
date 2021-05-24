@@ -35,10 +35,10 @@ public class SpawnWildAnimal : MonoBehaviour {
     public void generateAnimal(Square square, string type) {
         int random = Random.Range(0, 100);
         int id = 0;
-        if (random <= 75 || type == "Goose") {
+        if (random <= 75) {
             id = breedScript.GetComponent<BreedScript>().RandomShopAnimal(paramAnimals: wildAnimals, type);
         } else {
-            id = breedScript.GetComponent<BreedScript>().RandomBreedAnimal(animalBreed.getRandomBreed(), paramAnimals: wildAnimals, type);
+            id = breedScript.GetComponent<BreedScript>().RandomBreedAnimal(animalBreed.getRandomBreed(type: type), paramAnimals: wildAnimals, type);
         }
         Animal animal = wildAnimals.animalDict[id];
         animal.location = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));

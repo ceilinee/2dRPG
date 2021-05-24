@@ -28,6 +28,9 @@ public class PlayerInformation : MonoBehaviour {
     public GameObject currentlyHeldObject;
     public PlayerDesignComplex playerDesign;
 
+    [SerializeField]
+    private PlacementController placementController;
+
     void Update() {
         if (Input.GetButtonDown("Cancel")) {
             if (animalModal.activeInHierarchy) {
@@ -36,6 +39,9 @@ public class PlayerInformation : MonoBehaviour {
                 Time.timeScale = 1;
                 gameObject.SetActive(false);
                 CanvasController.GetComponent<CanvasController>().closeCanvas();
+            }
+            if (playerInventory.currentItem != null) {
+                placementController.BeginPlacement(playerInventory.currentItem.id);
             }
         }
         if (gameObject.activeInHierarchy && Time.timeScale != 0) {
@@ -79,22 +85,27 @@ public class PlayerInformation : MonoBehaviour {
         inventoryListView.GetComponent<ListCreator>().Clear();
         breedListView.GetComponent<ListCreator>().Clear();
     }
+
+    private void DeselectCurrentItem() {
+        playerInventory.UnsetCurrentItem();
+        inventoryHold.GetComponent<PlayerInventory>().removeSprite();
+        playerDesign.UnsetHold();
+        currentlyHeldObject.GetComponent<ItemDetails>().SetUnselected();
+        currentlyHeldObject = null;
+    }
+
     public void selectItem(Item item, GameObject itemObject) {
         if (playerInventory.currentItem == item) {
-            playerInventory.currentItem = null;
-            playerInventory.currentItemId = 0;
-            inventoryHold.GetComponent<PlayerInventory>().removeSprite();
-            playerDesign.UnsetHold();
-            currentlyHeldObject = null;
-            itemObject.GetComponent<ItemDetails>().SetUnselected();
+            DeselectCurrentItem();
+            placementController.EndPlacement();
         } else {
             playerInventory.currentItem = item;
+            playerInventory.currentItemId = item.id;
             if (currentlyHeldObject != null) {
                 currentlyHeldObject.GetComponent<ItemDetails>().SetUnselected();
             }
             currentlyHeldObject = itemObject;
             itemObject.GetComponent<ItemDetails>().SetSelected();
-            playerInventory.currentItemId = item.id;
             inventoryHold.GetComponent<PlayerInventory>().updateSprite();
             playerDesign.SetHold(item);
         }
@@ -114,5 +125,11 @@ public class PlayerInformation : MonoBehaviour {
         breedListView.GetComponent<ListCreator>().isBreed = true;
         breedListView.GetComponent<ListCreator>().GetBreedItems();
         inventoryListView.GetComponent<ListCreator>().GetItems();
+    }
+
+    public void RemoveCurrentItemFromInventory() {
+        var item = playerInventory.currentItem;
+        DeselectCurrentItem();
+        playerInventory.Removeitem(item);
     }
 }

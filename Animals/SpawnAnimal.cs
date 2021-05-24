@@ -13,6 +13,7 @@ public class SpawnAnimal : MonoBehaviour {
     public GameObject animalModal;
     public Animals curAnimals;
     public Animals wildAnimals;
+    public GameObject water;
     public Inventory playerInventory;
     public AnimalBreed animalBreeds;
     public AnimalColors animalColors;
@@ -21,25 +22,26 @@ public class SpawnAnimal : MonoBehaviour {
     public GameObject animalGameObject;
     public GameObject cameraGameObject;
     public static SpawnAnimal animalInstance;
+    public Personalities personalityList;
+
 
     void Start() {
-        // updateAnimalMood();
         defineAnimalDictionary();
+        // updateAnimalMood();
         SpawnAll();
     }
     public void updateAnimalMood() {
-        //only run when updating animal mood
-        // for(int i = 0; i<animalMood.reactionIds.Length; i++){
-        //   animalMood.reactions[animalMood.reactionIds[i]] = animalMood.giftReactions[i];
+        //only run when updating animal mood 
+        // for (int i = 0; i < animalMood.reactionIds.Length; i++) {
+        //     animalMood.reactions[animalMood.reactionIds[i]] = animalMood.giftReactions[i];
         // }
-        // AnimalMood.DictionaryOfMoodArray curarray = animalMood.personalityMoodDict[0];
-        // for(int i = 1; i<10; i++){
-        //   animalMood.personalityMoodDict[i] = curarray;
+        // AnimalMood.DictionaryOfMoodArray curarray = new AnimalMood.DictionaryOfMoodArray();
+        // for (int i = 0; i < 10; i++) {
+        //     animalMood.personalityMoodDict[i] = new AnimalMood.DictionaryOfMoodArray();
+        //     foreach (KeyValuePair<string, GameObject> kvp in animalDictionary) {
+        //         animalMood.personalityMoodDict[i][kvp.Key] = new AnimalMood.MoodArray();
+        //     }
         // }
-        // if(!animalMood.personalityMoodDict.ContainsKey(animalMood.personalityId)){
-        //   animalMood.personalityMoodDict[animalMood.personalityId] = new AnimalMood.DictionaryOfMoodArray();
-        // }
-        // animalMood.personalityMoodDict[animalMood.personalityId][animalMood.animal] = animalMood.moodArray;
     }
     public void defineAnimalDictionary() {
         animalDictionary["Llama"] = animalList[0];
@@ -47,6 +49,7 @@ public class SpawnAnimal : MonoBehaviour {
         animalDictionary["Rabbit"] = animalList[2];
         animalDictionary["Pig"] = animalList[3];
         animalDictionary["Sheep"] = animalList[4];
+        animalDictionary["Fish"] = animalList[5];
     }
     public void SpawnAll() {
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
@@ -116,6 +119,9 @@ public class SpawnAnimal : MonoBehaviour {
     }
     public void Spawn(Animal a) {
         GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
+        if (a.type == "Fish") {
+            instance.GetComponent<FishScript>().water = water;
+        }
         instance.GetComponent<GenericAnimal>().animalModal = animalModal;
         // instance.GetComponent<GenericAnimal>().cameraObject = cameraGameObject;
 

@@ -108,7 +108,7 @@ public class TimeController : MonoBehaviour {
         curTimeText = newText;
         if ((curTimeText == "08:00" || curTimeText == "22:00" || curTimeText == "12:00" || curTimeText == "17:00") && SpawnObject) {
             SpawnObject.GetComponent<SpawnObject>().Spawn();
-            if (Random.Range(0, 100) >= 80) {
+            if (Random.Range(0, 10) >= 8 && AdoptionController) {
                 AdoptionController.GetComponent<AdoptionController>().startRequest();
             }
         }

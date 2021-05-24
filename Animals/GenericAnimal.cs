@@ -45,7 +45,7 @@ public class GenericAnimal : AnimalState {
     private AIPath aiPath;
     private AIDestinationSetter aiDest;
 
-    void Awake() {
+    protected virtual void Awake() {
         aiPath = GetComponent<AIPath>();
         Assert.IsNotNull(aiPath);
         aiDest = GetComponent<AIDestinationSetter>();
@@ -56,32 +56,9 @@ public class GenericAnimal : AnimalState {
     public void createAnimal(Animal trait) {
         animalTrait = trait;
     }
-    void Update() {
+    protected virtual void Update() {
         if (!animalTrait.characterOwned && !animalTrait.wild) {
-            if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
-                updatePlayerInRange();
-                if (playerInRange) {
-                    unsetRest();
-                }
-            } else if (Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy) {
-                if (!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null) {
-                    if (animalTrait.presentsDaily <= 2) {
-                        if (animalTrait.presentsDaily == 0) {
-                            spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
-                        }
-                        giveGift();
-                    } else {
-                        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(animalTrait.animalName + " says they got enough presents already today!");
-                    }
-                } else {
-                    if (!animalModal.GetComponent<AnimalInformation>().CanvasController.activeInHierarchy) {
-                        animalModal.GetComponent<AnimalInformation>().CanvasController.SetActive(true);
-                    }
-                    if (animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().openCanvas()) {
-                        openAnimalInformation();
-                    }
-                }
-            }
+            ownAnimalUpdate();
         }
         // if the animal is wild do this
         if (animalTrait.wild) {
@@ -102,6 +79,32 @@ public class GenericAnimal : AnimalState {
                     }
                 } else {
                     animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " is still wild! Maybe you can earn it's trust by offering some presents.. Your friendship score is currently: " + animalTrait.love);
+                }
+            }
+        }
+    }
+    public void ownAnimalUpdate() {
+        if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
+            updatePlayerInRange();
+            if (playerInRange) {
+                unsetRest();
+            }
+        } else if (Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy) {
+            if (!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null) {
+                if (animalTrait.presentsDaily <= 2) {
+                    if (animalTrait.presentsDaily == 0) {
+                        spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
+                    }
+                    giveGift();
+                } else {
+                    animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(animalTrait.animalName + " says they got enough presents already today!");
+                }
+            } else {
+                if (!animalModal.GetComponent<AnimalInformation>().CanvasController.activeInHierarchy) {
+                    animalModal.GetComponent<AnimalInformation>().CanvasController.SetActive(true);
+                }
+                if (animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().openCanvas()) {
+                    openAnimalInformation();
                 }
             }
         }
@@ -160,7 +163,7 @@ public class GenericAnimal : AnimalState {
         animalModal.GetComponent<AnimalInformation>().updateAbout(animalTrait, gameObject);
         animalModal.SetActive(true);
     }
-    void Start() {
+    protected virtual void Start() {
         if (!animalTrait.characterOwned) {
             target = GameObject.FindWithTag("Player").transform;
         }
@@ -270,7 +273,7 @@ public class GenericAnimal : AnimalState {
     //   }
     // }
     // Update is called once per frame
-    void FixedUpdate() {
+    protected virtual void FixedUpdate() {
         if (currentState == AnimalStates.rest) {
         } else if (currentState == AnimalStates.eat) {
         } else {

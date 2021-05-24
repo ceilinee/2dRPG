@@ -30,6 +30,26 @@ public class GearSocket : MonoBehaviour {
             animatorOverrideController["RabbitWalkRight"] = animations[6];
             animatorOverrideController["RabbitWalkUp"] = animations[7];
         }
+        if (type == "goose") {
+            animatorOverrideController["GooseIdle"] = animations[0];
+            animatorOverrideController["GooseIdleLeft"] = animations[1];
+            animatorOverrideController["GooseIdleRight"] = animations[2];
+            animatorOverrideController["GooseIdleUp"] = animations[3];
+            animatorOverrideController["GooseWalk"] = animations[4];
+            animatorOverrideController["GooseWalkLeft"] = animations[5];
+            animatorOverrideController["GooseWalkRight"] = animations[6];
+            animatorOverrideController["GooseWalkUp"] = animations[7];
+        }
+        if (type == "fish") {
+            animatorOverrideController["FishIdleDown"] = animations[0];
+            animatorOverrideController["FishIdleLeft"] = animations[1];
+            animatorOverrideController["FishIdleRight"] = animations[2];
+            animatorOverrideController["FishIdleUp"] = animations[3];
+            animatorOverrideController["FishSwimDown"] = animations[4];
+            animatorOverrideController["FishSwimLeft"] = animations[5];
+            animatorOverrideController["FishSwimRight"] = animations[6];
+            animatorOverrideController["FishSwimUp"] = animations[7];
+        }
         if (type == "pig") {
             animatorOverrideController["PigIdle"] = animations[0];
             animatorOverrideController["PigIdleLeft"] = animations[1];

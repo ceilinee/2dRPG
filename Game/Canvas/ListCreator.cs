@@ -106,7 +106,6 @@ public class ListCreator : MonoBehaviour {
         PopulateList();
     }
     public void GetBreedItems() {
-        Debug.Log("add");
         List<AnimalBreed.Breed> selectedAnimalsList = new List<AnimalBreed.Breed>();
         foreach (KeyValuePair<string, AnimalBreed.Breed> kvp in animalBreeds.breedDictionary) {
             selectedAnimalsList.Add(kvp.Value);
