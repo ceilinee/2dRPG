@@ -17,6 +17,7 @@ public class Item : ScriptableObject {
     public bool marriage;
     public bool divorce;
     public float sellCost;
+    public int moveSpeed;
     public Square[] spawnLocations;
     public int[] spawnProbability;
 }

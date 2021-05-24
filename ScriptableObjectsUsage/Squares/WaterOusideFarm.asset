@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3d9e69becf274157bdf16a3a3a33d6d, type: 3}
-  m_Name: Farm
+  m_Name: WaterOusideFarm
   m_EditorClassIdentifier: 
-  start: {fileID: 11400000, guid: b57239ec6ea394efe980d088f3a8b1c0, type: 2}
-  end: {fileID: 11400000, guid: e1596af117a6a4784887eac6b90d1160, type: 2}
+  start: {fileID: 11400000, guid: 04f254bdf8f36424ba8a67be6688c8f5, type: 2}
+  end: {fileID: 11400000, guid: a43c38b9ffac94651b2c5d2a96fc90b6, type: 2}
   types:
-  - Llama
-  - Sheep
-  probability: 0000000000000000
+  - Fish
+  probability: 64000000

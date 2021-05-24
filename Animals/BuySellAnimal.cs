@@ -45,14 +45,14 @@ public class BuySellAnimal : MonoBehaviour {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost;
         player.earnedMoney += newAnimal.cost;
-        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal);
+        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal.id);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
     public void adoptOutAnimal(Animal newAnimal, Character character) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost * character.multiplier;
         player.earnedMoney += newAnimal.cost * character.multiplier;
-        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal);
+        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal.id);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
         newAnimal.characterOwned = true;
         newAnimal.charId = character.id;

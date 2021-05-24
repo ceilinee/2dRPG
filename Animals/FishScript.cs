@@ -29,6 +29,7 @@ public class FishScript : GenericAnimal {
     protected override void Update() {
         // set player in range
         if (!animalTrait.wild) {
+            updatePlayerInRange();
             ownAnimalUpdate();
         } else {
             if (Vector3.Distance(target.position, transform.position) <= range) {
@@ -51,7 +52,7 @@ public class FishScript : GenericAnimal {
             }
             // if too suspeect, disappear
             if (curSuspect >= suspectMax) {
-                gameObject.SetActive(false);
+                RemoveGameObject();
             }
             // if player in catch range, set catch range 
             if (Vector3.Distance(target.position, transform.position) <= catchRange) {
@@ -61,15 +62,21 @@ public class FishScript : GenericAnimal {
             }
             // if player in catch range and escape button, add imp
             if (playerInCatchRange && Input.GetKeyDown(KeyCode.Escape)) {
-                gameObject.SetActive(false);
-                buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
+                RemoveGameObject();
+                // buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
                 animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("You've found a new fish friend! This little guy will go live in your pond now.");
                 curAnimals.addExistingAnimal(animalTrait);
                 spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
+                animalTrait.wild = false;
+                animalTrait.location = new Vector2(-34.4f, -11.5f);
+                spawnAnimal.GetComponent<SpawnAnimal>().Spawn(animalTrait);
             }
         }
     }
-
+    public void RemoveGameObject() {
+        gameObject.SetActive(false);
+        spawnAnimal.GetComponent<SpawnAnimal>().animalGameObject.GetComponent<AnimalList>().removeAnimal(animalTrait.id);
+    }
     protected override void FixedUpdate() {
         CheckDistanceFish();
     }

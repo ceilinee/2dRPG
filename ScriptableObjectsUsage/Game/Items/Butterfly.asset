@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e304a220572147318114032929be6d9, type: 3}
+  m_Name: Butterfly
+  m_EditorClassIdentifier: 
+  itemName: Butterfly
+  id: 0
+  itemSprite: {fileID: 4530433918361379743, guid: e3a879b38a6504dfe9e2bbad85df3794,
+    type: 3}
+  healthBonus: 0
+  antiAge: 0
+  itemDescription: 
+  cost: 0
+  date: 0
+  marriage: 0
+  divorce: 0
+  sellCost: 0
+  moveSpeed: 1
+  spawnLocations:
+  - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
+  spawnProbability: 64000000

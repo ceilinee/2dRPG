@@ -7,6 +7,7 @@ public class SpawnObject : MonoBehaviour {
     public List<GameObject> spawnedObjects;
     public GameObject buySellAnimal;
     public GameObject prefabObject;
+    public GameObject prefabButterfly;
 
     // void Update(){
     //   Spawn();
@@ -23,11 +24,23 @@ public class SpawnObject : MonoBehaviour {
         }
     }
     public void generateObject(Square square, Item item) {
+        if (item.name == "Butterfly") {
+            spawnButterfly(square, item);
+            return;
+        }
         GameObject instance = GameObject.Instantiate(prefabObject) as GameObject;
         instance.GetComponent<Object>().item = item;
         instance.GetComponent<Object>().buySellAnimal = buySellAnimal;
         instance.GetComponent<SpriteRenderer>().sprite = item.itemSprite;
         instance.transform.position = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
         spawnedObjects.Add(instance);
+    }
+    public void spawnButterfly(Square square, Item item) {
+        GameObject instance = Instantiate(prefabButterfly);
+        instance.GetComponent<Object>().item = item;
+        instance.GetComponent<Object>().buySellAnimal = buySellAnimal;
+        instance.transform.position = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
+        spawnedObjects.Add(instance);
+
     }
 }

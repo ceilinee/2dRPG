@@ -131,7 +131,7 @@ public class SpawnAnimal : MonoBehaviour {
             instance.GetComponent<GenericAnimal>().giftMoods = animalMood.personalityMoodDict[a.personality.id][a.type].array;
         }
         instance.GetComponent<GenericAnimal>().reactions = animalMood.reactions;
-
+        instance.GetComponent<GenericAnimal>().stop = false;
         instance.GetComponent<GenericAnimal>().moveSpeed = 2;
         instance.GetComponent<GenericAnimal>().spawnAnimal = gameObject;
         // instance.GetComponent<GenericAnimal>().animalTrait.spawnAnimal = gameObject;

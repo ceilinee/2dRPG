@@ -355,7 +355,7 @@ public class GenericAnimal : AnimalState {
         }
     }
 
-    private void updatePlayerInRange() {
+    public void updatePlayerInRange() {
         //if owned by a character
         if (animalTrait.characterOwned) {
             if (Vector3.Distance(target.position, transform.position) <= clickRange) {
