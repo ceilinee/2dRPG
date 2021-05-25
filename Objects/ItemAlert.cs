@@ -10,7 +10,7 @@ public class ItemAlert : MonoBehaviour {
 
     }
     public void startAlert(Item item) {
-        image.sprite = item.itemSprite;
+        image.sprite = item.ItemSprite;
         gameObject.SetActive(true);
         StartCoroutine(waitSpawn());
     }

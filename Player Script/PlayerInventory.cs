@@ -8,15 +8,13 @@ public class PlayerInventory : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         if (playerInventory.currentItem != null) {
-            gameObject.GetComponent<SpriteRenderer>().sprite = playerInventory.currentItem.itemSprite;
+            gameObject.GetComponent<SpriteRenderer>().sprite = playerInventory.currentItem.ItemSprite;
             player.GetComponent<PlayerMovement>().setHold();
         }
     }
     public void updateSprite() {
-        if (playerInventory.currentItem != null) {
-            gameObject.GetComponent<SpriteRenderer>().sprite = playerInventory.currentItem.itemSprite;
-            player.GetComponent<PlayerMovement>().setHold();
-        }
+        gameObject.GetComponent<SpriteRenderer>().sprite = playerInventory.currentItem.ItemSprite;
+        player.GetComponent<PlayerMovement>().setHold();
     }
     public void removeSprite() {
         gameObject.GetComponent<SpriteRenderer>().sprite = null;

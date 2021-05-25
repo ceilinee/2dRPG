@@ -11,6 +11,7 @@ public class AnimalBreed : ScriptableObject {
         public bool unlocked;
         public Animal.StringAndAnimalColor exampleColoring = new Animal.StringAndAnimalColor();
         public int multiplier;
+        public List<string> notIncludeType = null;
         public string breedName;
         public string breedDescription;
         public Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
@@ -19,10 +20,15 @@ public class AnimalBreed : ScriptableObject {
     [System.Serializable] public class DictionaryOfBreed : SerializableDictionary<string, Breed> { }
     public DictionaryOfBreed breedDictionary = new DictionaryOfBreed();
 
-    public Breed getRandomBreed() {
+    public Breed getRandomBreed(string notInclude = "n/a", string type = "Llama") {
         System.Random random = new System.Random();
-        int index = random.Next(breedDictionary.Count);
-        return breedDictionary.Values.ElementAt(index);
+        List<Breed> breed = new List<Breed>();
+        for (int i = 0; i < breedDictionary.Count; i++) {
+            if (breedDictionary.Values.ElementAt(i).breedName != notInclude && !breedDictionary.Values.ElementAt(i).notIncludeType.Contains(type)) {
+                breed.Add(breedDictionary.Values.ElementAt(i));
+            }
+        }
+        return breed.ToArray()[Random.Range(0, breed.Count)];
     }
 
     public void updateBreedDictionary() {
@@ -31,8 +37,12 @@ public class AnimalBreed : ScriptableObject {
             breedDictionary[breedArray[i].breedName] = breedArray[i];
         }
     }
-
-    public int isBreed(Animal.StringAndAnimalColor coloring) {
+    public void Clear() {
+        for (int j = 0; j < breedArray.Length; j++) {
+            breedArray[j].unlocked = false;
+        }
+    }
+    public int isBreed(Animal.StringAndAnimalColor coloring, string type = "Llama") {
         int selected = -1;
         for (int j = 0; j < breedArray.Length; j++) {
             //go through breed array
@@ -42,6 +52,10 @@ public class AnimalBreed : ScriptableObject {
             int all2 = -1;
             int all3 = -1;
             for (int i = 0; i < partArray.Length; i++) {
+                // 34 means ignore the part (ears for fish for example)
+                if (coloringArray[i] == 34) {
+                    continue;
+                }
                 if (partArray[i] == 32 || partArray[i] == 33) {
                     if (coloringArray[i] == 27) {
                         break;
@@ -85,6 +99,10 @@ public class AnimalBreed : ScriptableObject {
         int all2 = -1;
         int all3 = -1;
         for (int i = 0; i < partArray.Length; i++) {
+            // 34 means ignore the part (ears for fish for example)
+            if (partArray[i] == 34) {
+                continue;
+            }
             if (partArray[i] == 32 || partArray[i] == 33) {
                 if (coloringArray[i] == 27) {
                     break;

@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour {
         playerInventory.UpdateInventory(itemDictionary);
         shop.UpdateInventory(itemDictionary);
         addToShop(items);
+        updateSpecialShopWithAllBreeds();
         // addToAnimalShop(animals);
         if (shopAnimals.animalDict.Count < 10) {
             int count = shopAnimals.animalDict.Count;
@@ -42,6 +43,19 @@ public class Shop : MonoBehaviour {
         shopBreedAnimals.breedName = curBreed.breedName;
         for (int i = 0; i < 4; i++) {
             breedAnimal.GetComponent<BreedScript>().RandomBreedAnimal(curBreed: curBreed, paramAnimals: shopBreedAnimals);
+        }
+    }
+
+    //to help verify breeds are properly entered
+    public void updateSpecialShopWithAllBreeds() {
+        breedAnimal.GetComponent<BreedScript>().clearSpecialShop();
+        AnimalBreed animalBreed = breedAnimal.GetComponent<BreedScript>().animalBreed;
+        for (int i = 0; i < animalBreed.breedArray.Length; i++) {
+            AnimalBreed.Breed curBreed = animalBreed.breedArray[i];
+            shopBreedAnimals.breedName = curBreed.breedName;
+            for (int j = 0; j < 4; j++) {
+                breedAnimal.GetComponent<BreedScript>().RandomBreedAnimal(curBreed: curBreed, paramAnimals: shopBreedAnimals);
+            }
         }
     }
 

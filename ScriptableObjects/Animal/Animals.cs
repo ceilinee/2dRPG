@@ -19,6 +19,11 @@ public class Animals : ScriptableObject {
         newColoring, newFollow, newGender, newHome, newCost, newPregnant, newDeliveryDate, newBabyId, newLove, newBreed, scene, charOwned, charId, animalColors, personality, _momId, _dadId);
         animalDict[newId] = newAnimal;
     }
+
+    public bool ContainsAnimal(int id) {
+        return animalDict.ContainsKey(id);
+    }
+
     public void addExistingAnimal(Animal newAnimal) {
         animalDict[newAnimal.id] = newAnimal;
     }

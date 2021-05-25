@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CurCharacters
   m_EditorClassIdentifier: 
   characterDict:
-    keys: 000000000100000002000000110000000f0000002800000006000000
+    keys: 00000000010000000200000006000000110000000f0000002800000064000000
     values:
     - name: Linie
       moveSpeed: 3
@@ -21,6 +21,7 @@ MonoBehaviour:
       scene: 
       id: 0
       adoptAnimal: 0
+      currentPoint: 1
       image: {fileID: -2815382439049205580, guid: 2c469aec78d27438191096eb9c9a88a1,
         type: 3}
       portrait:
@@ -35,22 +36,20 @@ MonoBehaviour:
       - pathArray:
         - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
         - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
-        src: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
-        dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 0
       selectedPath:
-        pathArray: []
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        pathArray:
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 0
-      friendshipScore: 6
-      currentAnimalId: 11528
+      friendshipScore: 9
+      currentAnimalId: 0
       presentsDaily: 0
       married: 0
       date: 0
@@ -62,8 +61,6 @@ MonoBehaviour:
         - pathArray:
           - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
           - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
-          src: {fileID: 0}
-          dest: {fileID: 0}
           action: 
           scene: MainScene
           spawn: 1
@@ -123,15 +120,16 @@ MonoBehaviour:
       personality: 0
     - name: Lorrie
       moveSpeed: 3
-      location: {x: 38.317978, y: -0.50966084}
+      location: {x: 13.852037, y: -0.750339}
       scene: 
       id: 1
       adoptAnimal: 0
-      image: {fileID: -3786878478799786939, guid: c67b41273d6864754b1c2c38fce39676,
+      currentPoint: 1
+      image: {fileID: 3813828707654058708, guid: cbdb3658a85af4cf1911f660b70ebaf2,
         type: 3}
       portrait:
-      - {fileID: 919293910217971827, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
-      - {fileID: 7256996813680119416, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
+      - {fileID: 8188359060617121934, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: 3682586899303601402, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
       preferredAnimals: []
       gender: Female
       multiplier: 1
@@ -140,32 +138,26 @@ MonoBehaviour:
       - 11:50
       path:
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 1
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 1
       selectedPath:
         pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
         action: 
         scene: MainScene
-        spawn: 1
+        spawn: 0
         charId: 1
       friendshipScore: 0
       currentAnimalId: 930357
@@ -179,19 +171,15 @@ MonoBehaviour:
         - 11:50
         values:
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+          - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
           action: 
           scene: MainScene
           spawn: 1
           charId: 1
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+          - {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
           action: 
           scene: MainScene
           spawn: 0
@@ -251,15 +239,16 @@ MonoBehaviour:
       personality: 0
     - name: Joji
       moveSpeed: 3
-      location: {x: -12.517767, y: -1.0117631}
+      location: {x: -0.880978, y: 7.663908}
       scene: Barn2
       id: 2
       adoptAnimal: 0
-      image: {fileID: 1894709945763597746, guid: c67b41273d6864754b1c2c38fce39676,
+      currentPoint: 2
+      image: {fileID: -1344798583507216916, guid: 80fea3810ae414603a52f028edaf3952,
         type: 3}
       portrait:
-      - {fileID: 919293910217971827, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
-      - {fileID: 7256996813680119416, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
+      - {fileID: 8188359060617121934, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: 3682586899303601402, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
       preferredAnimals: []
       gender: Female
       multiplier: 1
@@ -271,64 +260,53 @@ MonoBehaviour:
       - 20:30
       path:
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 2
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 2
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 2
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 9ea4caa374a40445492579c748ad2fe5, type: 2}
+        - {fileID: 11400000, guid: 65527c9da6d4e4cf5b9b2010f1f11e06, type: 2}
+        - {fileID: 11400000, guid: d4b8ce366dcc946798a5cb09eed5c8c6, type: 2}
         action: 
         scene: Barn2
         spawn: 1
         charId: 2
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 2
       selectedPath:
         pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
         scene: MainScene
-        spawn: 0
+        spawn: 1
         charId: 2
-      friendshipScore: 6
-      currentAnimalId: 558478
+      friendshipScore: 30
+      currentAnimalId: 608132
       presentsDaily: 0
       married: 0
       date: 0
@@ -342,48 +320,38 @@ MonoBehaviour:
         - 20:30
         values:
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
           action: 
           scene: MainScene
           spawn: 1
           charId: 2
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
           action: 
           scene: MainScene
           spawn: 0
           charId: 2
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+          - {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
           action: 
           scene: MainScene
           spawn: 0
           charId: 2
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 9ea4caa374a40445492579c748ad2fe5, type: 2}
+          - {fileID: 11400000, guid: 65527c9da6d4e4cf5b9b2010f1f11e06, type: 2}
+          - {fileID: 11400000, guid: d4b8ce366dcc946798a5cb09eed5c8c6, type: 2}
           action: 
           scene: Barn2
           spawn: 1
           charId: 2
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
           action: 
           scene: MainScene
           spawn: 1
@@ -451,17 +419,219 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+    - name: Tristan
+      moveSpeed: 1.5
+      location: {x: -30.269062, y: 27.850735}
+      scene: 
+      id: 6
+      adoptAnimal: 0
+      currentPoint: 2
+      image: {fileID: -3838744861709503212, guid: a6031de8056db4440ab5cf3fa96588a6,
+        type: 3}
+      portrait:
+      - {fileID: -9180426125723624345, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: -6013459150365757729, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      preferredAnimals: []
+      gender: Male
+      multiplier: 1
+      travelTimes:
+      - 07:30
+      - 11:50
+      - 14:50
+      - 19:50
+      path:
+      - pathArray:
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 6
+      - pathArray:
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 6
+      - pathArray:
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 6
+      - pathArray:
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 6
+      selectedPath:
+        pathArray:
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 6
+      friendshipScore: 3
+      currentAnimalId: 0
+      presentsDaily: 0
+      married: 0
+      date: 0
+      talked: 0
+      characterMovement:
+        keys:
+        - 07:30
+        - 11:50
+        - 14:50
+        - 19:50
+        values:
+        - pathArray:
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 1
+          charId: 6
+        - pathArray:
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 0
+          charId: 6
+        - pathArray:
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 0
+          charId: 6
+        - pathArray:
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 0
+          charId: 6
+      characterSpeechArray:
+      - array:
+        - sentence:
+          - Hey there..
+          - I don't think we've met
+          - I'm shopkeeper!
+          portrait: 000000000000000001000000
+        - sentence:
+          - Hi again
+          - How are you
+          portrait: 0000000001000000
+        - sentence:
+          - You're not wearing shoes
+          - Weirdo..
+          portrait: 0000000001000000
+        - sentence:
+          - Trump Sucks
+          - If you like him, I will stab you
+          portrait: 0000000001000000
+        - sentence:
+          - I like Llamas
+          - Do you like Llamas? I'll sell you 1 for 20$ or 2 for 5$
+          portrait: 0000000001000000
+      - array:
+        - sentence:
+          - Hey! You're not a stranger
+          - I recognize your face
+          - I'm Linie!
+          portrait: 000000000000000001000000
+      characterGiftReceiveSpeechArray:
+      - array:
+        - sentence:
+          - Uh... Is this for me?
+          - Where's the nearest trash can?
+          portrait: 0000000000000000
+        - sentence:
+          - Uh.... Are you insulting me?
+          portrait: 00000000
+      - array:
+        - sentence:
+          - Appreciate the thought..
+          portrait: 
+      - array:
+        - sentence:
+          - Thanks!
+          portrait: 01000000
+      - array:
+        - sentence:
+          - 'Is this for me?? '
+          - No way!!
+          portrait: 00000000
+      - array:
+        - sentence:
+          - WOW!! Thank you!!
+          portrait: 01000000
+      characterExSpeechArray: []
+      characterExGiftReceiveSpeechArray: []
+      characterDivorceSpeech:
+        sentence: []
+        portrait: 
+      characterBreakUpSpeech:
+        sentence: []
+        portrait: 
+      characterMarriageSpeech:
+        sentence: []
+        portrait: 
+      characterDatingSpeech:
+        sentence: []
+        portrait: 
+      characterConfusionSpeech:
+        sentence: []
+        portrait: 
+      characterRejectionSpeech:
+        sentence: []
+        portrait: 
+      characterEnoughGiftSpeech: []
+      giftArray:
+      - array:
+        - {fileID: 11400000, guid: 1514464593b4b4881bc90d93a47bc82b, type: 2}
+      - array:
+        - {fileID: 11400000, guid: afd6294a83b30462b9115db4f781fea5, type: 2}
+      - array:
+        - {fileID: 11400000, guid: ce66be650f16c4c658f305b924ba6878, type: 2}
+      - array:
+        - {fileID: 11400000, guid: ed31b68c79e934b11be8c484d023380a, type: 2}
+      - array:
+        - {fileID: 11400000, guid: ed31b68c79e934b11be8c484d023380a, type: 2}
+      giftDictionary:
+        keys:
+        - {fileID: 11400000, guid: 1514464593b4b4881bc90d93a47bc82b, type: 2}
+        - {fileID: 11400000, guid: afd6294a83b30462b9115db4f781fea5, type: 2}
+        - {fileID: 11400000, guid: ce66be650f16c4c658f305b924ba6878, type: 2}
+        - {fileID: 11400000, guid: ed31b68c79e934b11be8c484d023380a, type: 2}
+        values: 00000000010000000200000004000000
+      child: 0
+      age: 0
+      follow: 0
+      personality: 0
     - name: Shea
       moveSpeed: 3
-      location: {x: -12.517767, y: -1.0117631}
+      location: {x: -0.880978, y: 7.663908}
       scene: Barn2
       id: 17
       adoptAnimal: 0
-      image: {fileID: 3455716762092047183, guid: b8ace774def06417392c380e71e69c89,
+      currentPoint: 2
+      image: {fileID: 1572084697142571620, guid: 1ffa3f81a750b87468217a7924eb1256,
         type: 3}
       portrait:
-      - {fileID: 919293910217971827, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
-      - {fileID: 7256996813680119416, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
+      - {fileID: 8188359060617121934, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: 3682586899303601402, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
       preferredAnimals: []
       gender: Female
       multiplier: 1
@@ -473,63 +643,52 @@ MonoBehaviour:
       - 20:30
       path:
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 17
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 17
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 17
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 9ea4caa374a40445492579c748ad2fe5, type: 2}
+        - {fileID: 11400000, guid: 65527c9da6d4e4cf5b9b2010f1f11e06, type: 2}
+        - {fileID: 11400000, guid: d4b8ce366dcc946798a5cb09eed5c8c6, type: 2}
         action: 
         scene: Barn2
         spawn: 1
         charId: 17
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 17
       selectedPath:
         pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
         scene: MainScene
-        spawn: 0
+        spawn: 1
         charId: 17
-      friendshipScore: 3
+      friendshipScore: 15
       currentAnimalId: 0
       presentsDaily: 0
       married: 0
@@ -544,48 +703,38 @@ MonoBehaviour:
         - 20:30
         values:
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
           action: 
           scene: MainScene
           spawn: 1
           charId: 17
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
           action: 
           scene: MainScene
           spawn: 0
           charId: 17
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+          - {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
           action: 
           scene: MainScene
           spawn: 0
           charId: 17
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 9ea4caa374a40445492579c748ad2fe5, type: 2}
+          - {fileID: 11400000, guid: 65527c9da6d4e4cf5b9b2010f1f11e06, type: 2}
+          - {fileID: 11400000, guid: d4b8ce366dcc946798a5cb09eed5c8c6, type: 2}
           action: 
           scene: Barn2
           spawn: 1
           charId: 17
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
           action: 
           scene: MainScene
           spawn: 1
@@ -655,14 +804,16 @@ MonoBehaviour:
       personality: 0
     - name: Ruby
       moveSpeed: 1.5
-      location: {x: -13.096172, y: 28.308859}
+      location: {x: -30.269062, y: 27.850735}
       scene: 
       id: 15
       adoptAnimal: 0
-      image: {fileID: 2800000, guid: 7cea50ef44e5d4d688ec1d9bc07f07f5, type: 3}
+      currentPoint: 2
+      image: {fileID: -4975241667841824346, guid: a879f2302e8cbe345bc5f27e74ba1690,
+        type: 3}
       portrait:
-      - {fileID: 2023631205568816875, guid: b8ace774def06417392c380e71e69c89, type: 3}
-      - {fileID: -6315554276807541118, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
+      - {fileID: -9180426125723624345, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: -6013459150365757729, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
       preferredAnimals: []
       gender: Female
       multiplier: 1
@@ -673,51 +824,42 @@ MonoBehaviour:
       - 14:50
       path:
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 15
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 15
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 15
       - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
         action: 
         scene: MainScene
         spawn: 0
         charId: 15
       selectedPath:
         pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
         action: 
         scene: MainScene
-        spawn: 1
+        spawn: 0
         charId: 15
       friendshipScore: 9
       currentAnimalId: 0
@@ -733,38 +875,30 @@ MonoBehaviour:
         - 14:50
         values:
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
           action: 
           scene: MainScene
           spawn: 1
           charId: 15
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
           action: 
           scene: MainScene
           spawn: 0
           charId: 15
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+          - {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
           action: 
           scene: MainScene
           spawn: 0
           charId: 15
         - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+          - {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+          - {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
           action: 
           scene: MainScene
           spawn: 0
@@ -847,18 +981,22 @@ MonoBehaviour:
       characterEnoughGiftSpeech: []
       giftArray:
       - array:
-        - {fileID: 0}
+        - {fileID: 11400000, guid: 1514464593b4b4881bc90d93a47bc82b, type: 2}
       - array:
-        - {fileID: 0}
+        - {fileID: 11400000, guid: afd6294a83b30462b9115db4f781fea5, type: 2}
       - array:
-        - {fileID: 0}
+        - {fileID: 11400000, guid: ce66be650f16c4c658f305b924ba6878, type: 2}
       - array:
-        - {fileID: 0}
+        - {fileID: 11400000, guid: ed31b68c79e934b11be8c484d023380a, type: 2}
       - array:
-        - {fileID: 0}
+        - {fileID: 11400000, guid: ed31b68c79e934b11be8c484d023380a, type: 2}
       giftDictionary:
-        keys: []
-        values: 
+        keys:
+        - {fileID: 11400000, guid: 1514464593b4b4881bc90d93a47bc82b, type: 2}
+        - {fileID: 11400000, guid: afd6294a83b30462b9115db4f781fea5, type: 2}
+        - {fileID: 11400000, guid: ce66be650f16c4c658f305b924ba6878, type: 2}
+        - {fileID: 11400000, guid: ed31b68c79e934b11be8c484d023380a, type: 2}
+        values: 00000000010000000200000004000000
       child: 0
       age: 0
       follow: 0
@@ -869,7 +1007,9 @@ MonoBehaviour:
       scene: 
       id: 40
       adoptAnimal: 0
-      image: {fileID: 2800000, guid: 7cea50ef44e5d4d688ec1d9bc07f07f5, type: 3}
+      currentPoint: 0
+      image: {fileID: -4975241667841824346, guid: a879f2302e8cbe345bc5f27e74ba1690,
+        type: 3}
       portrait: []
       preferredAnimals: []
       gender: 
@@ -878,18 +1018,14 @@ MonoBehaviour:
       - 06:30
       path:
       - pathArray:
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: c6fc785b8a73c41d2a469e394206b622, type: 2}
         action: 
         scene: MainScene
         spawn: 1
         charId: 40
       selectedPath:
         pathArray:
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        - {fileID: 11400000, guid: c6fc785b8a73c41d2a469e394206b622, type: 2}
         action: 
         scene: MainScene
         spawn: 1
@@ -905,9 +1041,7 @@ MonoBehaviour:
         - 06:30
         values:
         - pathArray:
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
+          - {fileID: 11400000, guid: c6fc785b8a73c41d2a469e394206b622, type: 2}
           action: 
           scene: MainScene
           spawn: 1
@@ -947,179 +1081,38 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
-    - name: Tristan
-      moveSpeed: 1.5
-      location: {x: -13.096172, y: 28.308859}
-      scene: 
-      id: 6
+    - name: 
+      moveSpeed: 0
+      location: {x: 0, y: 0}
+      scene: MainScene
+      id: 100
       adoptAnimal: 0
-      image: {fileID: 21300000, guid: 3a221cbcb4ed64be99d01ea7dcd61f05, type: 2}
-      portrait:
-      - {fileID: 2023631205568816875, guid: b8ace774def06417392c380e71e69c89, type: 3}
-      - {fileID: -6315554276807541118, guid: c67b41273d6864754b1c2c38fce39676, type: 3}
+      currentPoint: 0
+      image: {fileID: -3838744861709503212, guid: a6031de8056db4440ab5cf3fa96588a6,
+        type: 3}
+      portrait: []
       preferredAnimals: []
-      gender: Male
+      gender: 
       multiplier: 1
-      travelTimes:
-      - 07:30
-      - 11:50
-      - 14:50
-      - 19:50
-      path:
-      - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
-        action: 
-        scene: MainScene
-        spawn: 1
-        charId: 6
-      - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
-        action: 
-        scene: MainScene
-        spawn: 0
-        charId: 6
-      - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
-        action: 
-        scene: MainScene
-        spawn: 0
-        charId: 6
-      - pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
-        action: 
-        scene: MainScene
-        spawn: 0
-        charId: 6
+      travelTimes: []
+      path: []
       selectedPath:
-        pathArray:
-        - {fileID: 0}
-        - {fileID: 0}
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        pathArray: []
         action: 
         scene: MainScene
-        spawn: 1
-        charId: 6
-      friendshipScore: 3
-      currentAnimalId: 11528
+        spawn: 0
+        charId: 0
+      friendshipScore: 0
+      currentAnimalId: 0
       presentsDaily: 0
       married: 0
       date: 0
       talked: 0
       characterMovement:
-        keys:
-        - 07:30
-        - 11:50
-        - 14:50
-        - 19:50
-        values:
-        - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
-          action: 
-          scene: MainScene
-          spawn: 1
-          charId: 6
-        - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
-          action: 
-          scene: MainScene
-          spawn: 0
-          charId: 6
-        - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
-          action: 
-          scene: MainScene
-          spawn: 0
-          charId: 6
-        - pathArray:
-          - {fileID: 0}
-          - {fileID: 0}
-          - {fileID: 0}
-          src: {fileID: 0}
-          dest: {fileID: 0}
-          action: 
-          scene: MainScene
-          spawn: 0
-          charId: 6
-      characterSpeechArray:
-      - array:
-        - sentence:
-          - Hey there..
-          - I don't think we've met
-          - I'm shopkeeper!
-          portrait: 000000000000000001000000
-        - sentence:
-          - Hi again
-          - How are you
-          portrait: 0000000001000000
-        - sentence:
-          - You're not wearing shoes
-          - Weirdo..
-          portrait: 0000000001000000
-        - sentence:
-          - Trump Sucks
-          - If you like him, I will stab you
-          portrait: 0000000001000000
-        - sentence:
-          - I like Llamas
-          - Do you like Llamas? I'll sell you 1 for 20$ or 2 for 5$
-          portrait: 0000000001000000
-      - array:
-        - sentence:
-          - Hey! You're not a stranger
-          - I recognize your face
-          - I'm Linie!
-          portrait: 000000000000000001000000
-      characterGiftReceiveSpeechArray:
-      - array:
-        - sentence:
-          - Uh... Is this for me?
-          - Where's the nearest trash can?
-          portrait: 0000000000000000
-        - sentence:
-          - Uh.... Are you insulting me?
-          portrait: 00000000
-      - array:
-        - sentence:
-          - Appreciate the thought..
-          portrait: 
-      - array:
-        - sentence:
-          - Thanks!
-          portrait: 01000000
-      - array:
-        - sentence:
-          - 'Is this for me?? '
-          - No way!!
-          portrait: 00000000
-      - array:
-        - sentence:
-          - WOW!! Thank you!!
-          portrait: 01000000
+        keys: []
+        values: []
+      characterSpeechArray: []
+      characterGiftReceiveSpeechArray: []
       characterExSpeechArray: []
       characterExGiftReceiveSpeechArray: []
       characterDivorceSpeech:
@@ -1141,21 +1134,11 @@ MonoBehaviour:
         sentence: []
         portrait: 
       characterEnoughGiftSpeech: []
-      giftArray:
-      - array:
-        - {fileID: 0}
-      - array:
-        - {fileID: 0}
-      - array:
-        - {fileID: 0}
-      - array:
-        - {fileID: 0}
-      - array:
-        - {fileID: 0}
+      giftArray: []
       giftDictionary:
         keys: []
         values: 
-      child: 0
+      child: 1
       age: 0
       follow: 0
-      personality: 0
+      personality: 1

@@ -106,7 +106,6 @@ public class ListCreator : MonoBehaviour {
         PopulateList();
     }
     public void GetBreedItems() {
-        Debug.Log("add");
         List<AnimalBreed.Breed> selectedAnimalsList = new List<AnimalBreed.Breed>();
         foreach (KeyValuePair<string, AnimalBreed.Breed> kvp in animalBreeds.breedDictionary) {
             selectedAnimalsList.Add(kvp.Value);
@@ -170,6 +169,7 @@ public class ListCreator : MonoBehaviour {
                     itemDetails.buildings = buildings;
                     itemDetails.building = selectedBuildings[i + j];
                 } else if (!isItem) {
+                    selectedAnimals[i + j].animalColors = animalColors;
                     if (isShop) {
                         itemDetails.itemName.text = selectedAnimals[i + j].animalName;
                         itemDetails.price.text = "$" + selectedAnimals[i + j].shopCost.ToString();
@@ -210,7 +210,7 @@ public class ListCreator : MonoBehaviour {
                         itemDetails.itemName.text = selectedItems[i + j].itemName;
                         itemDetails.price.text = "$" + selectedItems[i + j].cost.ToString();
                     }
-                    itemDetails.itemImage.sprite = selectedItems[i + j].itemSprite;
+                    itemDetails.itemImage.sprite = selectedItems[i + j].ItemSprite;
                     itemDetails.animalInformation = animalInformation;
                     itemDetails.buySellAnimal = buySellAnimal;
                     itemDetails.shop = shopInformation;
@@ -220,9 +220,16 @@ public class ListCreator : MonoBehaviour {
                         itemDetails.playerInformation = playerInformation;
                     }
                 } else if (isItem) {
+                    if (selectedItems[i + j] == inventory.currentItem) {
+                        itemDetails.SetSelected();
+                        if (playerInformation) {
+                            playerInformation.GetComponent<PlayerInformation>().currentlyHeldObject = itemDetails.gameObject;
+                        }
+                    }
                     itemDetails.itemName.text = selectedItems[i + j].itemName;
+                    itemDetails.price.gameObject.SetActive(false);
                     itemDetails.quantity.text = 'x' + inventory.items[selectedItems[i + j]].ToString();
-                    itemDetails.itemImage.sprite = selectedItems[i + j].itemSprite;
+                    itemDetails.itemImage.sprite = selectedItems[i + j].ItemSprite;
                     itemDetails.animalInformation = animalInformation;
                     itemDetails.item = selectedItems[i + j];
                     if (playerInformation.activeInHierarchy) {

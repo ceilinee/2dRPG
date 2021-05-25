@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91c1f4d4296249b3b80816aedb702e5, type: 3}
   m_Name: CurTime
   m_EditorClassIdentifier: 
-  time: 52201.195
-  days: 11
+  time: 8401.507
+  days: 1
   season: 0
-  date: 11
+  date: 1
   curEvent:
     eventId: 0
     eventName: 
     eventIcon: {fileID: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
   curDate:
-    date: 12
+    date: 2
     eventId: -1
     birthdayCharId: -1
   birthdayCharId: -1

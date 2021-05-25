@@ -35,6 +35,7 @@ public class Inventory : ScriptableObject {
     }
     public void Clear() {
         items = new DictionaryOfItems();
+        itemInt = new DictionaryOfInt();
         currentItem = null;
         currentItemId = 0;
     }
@@ -43,16 +44,16 @@ public class Inventory : ScriptableObject {
         if (items[itemToAdd] == 1) {
             items.Remove(itemToAdd);
             itemInt.Remove(itemToAdd.id);
-            if (currentItem == itemToAdd) {
-                currentItem = null;
-                currentItemId = 0;
-            }
         } else if (items[itemToAdd] > 1) {
             items[itemToAdd] -= 1;
             itemInt[itemToAdd.id] -= 1;
         }
+        if (currentItem == itemToAdd) {
+            currentItem = null;
+            currentItemId = 0;
+        }
     }
-    public void RemoveCurrentItem() {
+    public void UnsetCurrentItem() {
         //is the item a key?
         currentItem = null;
         currentItemId = 0;

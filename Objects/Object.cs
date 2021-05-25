@@ -7,6 +7,9 @@ public class Object : MonoBehaviour {
     public bool playerInRange;
     public GameObject buySellAnimal;
 
+    [SerializeField]
+    private PlacedItems placedItems;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -16,7 +19,8 @@ public class Object : MonoBehaviour {
     void Update() {
         if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
             buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
-            gameObject.SetActive(false);
+            placedItems.RemoveIfExists(item.id);
+            Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {

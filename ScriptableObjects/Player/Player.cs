@@ -52,6 +52,14 @@ public class Player : ScriptableObject {
     public void date(int id) {
         datingCharId.Add(id);
     }
+    public void Clear() {
+        married = false;
+        marriedCharId = -1;
+        datingCharId = new List<int>();
+        exCharId = new List<int>();
+        reputation = 0;
+        clearDailies();
+    }
     public void clearDailies() {
         dailyAdoption = 0;
         dailyTalk = 0;

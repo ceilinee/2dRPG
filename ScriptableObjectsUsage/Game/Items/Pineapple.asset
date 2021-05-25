@@ -15,11 +15,23 @@ MonoBehaviour:
   itemName: Pineapple
   id: 7
   itemSprite: {fileID: 21300000, guid: 2402117b4f4a14e6e81ada9190c8a357, type: 3}
+  itemRightSprite: {fileID: 0}
+  itemLeftSprite: {fileID: 0}
+  itemUpSprite: {fileID: 0}
+  sprites:
+    down: {fileID: 21300000, guid: 2402117b4f4a14e6e81ada9190c8a357, type: 3}
+    right: {fileID: 21300000, guid: 2402117b4f4a14e6e81ada9190c8a357, type: 3}
+    left: {fileID: 21300000, guid: 2402117b4f4a14e6e81ada9190c8a357, type: 3}
+    up: {fileID: 21300000, guid: 2402117b4f4a14e6e81ada9190c8a357, type: 3}
   healthBonus: 3
   antiAge: 0
   itemDescription: Kinda pokey
   cost: 60
+  date: 0
+  marriage: 0
+  divorce: 0
   sellCost: 30
+  moveSpeed: 0
   spawnLocations:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 32000000

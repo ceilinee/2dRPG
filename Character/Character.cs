@@ -54,6 +54,8 @@ public class Character {
     public DictionaryOfItemAndInt giftDictionary = new DictionaryOfItemAndInt();
     //attributes for children
     public bool child;
+    public bool unborn = true;
+    public int birthday;
     public int age;
     public bool follow;
     public int personality;
@@ -64,7 +66,7 @@ public class Character {
     ItemArray[] newGiftArray,
     string[] newTravelTimes,
     CharacterPath[] newPath,
-    int newId) {
+    int newId, int _birthday) {
         personality = newPersonality;
         characterSpeechArray = newCharacterSpeechArray;
         characterGiftReceiveSpeechArray = newCharacterGiftReceiveSpeechArray;
@@ -75,8 +77,11 @@ public class Character {
         scene = "MainScene";
         travelTimes = newTravelTimes;
         path = newPath;
-        for (int i = 0; i < travelTimes.Length; i++) {
-            characterMovement[travelTimes[i]] = path[i];
+        birthday = _birthday;
+        if (travelTimes != null) {
+            for (int i = 0; i < travelTimes.Length; i++) {
+                characterMovement[travelTimes[i]] = path[i];
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Assertions;
 
 public class GenericAnimal : AnimalState {
     public Rigidbody2D myRigidbody;
@@ -37,36 +38,30 @@ public class GenericAnimal : AnimalState {
     public GearSocket[] gearSockets;
     SpriteRenderer sprite;
 
+    public GameObject animalList;
+
+    public AnimalMood animalMood;
+
+    private AIPath aiPath;
+    private AIDestinationSetter aiDest;
+
+    [SerializeField]
+    private Signal giftReceivedSignal;
+
+    protected virtual void Awake() {
+        aiPath = GetComponent<AIPath>();
+        Assert.IsNotNull(aiPath);
+        aiDest = GetComponent<AIDestinationSetter>();
+        Assert.IsNotNull(aiDest);
+    }
+
     // Start is called before the first frame update
     public void createAnimal(Animal trait) {
         animalTrait = trait;
     }
-    void Update() {
+    protected virtual void Update() {
         if (!animalTrait.characterOwned && !animalTrait.wild) {
-            if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
-                updatePlayerInRange();
-                if (playerInRange) {
-                    unsetRest();
-                }
-            } else if (Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy) {
-                if (!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null) {
-                    if (animalTrait.presentsDaily <= 2) {
-                        if (animalTrait.presentsDaily == 0) {
-                            spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
-                        }
-                        giveGift();
-                    } else {
-                        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(animalTrait.animalName + " says they got enough presents already today!");
-                    }
-                } else {
-                    if (!animalModal.GetComponent<AnimalInformation>().CanvasController.activeInHierarchy) {
-                        animalModal.GetComponent<AnimalInformation>().CanvasController.SetActive(true);
-                    }
-                    if (animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().openCanvas()) {
-                        openAnimalInformation();
-                    }
-                }
-            }
+            ownAnimalUpdate();
         }
         // if the animal is wild do this
         if (animalTrait.wild) {
@@ -91,6 +86,32 @@ public class GenericAnimal : AnimalState {
             }
         }
     }
+    public void ownAnimalUpdate() {
+        if (Input.GetKeyUp(KeyCode.Space) && currentState == AnimalStates.rest) {
+            updatePlayerInRange();
+            if (playerInRange) {
+                unsetRest();
+            }
+        } else if (Input.GetKeyUp(KeyCode.Space) && playerInRange && !animalModal.activeInHierarchy) {
+            if (!animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().open && playerInventory.currentItem != null) {
+                if (animalTrait.presentsDaily <= 2) {
+                    if (animalTrait.presentsDaily == 0) {
+                        spawnAnimal.GetComponent<SpawnAnimal>().playerGiftAnimal();
+                    }
+                    giveGift();
+                } else {
+                    animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification(animalTrait.animalName + " says they got enough presents already today!");
+                }
+            } else {
+                if (!animalModal.GetComponent<AnimalInformation>().CanvasController.activeInHierarchy) {
+                    animalModal.GetComponent<AnimalInformation>().CanvasController.SetActive(true);
+                }
+                if (animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().openCanvas()) {
+                    openAnimalInformation();
+                }
+            }
+        }
+    }
     public void giveGift() {
         float like = getLike(playerInventory.currentItem);
         animalTrait.presentsDaily += 1;
@@ -100,6 +121,7 @@ public class GenericAnimal : AnimalState {
         if (playerInventory.currentItem == null) {
             target.Find("InventoryHold").GetComponent<PlayerInventory>().removeSprite();
         }
+        giftReceivedSignal.Raise();
         increaseFriendship(like * 2);
         setContextClue(reactions[System.Math.Floor(like).ToString()]);
         animalTrait.mood = giftMoods[(int) System.Math.Floor(like)];
@@ -145,7 +167,7 @@ public class GenericAnimal : AnimalState {
         animalModal.GetComponent<AnimalInformation>().updateAbout(animalTrait, gameObject);
         animalModal.SetActive(true);
     }
-    void Start() {
+    protected virtual void Start() {
         if (!animalTrait.characterOwned) {
             target = GameObject.FindWithTag("Player").transform;
         }
@@ -207,35 +229,35 @@ public class GenericAnimal : AnimalState {
         // through structural changes, such as a building being constructed
         AstarPath.active.Scan();
 
-        AIPath aipath = GetComponent<AIPath>();
-        aipath.maxSpeed = moveSpeed;
+        aiPath.maxSpeed = moveSpeed * Random.Range(0.980f, 1.300f);
+        aiPath.repathRate = Random.Range(0.370f, 0.650f);
+        aiPath.endReachedDistance = Random.Range(1.000f, 3.500f);
 
-        AIDestinationSetter astar = GetComponent<AIDestinationSetter>();
         // Necessary because target is not set in the inspector
-        astar.target = target;
+        aiDest.target = target;
 
         enableAStar();
     }
 
     public void enableAStar() {
-        GetComponent<AIPath>().enabled = true;
-        GetComponent<AIDestinationSetter>().enabled = true;
+        aiPath.enabled = true;
+        aiDest.enabled = true;
     }
 
     public void disableAStar() {
-        GetComponent<AIDestinationSetter>().enabled = false;
-        GetComponent<AIPath>().enabled = false;
+        aiDest.enabled = false;
+        aiPath.enabled = false;
     }
 
     public void setAnimalUnfollow() {
         animalTrait.follow = false;
-        // moveSpeed /= 3;
-
-        AIPath aipath = GetComponent<AIPath>();
-        aipath.enabled = false;
-
-        AIDestinationSetter astar = GetComponent<AIDestinationSetter>();
-        astar.enabled = false;
+        if (followParent) { // If the animal is still young, it must have been following a parent before
+            Assert.IsNotNull(parent);
+            aiDest.target = parent;
+        } else {
+            aiPath.enabled = false;
+            aiDest.enabled = false;
+        }
     }
 
     // private void OnTriggerEnter2D(Collider2D other){
@@ -255,7 +277,7 @@ public class GenericAnimal : AnimalState {
     //   }
     // }
     // Update is called once per frame
-    void FixedUpdate() {
+    protected virtual void FixedUpdate() {
         if (currentState == AnimalStates.rest) {
         } else if (currentState == AnimalStates.eat) {
         } else {
@@ -275,25 +297,15 @@ public class GenericAnimal : AnimalState {
         // Runs for animals following you or NPCs
         if (!stop && animalTrait.follow && Vector3.Distance(target.position, transform.position) > attackRadius) {
             if (currentState == AnimalStates.idle || currentState == AnimalStates.walk) {
-                /*
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-                ChangeState(AnimalStates.walk);
-                anim.SetBool("Follow", true);
-                SetGearSocketFollow(true);
-                */
-                AIPath aipath = GetComponent<AIPath>();
-                changeAnim(aipath.desiredVelocity);
+                changeAnim(aiPath.desiredVelocity);
                 ChangeState(AnimalStates.walk);
                 anim.SetBool("Follow", true);
                 SetGearSocketFollow(true);
             }
             // Runs for baby animals following a parent
-        } else if (!stop && followParent && !animalTrait.follow && Vector3.Distance(parent.position, transform.position) > attackRadius) {
+        } else if (!stop && followParent && !animalTrait.follow && Vector3.Distance(parent.position, transform.position) > aiPath.endReachedDistance) {
             if (currentState == AnimalStates.idle || currentState == AnimalStates.walk) {
-                AIPath aipath = GetComponent<AIPath>();
-                changeAnim(aipath.desiredVelocity);
+                changeAnim(aiPath.desiredVelocity);
                 ChangeState(AnimalStates.walk);
                 anim.SetBool("Follow", true);
                 SetGearSocketFollow(true);
@@ -347,7 +359,7 @@ public class GenericAnimal : AnimalState {
         }
     }
 
-    private void updatePlayerInRange() {
+    public void updatePlayerInRange() {
         //if owned by a character
         if (animalTrait.characterOwned) {
             if (Vector3.Distance(target.position, transform.position) <= clickRange) {
@@ -409,5 +421,30 @@ public class GenericAnimal : AnimalState {
         if (currentState != newState) {
             currentState = newState;
         }
+    }
+
+    // This method handles what happens when a parent of this animal gets sold
+    public void ParentSold() {
+        bool momSold = !curAnimals.ContainsAnimal(animalTrait.momId);
+        bool dadSold = !curAnimals.ContainsAnimal(animalTrait.dadId);
+        // If mom is sold, should be set to follow dad the next day in SpawnAnimal.cs
+        // If dad is sold, then do nothing, continue following mom
+        // If both parents sold, then be sad
+        if (momSold && !dadSold) {
+            var dadTransform = animalList.GetComponent<AnimalList>().findAnimal(animalTrait.dadId);
+            parent = dadTransform;
+            aiDest.target = dadTransform;
+        } else if (!momSold && dadSold) {
+            // NOOP
+        } else if (momSold && dadSold) {
+            parent = null;
+            followParent = false;
+            aiDest.target = null;
+            disableAStar();
+            animalTrait.target = new Vector2(0, 0);
+            setRandomPosition();
+            animalTrait.mood = "Feeling sad without its parents";
+            animalTrait.moodId = animalMood.GetSadId();
+        } else Assert.IsTrue(false);
     }
 }

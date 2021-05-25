@@ -50,9 +50,10 @@ public class AdoptionInformation : MonoBehaviour {
     // }
     public void adoptAnimal(Animal selectedAnimal) {
         confirmationModal.GetComponent<Confirmation>().initiateConfirmation(
-  "Are you sure?",
+  "Are you sure you want to adopt out " + selectedAnimal.animalName + " for " + selectedAnimal.cost * charList.characterDict[selectedAdoption.charId].multiplier + "$?",
   () => {
       buySellAnimal.GetComponent<BuySellAnimal>().adoptOutAnimal(selectedAnimal, charList.characterDict[selectedAdoption.charId]);
+      CanvasController.GetComponent<CanvasController>().initiateNotification("Congratulations, you've successfully completed an adoption!");
       deleteRequest();
       CanvasController.GetComponent<CanvasController>().openCanvasAgain();
   },

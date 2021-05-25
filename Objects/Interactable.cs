@@ -6,6 +6,9 @@ public class Interactable : MonoBehaviour {
     public bool playerInRange;
     public Signal contextOn;
     public Signal contextOff;
+
+    public bool triggerEntered;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -21,11 +24,13 @@ public class Interactable : MonoBehaviour {
             playerInRange = true;
             contextOn.Raise();
         }
+        triggerEntered = true;
     }
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             playerInRange = false;
             contextOff.Raise();
         }
+        triggerEntered = false;
     }
 }

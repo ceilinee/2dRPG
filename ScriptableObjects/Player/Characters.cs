@@ -26,6 +26,22 @@ public class Characters : ScriptableObject {
         int index = random.Next(characterDict.Count);
         return characterDict.Values.ElementAt(index);
     }
+    public Character childBirthEvent(int date) {
+        foreach (KeyValuePair<int, Character> kvp in characterDict) {
+            if (kvp.Value.birthday == date && kvp.Value.unborn) {
+                return kvp.Value;
+            }
+        }
+        return null;
+    }
+    public bool ContainsUnbornChild() {
+        foreach (KeyValuePair<int, Character> kvp in characterDict) {
+            if (kvp.Value.unborn) {
+                return true;
+            }
+        }
+        return false;
+    }
     public void Clear() {
         characterDict = new DictionaryOfCharacters();
     }

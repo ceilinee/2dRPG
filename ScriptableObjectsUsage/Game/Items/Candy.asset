@@ -16,11 +16,23 @@ MonoBehaviour:
   id: 4
   itemSprite: {fileID: 3304625649204433606, guid: 38f6bfcc8bb9242549973921a3a2aa0c,
     type: 3}
+  itemRightSprite: {fileID: 0}
+  itemLeftSprite: {fileID: 0}
+  itemUpSprite: {fileID: 0}
+  sprites:
+    down: {fileID: 3304625649204433606, guid: 38f6bfcc8bb9242549973921a3a2aa0c, type: 3}
+    right: {fileID: 3304625649204433606, guid: 38f6bfcc8bb9242549973921a3a2aa0c, type: 3}
+    left: {fileID: 3304625649204433606, guid: 38f6bfcc8bb9242549973921a3a2aa0c, type: 3}
+    up: {fileID: 3304625649204433606, guid: 38f6bfcc8bb9242549973921a3a2aa0c, type: 3}
   healthBonus: 3
   antiAge: 0
   itemDescription: Kids love this stuff!
   cost: 30
+  date: 0
+  marriage: 0
+  divorce: 0
   sellCost: 15
+  moveSpeed: 0
   spawnLocations:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 32000000

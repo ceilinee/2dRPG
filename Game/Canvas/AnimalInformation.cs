@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
 public class AnimalInformation : MonoBehaviour {
     public Text animalName;
@@ -17,6 +18,7 @@ public class AnimalInformation : MonoBehaviour {
     public Text follow;
     public Text body;
     public Text breed;
+    public Text face;
     public Text eyes;
     public Text personality;
     public Image healthBar;
@@ -45,13 +47,15 @@ public class AnimalInformation : MonoBehaviour {
     public GameObject SpawnAnimal;
     public CurTime curTime;
 
+    public AnimalList animalList;
+    public GameObject followButton;
     public Transform player;
-    // Start is called before the first frame update
     void Start() {
-
+        if (animalTraitInformation.type == "Fish") {
+            followButton.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
     public void Breed(Animal selectedAnimal) {
         breedAnimal.GetComponent<BreedScript>().BreedAnimals(animalTraitInformation, selectedAnimal);
     }
@@ -59,9 +63,15 @@ public class AnimalInformation : MonoBehaviour {
         buySellObject.GetComponent<BuySellAnimal>().sellAnimal(animalTraitInformation);
         CloseIfPlayerMenuNotOpen();
         animal.SetActive(false);
-        animal.GetComponent<GenericAnimal>().contextOff.Raise();
+        var animalScript = animal.GetComponent<GenericAnimal>();
+        animalScript.contextOff.Raise();
         if (playerInformation.activeInHierarchy) {
             playerInformation.GetComponent<PlayerInformation>().updateAbout();
+        }
+        foreach (int babyId in animalScript.animalTrait.babyId) {
+            var baby = animalList.findAnimalGameObject(babyId);
+            Assert.IsNotNull(baby);
+            baby.GetComponent<GenericAnimal>().ParentSold();
         }
     }
     void Update() {
@@ -110,6 +120,7 @@ public class AnimalInformation : MonoBehaviour {
         body.text = animalColors.colorDictionary[animalTrait.coloring.body].ColorName;
         breed.text = animalTrait.breed;
         eyes.text = animalColors.colorDictionary[animalTrait.coloring.eyes].ColorName;
+        face.text = animalColors.colorDictionary[animalTrait.coloring.face].ColorName;
         ears.text = animalColors.colorDictionary[animalTrait.coloring.ears].ColorName;
         dropdownOptions = new List<string>();
         int position = 0;

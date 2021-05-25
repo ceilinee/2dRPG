@@ -40,11 +40,10 @@ public class AnimalList : MonoBehaviour {
     public void OnDisable() {
         list.Clear();
     }
-    public void removeAnimal(Animal animal) {
+    public void removeAnimal(int id) {
         List<GameObject> tempList = new List<GameObject>();
-
         foreach (GameObject curObject in list) {
-            if (curObject.GetComponent<GenericAnimal>().animalTrait.id == animal.id) {
+            if (curObject.GetComponent<GenericAnimal>().animalTrait.id == id) {
                 tempList.Remove(curObject);
                 // curObject.SetActive(false);
                 // curObject.GetComponent<GenericAnimal>().animalTrait.sold = true;
@@ -62,6 +61,16 @@ public class AnimalList : MonoBehaviour {
         }
         return null;
     }
+
+    public GameObject findAnimalGameObject(int id) {
+        foreach (GameObject child in list) {
+            if (child.GetComponent<GenericAnimal>().animalTrait.id == id) {
+                return child;
+            }
+        }
+        return null;
+    }
+
     public void disableAnimals() {
         foreach (GameObject child in list) {
             if (child.activeInHierarchy) {
@@ -131,7 +140,7 @@ public class AnimalList : MonoBehaviour {
             int id = child.GetComponent<GenericAnimal>().animalTrait.id;
             if (charAnimals.animalDict.ContainsKey(id)) {
                 GameObject.Destroy(child);
-                removeAnimal(child.GetComponent<GenericAnimal>().animalTrait);
+                removeAnimal(child.GetComponent<GenericAnimal>().animalTrait.id);
             } else {
                 tempList.Add(child);
             }

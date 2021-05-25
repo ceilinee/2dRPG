@@ -7,7 +7,7 @@ public class BuildingController : MonoBehaviour {
     public GameObject[] buildings;
     public SceneInfos allBuildings;
     public int[] ids;
-    public CharacterManager.DictionaryOfIntAndGameObject buildingGameObjectDictionary = new CharacterManager.DictionaryOfIntAndGameObject();
+    public DictionaryOfIntAndGameObject buildingGameObjectDictionary = new DictionaryOfIntAndGameObject();
 
     void Start() {
         allBuildings.updateSceneDict();

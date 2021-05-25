@@ -18,6 +18,7 @@ public class TimeController : MonoBehaviour {
     public GameObject notification;
     public GameObject dateController;
     public GameObject backgroundController;
+    public GameObject EventController;
     public GameObject CanvasController;
     public GameObject ShopController;
     public GameObject BreedAnimal;
@@ -107,7 +108,7 @@ public class TimeController : MonoBehaviour {
         curTimeText = newText;
         if ((curTimeText == "08:00" || curTimeText == "22:00" || curTimeText == "12:00" || curTimeText == "17:00") && SpawnObject) {
             SpawnObject.GetComponent<SpawnObject>().Spawn();
-            if (Random.Range(0, 100) >= 80) {
+            if (Random.Range(0, 10) >= 8 && AdoptionController) {
                 AdoptionController.GetComponent<AdoptionController>().startRequest();
             }
         }
@@ -131,9 +132,12 @@ public class TimeController : MonoBehaviour {
         }
         globalLight.color = c;
     }
+    // ask if player wants kids or not
+
     void NextDay() {
         time = 0;
         days += 1;
+        EventController.GetComponent<EventController>().updateDay(days);
         currentTime.UpdateDays(days);
         characterManager.GetComponent<CharacterManager>().updateCharAnimal();
         UpdateAnimals();

@@ -16,6 +16,17 @@ MonoBehaviour:
   id: 1
   itemSprite: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6,
     type: 3}
+  itemRightSprite: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6,
+    type: 3}
+  itemLeftSprite: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6,
+    type: 3}
+  itemUpSprite: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6,
+    type: 3}
+  sprites:
+    down: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6, type: 3}
+    right: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6, type: 3}
+    left: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6, type: 3}
+    up: {fileID: 226647019809873599, guid: e713481a4533b4671b0dd7e416680ea6, type: 3}
   healthBonus: 3
   antiAge: 0
   itemDescription: Yum!
@@ -24,6 +35,7 @@ MonoBehaviour:
   marriage: 0
   divorce: 0
   sellCost: 26
+  moveSpeed: 0
   spawnLocations:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 32000000

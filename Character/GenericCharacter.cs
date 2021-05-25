@@ -41,6 +41,15 @@ public class GenericCharacter : MonoBehaviour {
 
     private AIPath aipath;
 
+    [SerializeField]
+    private Signal playerInRangeSignal;
+
+    [SerializeField]
+    private Signal playerOutsideRangeSignal;
+
+    [SerializeField]
+    private Signal giftRecievedSignal;
+
     void Awake() {
         aipath = GetComponent<AIPath>();
     }
@@ -137,6 +146,7 @@ public class GenericCharacter : MonoBehaviour {
         if (playerInventory.currentItem == null) {
             target.Find("InventoryHold").GetComponent<PlayerInventory>().removeSprite();
         }
+        giftRecievedSignal.Raise();
     }
     public void updateCharacterStatus(Item curItem) {
         if (curItem.date) {
@@ -267,20 +277,22 @@ public class GenericCharacter : MonoBehaviour {
     }
     public void CheckDistance() {
         // if don't stop and path exists
-        if (!stop && characterTrait.selectedPath.scene != null && characterTrait.selectedPath.pathArray.Length > 0) {
+        if (!stop && characterTrait.selectedPath.scene != null) {
             changeAnim(aipath.desiredVelocity);
             if (Vector3.Distance(transform.position, characterTrait.selectedPath.dest.value) < 1) {
                 SetWakeUpFalse();
             }
         }
-        if (Vector3.Distance(target.position, transform.position) <= clickRange) {
+        if (!playerInRange && Vector3.Distance(target.position, transform.position) <= clickRange) {
             playerInRange = true;
             speechBubble.SetActive(true);
             SetWakeUpFalse();
+            playerInRangeSignal.Raise();
         } else if (playerInRange && Vector3.Distance(target.position, transform.position) > clickRange) {
             playerInRange = false;
             speechBubble.SetActive(false);
             SetWakeUpTrue();
+            playerOutsideRangeSignal.Raise();
         }
     }
     public void SetAnimFloat(Vector2 setVector) {

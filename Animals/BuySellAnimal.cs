@@ -20,6 +20,9 @@ public class BuySellAnimal : MonoBehaviour {
     public Animals shopAnimals;
     public GameObject itemAlert;
 
+    [SerializeField]
+    private Signal currItemSoldSignal;
+
     void Start() {
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
@@ -45,14 +48,14 @@ public class BuySellAnimal : MonoBehaviour {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost;
         player.earnedMoney += newAnimal.cost;
-        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal);
+        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal.id);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
     public void adoptOutAnimal(Animal newAnimal, Character character) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost * character.multiplier;
         player.earnedMoney += newAnimal.cost * character.multiplier;
-        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal);
+        animalList.GetComponent<AnimalList>().removeAnimal(newAnimal.id);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
         newAnimal.characterOwned = true;
         newAnimal.charId = character.id;
@@ -84,7 +87,10 @@ public class BuySellAnimal : MonoBehaviour {
     public void pickUpItem(Item item) {
         playerInventory.Additem(item);
         itemAlert.GetComponent<ItemAlert>().startAlert(item);
-        player.dailyCollected.Add(item.id);
+        if (!item.pickedUpAtLeastOnce) {
+            player.dailyCollected.Add(item.id);
+            item.pickedUpAtLeastOnce = true;
+        }
     }
     public void sellItem(Item item) {
         playerMoney.initialValue += item.sellCost;
@@ -92,6 +98,7 @@ public class BuySellAnimal : MonoBehaviour {
         playerInventory.Removeitem(item);
         if (playerInventory.currentItem == null) {
             target.Find("InventoryHold").GetComponent<PlayerInventory>().removeSprite();
+            currItemSoldSignal.Raise();
         }
         topbarMoney.text = "$" + playerMoney.initialValue.ToString();
     }

@@ -29,7 +29,7 @@ public class SceneTransition : MonoBehaviour {
         } else if (other.CompareTag("pet") && !other.isTrigger) {
             curAnimals.animalDict[other.gameObject.GetComponent<GenericAnimal>().animalTrait.id].scene = sceneinfo.sceneName;
             curAnimals.animalDict[other.gameObject.GetComponent<GenericAnimal>().animalTrait.id].location = sceneinfo.entrance;
-            animalList.GetComponent<AnimalList>().removeAnimal(other.gameObject.GetComponent<GenericAnimal>().animalTrait);
+            animalList.GetComponent<AnimalList>().removeAnimal(other.gameObject.GetComponent<GenericAnimal>().animalTrait.id);
             other.gameObject.SetActive(false);
         } else if (other.CompareTag("character") && !other.isTrigger) {
             curCharacters.characterDict[other.gameObject.GetComponent<GenericCharacter>().characterTrait.id].scene = sceneinfo.sceneName;
@@ -41,7 +41,7 @@ public class SceneTransition : MonoBehaviour {
                 // Debug.Log(other.gameObject.GetComponent<GenericCharacter>().characterTrait.id);
                 if (list[i].GetComponent<GenericAnimal>().animalTrait.charId == other.gameObject.GetComponent<GenericCharacter>().characterTrait.id) {
                     Debug.Log("found char animal");
-                    animalList.GetComponent<AnimalList>().removeAnimal(list[i].GetComponent<GenericAnimal>().animalTrait);
+                    animalList.GetComponent<AnimalList>().removeAnimal(list[i].GetComponent<GenericAnimal>().animalTrait.id);
                     list[i].SetActive(false);
                 }
             }

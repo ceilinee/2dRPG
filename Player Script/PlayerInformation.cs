@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
+/// <summary>
+/// This script controls the game object PlayerMenu
+/// </summary>
 public class PlayerInformation : MonoBehaviour {
     public Text playerName;
     public Text money;
@@ -21,6 +25,11 @@ public class PlayerInformation : MonoBehaviour {
     public GameObject animalListView;
     public GameObject animalModal;
     public GameObject spawnAnimal;
+    public GameObject currentlyHeldObject;
+    public PlayerDesignComplex playerDesign;
+
+    [SerializeField]
+    private PlacementController placementController;
 
     void Update() {
         if (Input.GetButtonDown("Cancel")) {
@@ -31,11 +40,29 @@ public class PlayerInformation : MonoBehaviour {
                 gameObject.SetActive(false);
                 CanvasController.GetComponent<CanvasController>().closeCanvas();
             }
+            if (playerInventory.currentItem != null) {
+                placementController.BeginPlacement(playerInventory.currentItem.id);
+            }
         }
         if (gameObject.activeInHierarchy && Time.timeScale != 0) {
             Time.timeScale = 0;
         }
     }
+
+    // Entrypoint of the script; does some setup and then makes the game object active
+    public void Open() {
+        Assert.IsFalse(gameObject.activeInHierarchy);
+        if (playerInventory.currentItem != null) {
+            playerDesign.SetHold(playerInventory.currentItem);
+        } else if (playerDesign.CurrentlyHolding()) {
+            // Player might have been holding something, which was gifted away or sold so
+            // we don't want them holding it anymore
+            playerDesign.UnsetHold();
+        }
+        gameObject.SetActive(true);
+        updateAbout();
+    }
+
     public void openAnimal(Animal animalTrait) {
         GameObject curGameObject = getAnimal(animalTrait);
         // Debug.Log(curGameObject.GetComponent<GenericAnimal>().animalTrait.animalName);
@@ -62,16 +89,33 @@ public class PlayerInformation : MonoBehaviour {
         inventoryListView.GetComponent<ListCreator>().Clear();
         breedListView.GetComponent<ListCreator>().Clear();
     }
-    public void selectItem(Item item) {
+
+    public void DeselectCurrentItem() {
+        playerInventory.UnsetCurrentItem();
+        inventoryHold.GetComponent<PlayerInventory>().removeSprite();
+        playerDesign.UnsetHold();
+        if (currentlyHeldObject != null) {
+            currentlyHeldObject.GetComponent<ItemDetails>().SetUnselected();
+            currentlyHeldObject = null;
+        }
+    }
+
+    public void selectItem(Item item, GameObject itemObject) {
         if (playerInventory.currentItem == item) {
-            playerInventory.currentItem = null;
-            playerInventory.currentItemId = 0;
-            inventoryHold.GetComponent<PlayerInventory>().removeSprite();
+            DeselectCurrentItem();
+            placementController.EndPlacement();
         } else {
             playerInventory.currentItem = item;
             playerInventory.currentItemId = item.id;
+            if (currentlyHeldObject != null) {
+                currentlyHeldObject.GetComponent<ItemDetails>().SetUnselected();
+            }
+            currentlyHeldObject = itemObject;
+            itemObject.GetComponent<ItemDetails>().SetSelected();
             inventoryHold.GetComponent<PlayerInventory>().updateSprite();
+            playerDesign.SetHold(item);
         }
+        updateList();
     }
     public void updateAbout() {
         playerName.text = player.playerName;
@@ -87,5 +131,11 @@ public class PlayerInformation : MonoBehaviour {
         breedListView.GetComponent<ListCreator>().isBreed = true;
         breedListView.GetComponent<ListCreator>().GetBreedItems();
         inventoryListView.GetComponent<ListCreator>().GetItems();
+    }
+
+    public void RemoveCurrentItemFromInventory() {
+        var item = playerInventory.currentItem;
+        DeselectCurrentItem();
+        playerInventory.Removeitem(item);
     }
 }
