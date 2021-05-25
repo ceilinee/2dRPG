@@ -43,4 +43,12 @@ public class SpawnObject : MonoBehaviour {
         spawnedObjects.Add(instance);
 
     }
+    public void spawnButterfly(Square square, Item item) {
+        GameObject instance = Instantiate(prefabButterfly);
+        instance.GetComponent<Object>().item = item;
+        instance.GetComponent<Object>().buySellAnimal = buySellAnimal;
+        instance.transform.position = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
+        spawnedObjects.Add(instance);
+
+    }
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   id: 10
   itemSprite: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5,
     type: 3}
+<<<<<<< HEAD
   itemRightSprite: {fileID: 0}
   itemLeftSprite: {fileID: 0}
   itemUpSprite: {fileID: 0}
@@ -25,6 +26,8 @@ MonoBehaviour:
       type: 3}
     left: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5, type: 3}
     up: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5, type: 3}
+=======
+>>>>>>> a981a1659cc9b7058431366d87aa26f587bd9aef
   healthBonus: 0
   antiAge: 0
   itemDescription: 
@@ -33,6 +36,9 @@ MonoBehaviour:
   marriage: 0
   divorce: 0
   sellCost: 0
+<<<<<<< HEAD
   moveSpeed: 0
+=======
+>>>>>>> a981a1659cc9b7058431366d87aa26f587bd9aef
   spawnLocations: []
   spawnProbability: 

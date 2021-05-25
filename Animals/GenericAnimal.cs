@@ -45,9 +45,12 @@ public class GenericAnimal : AnimalState {
     private AIPath aiPath;
     private AIDestinationSetter aiDest;
 
+<<<<<<< HEAD
     [SerializeField]
     private Signal giftReceivedSignal;
 
+=======
+>>>>>>> a981a1659cc9b7058431366d87aa26f587bd9aef
     protected virtual void Awake() {
         aiPath = GetComponent<AIPath>();
         Assert.IsNotNull(aiPath);
