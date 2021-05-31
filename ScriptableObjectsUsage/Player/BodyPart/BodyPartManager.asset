@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b55625c4b2f419e981f59b9b51cd92, type: 3}
+  m_Name: BodyPartManager
+  m_EditorClassIdentifier: 
+  hairStyles:
+  - {fileID: 11400000, guid: aaff1388a6a2f44bc984e793e742751c, type: 2}
+  - {fileID: 11400000, guid: 9758d63ab8f0c40d19fa27a5ef3c18b8, type: 2}
+  - {fileID: 11400000, guid: bfbff1d1e331b4a75a663d270d44f3c9, type: 2}
+  - {fileID: 11400000, guid: 4c1b733c718d34f1e8921a1d830eb2fb, type: 2}
+  - {fileID: 11400000, guid: 29e6942e75d49431781dbfc239bb9b1c, type: 2}
+  outfits:
+  - {fileID: 11400000, guid: ee5208813d5744c89a89863e04c123db, type: 2}
+  eyes:
+  - {fileID: 11400000, guid: 1b6e3bd9cad504fb59fbb7fd9072dc88, type: 2}
+  bodySprite: {fileID: -1880120661550918566, guid: 549dca70b73f544048781e2281d3fc36,
+    type: 3}
+  bodyHoldingSprite: {fileID: 6653161357245683487, guid: 84cfbe6f25e1f4470a9062a8fa95f310,
+    type: 3}

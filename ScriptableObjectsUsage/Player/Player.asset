@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49a4413885fe4c73a1bf07a5c3c3eef, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  playerName: Ethan
+  female: 0
+  married: 0
+  marriedCharId: 0
+  datingCharId: 
+  reputation: 0
+  dailyAdoption: 0
+  dailyTalk: 0
+  dailyWalk: 0
+  dailyGiftCharacter: 0
+  dailyGiftAnimal: 0
+  dailyQuest: 0
+  earnedMoney: 0
+  exCharId: 
+  dailyTalkedTo: 
+  dailyGiftedTo: 
+  dailyScenesVisited: 
+  dailyCollected: 
+  childrenCharId: 
+  appearance:
+    hairId: 0
+    hairColorId: 7
+    outfitId: 0
+    eyesId: 0
+    eyeColorId: 0
+    skinColorId: 0

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71b2d56f35324ed39aff326c3aba6f8, type: 3}
+  m_Name: Eyes1
+  m_EditorClassIdentifier: 
+  id: 0
+  name: style 1
+  bodyPartSprite: {fileID: -7519787493405742422, guid: b8ace774def06417392c380e71e69c89,
+    type: 3}
+  bodyAnimation:
+    attackDown: {fileID: 7400000, guid: a50df5e2a47574d6284356a6e3f26a3e, type: 2}
+    attackDownIdle: {fileID: 7400000, guid: 36b4da8031eeb41319648f9663a72032, type: 2}
+    attackLeft: {fileID: 7400000, guid: 1fba27387d8cf47adaabc14617f2216d, type: 2}
+    attackLeftIdle: {fileID: 7400000, guid: 1a8781e96461845bdb679a976983fdcb, type: 2}
+    attackRight: {fileID: 7400000, guid: ffa0ed2fa3fcb4b99ac865e50ce3eaa6, type: 2}
+    attackRightIdle: {fileID: 7400000, guid: af59a8e23071d459d84eb04cad14440e, type: 2}
+    attackUp: {fileID: 7400000, guid: 7040df2fa247643a295ed82635831d5d, type: 2}
+    attackUpIdle: {fileID: 7400000, guid: 43ea63a085a964f5482160030b800f9d, type: 2}
+    idleDown: {fileID: 7400000, guid: d729c569c6db642e78945b71936dabbf, type: 2}
+    idleLeft: {fileID: 7400000, guid: 38eba9374050647d6b52b2131a53a722, type: 2}
+    idleRight: {fileID: 7400000, guid: d1a2f70df44c8498f85073da1ec2e8ff, type: 2}
+    idleUp: {fileID: 7400000, guid: 900e578e4090b4fe39dbcb6bc000ff29, type: 2}
+    walkDown: {fileID: 7400000, guid: 647696a78732345bbb6e074db935914a, type: 2}
+    walkLeft: {fileID: 7400000, guid: 9f1a45f24c19c446cbacc6da53b16c3f, type: 2}
+    walkRight: {fileID: 7400000, guid: a470885d65eae4e8e86ea23be827bc82, type: 2}
+    walkUp: {fileID: 7400000, guid: d7196dffc6d2e43758130c2c0908b18e, type: 2}

@@ -1,0 +1,423 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747a273850d2e424e844a4d123d45205, type: 3}
+  m_Name: CharAnimals
+  m_EditorClassIdentifier: 
+  animalDict:
+    keys: daaf050035320e00959a0400082d000084a50c00d70a070003ba0d008e85080084470900
+    values:
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 372698
+      adoption: 0
+      location: {x: 9.944117, y: -0.5928953}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 930357
+      adoption: 0
+      location: {x: 12.852037, y: -0.7503389}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 1
+      gender: Female
+      home: Barn1
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 301717
+      adoption: 0
+      location: {x: -17.018919, y: -1.0235639}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 2
+      gender: Female
+      home: Barn1
+      cost: 100
+      shopCost: 200
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 15
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 11528
+      adoption: 0
+      location: {x: -46.98, y: 28.08}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 6
+      gender: Male
+      home: Barn1
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 828804
+      adoption: 0
+      location: {x: 10.899246, y: -0.7026758}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 100
+      shopCost: 200
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 12
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 461527
+      adoption: 0
+      location: {x: 8.043442, y: -0.5340346}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 82
+      shopCost: 164
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 16
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Sunbeam
+      health: 100
+      sold: 0
+      id: 899587
+      adoption: 0
+      location: {x: 12.346783, y: -0.7553098}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 1
+      gender: Female
+      home: Barn1
+      cost: 360
+      shopCost: 720
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 13
+        eyes: 6
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 0
+        star: 0
+    - animalName: Baby
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Boots
+      health: 100
+      sold: 0
+      id: 558478
+      adoption: 0
+      location: {x: -1.880978, y: 7.663908}
+      target: {x: 0, y: 0}
+      age: -3
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 2
+      gender: Female
+      home: Barn1
+      cost: 200
+      shopCost: 400
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 21
+        dots: 27
+        face: 27
+        legs: 7
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 608132
+      adoption: 0
+      location: {x: -9.05, y: 17.91}
+      target: {x: 0, y: 0}
+      age: 0
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Excited
+      moodId: 
+      follow: 1
+      characterOwned: 1
+      charId: 2
+      gender: Male
+      home: Barn1
+      cost: 116
+      shopCost: 232
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 0}
+      walked: 0
+      coloring:
+        body: 11
+        tail: 11
+        eyes: 6
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+  breedName: 

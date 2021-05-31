@@ -1,0 +1,71 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu]
+[System.Serializable]
+public class Inventory : ScriptableObject {
+    public Item currentItem = null;
+    [System.Serializable] public class DictionaryOfItems : SerializableDictionary<Item, double> { }
+    public DictionaryOfItems items = new DictionaryOfItems();
+    public int currentItemId;
+    [System.Serializable] public class DictionaryOfInt : SerializableDictionary<int, double> { }
+    public DictionaryOfInt itemInt = new DictionaryOfInt();
+    //for adding items easily
+    public List<int> itemIntList;
+
+    public void UpdateInventory(ItemDictionary itemDictionary) {
+        foreach (KeyValuePair<int, double> kvp in itemInt) {
+            if (itemDictionary.itemDict.ContainsKey(kvp.Key)) {
+                items[itemDictionary.itemDict[kvp.Key]] = kvp.Value;
+            }
+        }
+        foreach (int id in itemIntList) {
+            if (itemDictionary.itemDict.ContainsKey(id) && !itemInt.ContainsKey(id)) {
+                items[itemDictionary.itemDict[id]] = 40;
+                itemInt[id] = 40;
+            }
+        }
+        if (itemDictionary.itemDict.ContainsKey(currentItemId)) {
+            currentItem = itemDictionary.itemDict[currentItemId];
+        }
+    }
+    public void Additem(Item itemToAdd) {
+        //is the item a key?
+        if (!items.ContainsKey(itemToAdd)) {
+            items[itemToAdd] = 1;
+            itemInt[itemToAdd.id] = 1;
+        } else {
+            items[itemToAdd] += 1;
+            itemInt[itemToAdd.id] += 1;
+        }
+    }
+    public void Clear() {
+        items = new DictionaryOfItems();
+        itemInt = new DictionaryOfInt();
+        currentItem = null;
+        currentItemId = 0;
+    }
+    public void Removeitem(Item itemToAdd) {
+        //is the item a key?
+        if (items[itemToAdd] == 1) {
+            items.Remove(itemToAdd);
+            itemInt.Remove(itemToAdd.id);
+            if (currentItem == itemToAdd) {
+                UnsetCurrentItem();
+            }
+        } else if (items[itemToAdd] > 1) {
+            items[itemToAdd] -= 1;
+            itemInt[itemToAdd.id] -= 1;
+        }
+    }
+    public void UnsetCurrentItem() {
+        //is the item a key?
+        currentItem = null;
+        currentItemId = 0;
+    }
+
+    public double CountOf(Item item) {
+        return item != null && items.ContainsKey(item) ? items[item] : 0;
+    }
+}

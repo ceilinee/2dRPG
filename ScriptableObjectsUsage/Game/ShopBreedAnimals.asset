@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747a273850d2e424e844a4d123d45205, type: 3}
+  m_Name: ShopBreedAnimals
+  m_EditorClassIdentifier: 
+  animalDict:
+    keys: 9ae00900512c0f00d8de06004f480900
+    values:
+    - animalName: Baby
+      type: Rabbit
+      breed: Winter
+      sold: 0
+      id: 647322
+      location: {x: 2.3158197, y: -3.1827328}
+      age: -3
+      mood: Excited
+      follow: 0
+      gender: Female
+      home: Barn1
+      cost: 384
+      shopCost: 768
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      gaveGift: 0
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 16
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Rabbit
+      breed: Winter
+      sold: 0
+      id: 994385
+      location: {x: 2.668821, y: -2.7868612}
+      age: -3
+      mood: Excited
+      follow: 0
+      gender: Female
+      home: Barn1
+      cost: 408
+      shopCost: 816
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      gaveGift: 0
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 26
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Rabbit
+      breed: Winter
+      sold: 0
+      id: 450264
+      location: {x: 3.4931166, y: -2.6798472}
+      age: -3
+      mood: Excited
+      follow: 0
+      gender: Male
+      home: Barn1
+      cost: 408
+      shopCost: 816
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      gaveGift: 0
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 28
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Llama
+      breed: Winter
+      sold: 0
+      id: 608335
+      location: {x: 2.8315296, y: -1.1334379}
+      age: -3
+      mood: Excited
+      follow: 0
+      gender: Male
+      home: Barn1
+      cost: 594
+      shopCost: 1188
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      gaveGift: 0
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 13
+        dots: 0
+        face: 0
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+  breedName: Winter

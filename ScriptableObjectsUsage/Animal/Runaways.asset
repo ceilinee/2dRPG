@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747a273850d2e424e844a4d123d45205, type: 3}
+  m_Name: Runaways
+  m_EditorClassIdentifier: 
+  animalDict:
+    keys: 4c030700
+    values:
+    - animalName: Baby Pink
+      type: Llama
+      breed: Generic
+      health: 1
+      sold: 0
+      id: 459596
+      location: {x: 24.769928, y: -10.160293}
+      target: {x: 0, y: 0}
+      age: 28
+      scene: MainScene
+      mood: Needs to go see the vet
+      follow: 0
+      characterOwned: 0
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 90
+      shopCost: 180
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 28
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+  breedName: 

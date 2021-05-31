@@ -1,0 +1,662 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747a273850d2e424e844a4d123d45205, type: 3}
+  m_Name: WildAnimals
+  m_EditorClassIdentifier: 
+  animalDict:
+    keys: 901d0500db560a0032d40700650b0f00ef0d00007643000055280000b5130a00d12a0b0092660c0064d30b005222040027ba0d000f4b0400
+    values:
+    - animalName: Baby
+      type: Llama
+      momId: 0
+      dadId: 0
+      breed: Back Patch
+      health: 100
+      sold: 0
+      id: 335248
+      adoption: 0
+      location: {x: -108.204185, y: -12.987726}
+      target: {x: 0, y: 0}
+      age: 6
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 274
+      shopCost: 548
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -88
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 16
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 21
+        star: 27
+    - animalName: Baby
+      type: Sheep
+      momId: 0
+      dadId: 0
+      breed: Back Patch
+      health: 100
+      sold: 0
+      id: 677595
+      adoption: 0
+      location: {x: -107.14842, y: -14.02248}
+      target: {x: 0, y: 0}
+      age: 7
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 204
+      shopCost: 408
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -71
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 6
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 0
+        star: 27
+    - animalName: Baby
+      type: Llama
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 513074
+      adoption: 0
+      location: {x: -69.59806, y: -1.750719}
+      target: {x: 0, y: 0}
+      age: 3
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 86
+      shopCost: 172
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -41
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 16
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 1
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 985957
+      adoption: 0
+      location: {x: -81.20673, y: -12.636326}
+      target: {x: 0, y: 0}
+      age: 13
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -35
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Spotted
+      health: 100
+      sold: 0
+      id: 3567
+      adoption: 0
+      location: {x: -74.680504, y: -7.4111567}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 90
+      shopCost: 180
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -42
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 13
+        dots: 9
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Llama
+      momId: 0
+      dadId: 0
+      breed: Spotted
+      health: 100
+      sold: 0
+      id: 17270
+      adoption: 0
+      location: {x: -62.304543, y: -9.0353565}
+      target: {x: 0, y: 0}
+      age: 18
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 248
+      shopCost: 496
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -82
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 21
+        dots: 7
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Sheep
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 10325
+      adoption: 0
+      location: {x: -105.28703, y: -0.49873015}
+      target: {x: 0, y: 0}
+      age: 11
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 109
+      shopCost: 218
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -47
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 13
+        eyes: 22
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 8
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Rabbit
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 660405
+      adoption: 0
+      location: {x: -74.49892, y: -2.7711105}
+      target: {x: 0, y: 0}
+      age: 4
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 42
+      shopCost: 84
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -30
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 28
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 731857
+      adoption: 0
+      location: {x: -66.03469, y: 0.5727694}
+      target: {x: 0, y: 0}
+      age: 14
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -30
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Pig
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 812690
+      adoption: 0
+      location: {x: -84.64057, y: -19.317312}
+      target: {x: 0, y: 0}
+      age: 10
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 98
+      shopCost: 196
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -44
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 23
+        dots: 27
+        face: 27
+        legs: 0
+        ears: 27
+        back: 27
+        star: 15
+    - animalName: Baby
+      type: Llama
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 775012
+      adoption: 0
+      location: {x: -84.47301, y: -2.5611506}
+      target: {x: 0, y: 0}
+      age: 15
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 58
+      shopCost: 116
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -34
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 22
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Sheep
+      momId: 0
+      dadId: 0
+      breed: Back Patch
+      health: 100
+      sold: 0
+      id: 270930
+      adoption: 0
+      location: {x: -108.16248, y: -2.6496916}
+      target: {x: 0, y: 0}
+      age: 11
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Female
+      home: Barn1
+      cost: 838
+      shopCost: 1676
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -229
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 26
+        tail: 26
+        eyes: 6
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 8
+        star: 27
+    - animalName: Baby
+      type: Rabbit
+      momId: 0
+      dadId: 0
+      breed: Boots
+      health: 100
+      sold: 0
+      id: 899623
+      adoption: 0
+      location: {x: -63.000233, y: -19.041565}
+      target: {x: 0, y: 0}
+      age: 16
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 108
+      shopCost: 216
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -47
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 28
+        dots: 27
+        face: 27
+        legs: 8
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: Goose
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 100
+      sold: 0
+      id: 281359
+      adoption: 0
+      location: {x: -83.22023, y: -7.6935687}
+      target: {x: 0, y: 0}
+      age: 10
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Excited
+      moodId: 1
+      follow: 0
+      characterOwned: 0
+      wild: 1
+      charId: 0
+      gender: Male
+      home: Barn1
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: -35
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 7
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+  breedName: 
