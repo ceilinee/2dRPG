@@ -22,7 +22,6 @@ public class ForestGeneration : CustomMonoBehaviour {
     private Transform Player;
     private Vector2 playerLocation;
     public CameraMovement cam;
-    private int count = 0;
     private int[,] terrainMap;
     private int[,] forestMap;
 
@@ -33,7 +32,8 @@ public class ForestGeneration : CustomMonoBehaviour {
     public Tilemap collisionMap;
     public RuleTile collisionTile;
     public bool random;
-    public bool beach2;
+    public bool maze = true;
+    public Forest forest;
     public GameObject returnBoat;
     public RuleTile beachTile;
     public RuleTile beachTile2;
@@ -45,35 +45,10 @@ public class ForestGeneration : CustomMonoBehaviour {
 
     int width;
     int height;
-    //generate forest
-    public bool generateForest(int nu) {
-        clearForestMap(false);
-        width = tmpSize.x;
-        height = tmpSize.y;
 
-        if (forestMap == null) {
-            forestMap = new int[width, height];
-            initPos(forestMap, true);
-        }
-
-
-        for (int i = 0; i < nu; i++) {
-            forestMap = genTilePos(forestMap);
-        }
-
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                if (forestMap[x, y] == 1 && terrainMap[x, y] == 1) {
-                    grassMap.SetTile(ReturnProperPosition(x, y, 0), grassTile);
-                }
-            }
-        }
-        grassMap.gameObject.SetActive(true);
-        return true;
-    }
     //confirm whether valid tree planting spot
     public bool isValidTreePlantingSpot(int value, int x, int y, int size) {
-        return beach2 ? AreaIs1(value, terrainMap, x, y, size)
+        return maze ? AreaIs1(value, terrainMap, x, y, size)
         : AreaIs1(value, forestMap, x, y, size)
         && AreaIs1(value, terrainMap, x, y, size);
     }
@@ -95,11 +70,6 @@ public class ForestGeneration : CustomMonoBehaviour {
         clearMap(false);
         width = tmpSize.x;
         height = tmpSize.y;
-        // Vector2 locationOrigin = new Vector2(0, 0);
-        // topMap.transform.position = locationOrigin;
-        // botMap.transform.position = locationOrigin;
-        // collisionMap.transform.position = locationOrigin;
-        // Player.transform.position = new Vector2(width / 2, height / 2);
 
         if (terrainMap == null) {
             terrainMap = new int[width, height];
@@ -114,7 +84,7 @@ public class ForestGeneration : CustomMonoBehaviour {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 if (terrainMap[x, y] == 1) {
-                    botMap.SetTile(ReturnProperPosition(x, y, 0), beach2 ? beachTile2 : beachTile);
+                    botMap.SetTile(ReturnProperPosition(x, y, 0), maze ? beachTile2 : beachTile);
                 } else {
                     topMap.SetTile(ReturnProperPosition(x, y, 0), waterTile[Random.Range(0, waterTile.Length)]);
                 }
@@ -135,24 +105,16 @@ public class ForestGeneration : CustomMonoBehaviour {
     public bool generateMaze(int nu) {
         width = tmpSize.x;
         height = tmpSize.y;
-        // Vector2 locationOrigin = new Vector2(0, 0);
-        // topMap.transform.position = locationOrigin;
-        // botMap.transform.position = locationOrigin;
-        // collisionMap.transform.position = locationOrigin;
-        // Player.transform.position = new Vector2(width / 2, height / 2);
 
         if (terrainMap == null) {
             terrainMap = new int[width / 2, height / 2];
         }
 
-        // for (int i = 0; i < nu * 5; i++) {
-        //     terrainMap = drawMaze(terrainMap);
-        // }
         terrainMap = drawMaze(terrainMap);
         terrainMap = doubleMap(terrainMap);
         terrainMap = drawRectangle(terrainMap, 2, height - 2, true);
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
+        for (int x = 0; x <= width; x++) {
+            for (int y = 0; y <= height; y++) {
                 grassMap.SetTile(ReturnProperPosition(x, y, 0), grassTile);
             }
         }
@@ -200,39 +162,21 @@ public class ForestGeneration : CustomMonoBehaviour {
         }
         return map;
     }
-    public int[,] makeFakes(int x, int y, int[,] map) {
-        //if already path, return
-        if (x >= map.GetLength(0) || y >= map.GetLength(1) || x < 0 || y < 0) {
-            return map;
-        }
-        if (map[x, y] == 1) {
-            return map;
-        }
-        //statement preventing to many together?
-        //chance for path: 2/3
-        int cur = Random.Range(0, 10) >= 3 ? 1 : 0;
-        if (cur == 0) { return map; } else {
-            map[x, y] = cur;
-            makeFakes(x, y, map);
-            makeFakes(x + 1, y, map);
-            makeFakes(x, y + 1, map);
-            makeFakes(x + 1, y + 1, map);
-        }
-        return map;
-    }
     public int[,] drawMaze(int[,] map) {
         //set all as zero
         map = setZeroes(map);
-        //set enntrance and exit
-        Vector2 entrance = new Vector2(0, Random.Range(1, map.GetLength(1) - 1));
-        spawnObject.generateObject(ReturnProperPositionV2((int) entrance.x * 2, (int) entrance.y * 2), flag);
-        Vector2 exit = new Vector2(map.GetLength(0) - 1, Random.Range(1, map.GetLength(1)));
-        spawnObject.generateObject(ReturnProperPositionV2((int) exit.x * 2, (int) exit.y * 2), flag);
+        //set entrance and exit
+        Vector2 entrance = new Vector2(1, Random.Range(1, map.GetLength(1) - 1));
+        spawnObject.generateObject(ReturnProperPositionV2((int) (entrance.x * 2) + 1, (int) (entrance.y * 2) + 1), flag);
+        Vector2 exit = new Vector2(map.GetLength(0) - 1, Random.Range(1, map.GetLength(1) - 1));
+        spawnObject.generateObject(ReturnProperPositionV2((int) (exit.x * 2) + 1, (int) (exit.y * 2) + 1), flag);
+        // Debug.Log(exit);
+        // Debug.Log(ReturnProperPositionV2((int) exit.x * 2, (int) exit.y * 2));
         map = makeRealPath(exit, map, (int) entrance.x, (int) entrance.y);
         for (int i = 0; i < map.GetLength(1); i++) {
             int random = Random.Range(0, 8);
             if (random == 0) {
-                Vector2 randomEntrance = new Vector2(0, Random.Range(0, map.GetLength(1)));
+                Vector2 randomEntrance = new Vector2(1, Random.Range(1, map.GetLength(1) - 1));
                 Vector2 randomExit = new Vector2(Random.Range(7 * map.GetLength(0) / 8, map.GetLength(0) - 1), Random.Range(0, map.GetLength(1)));
                 map = makeRealPath(randomExit, map, (int) randomEntrance.x, (int) randomEntrance.y);
             }
@@ -253,7 +197,6 @@ public class ForestGeneration : CustomMonoBehaviour {
         }
         //reached end, move up or down
         if (x == exit.x) {
-            // Debug.Log(y.ToString() + "," + exit.y.ToString());
             if (y > exit.y) {
                 makeRealPath(exit, map, x, y - 1, PreviousDirection.DOWN);
             } else if (y < exit.y) {
@@ -269,13 +212,6 @@ public class ForestGeneration : CustomMonoBehaviour {
             makeRealPath(exit, map, x, y - 1, PreviousDirection.DOWN);
         } else {
             int random = Random.Range(0, 7);
-            // if (previousDirection == PreviousDirection.DOWN) {
-            //     random = Random.Range(0, 4);
-            // } else if (previousDirection == PreviousDirection.UP) {
-            //     random = Random.Range(0, 2) > 0 ? 4 : 1;
-            // } else if (previousDirection == PreviousDirection.RIGHT) {
-            //     random = Random.Range(1, 7);
-            // }
             switch (random) {
                 case 0:
                     makeRealPath(exit, map, x + 1, y, PreviousDirection.RIGHT);
@@ -307,14 +243,13 @@ public class ForestGeneration : CustomMonoBehaviour {
                 map[(int) pickPoint.x + i, (int) pickPoint.y + j] = 1;
             }
         }
-        Debug.Log(map);
         return map;
     }
     public Vector3Int ReturnProperPosition(int x, int y, int z) {
-        return new Vector3Int(-(-x + width / 2), -(-y + height / 2), z);
+        return new Vector3Int(x - (width / 2), y - (width / 2), z);
     }
     public Vector2 ReturnProperPositionV2(int x, int y) {
-        return new Vector2(-(-x + width / 2), -(-y + height / 2));
+        return new Vector2(x - (width / 2), y - (width / 2));
     }
     public void initPos(int[,] map, bool forest = false) {
         for (int x = 0; x < width; x++) {
@@ -382,21 +317,14 @@ public class ForestGeneration : CustomMonoBehaviour {
         yield return new WaitForEndOfFrame();
     }
     private IEnumerator GenerationWait() {
-        bool forestResult = false;
         bool beachResult = false;
-        beachResult = beach2 ? generateMaze(numR) : generateSwamp(numR);
-        forestResult = beach2 ? true : generateForest(numR);
-        while (!forestResult || !beachResult) {
+        beachResult = maze ? generateMaze(numR) : generateSwamp(numR);
+        while (!beachResult) {
             yield return null;
         }
         PlantTrees();
         GenerateAnimal();
         GenerateObjects();
-        SetReturnBoat();
-    }
-    public void SetReturnBoat() {
-        returnBoat.transform.position = GetSmallestPoint(terrainMap);
-        returnBoat.SetActive(true);
     }
     public Vector2 GetSmallestPoint(int[,] map) {
         for (int y = 0; y < height; y++) {
@@ -445,49 +373,14 @@ public class ForestGeneration : CustomMonoBehaviour {
         }
     }
     void Start() {
-        // if (!beach2) {
-        //     beach2 = Random.Range(0, 2) >= 1 ? true : false;
-        // }
+        maze = forest.maze;
         Player = centralController.Get("Player").transform;
         spawnObject = centralController.Get("SpawnObjects").GetComponent<SpawnObject>();
         spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
+        tmpSize = new Vector3Int(forest.width, forest.height, 0);
         StartCoroutine(GenerationWait());
-        tmpSize = random ? new Vector3Int(Random.Range(80, 150), Random.Range(80, 150), 0) : tmpSize;
     }
-    // void Update() {
 
-    //     if (Input.GetMouseButtonDown(0)) {
-    //         doSim(numR);
-    //     }
-
-
-    //     if (Input.GetMouseButtonDown(1)) {
-    //         clearMap(true);
-    //     }
-
-
-
-    //     if (Input.GetMouseButton(2)) {
-    //         SaveAssetMap();
-    //         count++;
-    //     }
-    // }
-
-
-    // public void SaveAssetMap() {
-    //     string saveName = "tmapXY_" + count;
-    //     var mf = GameObject.Find("Grid");
-
-    //     if (mf) {
-    //         var savePath = "Assets/" + saveName + ".prefab";
-    //         if (PrefabUtility.CreatePrefab(savePath, mf)) {
-    //             EditorUtility.DisplayDialog("Tilemap saved", "Your Tilemap was saved under" + savePath, "Continue");
-    //         } else {
-    //             EditorUtility.DisplayDialog("Tilemap NOT saved", "An ERROR occured while trying to saveTilemap under" + savePath, "Continue");
-    //         }
-
-    //     }
-    // }
     public void clearForestMap(bool complete) {
         grassMap.ClearAllTiles();
         if (complete) {

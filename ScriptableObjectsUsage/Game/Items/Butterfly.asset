@@ -11,29 +11,17 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e304a220572147318114032929be6d9, type: 3}
   m_Name: Butterfly
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   itemName: Butterfly
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 0fe4f0c1fd2192daa1b4ee6b4bad55cb501d2ed0
   id: 12
   sprites:
     down: {fileID: 0}
     right: {fileID: 0}
     left: {fileID: 0}
     up: {fileID: 0}
-<<<<<<< HEAD
-=======
-=======
-  id: 0
-  itemSprite: {fileID: 4530433918361379743, guid: e3a879b38a6504dfe9e2bbad85df3794,
-    type: 3}
->>>>>>> a981a1659cc9b7058431366d87aa26f587bd9aef
->>>>>>> 0fe4f0c1fd2192daa1b4ee6b4bad55cb501d2ed0
   healthBonus: 0
   antiAge: 0
-  itemDescription: 
+  itemDescription:
   cost: 0
   date: 0
   marriage: 0
