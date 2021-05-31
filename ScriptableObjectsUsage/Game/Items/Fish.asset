@@ -16,12 +16,24 @@ MonoBehaviour:
   id: 10
   itemSprite: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5,
     type: 3}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  itemRightSprite: {fileID: 0}
+  itemLeftSprite: {fileID: 0}
+  itemUpSprite: {fileID: 0}
+>>>>>>> 0fe4f0c1fd2192daa1b4ee6b4bad55cb501d2ed0
   sprites:
     down: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5, type: 3}
     right: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5,
       type: 3}
     left: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5, type: 3}
     up: {fileID: -1047351213520910582, guid: 2d5b17d5d68d64aa1b2994071b1eedc5, type: 3}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> a981a1659cc9b7058431366d87aa26f587bd9aef
+>>>>>>> 0fe4f0c1fd2192daa1b4ee6b4bad55cb501d2ed0
   healthBonus: 0
   antiAge: 0
   itemDescription: 
@@ -30,5 +42,12 @@ MonoBehaviour:
   marriage: 0
   divorce: 0
   sellCost: 0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  moveSpeed: 0
+=======
+>>>>>>> a981a1659cc9b7058431366d87aa26f587bd9aef
+>>>>>>> 0fe4f0c1fd2192daa1b4ee6b4bad55cb501d2ed0
   spawnLocations: []
   spawnProbability: 

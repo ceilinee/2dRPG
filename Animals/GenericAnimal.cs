@@ -47,7 +47,6 @@ public class GenericAnimal : AnimalState {
 
     [SerializeField]
     private Signal giftReceivedSignal;
-
     protected virtual void Awake() {
         aiPath = GetComponent<AIPath>();
         Assert.IsNotNull(aiPath);
