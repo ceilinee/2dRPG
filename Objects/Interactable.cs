@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour {
+public class Interactable : CustomMonoBehaviour {
     public bool playerInRange;
     public Signal contextOn;
     public Signal contextOff;

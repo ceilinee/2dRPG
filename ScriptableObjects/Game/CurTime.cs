@@ -6,8 +6,15 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public struct Timestamp {
+    public const float SecondsPerDay = 86400f;
+    public const float SecondsPerHour = 3600f;
     public float time;
     public int days;
+
+    // Calculate the difference in time between two timestamps, in terms of seconds    
+    public static float operator -(Timestamp t1, Timestamp t2) {
+        return (t1.days * SecondsPerDay + t1.time) - (t2.days * SecondsPerDay + t2.time);
+    }
 }
 
 [CreateAssetMenu]
@@ -142,6 +149,6 @@ public class CurTime : ScriptableObject {
 
     // Determine if the current time is strictly later than t
     public bool isCurrentTimeBigger(Timestamp t) {
-        return days >= t.days && time > t.time;
+        return days >= t.days || (days == t.days && time > t.time);
     }
 }

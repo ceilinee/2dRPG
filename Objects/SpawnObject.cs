@@ -12,6 +12,9 @@ public class SpawnObject : MonoBehaviour {
     public List<GameObject> prefabs;
     public DictionaryOfStringAndGameObject prefabDict;
     void Start() {
+        UpdateDict();
+    }
+    public void UpdateDict() {
         foreach (GameObject gameObject in prefabs) {
             prefabDict[gameObject.name.ToUpper()] = gameObject;
         }
@@ -52,8 +55,13 @@ public class SpawnObject : MonoBehaviour {
         generatePrefab(location, "tree");
     }
     public void generatePrefab(Vector2 location, string name) {
+        if (!prefabDict.ContainsKey(name.ToUpper())) {
+            Debug.Log("No Prefab: " + name.ToUpper());
+            UpdateDict();
+        }
         if (prefabDict.ContainsKey(name.ToUpper())) {
             GameObject instance = GameObject.Instantiate(prefabDict[name.ToUpper()]) as GameObject;
+            instance.SetActive(true);
             instance.transform.position = location;
             spawnedObjects.Add(instance);
         }

@@ -4,12 +4,6 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class BuildingController : CustomMonoBehaviour {
-    public SceneInfos playerBuildings;
-    public GameObject[] buildings;
-    public SceneInfos allBuildings;
-    public int[] ids;
-    public DictionaryOfIntAndGameObject buildingGameObjectDictionary = new DictionaryOfIntAndGameObject();
-
     private class BuildingUnderConstruction {
         public Timestamp completionTime;
         public BuildingItem item;
@@ -24,7 +18,6 @@ public class BuildingController : CustomMonoBehaviour {
         }
     }
 
-    // Make this SO and save it in GameSaveManager
     private List<BuildingUnderConstruction> buildingsUnderConstruction;
 
     [SerializeField]
@@ -43,9 +36,6 @@ public class BuildingController : CustomMonoBehaviour {
         placementController = centralController.Get("PlacementController").GetComponent<PlacementController>();
         buildingsUnderConstruction = new List<BuildingUnderConstruction>();
 
-        for (int i = 0; i < buildings.Length; i++) {
-            buildings[i].SetActive(false);
-        }
         LoadSavedPlacedBuildings();
     }
 
@@ -60,8 +50,12 @@ public class BuildingController : CustomMonoBehaviour {
             GameObject buildingObject = null;
             if (savedBuilding.completed) {
                 buildingObject = Instantiate(buildingInfo.prefab);
+                var sceneTransition = buildingObject.GetComponentInChildren<SceneTransition>();
+                sceneTransition.SetSceneInfo(item.sceneInfo);
             } else {
                 buildingObject = Instantiate(buildingInfo.blueprintPrefab);
+                placementController.SetSpritesToColor(
+                    buildingObject.GetComponentsInChildren<SpriteRenderer>(), placementController.faintBlue);
                 buildingsUnderConstruction.Add(
                     new BuildingUnderConstruction(
                         savedBuilding.completionTime,
@@ -79,7 +73,8 @@ public class BuildingController : CustomMonoBehaviour {
     // RegisterBuildingCreation is invoked after a building blueprint has been placed.
     // `buildingBlueprint` represents the foundation of the building
     // After 2 days, the real house (an instance of buildingPrefab) should be built by this controller
-    public void RegisterBuildingCreation(BuildingItem item, GameObject buildingBlueprintInstance, GameObject buildingPrefab) {
+    public void RegisterBuildingCreation(
+        BuildingItem item, GameObject buildingBlueprintInstance, GameObject buildingPrefab) {
         Timestamp completionTime = curTime.DaysFromNow(2);
         buildingsUnderConstruction.Add(
             new BuildingUnderConstruction(
@@ -94,7 +89,6 @@ public class BuildingController : CustomMonoBehaviour {
 
     // Called by SignalListener
     public void OnTimeUpdate() {
-        // TODO: check every 1 hour instead of every on every signal (every 10 minutes)
         HashSet<int> removedIdxs = new HashSet<int>();
         for (int i = 0; i < buildingsUnderConstruction.Count; ++i) {
             BuildingUnderConstruction building = buildingsUnderConstruction[i];

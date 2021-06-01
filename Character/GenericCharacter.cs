@@ -127,6 +127,11 @@ public class GenericCharacter : CustomMonoBehaviour {
         characterTrait.presentsDaily = 0;
     }
     public void giveGift() {
+        if (playerInventory.currentItem is BuildingItem) {
+            // Can't gift buildings
+            CanvasController.GetComponent<CanvasController>().closeCanvas();
+            return;
+        }
         conversation = true;
         characterTrait.presentsDaily += 1;
         Item curItem = playerInventory.currentItem;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 public enum PreviousDirection {
     LEFT,
     RIGHT,
@@ -37,14 +38,34 @@ public class ForestGeneration : CustomMonoBehaviour {
     public GameObject returnBoat;
     public RuleTile beachTile;
     public RuleTile beachTile2;
+    public RuleTile trainTrack;
     public RuleTile grassTile;
     public AnimatedTile[] waterTile;
     private SpawnObject spawnObject;
-    public Item flag;
+    // public Item flag;
     private SpawnWildAnimal spawnWildAnimal;
+    private DialogueManager dialogueManager;
+    public GameObject ranger;
+    public Dialogue rangerDialogue;
+    private DisplayArea displayArea;
 
     int width;
     int height;
+    public void StartForest() {
+        Debug.Log("Forest Width: " + forest.width);
+        maze = forest.maze;
+        Player = centralController.Get("Player").transform;
+        dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
+        spawnObject = centralController.Get("SpawnObjects").GetComponent<SpawnObject>();
+        spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
+        displayArea = centralController.Get("DisplayArea").GetComponent<DisplayArea>();
+        tmpSize = new Vector3Int(forest.width, forest.height, 0);
+        StartCoroutine(GenerationWait());
+        if (forest.level == 0) {
+            dialogueManager.startDialog(ranger, rangerDialogue);
+        }
+        displayArea.startAlert("Forest - Area " + forest.level);
+    }
 
     //confirm whether valid tree planting spot
     public bool isValidTreePlantingSpot(int value, int x, int y, int size) {
@@ -55,7 +76,7 @@ public class ForestGeneration : CustomMonoBehaviour {
     public bool AreaIs1(int value, int[,] map, int x, int y, int size) {
         for (int i = x - (size / 2); i < x + 1 + (size / 2); i++) {
             for (int j = y - (size / 2); j < y + 1 + (size / 2); j++) {
-                if (i >= width || j >= height || i < 0 || j < 0) {
+                if (i >= map.GetLength(0) || j >= map.GetLength(1) || i < 0 || j < 0) {
                     return false;
                 }
                 if (map[i, j] != value) {
@@ -105,14 +126,14 @@ public class ForestGeneration : CustomMonoBehaviour {
     public bool generateMaze(int nu) {
         width = tmpSize.x;
         height = tmpSize.y;
-
+        int starCount = (forest.level + 1) * 2;
         if (terrainMap == null) {
             terrainMap = new int[width / 2, height / 2];
         }
 
         terrainMap = drawMaze(terrainMap);
         terrainMap = doubleMap(terrainMap);
-        terrainMap = drawRectangle(terrainMap, 2, height - 2, true);
+        terrainMap = drawRectangle(terrainMap, 3, height - 2, true);
         for (int x = 0; x <= width; x++) {
             for (int y = 0; y <= height; y++) {
                 grassMap.SetTile(ReturnProperPosition(x, y, 0), grassTile);
@@ -133,8 +154,14 @@ public class ForestGeneration : CustomMonoBehaviour {
             collisionMap.SetTile(ReturnProperPosition(0, y, 0), collisionTile);
             collisionMap.SetTile(ReturnProperPosition(width, y, 0), collisionTile);
         }
-        cam.maxPosition = ReturnProperPositionV2(width - 15, height - 6);
-        cam.minPosition = ReturnProperPositionV2(0 + 15, 0 + 6);
+        //generate train tracks
+        for (int x = 0; x < width; x++) {
+            for (int y = 1; y < 3; y++) {
+                topMap.SetTile(ReturnProperPosition(x, y, 0), trainTrack);
+            }
+        }
+        cam.maxPosition = ReturnProperPositionV2(width - 12, height - 6);
+        cam.minPosition = ReturnProperPositionV2(0 + 14, 0 + 8);
         return true;
     }
     public int[,] doubleMap(int[,] map) {
@@ -166,19 +193,33 @@ public class ForestGeneration : CustomMonoBehaviour {
         //set all as zero
         map = setZeroes(map);
         //set entrance and exit
-        Vector2 entrance = new Vector2(1, Random.Range(1, map.GetLength(1) - 1));
-        spawnObject.generateObject(ReturnProperPositionV2((int) (entrance.x * 2) + 1, (int) (entrance.y * 2) + 1), flag);
+        Vector2 entrance = new Vector2(1, 1);
+        spawnObject.generatePrefab(ReturnProperPositionV2((int) (entrance.x * 2) + 1, (int) (entrance.y * 2) + 1), "HOME");
         Vector2 exit = new Vector2(map.GetLength(0) - 1, Random.Range(1, map.GetLength(1) - 1));
-        spawnObject.generateObject(ReturnProperPositionV2((int) (exit.x * 2) + 1, (int) (exit.y * 2) + 1), flag);
-        // Debug.Log(exit);
-        // Debug.Log(ReturnProperPositionV2((int) exit.x * 2, (int) exit.y * 2));
+        spawnObject.generatePrefab(ReturnProperPositionV2((int) (exit.x * 2) + 2, (int) (exit.y * 2) + 1), "LLAMASTATUE");
+        int curStarCount = -2;
         map = makeRealPath(exit, map, (int) entrance.x, (int) entrance.y);
         for (int i = 0; i < map.GetLength(1); i++) {
-            int random = Random.Range(0, 8);
+            int random = Random.Range(0, 10);
             if (random == 0) {
                 Vector2 randomEntrance = new Vector2(1, Random.Range(1, map.GetLength(1) - 1));
-                Vector2 randomExit = new Vector2(Random.Range(7 * map.GetLength(0) / 8, map.GetLength(0) - 1), Random.Range(0, map.GetLength(1)));
+                Vector2 randomExit = new Vector2(Random.Range(6 * map.GetLength(0) / 8, map.GetLength(0) - 1), Random.Range(0, map.GetLength(1)));
                 map = makeRealPath(randomExit, map, (int) randomEntrance.x, (int) randomEntrance.y);
+                if (curStarCount < forest.starCount) {
+                    spawnObject.generatePrefab(ReturnProperPositionV2((int) (randomExit.x * 2) + 1, (int) (randomExit.y * 2) + 1), "STAR");
+                    curStarCount++;
+                }
+            }
+        }
+        for (int i = 0; i < forest.starCount - curStarCount; i++) {
+            bool generated = false;
+            while (generated == false) {
+                int x = Random.Range(1, width - 1);
+                int y = Random.Range(1, height - 1);
+                if (isValidTreePlantingSpot(1, x, y, 1)) {
+                    generated = true;
+                    spawnObject.generatePrefab(ReturnProperPositionV2((int) (x * 2) + 1, (int) (y * 2) + 1), "STAR");
+                }
             }
         }
         return map;
@@ -211,7 +252,14 @@ public class ForestGeneration : CustomMonoBehaviour {
         } else if (y == map.GetLength(1) - 1) {
             makeRealPath(exit, map, x, y - 1, PreviousDirection.DOWN);
         } else {
-            int random = Random.Range(0, 7);
+            int random = Random.Range(0, 11);
+            // if (previousDirection == PreviousDirection.DOWN && Random.Range(0, 2) >= 1) {
+            //     random = 1;
+            // } else if (previousDirection == PreviousDirection.UP && Random.Range(0, 2) >= 1) {
+            //     random = 6;
+            // } else if (previousDirection == PreviousDirection.RIGHT && Random.Range(0, 4) >= 3) {
+            //     random = 0;
+            // }
             switch (random) {
                 case 0:
                     makeRealPath(exit, map, x + 1, y, PreviousDirection.RIGHT);
@@ -219,6 +267,8 @@ public class ForestGeneration : CustomMonoBehaviour {
                 case 1:
                 case 2:
                 case 3:
+                case 4:
+                case 5:
                     makeRealPath(exit, map, x, y - 1, PreviousDirection.DOWN);
                     break;
                 default:
@@ -372,15 +422,20 @@ public class ForestGeneration : CustomMonoBehaviour {
             }
         }
     }
-    void Start() {
-        maze = forest.maze;
-        Player = centralController.Get("Player").transform;
-        spawnObject = centralController.Get("SpawnObjects").GetComponent<SpawnObject>();
-        spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
-        tmpSize = new Vector3Int(forest.width, forest.height, 0);
-        StartCoroutine(GenerationWait());
+
+    void OnEnable() {
+        //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
     }
 
+    void OnDisable() {
+        //Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode) {
+        StartForest();
+    }
     public void clearForestMap(bool complete) {
         grassMap.ClearAllTiles();
         if (complete) {

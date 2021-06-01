@@ -25,6 +25,7 @@ public class AccountListCreator : MonoBehaviour {
     public CurTime curTime;
     public Player player;
     public AnimalBreed animalBreed;
+    public ItemList shopBuildings;
     public SceneInfos playerBuildings;
     public AdoptionRequests adoptionRequests;
     public Mailbox mailbox;
@@ -34,6 +35,10 @@ public class AccountListCreator : MonoBehaviour {
     // public GameObject nameGame;
     public GameObject confirmationModal;
     public GameObject confirmationBackground;
+
+    public PlacedItems placedItems;
+
+    public PlacedBuildings placedBuildings;
 
     // Start is called before the first frame update
     void Start() {
@@ -68,12 +73,15 @@ public class AccountListCreator : MonoBehaviour {
         playerLocation.Clear();
         player.Clear();
         curTime.Clear();
+        shopBuildings.Clear();
         playerBuildings.Clear();
         adoptionRequests.Clear();
         mailbox.Clear();
         playerQuests.Clear();
         availableQuests.Clear();
         animalBreed.Clear();
+        placedItems.Clear();
+        placedBuildings.Clear();
     }
     public void selectGame0() {
         if (accounts.accountDict.ContainsKey(0)) {

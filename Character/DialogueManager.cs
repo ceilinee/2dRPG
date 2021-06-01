@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour {
         }
     }
     public void startDialog(GameObject newCharacter, Dialogue newDialogue) {
+        gameObject.SetActive(true);
         dialogueBox.SetActive(true);
         PauseGame();
         curDialogue = newDialogue;

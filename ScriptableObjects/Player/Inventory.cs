@@ -14,6 +14,25 @@ public class Inventory : ScriptableObject {
     //for adding items easily
     public List<int> itemIntList;
 
+    public double GetItemCount(int id = -1, string itemName = "") {
+        if (id != -1 && itemInt.ContainsKey(id)) {
+            return itemInt[id];
+        }
+        foreach (KeyValuePair<Item, double> kvp in items) {
+            if (kvp.Key.itemName == itemName) {
+                return kvp.Value;
+            }
+        }
+        return 0;
+    }
+    public Item GetItem(int id = -1, string itemName = "") {
+        foreach (KeyValuePair<Item, double> kvp in items) {
+            if (kvp.Key.itemName == itemName || kvp.Key.id == id) {
+                return kvp.Key;
+            }
+        }
+        return null;
+    }
     public void UpdateInventory(ItemDictionary itemDictionary) {
         foreach (KeyValuePair<int, double> kvp in itemInt) {
             if (itemDictionary.itemDict.ContainsKey(kvp.Key)) {

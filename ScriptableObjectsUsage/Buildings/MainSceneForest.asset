@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cf848c7aafd84a9ca16c2f7d85675d6, type: 3}
-  m_Name: MainScene
+  m_Name: MainSceneForest
   m_EditorClassIdentifier: 
   sceneName: MainScene
   id: 0
@@ -18,5 +18,5 @@ MonoBehaviour:
   image: {fileID: 0}
   animalMaxSize: 50
   animalCurrentSize: 0
-  entrance: {x: 20.440315, y: 2.039287}
+  entrance: {x: -47.46, y: -1.45}
   open: 0

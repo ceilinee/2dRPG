@@ -95,7 +95,13 @@ public class ListCreator : CustomMonoBehaviour {
     public void GetItems() {
         List<Item> selectedItemList = new List<Item>();
         foreach (KeyValuePair<Item, double> kvp in inventory.items) {
-            selectedItemList.Add(kvp.Key);
+            if (isSell) {
+                if (!(kvp.Key is BuildingItem)) {
+                    selectedItemList.Add(kvp.Key);
+                }
+            } else {
+                selectedItemList.Add(kvp.Key);
+            }
         }
         selectedItems = selectedItemList.ToArray();
         numberOfItems = selectedItems.Length;
@@ -121,7 +127,7 @@ public class ListCreator : CustomMonoBehaviour {
     }
     public void GetBuildingItems() {
         List<BuildingItem> buildingList = new List<BuildingItem>();
-        foreach (Item item in buildingItems.list) {
+        foreach (Item item in buildingItems.itemList) {
             Assert.IsTrue(item is BuildingItem);
             BuildingItem buildingItem = (BuildingItem) item;
             Assert.IsTrue(allBuildings.sceneDict.ContainsKey(buildingItem.sceneInfo.id));

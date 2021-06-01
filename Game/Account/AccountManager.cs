@@ -7,6 +7,10 @@ using UnityEngine;
 public class AccountManager : MonoBehaviour {
     public Accounts account;
     public List<ScriptableObject> objects = new List<ScriptableObject>();
+
+    [SerializeField]
+    private AccountListCreator accountListCreator;
+
     // Start is called before the first frame update
     public void OnEnable() {
         LoadAccounts();
@@ -19,6 +23,10 @@ public class AccountManager : MonoBehaviour {
                 account);
             file.Close();
         }
+        // When the game starts at the menu scene, make sure we start off at a clean
+        // slate; all scriptable objects have default values
+        account.selectedId = -1;
+        accountListCreator.clearObjects();
     }
     public void SaveScriptables() {
         for (int i = 0; i < objects.Count; i++) {

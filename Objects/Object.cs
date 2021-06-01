@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object : MonoBehaviour {
+public class Object : CustomMonoBehaviour {
     public Item item;
     public bool playerInRange;
     public GameObject buySellAnimal;
@@ -12,7 +12,7 @@ public class Object : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-
+        buySellAnimal = centralController.Get("AnimalBuySell");
     }
 
     // Update is called once per frame

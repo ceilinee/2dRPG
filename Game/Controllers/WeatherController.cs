@@ -23,7 +23,9 @@ public class WeatherController : MonoBehaviour {
         if (curTime.weather == WeatherState.rain) {
             startRain();
         } else if (curTime.weather == WeatherState.sun) {
-            startSun();
+            if (sun) {
+                startSun();
+            }
             if (curTime.getSeasonInWords() == "Spring") {
                 if (Random.Range(0, 2) >= 1) {
                     springLeaves.SetActive(true);
@@ -42,7 +44,9 @@ public class WeatherController : MonoBehaviour {
     public void startRain() {
         rain.SetActive(true);
         snow.SetActive(false);
-        sun.SetActive(false);
+        if (sun) {
+            sun.SetActive(false);
+        }
         springLeaves.SetActive(false);
         fallLeaves.SetActive(false);
 
@@ -58,7 +62,9 @@ public class WeatherController : MonoBehaviour {
     public void startSnow() {
         rain.SetActive(false);
         snow.SetActive(true);
-        sun.SetActive(false);
+        if (sun) {
+            sun.SetActive(false);
+        }
         springLeaves.SetActive(false);
         fallLeaves.SetActive(false);
 
@@ -66,7 +72,9 @@ public class WeatherController : MonoBehaviour {
     public void startCloud() {
         rain.SetActive(false);
         snow.SetActive(false);
-        sun.SetActive(false);
+        if (sun) {
+            sun.SetActive(false);
+        }
         springLeaves.SetActive(false);
         fallLeaves.SetActive(false);
 

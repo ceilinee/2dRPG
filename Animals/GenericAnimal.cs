@@ -112,6 +112,10 @@ public class GenericAnimal : AnimalState {
         }
     }
     public void giveGift() {
+        if (playerInventory.currentItem is BuildingItem) {
+            // You can't gift buildings
+            return;
+        }
         float like = getLike(playerInventory.currentItem);
         animalTrait.presentsDaily += 1;
         animalTrait.age = System.Math.Max(0, animalTrait.age - playerInventory.currentItem.antiAge);

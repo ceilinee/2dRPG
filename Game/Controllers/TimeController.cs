@@ -47,6 +47,7 @@ public class TimeController : MonoBehaviour {
     [SerializeField] Text text;
     private string curTimeText;
 
+    // This is a signal that is triggered every hour
     [SerializeField]
     private Signal timeChangeSignal;
 
@@ -121,8 +122,11 @@ public class TimeController : MonoBehaviour {
             backgroundController.GetComponent<BackgroundController>().updateBackground(newText);
         }
         currentTime.UpdateTime(time);
-        // Broadcast time change to all listeners
-        timeChangeSignal.Raise();
+        // If the time is an exact hour e.g.: 15:00
+        if (newText.Substring(3) == "00") {
+            // Broadcast time change to all listeners
+            timeChangeSignal.Raise();
+        }
         SetColour();
         if (time > secondsInDay) {
             NextDay();

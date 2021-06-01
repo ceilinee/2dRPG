@@ -12,7 +12,9 @@ public static class Loader {
         Load,
         Island,
         Barn1,
-        MainMenu
+        MainMenu,
+
+        Forest
     }
     private static Action onLoaderCallback;
     private static AsyncOperation loadingAsyncOperation;

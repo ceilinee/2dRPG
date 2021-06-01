@@ -67,8 +67,8 @@ public class PlacementController : CustomMonoBehaviour {
     [SerializeField]
     private Inventory inventory;
 
-    private Color faintRed;
-    private Color faintBlue;
+    public Color faintRed;
+    public Color faintBlue;
 
     [SerializeField]
     private Confirmation confirmation;
@@ -128,7 +128,7 @@ public class PlacementController : CustomMonoBehaviour {
     // Runs when the player physically places down the item
     private void PlaceObject() {
         if (itemBeingPlaced is BuildingItem) {
-            confirmation.initiateConfirmation("Are you sure you want to building your house here?", () => {
+            confirmation.initiateConfirmation("Are you sure you want to build your house here?", () => {
                 placeableObject = Instantiate(placeableObjectBlueprint);
                 Destroy(placeableObject.GetComponent<PlaceableObjectBlueprint>());
                 var buildingController = centralController.Get("BuildingController").GetComponent<BuildingController>();
@@ -230,7 +230,7 @@ public class PlacementController : CustomMonoBehaviour {
         }
     }
 
-    private void SetSpritesToColor(SpriteRenderer[] spriteRenderers, Color color) {
+    public void SetSpritesToColor(SpriteRenderer[] spriteRenderers, Color color) {
         foreach (var renderer in spriteRenderers) {
             renderer.color = color;
         }

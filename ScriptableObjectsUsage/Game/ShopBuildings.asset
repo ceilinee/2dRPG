@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedc486cc1fc2449bb91c636b7998f65, type: 3}
   m_Name: ShopBuildings
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: d8ea161152c2b4ac490bf8319f9d56d4, type: 2}
+  list: 
+  itemList: []
+  defaultList: 16000000

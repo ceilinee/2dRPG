@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 
 [CreateAssetMenu]
@@ -14,5 +15,10 @@ public class ItemDictionary : ScriptableObject {
         foreach (Item item in itemArray) {
             itemDict[item.id] = item;
         }
+    }
+
+    public Item Get(int itemId) {
+        Assert.IsTrue(itemDict.ContainsKey(itemId));
+        return itemDict[itemId];
     }
 }

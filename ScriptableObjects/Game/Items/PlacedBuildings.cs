@@ -42,4 +42,8 @@ public class PlacedBuildings : ScriptableObject {
         Assert.IsNotNull(building);
         building.completed = true;
     }
+
+    public void Clear() {
+        buildings.Clear();
+    }
 }

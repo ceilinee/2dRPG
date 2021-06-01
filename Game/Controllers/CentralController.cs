@@ -95,7 +95,6 @@ public class CentralController : CustomMonoBehaviour {
             }
         }
     }
-
     public GameObject Get(string gameObjectName) {
         Assert.IsTrue(centralDictionary.ContainsKey(gameObjectName),
             $"No game object {gameObjectName} found in central dictionary");

@@ -33,4 +33,8 @@ public class PlacedItems : ScriptableObject {
     public void RemoveIfExists(int itemId) {
         items.RemoveAll(x => x.itemId == itemId);
     }
+
+    public void Clear() {
+        items.Clear();
+    }
 }

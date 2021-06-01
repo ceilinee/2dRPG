@@ -11,6 +11,8 @@ public class Shop : MonoBehaviour {
     public Animals shopBreedAnimals;
     public Animal[] animals;
     public Animals shopAnimals;
+
+    public ItemList shopBuildings;
     public GameObject breedAnimal;
 
     // Start is called before the first frame update
@@ -23,12 +25,19 @@ public class Shop : MonoBehaviour {
         }
         addToShop(items);
         updateSpecialShopWithAllBreeds();
+        UpdateShopBuildings(itemDictionary);
         // addToAnimalShop(animals);
         if (shopAnimals.animalDict.Count < 10) {
             int count = shopAnimals.animalDict.Count;
             for (int i = 0; i < 10 - count; i++) {
                 breedAnimal.GetComponent<BreedScript>().RandomShopAnimal(paramAnimals: shopAnimals);
             }
+        }
+    }
+
+    public void UpdateShopBuildings(ItemDictionary itemDictionary) {
+        foreach (int itemId in shopBuildings.list) {
+            shopBuildings.itemList.Add(itemDictionary.Get(itemId));
         }
     }
 

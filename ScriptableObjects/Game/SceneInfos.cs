@@ -16,7 +16,7 @@ public class SceneInfos : ScriptableObject {
         resetSceneArray();
     }
     public void resetSceneArray() {
-        sceneArray = initialSceneArray;
+        sceneArray = new List<int>(initialSceneArray);
     }
     public void updateSceneDict() {
         foreach (SceneInfo scene in sceneInfoArray) {
