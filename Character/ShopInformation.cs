@@ -23,6 +23,8 @@ public class ShopInformation : MonoBehaviour {
     public GameObject animalListView;
     public GameObject specialAnimalListView;
     public GameObject spawnAnimal;
+    public ShoppingCart sellCart;
+    public ShoppingCart shopCart;
     void Start() {
         thanks.text = "Welcome to my shop! I hope you're having a wonderful day, " + player.playerName + "!";
     }
@@ -51,6 +53,26 @@ public class ShopInformation : MonoBehaviour {
         // thanks.text = "Nice to see you again, " + player.playerName + "!";
         if (specialAnimalListView) {
             specialAnimalListView.GetComponent<ListCreator>().Clear();
+        }
+    }
+    public void AddToSellCart(Item item) {
+        if (sellCart) {
+            sellCart.AddItemToShoppingCart(item);
+        }
+    }
+    public void AddToShoppingCart(Item item) {
+        if (shopCart) {
+            shopCart.AddItemToShoppingCart(item);
+        }
+    }
+    public void RemoveFromSellCart(Item item) {
+        if (sellCart) {
+            sellCart.RemoveItemFromShoppingCart(item);
+        }
+    }
+    public void RemoveFromShoppingCart(Item item) {
+        if (shopCart) {
+            shopCart.RemoveItemFromShoppingCart(item);
         }
     }
     public void updateAbout() {

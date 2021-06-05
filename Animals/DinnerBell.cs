@@ -16,7 +16,10 @@ public class DinnerBell : MonoBehaviour {
     public GameObject animalList;
     public Animals newAnimals;
     public GameObject confirmationModal;
-    // Start is called before the first frame update
+
+    [SerializeField]
+    private PlacedBuildings placedBuildings;
+
     void Start() {
         if (sceneInfo.open) {
             openBarn();
@@ -66,9 +69,14 @@ public class DinnerBell : MonoBehaviour {
             newAnimals.removeExistingAnimal(animal.GetComponent<GenericAnimal>().animalTrait.id);
         }
         foreach (KeyValuePair<int, Animal> kvp in newAnimals.animalDict) {
-            if (kvp.Value.home == sceneInfo.sceneName && !kvp.Value.characterOwned) {
+            // Currently, home must be of the form Barn#<building id of barn>
+            var home = kvp.Value.home;
+            Debug.Log(home);
+            bool doesBelongToHome = home.StartsWith(sceneInfo.sceneName) &&
+                BuildingController.BuildingIdFromBuildingSceneName(home) == placedBuildings.buildingEnteredIdx;
+            if (doesBelongToHome && !kvp.Value.characterOwned) {
                 kvp.Value.location = sceneInfo.entrance;
-                kvp.Value.scene = sceneInfo.sceneName;
+                kvp.Value.scene = home;
                 kvp.Value.target = sceneInfo.entrance + new Vector2(0, Random.Range(2, 6));
                 curAnimals.animalDict[kvp.Value.id] = kvp.Value;
                 yield return new WaitForSeconds(Random.Range(0, 5));

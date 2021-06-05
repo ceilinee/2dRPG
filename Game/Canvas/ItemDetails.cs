@@ -79,6 +79,34 @@ public class ItemDetails : CustomMonoBehaviour {
     public void OpenAnimal() {
         playerInformation.GetComponent<PlayerInformation>().openAnimal(selectedAnimal);
     }
+    public void AddToShoppingCart() {
+        if (vet) {
+            vetInformation.AddToShoppingCart(item);
+        } else {
+            shop.GetComponent<ShopInformation>().AddToShoppingCart(item);
+        }
+    }
+    public void AddToSellCart() {
+        if (vet) {
+            vetInformation.AddToSellCart(item);
+        } else {
+            shop.GetComponent<ShopInformation>().AddToSellCart(item);
+        }
+    }
+    public void RemoveFromSellCart() {
+        if (vet) {
+            vetInformation.RemoveFromSellCart(item);
+        } else {
+            shop.GetComponent<ShopInformation>().RemoveFromSellCart(item);
+        }
+    }
+    public void RemoveFromShoppingCart() {
+        if (vet) {
+            vetInformation.RemoveFromShoppingCart(item);
+        } else {
+            shop.GetComponent<ShopInformation>().RemoveFromShoppingCart(item);
+        }
+    }
     public void BuyItem() {
         bool buy = buySellAnimal.GetComponent<BuySellAnimal>().buyItem(item);
         if (buy) {

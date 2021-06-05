@@ -26,7 +26,7 @@ public class AnimalInformation : MonoBehaviour {
     public Text ears;
     public Dropdown homeDropdown;
     public List<string> dropdownOptions;
-    public SceneInfos barns;
+    public PlacedBuildings placedBuildings;
     public SceneInfos allBuildings;
     public Text spots;
     public Text back;
@@ -100,10 +100,31 @@ public class AnimalInformation : MonoBehaviour {
         updateAbout(animalTraitInformation, animal);
     }
     public void updateHome(int newHome) {
-        Debug.Log(homeDropdown.value);
         home = homeDropdown.value;
         save.SetActive(true);
     }
+
+    public void SetupHomeDropdown(Animal animalTrait) {
+        dropdownOptions = new List<string>();
+        int position = 0;
+        int i = 0;
+        foreach (PlacedBuilding building in placedBuildings.buildings) {
+            if (!building.completed) {
+                continue;
+            }
+            SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
+            var buildingSceneName = BuildingController.BuildBuildingSceneName(sceneInfo, building);
+            dropdownOptions.Add(buildingSceneName);
+            if (buildingSceneName == animalTrait.home) {
+                position = i;
+            }
+            i++;
+        }
+        homeDropdown.ClearOptions();
+        homeDropdown.AddOptions(dropdownOptions);
+        homeDropdown.value = position;
+    }
+
     public void updateAbout(Animal animalTrait, GameObject newAnimal) {
         save.SetActive(false);
         animalName.text = animalTrait.animalName;
@@ -119,20 +140,9 @@ public class AnimalInformation : MonoBehaviour {
         eyes.text = animalColors.colorDictionary[animalTrait.coloring.eyes].ColorName;
         face.text = animalColors.colorDictionary[animalTrait.coloring.face].ColorName;
         ears.text = animalColors.colorDictionary[animalTrait.coloring.ears].ColorName;
-        dropdownOptions = new List<string>();
-        int position = 0;
-        int i = 0;
-        foreach (int id in barns.sceneArray) {
-            SceneInfo building = allBuildings.sceneDict[id];
-            dropdownOptions.Add(building.sceneName);
-            if (building.sceneName == animalTrait.home) {
-                position = i;
-            }
-            i++;
-        }
-        homeDropdown.ClearOptions();
-        homeDropdown.AddOptions(dropdownOptions);
-        homeDropdown.value = position;
+
+        SetupHomeDropdown(animalTrait);
+
         if (animalColors.colorDictionary[animalTrait.coloring.ears].ColorName == "Invisible") {
             ears.text = "N/A";
         }

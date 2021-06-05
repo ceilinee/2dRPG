@@ -49,6 +49,14 @@ public class Inventory : ScriptableObject {
             currentItem = itemDictionary.itemDict[currentItemId];
         }
     }
+    public double TotalCost() {
+        double totalCost = 0;
+        foreach (KeyValuePair<Item, double> kvp in items) {
+            totalCost += kvp.Key.sellCost * kvp.Value;
+        }
+        return totalCost;
+    }
+
     public void Additem(Item itemToAdd) {
         //is the item a key?
         if (!items.ContainsKey(itemToAdd)) {
@@ -83,7 +91,13 @@ public class Inventory : ScriptableObject {
         currentItem = null;
         currentItemId = 0;
     }
-
+    public void RemoveAllItem(Item item) {
+        items.Remove(item);
+        itemInt.Remove(item.id);
+        if (currentItem == item) {
+            UnsetCurrentItem();
+        }
+    }
     public double CountOf(Item item) {
         return item != null && items.ContainsKey(item) ? items[item] : 0;
     }

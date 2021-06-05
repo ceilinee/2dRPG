@@ -50,8 +50,13 @@ public class GenericCharacter : CustomMonoBehaviour {
     [SerializeField]
     private Signal giftRecievedSignal;
 
+    // Whether or not this character has the ability to bring
+    // up the player customization modal
+    private bool isPlayerCustomizer;
+
     void Awake() {
         aipath = GetComponent<AIPath>();
+        isPlayerCustomizer = GetComponent<PlayerCustomizer>() != null;
     }
 
     // Start is called before the first frame update
@@ -60,6 +65,10 @@ public class GenericCharacter : CustomMonoBehaviour {
     }
     protected virtual void Update() {
         if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
+            if (isPlayerCustomizer) {
+                // There should be a separate script attached that handles this input
+                return;
+            }
             if (!shopKeeper && !conversation && !DialogueManager.activeInHierarchy) {
                 if (playerInventory.currentItem != null) {
                     if (!CanvasController.activeInHierarchy) {

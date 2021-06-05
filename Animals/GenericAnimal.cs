@@ -9,7 +9,7 @@ public class GenericAnimal : AnimalState {
     public Rigidbody2D myRigidbody;
     public Transform target;
     public Transform parent;
-    private bool followParent;
+    public bool followParent;
     public Vector3 randomTarget;
     public float clickRange;
     public float chaseRadius;

@@ -28,8 +28,16 @@ public class BuySellAnimal : MonoBehaviour {
     }
     public bool Heal(Animal animal) {
         if (playerMoney.initialValue >= 100 - animal.health) {
+            playerMoney.initialValue -= (100 - animal.health);
             animal.health = 100;
-            playerMoney.initialValue -= 100 - animal.health;
+            playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
+            return true;
+        }
+        return false;
+    }
+    public bool Checkout(Inventory inventory) {
+        if (playerMoney.initialValue >= inventory.TotalCost()) {
+            playerMoney.initialValue -= (float) inventory.TotalCost();
             playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
             return true;
         }
@@ -52,7 +60,21 @@ public class BuySellAnimal : MonoBehaviour {
         }
         return false;
     }
-
+    public void SellItems(Inventory shoppingCart) {
+        foreach (KeyValuePair<Item, double> kvp in shoppingCart.items) {
+            for (int i = 0; i < kvp.Value; i++) {
+                sellItem(kvp.Key);
+            }
+        }
+    }
+    public bool payForService(float price) {
+        if (playerMoney.initialValue >= price) {
+            playerMoney.initialValue -= price;
+            playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
+            return true;
+        }
+        return false;
+    }
     public void sellAnimal(Animal newAnimal) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost;
@@ -85,7 +107,8 @@ public class BuySellAnimal : MonoBehaviour {
         if (playerMoney.initialValue >= building.cost) {
             playerMoney.initialValue -= building.cost;
             playerBuildings.AddBuilding(building.sceneInfo.id);
-            buildings.Remove(building.id);
+            // TODO: should the person be selling unlimited barns?
+            // buildings.Remove(building.id);
             playerInventory.Additem(building);
             topbarMoney.text = "$" + playerMoney.initialValue.ToString();
             // itemAlert.GetComponent<ItemAlert>().startAlert(item);

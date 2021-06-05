@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2653444891ef64fd690c5a7173eeea5f, type: 3}
   m_Name: CurForest
   m_EditorClassIdentifier: 
-  level: 1
-  width: 70
-  height: 70
-  starCount: 4
+  level: 0
+  width: 50
+  height: 50
+  starCount: 2
   entrance: {x: 0, y: 0}
   exit: {x: 0, y: 0}
   maze: 1
+  campsite: 1

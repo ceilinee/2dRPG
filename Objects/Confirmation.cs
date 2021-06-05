@@ -57,7 +57,11 @@ public class Confirmation : MonoBehaviour {
         if (confirmationBackground) {
             confirmationBackground.SetActive(false);
         }
-        CanvasController.GetComponent<CanvasController>().closeCanvasIfAllElseClosed();
+        if (!onlyCloseSelf) {
+            CanvasController.GetComponent<CanvasController>().closeCanvas();
+        } else {
+            CanvasController.GetComponent<CanvasController>().closeCanvasIfAllElseClosed();
+        }
         cancelFunction();
         if (finallyFunction != null) {
             finallyFunction();

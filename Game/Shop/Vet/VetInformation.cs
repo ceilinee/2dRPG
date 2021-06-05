@@ -25,7 +25,8 @@ public class VetInformation : CustomMonoBehaviour {
     private Animal considerHealAnimal;
     public GameObject character;
     public BreedRegistration breedRegistration;
-
+    public ShoppingCart sellCart;
+    public ShoppingCart shopCart;
     void Start() {
         canvasController = centralController.centralDictionary["CanvasController"].GetComponent<CanvasController>();
         confirmation = centralController.centralDictionary["Confirmation"].GetComponent<Confirmation>();
@@ -70,7 +71,26 @@ public class VetInformation : CustomMonoBehaviour {
             Time.timeScale = 0;
         }
     }
-
+    public void AddToSellCart(Item item) {
+        if (sellCart) {
+            sellCart.AddItemToShoppingCart(item);
+        }
+    }
+    public void AddToShoppingCart(Item item) {
+        if (shopCart) {
+            shopCart.AddItemToShoppingCart(item);
+        }
+    }
+    public void RemoveFromSellCart(Item item) {
+        if (sellCart) {
+            sellCart.RemoveItemFromShoppingCart(item);
+        }
+    }
+    public void RemoveFromShoppingCart(Item item) {
+        if (shopCart) {
+            shopCart.RemoveItemFromShoppingCart(item);
+        }
+    }
     // Entrypoint of the script; does some setup and then makes the game object active
     public void Open() {
         Assert.IsFalse(gameObject.activeInHierarchy);

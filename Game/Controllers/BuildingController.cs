@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System;
 
 public class BuildingController : CustomMonoBehaviour {
     private class BuildingUnderConstruction {
+        public int buildingId;
         public Timestamp completionTime;
         public BuildingItem item;
         public GameObject buildingBlueprintInstance;
         public GameObject buildingPrefab;
 
-        public BuildingUnderConstruction(Timestamp ct, BuildingItem i, GameObject bb, GameObject bp) {
+        public BuildingUnderConstruction(int buildingId, Timestamp ct, BuildingItem i, GameObject bb, GameObject bp) {
+            this.buildingId = buildingId;
             this.completionTime = ct;
             this.item = i;
             this.buildingBlueprintInstance = bb;
@@ -32,11 +35,38 @@ public class BuildingController : CustomMonoBehaviour {
 
     private PlacementController placementController;
 
+    // `sceneInfo` contains the scene info for building `building`
+    // e.g.: if you have placed 2 barns, they will share the same sceneInfo
+    public static string BuildBuildingSceneName(SceneInfo sceneInfo, PlacedBuilding building) {
+        return BuildBuildingSceneName(sceneInfo, building.buildingId);
+    }
+
+    public static string BuildBuildingSceneName(SceneInfo sceneInfo, int buildingId) {
+        return sceneInfo.sceneName + "#" + buildingId;
+    }
+
+
+    public static int BuildingIdFromBuildingSceneName(string buildingSceneName) {
+        return Int32.Parse(buildingSceneName.Split('#')[1]);
+    }
+
+    // Assuming we are currently inside of a building, returns a virtual scene name
+    // of the form <actual scene name>#<building id>
+    public string BuildThisBuildingSceneName() {
+        Assert.IsTrue(ActiveSceneType() == Loader.Scene.Barn1);
+        return ActiveScene().name + "#" + placedBuildings.buildingEnteredIdx;
+    }
+
     void Start() {
         placementController = centralController.Get("PlacementController").GetComponent<PlacementController>();
         buildingsUnderConstruction = new List<BuildingUnderConstruction>();
 
         LoadSavedPlacedBuildings();
+    }
+
+    // Initialize a barn game object and its children with necessary arguments
+    private void SetupCompletedBuilding(GameObject barn, BuildingItem item, int buildingId) {
+        barn.GetComponent<Barn>().Initialize(buildingId, item);
     }
 
     // Load buildings that have been placed.
@@ -50,14 +80,14 @@ public class BuildingController : CustomMonoBehaviour {
             GameObject buildingObject = null;
             if (savedBuilding.completed) {
                 buildingObject = Instantiate(buildingInfo.prefab);
-                var sceneTransition = buildingObject.GetComponentInChildren<SceneTransition>();
-                sceneTransition.SetSceneInfo(item.sceneInfo);
+                SetupCompletedBuilding(buildingObject, item, savedBuilding.buildingId);
             } else {
                 buildingObject = Instantiate(buildingInfo.blueprintPrefab);
                 placementController.SetSpritesToColor(
                     buildingObject.GetComponentsInChildren<SpriteRenderer>(), placementController.faintBlue);
                 buildingsUnderConstruction.Add(
                     new BuildingUnderConstruction(
+                        savedBuilding.buildingId,
                         savedBuilding.completionTime,
                         item,
                         buildingObject,
@@ -76,15 +106,17 @@ public class BuildingController : CustomMonoBehaviour {
     public void RegisterBuildingCreation(
         BuildingItem item, GameObject buildingBlueprintInstance, GameObject buildingPrefab) {
         Timestamp completionTime = curTime.DaysFromNow(2);
+        var newPlacedBuilding = placedBuildings.Add(
+            item.id, buildingBlueprintInstance.transform.position, completionTime, item.sceneInfo.id);
         buildingsUnderConstruction.Add(
             new BuildingUnderConstruction(
+                newPlacedBuilding.buildingId,
                 completionTime,
                 item,
                 buildingBlueprintInstance,
                 buildingPrefab
             )
         );
-        placedBuildings.Add(item.id, buildingBlueprintInstance.transform.position, completionTime);
     }
 
     // Called by SignalListener
@@ -96,11 +128,10 @@ public class BuildingController : CustomMonoBehaviour {
                 removedIdxs.Add(i);
                 var completedBuilding = Instantiate(building.buildingPrefab,
                     building.buildingBlueprintInstance.transform.position, building.buildingBlueprintInstance.transform.rotation);
-                var sceneTransition = completedBuilding.GetComponentInChildren<SceneTransition>();
-                sceneTransition.SetSceneInfo(building.item.sceneInfo);
+                SetupCompletedBuilding(completedBuilding, building.item, building.buildingId);
                 completedBuilding.SetActive(true);
                 Destroy(building.buildingBlueprintInstance);
-                placedBuildings.SetBuildingCompleted(building.item.id);
+                placedBuildings.SetBuildingCompleted(building.buildingId);
             }
         }
         if (removedIdxs.Count > 0) {
@@ -110,6 +141,32 @@ public class BuildingController : CustomMonoBehaviour {
                 if (!removedIdxs.Contains(i)) {
                     buildingsUnderConstruction.Add(temp[i]);
                 }
+            }
+        }
+    }
+
+    // Signal listener invoked right before a player enters the scene with name `sceneName`
+    public void OnPlayerWillSceneTransition(string sceneName) {
+        Debug.Log("scene transition to: " + sceneName);
+        var scene = (Loader.Scene) Enum.Parse(typeof(Loader.Scene), sceneName);
+        if (scene == Loader.Scene.Barn1) {
+            var player = centralController.Get("Player");
+            PlacedBuilding closestBuilding = null;
+            float minDistance = float.MaxValue;
+            foreach (PlacedBuilding building in placedBuildings.buildings) {
+                float distancePlayerToBuilding = Vector2.Distance(player.transform.position, building.itemPosition);
+                if (distancePlayerToBuilding < minDistance) {
+                    minDistance = distancePlayerToBuilding;
+                    closestBuilding = building;
+                }
+            }
+            Assert.IsNotNull(closestBuilding,
+                "There must be at least one barn, since this code is run before a player enters a barn");
+            placedBuildings.SetBuildingEntered(closestBuilding);
+        } else {
+            // If we are leaving a building
+            if (placedBuildings.buildingEnteredIdx != -1) {
+                placedBuildings.buildingEnteredIdx = -1;
             }
         }
     }

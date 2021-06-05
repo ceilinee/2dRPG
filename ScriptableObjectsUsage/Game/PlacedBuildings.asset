@@ -12,4 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf4b0fd610b14148bd4ed4f54f46daf, type: 3}
   m_Name: PlacedBuildings
   m_EditorClassIdentifier: 
-  buildings: []
+  buildings:
+  - buildingId: 0
+    buildingItemId: 22
+    itemPosition: {x: 25, y: 6}
+    completionTime:
+      time: 33600.39
+      days: 2
+    completed: 1
+    sceneInfoId: 1
+  - buildingId: 1
+    buildingItemId: 22
+    itemPosition: {x: 17, y: 8}
+    completionTime:
+      time: 35400.73
+      days: 2
+    completed: 1
+    sceneInfoId: 1
+  buildingEnteredIdx: -1

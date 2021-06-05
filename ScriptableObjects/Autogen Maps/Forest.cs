@@ -14,11 +14,17 @@ public class Forest : ScriptableObject {
     public Vector2 entrance;
     public Vector2 exit;
     public bool maze = true;
+    public bool campsite = true;
     public void LevelUp() {
         level++;
         starCount = (level + 1) * 2;
         width = 50 + System.Math.Min(200, level * 20);
         height = width;
+        if (level % 5 == 0) {
+            campsite = true;
+        } else {
+            campsite = false;
+        }
         ForceSerialization();
         // maze = level % 5 == 0 ? false : true;
     }
@@ -33,6 +39,11 @@ public class Forest : ScriptableObject {
         starCount = (level + 1) * 2;
         width = 50;
         height = 50;
+        if (level % 5 == 0) {
+            campsite = true;
+        } else {
+            campsite = false;
+        }
         ForceSerialization();
     }
 }

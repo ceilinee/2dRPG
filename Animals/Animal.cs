@@ -32,6 +32,8 @@ public class Animal {
     public bool wild;
     public int charId;
     public string gender;
+
+    // Right now, home has the form Barn1#<id of the placed building>
     public string home;
     public int cost;
     public int shopCost;

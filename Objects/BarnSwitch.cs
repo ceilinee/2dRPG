@@ -20,6 +20,13 @@ public class BarnSwitch : MonoBehaviour {
     public Animals newAnimals;
     public GameObject confirmationModal;
 
+    [SerializeField]
+    private PlacedBuildings placedBuildings;
+
+    [Header("*Do not set in inspector* the placed building this barn switch belongs to")]
+    [SerializeField]
+    private int buildingId;
+
     void Start() {
         if (barnInfo.open) {
             StartCoroutine(waitSpawn());
@@ -34,7 +41,6 @@ public class BarnSwitch : MonoBehaviour {
         animalCollision.SetActive(true);
     }
     public void openBarn() {
-        Debug.Log("open barn");
         barnInfo.open = true;
         barn.sprite = openImg;
         barnSwitch.sprite = openSwitchImg;
@@ -70,7 +76,6 @@ public class BarnSwitch : MonoBehaviour {
         }
     }
     IEnumerator waitSpawn() {
-        Debug.Log("spawn");
         openBarn();
         newAnimals = Instantiate(curAnimals);
         foreach (GameObject animal in animalList.GetComponent<AnimalList>().list) {
@@ -78,14 +83,23 @@ public class BarnSwitch : MonoBehaviour {
         }
         yield return new WaitForSeconds(1);
         foreach (KeyValuePair<int, Animal> kvp in newAnimals.animalDict) {
-            if (kvp.Value.scene == barnInfo.sceneName && !kvp.Value.characterOwned && barnInfo.open) {
-                kvp.Value.location = currentSceneInfo.entrance;
-                kvp.Value.target = currentSceneInfo.entrance - new Vector2(0, Random.Range(2, 6));
+            var placedBuilding = placedBuildings.GetBuilding(buildingId);
+            var thisBarnSceneName = BuildingController.BuildBuildingSceneName(
+                barnInfo, placedBuilding);
+            if (kvp.Value.scene == thisBarnSceneName && !kvp.Value.characterOwned && barnInfo.open) {
+                var entrance = placedBuilding.itemPosition;
+                kvp.Value.location = entrance + new Vector2(0, -2);
+                kvp.Value.target = entrance - new Vector2(0, Random.Range(3, 7));
                 kvp.Value.scene = currentSceneInfo.sceneName;
                 curAnimals.animalDict[kvp.Value.id] = kvp.Value;
                 spawnAnimal.GetComponent<SpawnAnimal>().Spawn(kvp.Value);
                 yield return new WaitForSeconds(Random.Range(0, 5));
             }
         }
+    }
+
+    // Every barn switch belongs to a barn, and every barn has a building id
+    public void SetBarnId(int buildingId) {
+        this.buildingId = buildingId;
     }
 }

@@ -19,7 +19,7 @@ public class Object : CustomMonoBehaviour {
     void Update() {
         if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
             buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
-            placedItems.RemoveIfExists(item.id);
+            placedItems.RemoveIfExists(ActiveScene().name, item.id);
             Destroy(gameObject);
         }
     }

@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35474dfdd467a403f852bd0c8d9ebbb1, type: 3}
   m_Name: PlacedItems
   m_EditorClassIdentifier: 
-  items:
-  - itemId: 3
-    itemPosition: {x: -9.708645, y: 3.7086096}
+  sceneToPlacedItems:
+    keys:
+    - MainScene
+    - Barn1#1
+    - Barn1#0
+    - Barn1#2
+    - Barn1#3
+    values: []

@@ -27,7 +27,6 @@ public class Butterfly : CustomMonoBehaviour {
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         if (item.animation != null) {
-            Debug.Log("update animation");
             animatorOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
             animatorOverrideController["RedButterfly"] = item.animation;
             anim.runtimeAnimatorController = animatorOverrideController;

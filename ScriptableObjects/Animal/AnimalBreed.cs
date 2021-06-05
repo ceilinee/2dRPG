@@ -20,15 +20,27 @@ public class AnimalBreed : ScriptableObject {
     public Breed[] breedArray;
     [System.Serializable] public class DictionaryOfBreed : SerializableDictionary<string, Breed> { }
     public DictionaryOfBreed breedDictionary = new DictionaryOfBreed();
-
     public Breed getRandomBreed(string notInclude = "n/a", string type = "Llama") {
         System.Random random = new System.Random();
         List<Breed> breed = new List<Breed>();
         for (int i = 0; i < breedDictionary.Count; i++) {
-            if (breedDictionary.Values.ElementAt(i).breedName != notInclude && !breedDictionary.Values.ElementAt(i).notIncludeType.Contains(type)) {
+            Breed curBreed = breedDictionary.Values.ElementAt(i);
+            if (curBreed.breedName != notInclude && !curBreed.notIncludeType.Contains(type)) {
                 breed.Add(breedDictionary.Values.ElementAt(i));
             }
         }
+        return breed.ToArray()[Random.Range(0, breed.Count)];
+    }
+    public Breed getRandomBreed(int rarity, string notInclude = "n/a", string type = "Llama") {
+        System.Random random = new System.Random();
+        List<Breed> breed = new List<Breed>();
+        for (int i = 0; i < breedDictionary.Count; i++) {
+            Breed curBreed = breedDictionary.Values.ElementAt(i);
+            if (curBreed.breedName != notInclude && !curBreed.notIncludeType.Contains(type) && curBreed.multiplier <= rarity) {
+                breed.Add(breedDictionary.Values.ElementAt(i));
+            }
+        }
+        Debug.Log("breeds in list: " + breed.Count + " rarity: " + rarity);
         return breed.ToArray()[Random.Range(0, breed.Count)];
     }
     public void Add(Breed breed) {

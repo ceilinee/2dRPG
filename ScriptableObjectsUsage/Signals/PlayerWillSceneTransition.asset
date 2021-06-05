@@ -9,15 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872493d8fe8e44e048e0f077bc3d0b5c, type: 3}
-  m_Name: PlayerInventory
+  m_Script: {fileID: 11500000, guid: 2cbe8e7706480418cb3d4d7a9e5ad37f, type: 3}
+  m_Name: PlayerWillSceneTransition
   m_EditorClassIdentifier: 
-  currentItem: {fileID: 0}
-  items:
-    keys: []
-    values: []
-  currentItemId: 0
-  itemInt:
-    keys: 
-    values: []
-  itemIntList: 
+  listeners: []

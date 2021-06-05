@@ -18,7 +18,7 @@ public class ItemDictionary : ScriptableObject {
     }
 
     public Item Get(int itemId) {
-        Assert.IsTrue(itemDict.ContainsKey(itemId));
+        Assert.IsTrue(itemDict.ContainsKey(itemId), "Missing Item: " + itemId);
         return itemDict[itemId];
     }
 }

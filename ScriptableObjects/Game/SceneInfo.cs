@@ -5,7 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu]
 [System.Serializable]
-public class SceneInfo : ScriptableObject {
+public class SceneInfo : CustomScriptableObject {
     public string sceneName;
     public int id;
     public int cost;

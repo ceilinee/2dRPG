@@ -73,6 +73,7 @@ public class CanvasController : CustomMonoBehaviour {
             background.SetActive(false);
         }
         open = false;
+        Time.timeScale = 1;
     }
     public void closeCanvasIfAllElseClosed() {
         if (dayController && dayController.activeInHierarchy) {

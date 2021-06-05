@@ -9,6 +9,7 @@ public class SpawnWildAnimal : MonoBehaviour {
     public List<Square> squares;
     public GameObject breedScript;
     public AnimalBreed animalBreed;
+    public bool spawn = false;
     // void Update(){
     //   Spawn();
     // }
@@ -19,7 +20,9 @@ public class SpawnWildAnimal : MonoBehaviour {
                 spawnAnimal.GetComponent<SpawnAnimal>().Spawn(kvp.Value);
             }
         }
-        Spawn();
+        if (spawn) {
+            Spawn();
+        }
     }
     // Start is called before the first frame update
     public void Spawn() {
@@ -32,21 +35,21 @@ public class SpawnWildAnimal : MonoBehaviour {
             }
         }
     }
-    public void generateAnimal(Square square, string type) {
+    public void generateAnimal(Square square, string type, int rarity = 0) {
         Vector2 location = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
-        generateAnimal(location, type);
+        generateAnimal(location, type, rarity);
     }
-    public void generateAnimal(Vector2 location) {
-        string type = breedScript.GetComponent<BreedScript>().getType();
-        generateAnimal(location, type);
+    public void generateAnimal(Vector2 location, List<string> notTypes = null, int rarity = 0) {
+        string type = breedScript.GetComponent<BreedScript>().getType(notTypes);
+        generateAnimal(location, type, rarity);
     }
-    public void generateAnimal(Vector2 location, string type) {
+    public void generateAnimal(Vector2 location, string type, int rarity = 0) {
         int random = Random.Range(0, 100);
         int id = 0;
-        if (random <= 75) {
+        if (random <= 75 || rarity <= 1) {
             id = breedScript.GetComponent<BreedScript>().RandomShopAnimal(paramAnimals: wildAnimals, type);
         } else {
-            id = breedScript.GetComponent<BreedScript>().RandomBreedAnimal(animalBreed.getRandomBreed(type: type), paramAnimals: wildAnimals, type);
+            id = breedScript.GetComponent<BreedScript>().RandomBreedAnimal(animalBreed.getRandomBreed(type: type, rarity: rarity), paramAnimals: wildAnimals, curType: type);
         }
         Animal animal = wildAnimals.animalDict[id];
         animal.location = location;

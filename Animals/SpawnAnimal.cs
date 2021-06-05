@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 // using UnityEditor;
 
 public class SpawnAnimal : MonoBehaviour {
@@ -25,6 +26,8 @@ public class SpawnAnimal : MonoBehaviour {
     public static SpawnAnimal animalInstance;
     public Personalities personalityList;
 
+    [SerializeField]
+    private PlacedBuildings placedBuildings;
 
     void Start() {
         defineAnimalDictionary();
@@ -56,9 +59,23 @@ public class SpawnAnimal : MonoBehaviour {
     }
     public void SpawnAll() {
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
-            if (kvp.Value.age >= 0 && kvp.Value.scene == SceneManager.GetActiveScene().name && !kvp.Value.characterOwned) {
-                // kvp.Value.moodId = "4";
-                Spawn(kvp.Value);
+            // We use StartsWith to compare scene names because some animal.scenes (like if they are in a barn)
+            // have scene names of the form <actualSceneName>#<someUniqueIdentifier>
+            if (kvp.Value.age >= 0 && !kvp.Value.characterOwned) {
+                var sceneName = SceneManager.GetActiveScene().name;
+                var sceneType = (Loader.Scene) Enum.Parse(typeof(Loader.Scene), sceneName);
+                var animalScene = kvp.Value.scene;
+                // If the current scene is the Barn, then we need to check virtual barn
+                if (sceneType == Loader.Scene.Barn1) {
+                    // animalScene should be of the form Barn1#<id of building>
+                    if (animalScene.StartsWith(sceneName) &&
+                        BuildingController.BuildingIdFromBuildingSceneName(animalScene) ==
+                        placedBuildings.buildingEnteredIdx) {
+                        Spawn(kvp.Value);
+                    }
+                } else if (sceneName == animalScene) {
+                    Spawn(kvp.Value);
+                }
             } else {
                 kvp.Value.animalColors = animalColors;
             }
@@ -121,6 +138,9 @@ public class SpawnAnimal : MonoBehaviour {
         return animalGameObject.GetComponent<AnimalList>().findAnimal(id);
     }
     public void Spawn(Animal a) {
+        if (!animalDictionary.ContainsKey(a.type)) {
+            defineAnimalDictionary();
+        }
         GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
         if (a.type == "Fish") {
             instance.GetComponent<FishScript>().water = water;

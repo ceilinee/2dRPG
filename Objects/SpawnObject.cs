@@ -56,7 +56,6 @@ public class SpawnObject : MonoBehaviour {
     }
     public void generatePrefab(Vector2 location, string name) {
         if (!prefabDict.ContainsKey(name.ToUpper())) {
-            Debug.Log("No Prefab: " + name.ToUpper());
             UpdateDict();
         }
         if (prefabDict.ContainsKey(name.ToUpper())) {
@@ -64,6 +63,8 @@ public class SpawnObject : MonoBehaviour {
             instance.SetActive(true);
             instance.transform.position = location;
             spawnedObjects.Add(instance);
+        } else {
+            Debug.Log("No Prefab: " + name.ToUpper());
         }
     }
     public void spawnButterfly(Square square, Bug bug) {

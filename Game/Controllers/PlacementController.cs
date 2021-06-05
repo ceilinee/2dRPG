@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System;
 
 /// <summary>
 /// This controller helps the player move and place items.
@@ -73,6 +74,9 @@ public class PlacementController : CustomMonoBehaviour {
     [SerializeField]
     private Confirmation confirmation;
 
+    [SerializeField]
+    private BuildingController buildingController;
+
     private void ConvertArraystoDictionaries() {
         basicItemInfoDict = new Dictionary<int, GameObject>();
         foreach (BasicItemInfo pair in basicItemInfoList) {
@@ -84,7 +88,17 @@ public class PlacementController : CustomMonoBehaviour {
 
     // Load all items that were placed in the previous save
     private void LoadSavedPlacedItems() {
-        foreach (PlacedItem placedItem in placedItems.items) {
+        // TODO: the logic to get the sceneName is also repeated in PlaceObject
+        // Try to figure out a way to abstract this logic; maybe by creating a c# script dedicated to managing scenes?
+        var sceneName = "";
+        if (ActiveSceneType() == Loader.Scene.Barn1) {
+            sceneName = buildingController.BuildThisBuildingSceneName();
+        } else {
+            sceneName = ActiveScene().name;
+        }
+        var itemList = placedItems.GetPlacedItems(sceneName);
+        Debug.Log("Num placed items: " + itemList.Count);
+        foreach (PlacedItem placedItem in itemList) {
             var id = placedItem.itemId;
             var prefab = basicItemInfoDict[-1];
             var item = spawnObject.items.Find(x => x.id == id);
@@ -111,6 +125,7 @@ public class PlacementController : CustomMonoBehaviour {
         if (inventory.currentItem != null) {
             BeginPlacement(inventory.currentItemId);
         }
+
         LoadSavedPlacedItems();
     }
 
@@ -131,7 +146,6 @@ public class PlacementController : CustomMonoBehaviour {
             confirmation.initiateConfirmation("Are you sure you want to build your house here?", () => {
                 placeableObject = Instantiate(placeableObjectBlueprint);
                 Destroy(placeableObject.GetComponent<PlaceableObjectBlueprint>());
-                var buildingController = centralController.Get("BuildingController").GetComponent<BuildingController>();
                 var prefab = buildingInfoList.Find(x => x.buildingItemId == itemBeingPlaced.id).prefab;
                 buildingController.RegisterBuildingCreation((BuildingItem) itemBeingPlaced, placeableObject, prefab);
                 playerInformation.RemoveCurrentItemFromInventory();
@@ -148,11 +162,26 @@ public class PlacementController : CustomMonoBehaviour {
             var sprite = placeableObjectBlueprintSpriteRenderer.sprite;
             placeableObject.GetComponent<SpriteRenderer>().sprite = sprite;
             placeableObject.SetActive(true);
-            placedItems.Add(itemBeingPlaced.id, placeableObject.transform.position,
+
+            var sceneName = "";
+            if (ActiveSceneType() == Loader.Scene.Barn1) {
+                sceneName = buildingController.BuildThisBuildingSceneName();
+            } else {
+                sceneName = ActiveScene().name;
+            }
+
+            placedItems.Add(sceneName, itemBeingPlaced.id, placeableObject.transform.position,
                             itemBeingPlaced.SpriteToDirection(sprite));
             playerInformation.RemoveCurrentItemFromInventory();
             EndPlacementIfNoItemsLeft();
         }
+    }
+
+    private Vector2 RoundedPlayerPosition() {
+        return new Vector2(
+            (float) Math.Truncate(player.transform.position.x),
+            (float) Math.Truncate(player.transform.position.y)
+        );
     }
 
     // Update is called once per frame
@@ -166,19 +195,19 @@ public class PlacementController : CustomMonoBehaviour {
         // TODO: can optimize by storing the `new Vector2` as constants, assuming we don't need to do the TODO above
         switch (playerMovement.direction) {
             case Direction.Left:
-                placeableObjectBlueprint.transform.position = (Vector2) player.transform.position + new Vector2(itemBeingPlaced is BuildingItem ? -5 : -2, 0);
+                placeableObjectBlueprint.transform.position = (Vector2) RoundedPlayerPosition() + new Vector2(itemBeingPlaced is BuildingItem ? -5 : -3, 0);
                 placeableObjectBlueprintSpriteRenderer.sprite = itemBeingPlaced.sprites.right;
                 break;
             case Direction.Up:
-                placeableObjectBlueprint.transform.position = (Vector2) player.transform.position + new Vector2(0, itemBeingPlaced is BuildingItem ? 4 : 3);
+                placeableObjectBlueprint.transform.position = (Vector2) RoundedPlayerPosition() + new Vector2(0, itemBeingPlaced is BuildingItem ? 4 : 3);
                 placeableObjectBlueprintSpriteRenderer.sprite = itemBeingPlaced.sprites.down;
                 break;
             case Direction.Right:
-                placeableObjectBlueprint.transform.position = (Vector2) player.transform.position + new Vector2(itemBeingPlaced is BuildingItem ? 5 : 2, 0);
+                placeableObjectBlueprint.transform.position = (Vector2) RoundedPlayerPosition() + new Vector2(itemBeingPlaced is BuildingItem ? 5 : 3, 0);
                 placeableObjectBlueprintSpriteRenderer.sprite = itemBeingPlaced.sprites.left;
                 break;
             case Direction.Down:
-                placeableObjectBlueprint.transform.position = (Vector2) player.transform.position + new Vector2(0, itemBeingPlaced is BuildingItem ? -6.5f : -2);
+                placeableObjectBlueprint.transform.position = (Vector2) RoundedPlayerPosition() + new Vector2(0, itemBeingPlaced is BuildingItem ? -7 : -3);
                 placeableObjectBlueprintSpriteRenderer.sprite = itemBeingPlaced.sprites.up;
                 break;
             default:

@@ -52,7 +52,7 @@ public class ForestGeneration : CustomMonoBehaviour {
     int width;
     int height;
     public void StartForest() {
-        Debug.Log("Forest Width: " + forest.width);
+        // Debug.Log("Forest Width: " + forest.width);
         maze = forest.maze;
         Player = centralController.Get("Player").transform;
         dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
@@ -133,7 +133,11 @@ public class ForestGeneration : CustomMonoBehaviour {
 
         terrainMap = drawMaze(terrainMap);
         terrainMap = doubleMap(terrainMap);
-        terrainMap = drawRectangle(terrainMap, 3, height - 2, true);
+        terrainMap = drawRectangle(terrainMap, 3, height - 2, beginning: true);
+        if (forest.campsite) {
+            terrainMap = drawRectangle(terrainMap, width / 4, height / 4, center: true);
+            // terrainMap = drawRectangle(terrainMap, width / 6, height / 6, center: true, value: 2);
+        }
         for (int x = 0; x <= width; x++) {
             for (int y = 0; y <= height; y++) {
                 grassMap.SetTile(ReturnProperPosition(x, y, 0), grassTile);
@@ -143,6 +147,9 @@ public class ForestGeneration : CustomMonoBehaviour {
             for (int y = 0; y < height; y++) {
                 if (terrainMap[x, y] == 0) {
                     collisionMap.SetTile(ReturnProperPosition(x, y, 0), collisionTile);
+                }
+                if (terrainMap[x, y] == 2) {
+                    topMap.SetTile(ReturnProperPosition(x, y, 0), beachTile);
                 }
             }
         }
@@ -280,17 +287,19 @@ public class ForestGeneration : CustomMonoBehaviour {
         // else random path
 
     }
-    public int[,] drawRectangle(int[,] map, int x = -1, int y = -1, bool beginning = false) {
+    public int[,] drawRectangle(int[,] map, int x = -1, int y = -1, bool beginning = false, bool center = false, int value = 1) {
         int rectWidth = x == -1 ? Random.Range(2, width / 2) : x;
         int rectHeight = y == -1 ? Random.Range(2, height / 2) : y;
         // if draw empty area at start
-        Vector2 pickPoint = beginning ? new Vector2(1, 1) : new Vector2(Random.Range(1, width), Random.Range(1, height));
+        Vector2 pickPoint = beginning ? new Vector2(1, 1) :
+        center ? new Vector2((width / 2) - (rectWidth / 2), (height / 2) - (rectHeight / 2)) :
+        new Vector2(Random.Range(1, width), Random.Range(1, height));
         for (int i = 0; i < rectWidth; i++) {
             for (int j = 0; j < rectHeight; j++) {
                 if (pickPoint.x + i >= width - 1 || pickPoint.y + j >= height - 1) {
                     break;
                 }
-                map[(int) pickPoint.x + i, (int) pickPoint.y + j] = 1;
+                map[(int) pickPoint.x + i, (int) pickPoint.y + j] = value;
             }
         }
         return map;
@@ -391,8 +400,8 @@ public class ForestGeneration : CustomMonoBehaviour {
     }
     //Generate wild animals
     public void GenerateAnimal() {
-        int animals = Random.Range(0, 10);
-        int attempts = 3;
+        int animals = Random.Range(0, forest.level + 10);
+        int attempts = 10;
 
         for (int i = 0; i < animals; i++) {
             for (int j = 0; j < attempts; j++) {
@@ -400,7 +409,8 @@ public class ForestGeneration : CustomMonoBehaviour {
                 int x = Random.Range(width / 8, 7 * width / 8);
                 int y = Random.Range(height / 8, 7 * height / 8);
                 if (isValidTreePlantingSpot(1, x, y, 1)) {
-                    spawnWildAnimal.generateAnimal(ReturnProperPositionV2(x, y));
+                    Debug.Log(x + ", " + y);
+                    spawnWildAnimal.generateAnimal(location: ReturnProperPositionV2(x, y), new List<string> { "Fish" }, rarity: (int) System.Math.Floor(forest.level * 0.2));
                     break;
                 }
             }
@@ -408,7 +418,7 @@ public class ForestGeneration : CustomMonoBehaviour {
     }
     public void PlantTrees() {
         int trees = Random.Range(0, width / 2);
-        int attempts = 20;
+        int attempts = 15;
         for (int i = 0; i < trees; i++) {
             // attempt to find a spot where a tree can be planted
             for (int j = 0; j < attempts; j++) {

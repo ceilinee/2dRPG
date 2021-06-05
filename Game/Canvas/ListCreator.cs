@@ -36,6 +36,7 @@ public class ListCreator : CustomMonoBehaviour {
     public bool isShop;
     public bool isBreed;
     public bool isSell;
+    public int rows;
     public string gender;
     public AnimalBreed animalBreeds;
     public Inventory inventory;

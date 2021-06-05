@@ -18,11 +18,7 @@ public class Shop : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         itemDictionary.updateItemDict();
-        playerInventory.UpdateInventory(itemDictionary);
-        shop.UpdateInventory(itemDictionary);
-        if (vetShop) {
-            vetShop.UpdateInventory(itemDictionary);
-        }
+        UpdateAllInventory();
         addToShop(items);
         updateSpecialShopWithAllBreeds();
         UpdateShopBuildings(itemDictionary);
@@ -34,8 +30,15 @@ public class Shop : MonoBehaviour {
             }
         }
     }
-
+    public void UpdateAllInventory() {
+        playerInventory.UpdateInventory(itemDictionary);
+        shop.UpdateInventory(itemDictionary);
+        if (vetShop) {
+            vetShop.UpdateInventory(itemDictionary);
+        }
+    }
     public void UpdateShopBuildings(ItemDictionary itemDictionary) {
+        shopBuildings.itemList.Clear();
         foreach (int itemId in shopBuildings.list) {
             shopBuildings.itemList.Add(itemDictionary.Get(itemId));
         }
