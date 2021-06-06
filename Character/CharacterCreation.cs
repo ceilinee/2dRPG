@@ -7,7 +7,7 @@ using UnityEngine.Assertions;
 
 public class CharacterCreation : MonoBehaviour {
     public GameObject input;
-    private Action<string> nameFunction;
+    private Action onSubmit;
     public BodyPartManager bodyPartManager;
 
     [Header("All the supported colors")]
@@ -59,23 +59,28 @@ public class CharacterCreation : MonoBehaviour {
         Assert.IsTrue(colors.colorDictionary.Count >= 4, "Must support at least 4 colors");
     }
 
-    void Start() {
+    private void UpdateIdxsFromPlayerSO() {
+        var appearance = player.appearance;
+        currHairstyleIdx = appearance.hairId;
+        currHairColorIdx = appearance.hairColorId;
+        currOutfitIdx = appearance.outfitId;
+        currEyesIdx = appearance.eyesId;
+        currEyesColorIdx = appearance.eyeColorId;
+        currSkinColorIdx = appearance.skinColorId;
+    }
+
+    private void OnEnable() {
+        UpdateIdxsFromPlayerSO();
+        input.GetComponent<InputField>().text = player.playerName;
         RenderHair();
         RenderOutfit();
         RenderEyes();
         RenderSkin();
     }
 
-    public void initiateNameAlert(Action<string> newNameFunction) {
-        nameFunction = newNameFunction;
+    public void Open(Action onSubmit) {
+        this.onSubmit = onSubmit;
         gameObject.SetActive(true);
-    }
-
-    public void submitName() {
-        string name = input.GetComponent<InputField>().text;
-        input.GetComponent<InputField>().text = " ";
-        nameFunction(name);
-        gameObject.SetActive(false);
     }
 
     public void HairstyleNext() {
@@ -224,6 +229,9 @@ public class CharacterCreation : MonoBehaviour {
     }
 
     public void Save() {
+        string name = input.GetComponent<InputField>().text;
+        input.GetComponent<InputField>().text = " ";
+        player.playerName = name;
         player.setAppearance(
             bodyPartManager.hairStyles[currHairstyleIdx].id,
             currHairColorIdx,
@@ -232,6 +240,7 @@ public class CharacterCreation : MonoBehaviour {
             currEyesColorIdx,
             currSkinColorIdx
         );
-        submitName();
+        gameObject.SetActive(false);
+        onSubmit();
     }
 }

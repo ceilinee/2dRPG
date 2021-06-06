@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49a4413885fe4c73a1bf07a5c3c3eef, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  playerName: Ethan
+  playerName: Ethan2
   female: 0
   married: 0
-  marriedCharId: 0
+  marriedCharId: -1
   datingCharId: 
-  reputation: 0
+  reputation: 3
   dailyAdoption: 0
-  dailyTalk: 0
+  dailyTalk: 1
   dailyWalk: 0
   dailyGiftCharacter: 0
   dailyGiftAnimal: 0
   dailyQuest: 0
   earnedMoney: 0
   exCharId: 
-  dailyTalkedTo: 
+  dailyTalkedTo: 11000000
   dailyGiftedTo: 
   dailyScenesVisited: 
   dailyCollected: 
   childrenCharId: 
   appearance:
     hairId: 0
-    hairColorId: 7
+    hairColorId: 11
     outfitId: 0
     eyesId: 0
     eyeColorId: 0

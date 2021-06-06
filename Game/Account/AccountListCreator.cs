@@ -97,8 +97,7 @@ public class AccountListCreator : MonoBehaviour {
     void GetPlayerName() {
         StartCoroutine(waitConfirm());
     }
-    void confirm(string name) {
-        player.playerName = name;
+    void confirm() {
         confirmVar = true;
     }
     public void selectFemale() {
@@ -112,7 +111,7 @@ public class AccountListCreator : MonoBehaviour {
         female.GetComponent<Image>().color = new Color(0.6037736f, 0.6037736f, 0.6037736f, 1f);
     }
     IEnumerator waitConfirm() {
-        birthModal.GetComponent<CharacterCreation>().initiateNameAlert((string name) => confirm(name));
+        birthModal.GetComponent<CharacterCreation>().Open(confirm);
         while (!confirmVar) yield return null;
         accountManager.GetComponent<AccountManager>().SaveAccounts();
         accountManager.GetComponent<AccountManager>().SaveScriptables();

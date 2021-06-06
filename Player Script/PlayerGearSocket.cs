@@ -27,6 +27,10 @@ public class PlayerGearSocket : MonoBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
+        SetupAnimations();
+    }
+
+    public void SetupAnimations() {
         string[] animationNames = { "attackDown", "attackDownIdle", "attackLeft", "attackLeftIdle",
             "attackRight", "attackRightIdle", "attackUp", "attackUpIdle", "idleDown", "idleLeft", "idleRight", "idleUp",
             "walkDown", "walkLeft", "walkRight", "walkUp" };

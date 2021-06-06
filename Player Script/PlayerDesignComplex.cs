@@ -10,7 +10,7 @@ public class PlayerDesignComplex : PlayerDesign {
     [Header("The item being held by the player")]
     public GameObject heldItem;
 
-    void Start() {
+    private void OnEnable() {
         RenderUsingPlayerSO();
     }
 

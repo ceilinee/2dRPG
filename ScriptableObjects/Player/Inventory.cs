@@ -67,6 +67,18 @@ public class Inventory : ScriptableObject {
             itemInt[itemToAdd.id] += 1;
         }
     }
+    public void AddInventory(Inventory inventory) {
+        foreach (KeyValuePair<Item, double> kvp in inventory.items) {
+            Item itemToAdd = kvp.Key;
+            if (!items.ContainsKey(itemToAdd)) {
+                items[itemToAdd] = kvp.Value;
+                itemInt[itemToAdd.id] = kvp.Value;
+            } else {
+                items[itemToAdd] += kvp.Value;
+                itemInt[itemToAdd.id] += kvp.Value;
+            }
+        }
+    }
     public void Clear() {
         items = new DictionaryOfItems();
         itemInt = new DictionaryOfInt();

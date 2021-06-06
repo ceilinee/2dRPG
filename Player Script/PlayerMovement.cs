@@ -61,8 +61,13 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetFloat("moveX", initialChangeX);
         animator.SetFloat("moveY", initialChangeY);
         transform.position = startingPosition.initialValue;
+        UpdateSkinColor();
+    }
+
+    public void UpdateSkinColor() {
         GetComponent<SpriteRenderer>().color = colors.colorDictionary[player.appearance.skinColorId].color;
     }
+
     public void setAnimator() {
         animator = GetComponent<Animator>();
         if (player.female) {

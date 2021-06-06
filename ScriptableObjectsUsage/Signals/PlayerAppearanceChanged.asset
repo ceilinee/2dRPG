@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cf848c7aafd84a9ca16c2f7d85675d6, type: 3}
-  m_Name: MainScene
+  m_Script: {fileID: 11500000, guid: b3596346817794279bcc0f3678069e51, type: 3}
+  m_Name: PlayerAppearanceChanged
   m_EditorClassIdentifier: 
-  sceneName: MainScene
-  id: 0
-  cost: 0
-  image: {fileID: 0}
-  animalMaxSize: 50
-  animalCurrentSize: 0
-  entrance: {x: 15.604801, y: 43.686764}
-  open: 0
+  listeners: []

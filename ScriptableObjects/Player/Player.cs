@@ -59,6 +59,8 @@ public class Player : ScriptableObject {
         exCharId = new List<int>();
         reputation = 0;
         clearDailies();
+        playerName = "";
+        appearance = new Appearance();
     }
     public void clearDailies() {
         dailyAdoption = 0;

@@ -37,6 +37,7 @@ public class BuySellAnimal : MonoBehaviour {
     }
     public bool Checkout(Inventory inventory) {
         if (playerMoney.initialValue >= inventory.TotalCost()) {
+            playerInventory.AddInventory(inventory);
             playerMoney.initialValue -= (float) inventory.TotalCost();
             playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
             return true;

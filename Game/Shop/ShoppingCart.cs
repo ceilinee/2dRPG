@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShoppingCart : CustomMonoBehaviour {
     private BuySellAnimal buySellAnimal;
@@ -9,6 +10,7 @@ public class ShoppingCart : CustomMonoBehaviour {
     private Inventory shoppingCart;
     public Inventory source;
     public List<Item> items;
+    public Text confirm;
     public List<ItemDetails> itemDetailsList;
     public GameObject shop;
     private int id;
@@ -20,6 +22,12 @@ public class ShoppingCart : CustomMonoBehaviour {
         canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
         dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
         buySellAnimal = centralController.Get("AnimalBuySell").GetComponent<BuySellAnimal>();
+        foreach (ItemDetails item in itemDetailsList) {
+            item.shop = shop;
+            if (shop.TryGetComponent(out VetInformation vetInfo)) {
+                item.vet = shop;
+            }
+        }
         RenderItems();
     }
     public void AddItemToShoppingCart(Item item) {
@@ -32,6 +40,7 @@ public class ShoppingCart : CustomMonoBehaviour {
         }
     }
     public void RemoveItemFromShoppingCart(Item item) {
+        Debug.Log("Remove :" + item.itemName);
         shoppingCart.RemoveAllItem(item);
         items = new List<Item>(shoppingCart.items.Keys);
         RenderItems();
