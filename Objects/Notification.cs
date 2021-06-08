@@ -11,6 +11,9 @@ public class Notification : MonoBehaviour {
     public GameObject confirmationBackground;
     public bool onlyCloseSelf;
     public void initiateNotification(string newQuestion, bool _onlyCloseSelf = false) {
+        if (transform.parent.gameObject.name == "Notification Background") {
+            confirmationBackground = transform.parent.gameObject;
+        }
         question.text = newQuestion;
         onlyCloseSelf = _onlyCloseSelf;
         gameObject.SetActive(true);

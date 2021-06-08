@@ -47,13 +47,14 @@ public class BuildingController : CustomMonoBehaviour {
 
 
     public static int BuildingIdFromBuildingSceneName(string buildingSceneName) {
+        // Debug.Log(buildingSceneName);
         return Int32.Parse(buildingSceneName.Split('#')[1]);
     }
 
     // Assuming we are currently inside of a building, returns a virtual scene name
     // of the form <actual scene name>#<building id>
     public string BuildThisBuildingSceneName() {
-        Assert.IsTrue(ActiveSceneType() == Loader.Scene.Barn1);
+        Assert.IsTrue(ActiveSceneType() == Loader.Scene.Barn);
         return ActiveScene().name + "#" + placedBuildings.buildingEnteredIdx;
     }
 
@@ -149,7 +150,7 @@ public class BuildingController : CustomMonoBehaviour {
     public void OnPlayerWillSceneTransition(string sceneName) {
         Debug.Log("scene transition to: " + sceneName);
         var scene = (Loader.Scene) Enum.Parse(typeof(Loader.Scene), sceneName);
-        if (scene == Loader.Scene.Barn1) {
+        if (scene == Loader.Scene.Barn) {
             var player = centralController.Get("Player");
             PlacedBuilding closestBuilding = null;
             float minDistance = float.MaxValue;

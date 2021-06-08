@@ -71,7 +71,6 @@ public class DinnerBell : MonoBehaviour {
         foreach (KeyValuePair<int, Animal> kvp in newAnimals.animalDict) {
             // Currently, home must be of the form Barn#<building id of barn>
             var home = kvp.Value.home;
-            Debug.Log(home);
             bool doesBelongToHome = home.StartsWith(sceneInfo.sceneName) &&
                 BuildingController.BuildingIdFromBuildingSceneName(home) == placedBuildings.buildingEnteredIdx;
             if (doesBelongToHome && !kvp.Value.characterOwned) {

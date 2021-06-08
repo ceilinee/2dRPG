@@ -11,13 +11,13 @@ public class ShoppingCart : CustomMonoBehaviour {
     public Inventory source;
     public List<Item> items;
     public Text confirm;
+    public bool buy;
     public List<ItemDetails> itemDetailsList;
     public GameObject shop;
     private int id;
 
     void Start() {
         shop = transform.parent.parent.gameObject;
-        Debug.Log(transform.parent.parent.name);
         shoppingCart = ScriptableObject.CreateInstance<Inventory>();
         canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
         dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
@@ -28,6 +28,7 @@ public class ShoppingCart : CustomMonoBehaviour {
                 item.vet = shop;
             }
         }
+        ResetButton();
         RenderItems();
     }
     public void AddItemToShoppingCart(Item item) {
@@ -36,6 +37,7 @@ public class ShoppingCart : CustomMonoBehaviour {
         } else {
             shoppingCart.Additem(item);
             items = new List<Item>(shoppingCart.items.Keys);
+            confirm.text = buy ? "Buy for: $" + shoppingCart.TotalCost(buy: true) : "Sell for: $" + shoppingCart.TotalCost(buy: false);
             RenderItems();
         }
     }
@@ -43,7 +45,11 @@ public class ShoppingCart : CustomMonoBehaviour {
         Debug.Log("Remove :" + item.itemName);
         shoppingCart.RemoveAllItem(item);
         items = new List<Item>(shoppingCart.items.Keys);
+        confirm.text = buy ? "Buy for: $" + shoppingCart.TotalCost(buy: true) : "Sell for: $" + shoppingCart.TotalCost(buy: false);
         RenderItems();
+    }
+    public void ResetButton() {
+        confirm.text = "Empty Cart";
     }
     public void MakePurchase() {
         if (buySellAnimal.Checkout(shoppingCart)) {
@@ -54,6 +60,7 @@ public class ShoppingCart : CustomMonoBehaviour {
             } else if (shop.TryGetComponent(out VetInformation vetInfo)) {
                 vetInfo.updateList();
             }
+            ResetButton();
             RenderItems();
         } else {
             canvasController.initiateNotification("Aw sorry, it looks like you don't have enough on you..", true);
@@ -68,6 +75,7 @@ public class ShoppingCart : CustomMonoBehaviour {
         } else if (shop.TryGetComponent(out VetInformation vetInfo)) {
             vetInfo.updateList();
         }
+        ResetButton();
         RenderItems();
     }
     private void RenderItems() {

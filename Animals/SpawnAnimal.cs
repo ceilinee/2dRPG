@@ -61,12 +61,23 @@ public class SpawnAnimal : MonoBehaviour {
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
             // We use StartsWith to compare scene names because some animal.scenes (like if they are in a barn)
             // have scene names of the form <actualSceneName>#<someUniqueIdentifier>
+            // kvp.Value.home = "Barn#0";
             if (kvp.Value.age >= 0 && !kvp.Value.characterOwned) {
                 var sceneName = SceneManager.GetActiveScene().name;
                 var sceneType = (Loader.Scene) Enum.Parse(typeof(Loader.Scene), sceneName);
+                // if (kvp.Value.scene != "MainScene") {
+                //     kvp.Value.scene = "Barn#0";
+                // }
+                if (kvp.Value.follow) {
+                    kvp.Value.scene = sceneName;
+                }
                 var animalScene = kvp.Value.scene;
                 // If the current scene is the Barn, then we need to check virtual barn
-                if (sceneType == Loader.Scene.Barn1) {
+                if (sceneType == Loader.Scene.Barn) {
+                    if (kvp.Value.follow) {
+                        kvp.Value.scene = sceneName + '#' + placedBuildings.buildingEnteredIdx;
+                        animalScene = kvp.Value.scene;
+                    }
                     // animalScene should be of the form Barn1#<id of building>
                     if (animalScene.StartsWith(sceneName) &&
                         BuildingController.BuildingIdFromBuildingSceneName(animalScene) ==

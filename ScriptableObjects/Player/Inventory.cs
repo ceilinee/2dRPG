@@ -49,10 +49,10 @@ public class Inventory : ScriptableObject {
             currentItem = itemDictionary.itemDict[currentItemId];
         }
     }
-    public double TotalCost() {
+    public double TotalCost(bool buy = true) {
         double totalCost = 0;
         foreach (KeyValuePair<Item, double> kvp in items) {
-            totalCost += kvp.Key.sellCost * kvp.Value;
+            totalCost += buy ? kvp.Key.cost * kvp.Value : kvp.Key.sellCost * kvp.Value;
         }
         return totalCost;
     }

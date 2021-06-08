@@ -8,7 +8,21 @@ public class PatrolLog : Log {
     public int currentPoint;
     public Transform currentGoal;
     public float roundingDistance;
-
+    public bool menu = false;
+    public override void Awake() {
+        if (!menu) {
+            base.Awake();
+        }
+    }
+    public override void Start() {
+        if (!menu) {
+            base.Start();
+        } else {
+            myRigidbody = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
+            anim.SetBool("wakeUp", true);
+        }
+    }
     public override void CheckDistance() {
         anim.SetBool("wakeUp", true);
         if (Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius) {

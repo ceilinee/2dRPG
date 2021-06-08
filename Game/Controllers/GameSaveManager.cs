@@ -62,8 +62,11 @@ public class GameSaveManager : MonoBehaviour {
     }
 
     public void LoadScriptables() {
+        // If we are in MainMenu, no need to load any SO
+        if (account.selectedId == -1) {
+            return;
+        }
         for (int i = 0; i < objects.Count; i++) {
-            // Debug.Log("load: "+ Path.Combine(Application.persistentDataPath, string.Format(account.selectedId.ToString() + "{0}.dat", i)));
             if (File.Exists(Path.Combine(Application.persistentDataPath, string.Format(account.selectedId.ToString() + "{0}.dat", i)))) {
                 FileStream file = File.Open(Path.Combine(Application.persistentDataPath, string.Format(account.selectedId.ToString() + "{0}.dat", i)), FileMode.Open);
                 BinaryFormatter binary = new BinaryFormatter();
@@ -72,8 +75,6 @@ public class GameSaveManager : MonoBehaviour {
                 file.Close();
             }
         }
-        // spawnAnimal.Spawn();
-
     }
 
 }

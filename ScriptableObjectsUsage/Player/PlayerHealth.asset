@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   initialValue: 8
-  RunTimeValue: 6
+  RunTimeValue: 979

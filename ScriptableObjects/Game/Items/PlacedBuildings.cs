@@ -46,14 +46,12 @@ public class PlacedBuildings : ScriptableObject {
     // buildings[buildingEnteredIdx] is the building we are currently in
     // -1 means we are not in a building
     public int buildingEnteredIdx;
-
     public PlacedBuilding Add(int buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
         // Each placed building is assigned an id, which is equal to the idx of the building in `buildings`
         var newPlacedBuilding = new PlacedBuilding(buildings.Count, buildingItemId, itemPosition, completionTime, sceneInfoId);
         buildings.Add(newPlacedBuilding);
         return newPlacedBuilding;
     }
-
     // Mark that the building has finished being built
     public void SetBuildingCompleted(int buildingId) {
         var building = buildings.Find(x => x.buildingId == buildingId);
@@ -76,7 +74,7 @@ public class PlacedBuildings : ScriptableObject {
     }
 
     public void Clear() {
-        buildings.Clear();
+        buildings = new List<PlacedBuilding>();
         buildingEnteredIdx = -1;
     }
 }

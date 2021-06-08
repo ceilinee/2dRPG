@@ -52,6 +52,6 @@ public class PlacedItems : ScriptableObject {
     }
 
     public void Clear() {
-        sceneToPlacedItems.Clear();
+        sceneToPlacedItems = new SceneToPlacedItems();
     }
 }

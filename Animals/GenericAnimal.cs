@@ -180,6 +180,7 @@ public class GenericAnimal : AnimalState {
         } else if (animalTrait.follow && !animalTrait.characterOwned) {
             // The animal must be currently following the player
             // moveSpeed *= 3;
+            transform.position = target.position;
             startAStar(target);
         }
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -335,8 +336,12 @@ public class GenericAnimal : AnimalState {
             StartCoroutine(StopCo(5));
             setRandomPosition();
         } else {
-            anim.SetBool("Follow", false);
-            SetGearSocketFollow(false);
+            if (anim) {
+                anim.SetBool("Follow", false);
+                SetGearSocketFollow(false);
+            } else {
+                anim = GetComponent<Animator>();
+            }
         }
         updatePlayerInRange();
     }

@@ -11,7 +11,7 @@ public static class Loader {
         MainScene,
         Load,
         Island,
-        Barn1,
+        Barn,
         MainMenu,
 
         Forest

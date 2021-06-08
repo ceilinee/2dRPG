@@ -51,6 +51,7 @@ public class CentralController : CustomMonoBehaviour {
 
         areaObjects = new List<GameObjectAndMaxMin> { townObjects, farmObjects, beachObjects, forestObjects, town2Objects, suburbObjects };
         foreach (GameObject gameObject in listGameObject) {
+            Assert.IsNotNull(gameObject, "Null object in list game object, please double check the inspector!");
             Assert.IsFalse(centralDictionary.ContainsKey(gameObject.name), "Duplicate Key");
             centralDictionary[gameObject.name] = gameObject;
         }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cf848c7aafd84a9ca16c2f7d85675d6, type: 3}
-  m_Name: Barn2
+  m_Name: Barn
   m_EditorClassIdentifier: 
-  sceneName: Barn2
-  id: 2
-  cost: 1000
+  sceneName: Barn
+  id: 1
+  cost: 500
   image: {fileID: 21300000, guid: cc1f450b6f1bc4f2d890e3aaee9f6d2d, type: 3}
   animalMaxSize: 10
   animalCurrentSize: 0
-  entrance: {x: -1.2, y: -4.5}
-  open: 1
+  entrance: {x: -1.2, y: -4.8}
+  open: 0

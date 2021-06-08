@@ -128,7 +128,7 @@ public class BreedScript : MonoBehaviour {
         int randomNumber = Random.Range(0, 1000000000);
         Personality personality = generatePersonality(false);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
-        curAnimals.addAnimal(GenerateName(), femaleAnimal.type, randomNumber, location, -1, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] { }, 0.0f, breed, femaleAnimal.scene, false, 0, animalColors, personality, femaleAnimal.id, maleAnimal.id);
+        curAnimals.addAnimal(GenerateName(), femaleAnimal.type, randomNumber, location, -1, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0.0f, breed, femaleAnimal.scene, false, 0, animalColors, personality, femaleAnimal.id, maleAnimal.id);
         return randomNumber;
     }
 
@@ -283,9 +283,9 @@ public class BreedScript : MonoBehaviour {
         Personality personality = generatePersonality(true);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         if (paramAnimals != null) {
-            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
         } else {
-            shopAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            shopAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
         }
         return randomNumber;
     }
@@ -398,9 +398,9 @@ public class BreedScript : MonoBehaviour {
         Personality personality = generatePersonality(true);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         if (paramAnimals != null) {
-            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
         } else {
-            shopBreedAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn1", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            shopBreedAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
         }
         return randomNumber;
     }

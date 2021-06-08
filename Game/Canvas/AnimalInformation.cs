@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Assertions;
 
-public class AnimalInformation : MonoBehaviour {
-    public Text animalName;
+public class AnimalInformation : CustomMonoBehaviour {
+    public InputField animalName;
     public Text age;
     public Text friendship;
     public Text type;
-    public int home;
-    public GameObject save;
     public Text gender;
     public Text sell;
     public Text mood;
@@ -50,13 +48,32 @@ public class AnimalInformation : MonoBehaviour {
     public AnimalList animalList;
     public GameObject followButton;
     public Transform player;
+    public Confirmation confirmation;
     void Start() {
+        confirmation = centralController.Get("Confirmation").GetComponent<Confirmation>();
+        animalName.onEndEdit.AddListener(saveName);
+        homeDropdown.onValueChanged.AddListener(delegate {
+            updateHome(homeDropdown);
+        });
+        player = centralController.Get("Player").transform;
+        SpawnAnimal = centralController.Get("SpawnAnimal");
     }
-
+    private void saveName(string textInField) {
+        curAnimals.animalDict[animalTraitInformation.id].animalName = textInField;
+        CanvasController.GetComponent<CanvasController>().initiateNotification("Your pet's name has been changed to " + textInField + "!", true);
+    }
     public void Breed(Animal selectedAnimal) {
         breedAnimal.GetComponent<BreedScript>().BreedAnimals(animalTraitInformation, selectedAnimal);
     }
     public void sellAnimal() {
+        confirmation.initiateConfirmation("Are you sure you want to sell " + animalTraitInformation.animalName + " for $" + animalTraitInformation.cost + "? You won't be able to get them back.",
+            ConfirmAnimal,
+            () => { },
+            () => { },
+            true
+        );
+    }
+    public void ConfirmAnimal() {
         buySellObject.GetComponent<BuySellAnimal>().sellAnimal(animalTraitInformation);
         CloseIfPlayerMenuNotOpen();
         animal.SetActive(false);
@@ -94,16 +111,13 @@ public class AnimalInformation : MonoBehaviour {
         }
         return animalTrait.animalName + " loves you, ♥♥♥♥♥";
     }
-    public void saveHome() {
-        curAnimals.animalDict[animalTraitInformation.id].home = dropdownOptions[home];
-        animal.GetComponent<GenericAnimal>().animalTrait.home = dropdownOptions[home];
-        updateAbout(animalTraitInformation, animal);
+    public void updateHome(Dropdown target) {
+        if (animalTraitInformation.home != dropdownOptions[target.value]) {
+            animalTraitInformation.home = dropdownOptions[target.value];
+            CanvasController.GetComponent<CanvasController>().initiateNotification(
+            animalTraitInformation.animalName + "'s home has been changed to " + animalTraitInformation.home + "! They're super excited to make new friends there! When you ring " + curAnimals.animalDict[animalTraitInformation.id].home + "'s dinner bell, this pet will be sure to go in.", true);
+        }
     }
-    public void updateHome(int newHome) {
-        home = homeDropdown.value;
-        save.SetActive(true);
-    }
-
     public void SetupHomeDropdown(Animal animalTrait) {
         dropdownOptions = new List<string>();
         int position = 0;
@@ -126,7 +140,6 @@ public class AnimalInformation : MonoBehaviour {
     }
 
     public void updateAbout(Animal animalTrait, GameObject newAnimal) {
-        save.SetActive(false);
         animalName.text = animalTrait.animalName;
         age.text = animalTrait.age.ToString() + " days old";
         friendship.text = getFriendship(animalTrait);
@@ -203,7 +216,10 @@ public class AnimalInformation : MonoBehaviour {
             animal.GetComponent<GenericAnimal>().setAnimalUnfollow();
         } else {
             // if the animal is currently not in the scene, move it to the scene 
-            if (animalTraitInformation.scene != SceneManager.GetActiveScene().name) {
+            if (animalTraitInformation.scene != SceneManager.GetActiveScene().name
+            && !(animalTraitInformation.scene.StartsWith(SceneManager.GetActiveScene().name) &&
+            BuildingController.BuildingIdFromBuildingSceneName(animalTraitInformation.scene) ==
+            placedBuildings.buildingEnteredIdx)) {
                 animalTraitInformation.scene = SceneManager.GetActiveScene().name;
                 animalTraitInformation.location = player.position;
                 SpawnAnimal.GetComponent<SpawnAnimal>().Spawn(animalTraitInformation);

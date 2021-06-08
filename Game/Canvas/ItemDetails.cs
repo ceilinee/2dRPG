@@ -129,9 +129,10 @@ public class ItemDetails : CustomMonoBehaviour {
         if (buy) {
             shop.GetComponent<ShopInformation>().updateAbout();
             shop.GetComponent<ShopInformation>().showThanksAnimal();
-        } else {
-            shop.GetComponent<ShopInformation>().noMoney();
         }
+        // else {
+        //     shop.GetComponent<ShopInformation>().noMoney();
+        // }
     }
     public void SellItem() {
         buySellAnimal.GetComponent<BuySellAnimal>().sellItem(item);

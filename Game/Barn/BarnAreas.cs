@@ -14,6 +14,7 @@ public class BarnAreas : CustomMonoBehaviour {
             area.SetActive(false);
         }
         var barnInfo = placedBuildings.GetBuildingEntered();
+        Debug.Log(barnInfo.buildingId);
         areas[barnInfo.upgrade].SetActive(true);
     }
 }

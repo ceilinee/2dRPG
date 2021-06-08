@@ -5,8 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class AccountManager : MonoBehaviour {
-    public Accounts account;
-    public List<ScriptableObject> objects = new List<ScriptableObject>();
+    public Accounts accounts;
 
     [SerializeField]
     private AccountListCreator accountListCreator;
@@ -20,48 +19,20 @@ public class AccountManager : MonoBehaviour {
             FileStream file = File.Open(Path.Combine(Application.persistentDataPath, string.Format("accounts.dat")), FileMode.Open);
             BinaryFormatter binary = new BinaryFormatter();
             JsonUtility.FromJsonOverwrite((string) binary.Deserialize(file),
-                account);
+                accounts);
             file.Close();
         }
         // When the game starts at the menu scene, make sure we start off at a clean
         // slate; all scriptable objects have default values
-        account.selectedId = -1;
+        accounts.selectedId = -1;
         accountListCreator.clearObjects();
-    }
-    public void SaveScriptables() {
-        for (int i = 0; i < objects.Count; i++) {
-            // Debug.Log("save: "+ Path.Combine(Application.persistentDataPath, string.Format(account.selectedId.ToString() + "{0}.dat", i)));
-            FileStream file = File.Create(Path.Combine(Application.persistentDataPath, string.Format(account.selectedId.ToString() + "{0}.dat", i)));
-            BinaryFormatter binary = new BinaryFormatter();
-            var json = JsonUtility.ToJson(objects[i]);
-            // Debug.Log(json);
-
-            binary.Serialize(file, json);
-            file.Close();
-        }
-    }
-    public void DeleteScriptables(int id) {
-        for (int i = 0; i < objects.Count; i++) {
-            if (File.Exists(Application.persistentDataPath +
-                string.Format("/" + id.ToString() + "{0}.dat", i))) {
-                File.Delete(Application.persistentDataPath +
-                    string.Format("/" + id.ToString() + "{0}.dat", i));
-            }
-        }
     }
     public void SaveAccounts() {
         FileStream file = File.Create(Path.Combine(Application.persistentDataPath, string.Format("accounts.dat")));
         BinaryFormatter binary = new BinaryFormatter();
-        var json = JsonUtility.ToJson(account);
+        var json = JsonUtility.ToJson(accounts);
 
         binary.Serialize(file, json);
         file.Close();
-    }
-    public void selectAccount() {
-
-    }
-    // Update is called once per frame
-    void Update() {
-
     }
 }

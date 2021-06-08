@@ -89,13 +89,11 @@ public class AccountListCreator : MonoBehaviour {
             gameSaveManager.GetComponent<GameSaveManager>().LoadScriptables();
             Loader.Load(Loader.Scene.MainScene);
         } else {
-            clearObjects();
-            accounts.addAccount("Account0", 0);
-            GetPlayerName();
+            OpenPlayerCreationModal(0);
         }
     }
-    void GetPlayerName() {
-        StartCoroutine(waitConfirm());
+    void OpenPlayerCreationModal(int accountId) {
+        StartCoroutine(waitConfirm(accountId));
     }
     void confirm() {
         confirmVar = true;
@@ -110,13 +108,15 @@ public class AccountListCreator : MonoBehaviour {
         male.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
         female.GetComponent<Image>().color = new Color(0.6037736f, 0.6037736f, 0.6037736f, 1f);
     }
-    IEnumerator waitConfirm() {
+    IEnumerator waitConfirm(int accountId) {
         birthModal.GetComponent<CharacterCreation>().Open(confirm);
         while (!confirmVar) yield return null;
-        accountManager.GetComponent<AccountManager>().SaveAccounts();
-        accountManager.GetComponent<AccountManager>().SaveScriptables();
-        Loader.Load(Loader.Scene.MainScene);
         confirmVar = false;
+        // By this point, the user has created a new player and we are about to load the game
+        accounts.addAccount($"Account{accountId}", accountId);
+        accountManager.GetComponent<AccountManager>().SaveAccounts();
+        gameSaveManager.GetComponent<GameSaveManager>().SaveScriptables();
+        Loader.Load(Loader.Scene.MainScene);
     }
     public void selectGame1() {
         if (accounts.accountDict.ContainsKey(1)) {
@@ -124,9 +124,7 @@ public class AccountListCreator : MonoBehaviour {
             gameSaveManager.GetComponent<GameSaveManager>().LoadScriptables();
             Loader.Load(Loader.Scene.MainScene);
         } else {
-            clearObjects();
-            accounts.addAccount("Account1", 1);
-            GetPlayerName();
+            OpenPlayerCreationModal(1);
         }
     }
     public void selectGame2() {
@@ -136,9 +134,7 @@ public class AccountListCreator : MonoBehaviour {
             gameSaveManager.GetComponent<GameSaveManager>().LoadScriptables();
             Loader.Load(Loader.Scene.MainScene);
         } else {
-            clearObjects();
-            accounts.addAccount("Account2", 2);
-            GetPlayerName();
+            OpenPlayerCreationModal(2);
         }
     }
 
@@ -153,9 +149,8 @@ public class AccountListCreator : MonoBehaviour {
         confirmationModal.GetComponent<Confirmation>().initiateConfirmation(
           "Are you sure you want to delete this save file?",
           () => {
-              clearObjects();
+              gameSaveManager.GetComponent<GameSaveManager>().ResetScriptables(gameNum);
               accounts.removeExistingAccount(gameNum);
-              accountManager.GetComponent<AccountManager>().DeleteScriptables(gameNum);
               accountManager.GetComponent<AccountManager>().SaveAccounts();
               updateList();
           },

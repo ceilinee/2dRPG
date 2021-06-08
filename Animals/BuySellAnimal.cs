@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuySellAnimal : MonoBehaviour {
+public class BuySellAnimal : CustomMonoBehaviour {
     public Animals curAnimals;
     public GameObject animalList;
     public Transform target;
@@ -19,12 +19,18 @@ public class BuySellAnimal : MonoBehaviour {
     // public SceneInfos buildings;
     public Animals shopAnimals;
     public GameObject itemAlert;
+    public SceneInfos allBuildings;
+    public PlacedBuildings placedBuildings;
+    public CanvasController canvasController;
 
     [SerializeField]
     private Signal currItemSoldSignal;
+    private int totalAnimals;
+    private int totalAnimalCapacity;
 
     void Start() {
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
+        canvasController = centralController.centralDictionary["CanvasController"].GetComponent<CanvasController>();
     }
     public bool Heal(Animal animal) {
         if (playerMoney.initialValue >= 100 - animal.health) {
@@ -36,9 +42,9 @@ public class BuySellAnimal : MonoBehaviour {
         return false;
     }
     public bool Checkout(Inventory inventory) {
-        if (playerMoney.initialValue >= inventory.TotalCost()) {
+        if (playerMoney.initialValue >= inventory.TotalCost(buy: true)) {
             playerInventory.AddInventory(inventory);
-            playerMoney.initialValue -= (float) inventory.TotalCost();
+            playerMoney.initialValue -= (float) inventory.TotalCost(buy: true);
             playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
             return true;
         }
@@ -50,8 +56,29 @@ public class BuySellAnimal : MonoBehaviour {
         player.earnedMoney += quest.reward;
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
+    public int TotalAnimalCapacity() {
+        int totalAnimalCapacity = 0;
+        foreach (PlacedBuilding building in placedBuildings.buildings) {
+            if (!building.completed) {
+                continue;
+            }
+            SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
+            totalAnimalCapacity += sceneInfo.animalMaxSize;
+        }
+        return totalAnimalCapacity;
+    }
+    public bool CanBuyAnimal() {
+        totalAnimals = curAnimals.TotalAnimals();
+        totalAnimalCapacity = TotalAnimalCapacity();
+        Debug.Log("totalAnimals: " + totalAnimals + ", totalAnimalCapacity: " + totalAnimalCapacity);
+        return totalAnimals < totalAnimalCapacity;
+    }
     public bool buyAnimal(Animal newAnimal, Animals newShop) {
         Debug.Log("buy");
+        if (!CanBuyAnimal()) {
+            canvasController.initiateNotification("Sorry! Looks like your barns have a capacity of " + totalAnimalCapacity + ", and you already have " + totalAnimals + " animals . Try upgrading your barns or purchasing more!", true);
+            return false;
+        }
         if (playerMoney.initialValue >= newAnimal.shopCost) {
             curAnimals.addExistingAnimal(newAnimal);
             newShop.removeExistingAnimal(newAnimal.id);
@@ -59,6 +86,7 @@ public class BuySellAnimal : MonoBehaviour {
             playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
             return true;
         }
+        canvasController.initiateNotification("Sorry! Looks like you don't have enough.", true);
         return false;
     }
     public void SellItems(Inventory shoppingCart) {

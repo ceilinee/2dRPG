@@ -59,6 +59,18 @@ public class Animals : ScriptableObject {
         }
         return sum / count;
     }
+    public int TotalAnimals(string barnName = "", bool includeUnbornAnimals = false) {
+        int count = 0;
+        foreach (KeyValuePair<int, Animal> kvp in animalDict) {
+            if (barnName == "" || barnName == kvp.Value.home) {
+                if (includeUnbornAnimals && kvp.Value.age <= -3) {
+                    continue;
+                }
+                count++;
+            }
+        }
+        return count;
+    }
     public float GetSickAnimals() {
         float sum = 0;
         foreach (KeyValuePair<int, Animal> kvp in animalDict) {

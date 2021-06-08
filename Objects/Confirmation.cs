@@ -18,9 +18,11 @@ public class Confirmation : MonoBehaviour {
     public void initiateConfirmation(string newQuestion, Action newConfirmFunction, Action newCancelFunction) {
         initiateConfirmation(newQuestion, newConfirmFunction, newCancelFunction, null);
     }
-
     public void initiateConfirmation(
       string newQuestion, Action newConfirmFunction, Action newCancelFunction, Action newFinallyFunction, bool _onlyCloseSelf = false) {
+        if (transform.parent.gameObject.name == "Confirmation Background") {
+            confirmationBackground = transform.parent.gameObject;
+        }
         question.text = newQuestion;
         confirmFunction = newConfirmFunction;
         cancelFunction = newCancelFunction;

@@ -91,7 +91,7 @@ public class PlacementController : CustomMonoBehaviour {
         // TODO: the logic to get the sceneName is also repeated in PlaceObject
         // Try to figure out a way to abstract this logic; maybe by creating a c# script dedicated to managing scenes?
         var sceneName = "";
-        if (ActiveSceneType() == Loader.Scene.Barn1) {
+        if (ActiveSceneType() == Loader.Scene.Barn) {
             sceneName = buildingController.BuildThisBuildingSceneName();
         } else {
             sceneName = ActiveScene().name;
@@ -164,7 +164,7 @@ public class PlacementController : CustomMonoBehaviour {
             placeableObject.SetActive(true);
 
             var sceneName = "";
-            if (ActiveSceneType() == Loader.Scene.Barn1) {
+            if (ActiveSceneType() == Loader.Scene.Barn) {
                 sceneName = buildingController.BuildThisBuildingSceneName();
             } else {
                 sceneName = ActiveScene().name;
