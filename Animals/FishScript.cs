@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class FishScript : GenericAnimal {
     // Start is called before the first frame update
@@ -15,14 +16,25 @@ public class FishScript : GenericAnimal {
     public GameObject buySellAnimal;
     public Player player;
     public Item item;
-    protected override void Awake() { }
+
+    [SerializeField] private VectorPointsList pondList;
+
+    protected override void Awake() {
+        Assert.IsNotNull(pondList);
+    }
+
+    public void UpdateWater() {
+        waterArea = water.GetComponent<Water>().getValidSwimLocation(transform.position);
+        Assert.IsNotNull(waterArea, "Fish's location must be within a body of water!");
+        SetRandomPositionFish();
+    }
+
     protected override void Start() {
         // update all variables
         target = centralController.Get("Player").transform;
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        waterArea = water.GetComponent<Water>().getValidSwimLocation(transform.position);
-        setRandomPosition();
+        UpdateWater();
     }
 
     // Update is called once per frame
@@ -68,18 +80,29 @@ public class FishScript : GenericAnimal {
                 curAnimals.addExistingAnimal(animalTrait);
                 spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
                 animalTrait.wild = false;
-                animalTrait.location = new Vector2(-34.4f, -11.5f);
+                var defaultPondVec = pondList.GetDefaultPond();
+                animalTrait.location = defaultPondVec.value;
+                animalTrait.home = defaultPondVec.locationName;
                 spawnAnimal.GetComponent<SpawnAnimal>().Spawn(animalTrait);
             }
         }
     }
     public void RemoveGameObject() {
-        gameObject.SetActive(false);
         spawnAnimal.GetComponent<SpawnAnimal>().animalGameObject.GetComponent<AnimalList>().removeAnimal(animalTrait.id);
+        Destroy(gameObject);
     }
     protected override void FixedUpdate() {
         CheckDistanceFish();
     }
+
+    private void OnDisable() {
+        // This fish might be set inactive by AnimalList while it's executing StopCo, in which, stop
+        // would never be set back to false, so we need to add this cleanup logic here
+        if (stop) {
+            stop = false;
+        }
+    }
+
     public virtual void CheckDistanceFish() {
         if (!stop && Vector3.Distance(randomTarget, transform.position) > 0.5) {
             Vector3 temp = Vector3.MoveTowards(transform.position, randomTarget, moveSpeed * Time.deltaTime);
@@ -89,18 +112,14 @@ public class FishScript : GenericAnimal {
             SetGearSocketFollow(true);
             // Runs for animals randomly moving
         } else if (!stop && Vector3.Distance(randomTarget, transform.position) <= 0.5) {
-            StartCoroutine(StopCo(5));
-            setRandomPositionFish();
+            StartCoroutine(StopCo(Random.Range(1, 6)));
+            SetRandomPositionFish();
         } else {
             anim.SetBool("Follow", false);
             SetGearSocketFollow(false);
         }
     }
-    private IEnumerator StopCo(float knockTime) {
-        stop = true;
-        yield return new WaitForSeconds(knockTime);
-        stop = false;
-    }
+
     bool ColliderContainsPoint(Transform ColliderTransform, Vector3 Point, bool Enabled) {
         Vector3 localPos = ColliderTransform.InverseTransformPoint(Point);
         if (Enabled && Mathf.Abs(localPos.x) < 0.5f && Mathf.Abs(localPos.y) < 0.5f && Mathf.Abs(localPos.z) < 0.5f)
@@ -109,23 +128,17 @@ public class FishScript : GenericAnimal {
             return false;
     }
 
-    public void setRandomPositionFish() {
-        if (waterArea) {
-            var bounds = waterArea.bounds;
-            //generate random points
-            for (int i = 0; i < 10; i++) {
-                float error = 0.3f;
-                Vector2 position = new Vector2(
-                Random.Range(bounds.min.x + error, bounds.max.x - error),
-                Random.Range(bounds.min.y + error, bounds.max.y - error));
-                if (!waterArea.bounds.Contains(position)) {
-                    Debug.Log(position);
-                }
-                if (waterArea.bounds.Contains(position)) {
-                    randomTarget = position;
-                    break;
-                }
+    public void SetRandomPositionFish() {
+        float delta = 4f;
+        for (int i = 0; i < 10; i++) {
+            Vector2 position = new Vector2(
+                Random.Range(transform.position.x - delta, transform.position.x + delta),
+                Random.Range(transform.position.y - delta, transform.position.y + delta));
+            if (waterArea.OverlapPoint(position)) {
+                randomTarget = position;
+                return;
             }
         }
+        randomTarget = transform.position;
     }
 }

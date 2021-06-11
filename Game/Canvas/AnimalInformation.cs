@@ -49,6 +49,9 @@ public class AnimalInformation : CustomMonoBehaviour {
     public GameObject followButton;
     public Transform player;
     public Confirmation confirmation;
+
+    [SerializeField] private VectorPointsList pondList;
+
     void Start() {
         confirmation = centralController.Get("Confirmation").GetComponent<Confirmation>();
         animalName.onEndEdit.AddListener(saveName);
@@ -114,25 +117,49 @@ public class AnimalInformation : CustomMonoBehaviour {
     public void updateHome(Dropdown target) {
         if (animalTraitInformation.home != dropdownOptions[target.value]) {
             animalTraitInformation.home = dropdownOptions[target.value];
-            CanvasController.GetComponent<CanvasController>().initiateNotification(
-            animalTraitInformation.animalName + "'s home has been changed to " + animalTraitInformation.home + "! They're super excited to make new friends there! When you ring " + curAnimals.animalDict[animalTraitInformation.id].home + "'s dinner bell, this pet will be sure to go in.", true);
+            var msg = "";
+            if (animalTraitInformation.type == Animal.TypeFish) {
+                VectorPoints pond = pondList.vectorPoints.Find(x => x.locationName == animalTraitInformation.home);
+                Assert.IsNotNull(pond);
+                animalTraitInformation.location = pond.value;
+                animal.transform.position = pond.value;
+                animal.GetComponent<FishScript>().UpdateWater();
+                msg = animalTraitInformation.animalName + "'s home has been changed to " +
+                    animalTraitInformation.home +
+                    "! They have been transported over there and are super excited to make new friends!";
+            } else {
+                msg = animalTraitInformation.animalName + "'s home has been changed to " +
+                    animalTraitInformation.home + "! They're super excited to make new friends there! When you ring " +
+                    curAnimals.animalDict[animalTraitInformation.id].home +
+                    "'s dinner bell, this pet will be sure to go in.";
+            }
+            CanvasController.GetComponent<CanvasController>().initiateNotification(msg, true);
         }
     }
     public void SetupHomeDropdown(Animal animalTrait) {
         dropdownOptions = new List<string>();
         int position = 0;
-        int i = 0;
-        foreach (PlacedBuilding building in placedBuildings.buildings) {
-            if (!building.completed) {
-                continue;
+        if (animalTrait.type == Animal.TypeFish) {
+            for (int i = 0; i < pondList.vectorPoints.Count; ++i) {
+                VectorPoints vector = pondList.vectorPoints[i];
+                dropdownOptions.Add(vector.locationName);
+                if (vector.locationName == animalTrait.home) {
+                    position = i;
+                }
             }
-            SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
-            var buildingSceneName = BuildingController.BuildBuildingSceneName(sceneInfo, building);
-            dropdownOptions.Add(buildingSceneName);
-            if (buildingSceneName == animalTrait.home) {
-                position = i;
+        } else {
+            for (int i = 0; i < placedBuildings.buildings.Count; ++i) {
+                PlacedBuilding building = placedBuildings.buildings[i];
+                if (!building.completed) {
+                    continue;
+                }
+                SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
+                var buildingSceneName = BuildingController.BuildBuildingSceneName(sceneInfo, building);
+                dropdownOptions.Add(buildingSceneName);
+                if (buildingSceneName == animalTrait.home) {
+                    position = i;
+                }
             }
-            i++;
         }
         homeDropdown.ClearOptions();
         homeDropdown.AddOptions(dropdownOptions);
@@ -140,6 +167,9 @@ public class AnimalInformation : CustomMonoBehaviour {
     }
 
     public void updateAbout(Animal animalTrait, GameObject newAnimal) {
+        animalTraitInformation = animalTrait;
+        animal = newAnimal;
+
         animalName.text = animalTrait.animalName;
         age.text = animalTrait.age.ToString() + " days old";
         friendship.text = getFriendship(animalTrait);
@@ -206,8 +236,6 @@ public class AnimalInformation : CustomMonoBehaviour {
         gender.text = animalTrait.gender;
         sell.text = "Sell for $" + animalTrait.cost.ToString();
         mood.text = animalTrait.mood;
-        animalTraitInformation = animalTrait;
-        animal = newAnimal;
         updateList(animalTrait.type, animalTrait.gender);
     }
 
@@ -220,6 +248,7 @@ public class AnimalInformation : CustomMonoBehaviour {
             && !(animalTraitInformation.scene.StartsWith(SceneManager.GetActiveScene().name) &&
             BuildingController.BuildingIdFromBuildingSceneName(animalTraitInformation.scene) ==
             placedBuildings.buildingEnteredIdx)) {
+                Debug.Log("Spawn Animal to follow player");
                 animalTraitInformation.scene = SceneManager.GetActiveScene().name;
                 animalTraitInformation.location = player.position;
                 SpawnAnimal.GetComponent<SpawnAnimal>().Spawn(animalTraitInformation);

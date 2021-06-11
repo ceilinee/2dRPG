@@ -32,6 +32,7 @@ public class BuildingController : CustomMonoBehaviour {
 
     [SerializeField]
     private ItemDictionary itemDictionary;
+    private AstarPath astarPath;
 
     private PlacementController placementController;
 
@@ -61,8 +62,10 @@ public class BuildingController : CustomMonoBehaviour {
     void Start() {
         placementController = centralController.Get("PlacementController").GetComponent<PlacementController>();
         buildingsUnderConstruction = new List<BuildingUnderConstruction>();
-
-        LoadSavedPlacedBuildings();
+        astarPath = centralController.Get("A*").GetComponent<AstarPath>();
+        if (LoadSavedPlacedBuildings()) {
+            astarPath.Scan();
+        };
     }
 
     // Initialize a barn game object and its children with necessary arguments
@@ -73,7 +76,7 @@ public class BuildingController : CustomMonoBehaviour {
     // Load buildings that have been placed.
     // In addition, populate buildingsUnderConstruction with buildings that have yet
     // to been built
-    public void LoadSavedPlacedBuildings() {
+    public bool LoadSavedPlacedBuildings() {
         foreach (PlacedBuilding savedBuilding in placedBuildings.buildings) {
             Assert.IsTrue(itemDictionary.itemDict.ContainsKey(savedBuilding.buildingItemId));
             BuildingItem item = (BuildingItem) itemDictionary.itemDict[savedBuilding.buildingItemId];
@@ -99,6 +102,7 @@ public class BuildingController : CustomMonoBehaviour {
             buildingObject.transform.position = savedBuilding.itemPosition;
             buildingObject.SetActive(true);
         }
+        return true;
     }
 
     // RegisterBuildingCreation is invoked after a building blueprint has been placed.

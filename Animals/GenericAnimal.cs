@@ -141,8 +141,8 @@ public class GenericAnimal : AnimalState {
         Debug.Log("tamed");
         animalTrait.wild = false;
         animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " trusts you now! Why don't you get them to follow you and bring them home?");
-        curAnimals.addExistingAnimal(animalTrait);
         spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
+        curAnimals.addExistingAnimal(animalTrait);
     }
     public void setContextClue(Sprite react) {
         if (!contextClue.activeInHierarchy) {
@@ -231,7 +231,6 @@ public class GenericAnimal : AnimalState {
     public void startAStar(Transform target) {
         // The A* grid graph needs to be recalculated, as the map may have gone
         // through structural changes, such as a building being constructed
-        AstarPath.active.Scan();
 
         aiPath.maxSpeed = moveSpeed * Random.Range(0.980f, 1.300f);
         aiPath.repathRate = Random.Range(0.370f, 0.650f);
@@ -393,7 +392,7 @@ public class GenericAnimal : AnimalState {
             }
         }
     }
-    private IEnumerator StopCo(float knockTime) {
+    protected IEnumerator StopCo(float knockTime) {
         stop = true;
         yield return new WaitForSeconds(knockTime);
         stop = false;

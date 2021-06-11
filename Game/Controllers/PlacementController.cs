@@ -229,7 +229,7 @@ public class PlacementController : CustomMonoBehaviour {
     }
 
     public void PausePlacement() {
-        if (enabled && placeableObjectBlueprint.activeInHierarchy) {
+        if (enabled && placeableObjectBlueprint && placeableObjectBlueprint.activeInHierarchy) {
             placeableObjectBlueprint.SetActive(false);
             // Disabling means this script's update function won't be called
             enabled = false;
@@ -237,7 +237,7 @@ public class PlacementController : CustomMonoBehaviour {
     }
 
     public void UnpausePlacement() {
-        if (!enabled && placeableObjectBlueprint != null) {
+        if (!enabled && placeableObjectBlueprint && placeableObjectBlueprint != null) {
             placeableObjectBlueprint.SetActive(true);
             enabled = true;
         } // Else trying to unpause controller, but controller was never paused in the first place

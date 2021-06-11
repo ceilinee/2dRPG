@@ -31,8 +31,8 @@ public class PlayerGearSocket : MonoBehaviour {
     }
 
     public void SetupAnimations() {
-        string[] animationNames = { "attackDown", "attackDownIdle", "attackLeft", "attackLeftIdle",
-            "attackRight", "attackRightIdle", "attackUp", "attackUpIdle", "idleDown", "idleLeft", "idleRight", "idleUp",
+        string[] animationNames = { "holdDown", "holdDownIdle", "holdLeft", "holdLeftIdle",
+            "holdRight", "holdRightIdle", "holdUp", "holdUpIdle", "idleDown", "idleLeft", "idleRight", "idleUp",
             "walkDown", "walkLeft", "walkRight", "walkUp" };
 
         var appearance = player.appearance;

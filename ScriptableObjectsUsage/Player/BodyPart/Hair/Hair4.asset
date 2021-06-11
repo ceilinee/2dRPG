@@ -14,22 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   name: style 4
-  bodyPartSprite: {fileID: 2235068313240519053, guid: 94abd51abd7bb4274980f1623f8665f5,
+  bodyPartSprite: {fileID: 1723488056442737195, guid: a77d70efdfa6821479dd60bd4b1b9a93,
     type: 3}
+  holdingSprite: {fileID: 0}
   bodyAnimation:
-    attackDown: {fileID: 0}
-    attackDownIdle: {fileID: 0}
-    attackLeft: {fileID: 0}
-    attackLeftIdle: {fileID: 0}
-    attackRight: {fileID: 0}
-    attackRightIdle: {fileID: 0}
-    attackUp: {fileID: 0}
-    attackUpIdle: {fileID: 0}
-    idleDown: {fileID: 0}
-    idleLeft: {fileID: 0}
-    idleRight: {fileID: 0}
-    idleUp: {fileID: 0}
-    walkDown: {fileID: 0}
-    walkLeft: {fileID: 0}
-    walkRight: {fileID: 0}
-    walkUp: {fileID: 0}
+    attackDown: {fileID: 7400000, guid: 0e74fae932b128c48b6a29007a68eb48, type: 2}
+    attackDownIdle: {fileID: 7400000, guid: 2c16bf3ce4d1ca349a856d47a024c3dc, type: 2}
+    attackLeft: {fileID: 7400000, guid: 473b6dd560900db459ae6904c344c557, type: 2}
+    attackLeftIdle: {fileID: 7400000, guid: f5870d698a9772f4f97af2c069238d9e, type: 2}
+    attackRight: {fileID: 7400000, guid: 17a313c53a866034bb460a0e8025c18f, type: 2}
+    attackRightIdle: {fileID: 7400000, guid: 6ff098d3c1f89394b8efa652a1da93a3, type: 2}
+    attackUp: {fileID: 7400000, guid: 10795e2b31048994bb8506362041fa00, type: 2}
+    attackUpIdle: {fileID: 7400000, guid: f8453b504d90d2e4086dbed21513f397, type: 2}
+    idleDown: {fileID: 7400000, guid: cb70beafb67e6df40b3516ec62b2ce91, type: 2}
+    idleLeft: {fileID: 7400000, guid: 9a5f66a402e78dc41bb5c1dc440a67a0, type: 2}
+    idleRight: {fileID: 7400000, guid: d36e94e079abf7d47884cee8606f09ee, type: 2}
+    idleUp: {fileID: 7400000, guid: 50a5e5a8dc3dba340b641bb4aa24564c, type: 2}
+    walkDown: {fileID: 7400000, guid: 91ac32bd3a512d341906946369985708, type: 2}
+    walkLeft: {fileID: 7400000, guid: 037906a5e077f8848abe63e0bb4d9082, type: 2}
+    walkRight: {fileID: 7400000, guid: aff3065eb39e81643a95c459b59dd058, type: 2}
+    walkUp: {fileID: 7400000, guid: da71eadc62cb69845b88d1186706c542, type: 2}

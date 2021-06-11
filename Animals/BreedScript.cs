@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class BreedScript : MonoBehaviour {
+public class BreedScript : CustomMonoBehaviour {
     public Animal femaleAnimal;
     public GameObject animalModal;
     public Animal maleAnimal;
@@ -22,11 +23,19 @@ public class BreedScript : MonoBehaviour {
     public GameObject modelAnimal;
     public GameObject confirmationModal;
     public GameObject timeController;
+    public BuySellAnimal buySellAnimal;
+    public CanvasController canvasController;
+    public Scene scene;
 
+    void Awake() {
+        scene = SceneManager.GetActiveScene();
+    }
     void Start() {
         for (int i = 0; i < types.Length; i++) {
             typeDictionary[types[i]] = multiplers[i];
         }
+        buySellAnimal = centralController.Get("AnimalBuySell").GetComponent<BuySellAnimal>();
+        canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
         // fillShopBreedAnimal();
         // Only run following code when animalColors has been changed
         // animalColors.BreedMatrix = new AnimalColors.intArray[animalColors.LlamaArray.Length];
@@ -148,7 +157,11 @@ public class BreedScript : MonoBehaviour {
         return (int) System.Math.Floor(price);
     }
     public void confirm() {
-        int babyCount = (int) System.Math.Floor(Random.Range(1, 2 * ((femaleAnimal.love / 500) + (maleAnimal.love / 500) + 1)));
+        if (!buySellAnimal.CanBuyAnimal()) {
+            canvasController.initiateNotification("Sorry! Looks like your barns have a capacity of " + buySellAnimal.totalAnimalCapacity + ", and you already have " + buySellAnimal.totalAnimals + " animals . Try upgrading your barns or purchasing more!", true);
+            return;
+        };
+        int babyCount = (int) System.Math.Floor(Random.Range(1, Mathf.Min(buySellAnimal.totalAnimalCapacity - buySellAnimal.totalAnimals, 2 * ((femaleAnimal.love / 500) + (maleAnimal.love / 500) + 1))));
         int[] newBabyId = new int[babyCount];
         for (int i = 0; i < newBabyId.Length; i++) {
             int id = GenerateAnimal();
@@ -283,9 +296,9 @@ public class BreedScript : MonoBehaviour {
         Personality personality = generatePersonality(true);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         if (paramAnimals != null) {
-            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, scene.name, false, 0, animalColors, personality, 0, 0);
         } else {
-            shopAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            shopAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, scene.name, false, 0, animalColors, personality, 0, 0);
         }
         return randomNumber;
     }
@@ -398,9 +411,9 @@ public class BreedScript : MonoBehaviour {
         Personality personality = generatePersonality(true);
         Vector2 location = new Vector2(Random.Range(1.0F, 3.5F), Random.Range(-1.0F, -3.5F));
         if (paramAnimals != null) {
-            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            paramAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, scene.name, false, 0, animalColors, personality, 0, 0);
         } else {
-            shopBreedAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, "MainScene", false, 0, animalColors, personality, 0, 0);
+            shopBreedAnimals.addAnimal("Baby", type, randomNumber, location, -3, "Excited", coloring, false, GenerateGender(), "Barn#0", price, false, 0, new int[] { }, 0, breed, scene.name, false, 0, animalColors, personality, 0, 0);
         }
         return randomNumber;
     }

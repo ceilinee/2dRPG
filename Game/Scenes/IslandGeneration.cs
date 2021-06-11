@@ -160,10 +160,10 @@ public class IslandGeneration : CustomMonoBehaviour {
     }
 
     public Vector3Int ReturnProperPosition(int x, int y, int z) {
-        return new Vector3Int(-x + width / 2, -y + height / 2, z);
+        return new Vector3Int(x - (width / 2), y - (height / 2), z);
     }
     public Vector2 ReturnProperPositionV2(int x, int y) {
-        return new Vector2(-(-x + width / 2), -(-y + height / 2));
+        return new Vector2(x - (width / 2), y - (height / 2));
     }
     public void initPos(int[,] map, bool forest = false) {
         for (int x = 0; x < width; x++) {

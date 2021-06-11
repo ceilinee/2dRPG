@@ -6,7 +6,6 @@ using UnityEngine.Assertions;
 public enum PlayerState {
     walk,
     attack,
-    interact,
     stagger,
     idle
 }
@@ -48,6 +47,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private PlacementController placementController;
 
+    private bool holding;
+
     void Awake() {
         UpdateDirection(initialChangeX, initialChangeY);
         Assert.IsNotNull(placementController);
@@ -81,7 +82,9 @@ public class PlayerMovement : MonoBehaviour {
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        if (currentState == PlayerState.walk || currentState == PlayerState.idle) {
+        if (!holding && Input.GetKeyDown("f") && currentState != PlayerState.attack) {
+            StartCoroutine(AttackCo());
+        } else if (currentState == PlayerState.walk || currentState == PlayerState.idle) {
             UpdateDirection(change.x, change.y);
             UpdateAnimationAndMove();
         }
@@ -102,17 +105,19 @@ public class PlayerMovement : MonoBehaviour {
         currentState = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(0.30f);
         currentState = PlayerState.walk;
     }
     public void setHold() {
         if (!animator) {
             setAnimator();
         }
-        animator.SetBool("attacking", true);
+        holding = true;
+        animator.SetBool("holding", true);
     }
     public void setUnhold() {
-        animator.SetBool("attacking", false);
+        holding = false;
+        animator.SetBool("holding", false);
     }
     void UpdateAnimationAndMove() {
         if (change != Vector3.zero) {

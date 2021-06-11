@@ -13,26 +13,26 @@ MonoBehaviour:
   m_Name: CurAnimals
   m_EditorClassIdentifier: 
   animalDict:
-    keys: bcb30800
+    keys: ff1e0836
     values:
-    - animalName: testllama
-      type: Llama
+    - animalName: Baby
+      type: Fish
       momId: 0
       dadId: 0
-      breed: Generic
-      health: 100
+      breed: Masked
+      health: 97
       sold: 0
-      id: 570300
+      id: 906501887
       adoption: 0
-      location: {x: -1.2, y: -4.8}
+      location: {x: 33.076817, y: 5.28082}
       target: {x: 0, y: 0}
-      age: 1
+      age: 19
       personality:
-        personality: Introverted
+        personality: Loyal
         multiplier: 1
         probability: 10
-        id: 0
-      scene: Barn1
+        id: 3
+      scene: MainScene
       mood: Feeling content
       moodId: 2
       follow: 0
@@ -40,25 +40,25 @@ MonoBehaviour:
       wild: 0
       charId: 0
       gender: Male
-      home: Barn1#0
-      cost: 119
-      shopCost: 238
+      home: Farm Waterfall Pond
+      cost: 168
+      shopCost: 336
       presentsDaily: 0
       pregnant: 0
       deliveryDate: 0
       babyId: 
-      love: 6.505101
+      love: -62
       spawnAnimal: {fileID: 0}
       animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      walked: 1
+      walked: 0
       coloring:
-        body: 10
-        tail: 10
-        eyes: 25
+        body: 12
+        tail: 12
+        eyes: 28
         dots: 27
-        face: 27
+        face: 11
         legs: 27
-        ears: 9
+        ears: 34
         back: 27
         star: 27
   breedName: 

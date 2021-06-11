@@ -12,6 +12,7 @@ public class Personality {
 [System.Serializable]
 public class Animal {
     public string animalName;
+    public const string TypeFish = "Fish";
     public string type;
     public int momId;
     public int dadId;
@@ -33,7 +34,8 @@ public class Animal {
     public int charId;
     public string gender;
 
-    // Right now, home has the form Barn1#<id of the placed building>
+    // Right now, for non-fish, home has the form Barn1#<id of the placed building>
+    // For fish, it's the name of the VectorPoints pond they are in
     public string home;
     public int cost;
     public int shopCost;

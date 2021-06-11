@@ -153,7 +153,7 @@ public class SpawnAnimal : MonoBehaviour {
             defineAnimalDictionary();
         }
         GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
-        if (a.type == "Fish") {
+        if (a.type == Animal.TypeFish) {
             instance.GetComponent<FishScript>().water = water;
         }
         instance.GetComponent<GenericAnimal>().animalModal = animalModal;
@@ -259,6 +259,7 @@ public class SpawnAnimal : MonoBehaviour {
             sprite = childTrans.gameObject.GetComponent<SpriteRenderer>();
             sprite.color = animalColors.colorDictionary[a.coloring.legs].color;
         }
+        instance.SetActive(true);
         animalGameObject.GetComponent<AnimalList>().addExistingAnimal(instance);
     }
 

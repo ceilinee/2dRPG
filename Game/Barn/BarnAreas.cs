@@ -8,7 +8,7 @@ public class BarnAreas : CustomMonoBehaviour {
     [SerializeField]
     private List<GameObject> areas;
 
-    private void Awake() {
+    void Start() {
         // Pick the correct tilemap based on the upgrade of this barn
         foreach (GameObject area in areas) {
             area.SetActive(false);

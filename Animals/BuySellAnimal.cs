@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
 public class BuySellAnimal : CustomMonoBehaviour {
     public Animals curAnimals;
@@ -23,10 +24,16 @@ public class BuySellAnimal : CustomMonoBehaviour {
     public PlacedBuildings placedBuildings;
     public CanvasController canvasController;
 
+    [SerializeField] private VectorPointsList pondList;
+
     [SerializeField]
     private Signal currItemSoldSignal;
-    private int totalAnimals;
-    private int totalAnimalCapacity;
+    public int totalAnimals;
+    public int totalAnimalCapacity;
+
+    private void Awake() {
+        Assert.IsNotNull(pondList);
+    }
 
     void Start() {
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
@@ -74,12 +81,15 @@ public class BuySellAnimal : CustomMonoBehaviour {
         return totalAnimals < totalAnimalCapacity;
     }
     public bool buyAnimal(Animal newAnimal, Animals newShop) {
-        Debug.Log("buy");
         if (!CanBuyAnimal()) {
             canvasController.initiateNotification("Sorry! Looks like your barns have a capacity of " + totalAnimalCapacity + ", and you already have " + totalAnimals + " animals . Try upgrading your barns or purchasing more!", true);
             return false;
         }
         if (playerMoney.initialValue >= newAnimal.shopCost) {
+            if (newAnimal.type == Animal.TypeFish) {
+                newAnimal.home = pondList.GetDefaultPond().locationName;
+                newAnimal.location = pondList.GetDefaultPond().value;
+            }
             curAnimals.addExistingAnimal(newAnimal);
             newShop.removeExistingAnimal(newAnimal.id);
             playerMoney.initialValue -= newAnimal.shopCost;
