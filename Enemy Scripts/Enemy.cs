@@ -16,13 +16,15 @@ public class Enemy : CustomMonoBehaviour {
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
-    private void Awake() {
-        health = maxHealth.initialValue;
-    }
+    public bool insideMiniGame;
     private void TakeDamage(float damage) {
-        health -= damage;
-        if (health <= 0) {
-            this.gameObject.SetActive(false);
+        if (insideMiniGame) {
+
+        } else {
+            health -= damage;
+            if (health <= 0) {
+                this.gameObject.SetActive(false);
+            }
         }
     }
     public void Knock(Rigidbody2D myRigidbody, float knockTime, float damage) {

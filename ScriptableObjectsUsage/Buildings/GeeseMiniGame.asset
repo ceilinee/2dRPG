@@ -9,10 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35474dfdd467a403f852bd0c8d9ebbb1, type: 3}
-  m_Name: PlacedItems
+  m_Script: {fileID: 11500000, guid: 3cf848c7aafd84a9ca16c2f7d85675d6, type: 3}
+  m_Name: GeeseMiniGame
   m_EditorClassIdentifier: 
-  sceneToPlacedItems:
-    keys:
-    - MainScene
-    values: []
+  sceneName: GeeseMiniGame
+  id: 890
+  cost: 0
+  image: {fileID: 0}
+  animalMaxSize: 0
+  animalCurrentSize: 0
+  entrance: {x: 0, y: 0}
+  open: 0
+  width: 100
+  height: 30

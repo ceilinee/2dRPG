@@ -15,14 +15,14 @@ public class GenerationSharedFunctions {
     public Vector2 ReturnProperPositionV2(int x, int y) {
         return new Vector2(x - (width / 2), y - (height / 2));
     }
-    public int[,] drawMaze(int[,] map, SpawnObject spawnObject, Forest forest = null, bool spawnStar = false) {
+    public int[,] drawMaze(int[,] map, SpawnObject spawnObject, Forest forest = null, bool spawnStar = false, string startSpawn = "HOME", string endSpawn = "LLAMASTATUE") {
         //set all as zero
         map = setZeroes(map);
         //set entrance and exit
         Vector2 entrance = new Vector2(1, 1);
-        spawnObject.generatePrefab(ReturnProperPositionV2((int) (entrance.x * 2) + 1, (int) (entrance.y * 2) + 1), "HOME");
+        if (startSpawn != "") { spawnObject.generatePrefab(ReturnProperPositionV2((int) (entrance.x * 2) + 1, (int) (entrance.y * 2) + 1), startSpawn); };
         Vector2 exit = new Vector2(map.GetLength(0) - 1, Random.Range(1, map.GetLength(1) - 1));
-        spawnObject.generatePrefab(ReturnProperPositionV2((int) (exit.x * 2) + 2, (int) (exit.y * 2) + 1), "LLAMASTATUE");
+        if (endSpawn != "") { spawnObject.generatePrefab(ReturnProperPositionV2((int) (exit.x * 2) + 2, (int) (exit.y * 2) + 1), endSpawn); };
         int curStarCount = -2;
         map = makeRealPath(exit, map, (int) entrance.x, (int) entrance.y);
         for (int i = 0; i < map.GetLength(1); i++) {
@@ -157,7 +157,7 @@ public class GenerationSharedFunctions {
         new Vector2(Random.Range(1, width), Random.Range(1, height));
         for (int i = 0; i < rectWidth; i++) {
             for (int j = 0; j < rectHeight; j++) {
-                if (pickPoint.x + i >= width - 1 || pickPoint.y + j >= height - 1) {
+                if (pickPoint.x + i >= map.GetLength(0) - 1 || pickPoint.y + j >= map.GetLength(1) - 1) {
                     break;
                 }
                 map[(int) pickPoint.x + i, (int) pickPoint.y + j] = value;

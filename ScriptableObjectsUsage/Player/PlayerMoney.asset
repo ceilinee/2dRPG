@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2242b2cb26af4f7ea28bdb765569b27, type: 3}
   m_Name: PlayerMoney
   m_EditorClassIdentifier: 
-  initialValue: 3050
+  initialValue: 2960775
   RunTimeValue: 1000

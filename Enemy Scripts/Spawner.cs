@@ -7,23 +7,30 @@ public class Spawner : MonoBehaviour {
     public Transform[] spawnPoints;
     public GameObject[] monsters;
     int randomSpawnPoint, randomMonster;
-    int count;
-    public static bool spawnAllowed;
+    public bool spawnAllowed;
     void Start() {
-        count = 0;
-        spawnAllowed = true;
-        InvokeRepeating("SpawnAMonster", 0f, 2f);
+        // spawnAllowed = true;
+        if (spawnAllowed) {
+            InvokeRepeating("SpawnAGoose", 0f, 2f);
+        }
     }
 
-    void SpawnAMonster() {
-        if (spawnAllowed) {
-            randomSpawnPoint = Random.Range(0, spawnPoints.Length);
-            randomMonster = Random.Range(0, monsters.Length);
-            count++;
-            Instantiate(monsters[randomMonster], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+    public void SpawnMultipleGeese(int count) {
+        for (int i = 0; i < count; i++) {
+            SpawnAGoose();
         }
-        if (count > 5) {
-            CancelInvoke("SpawnAMonster");
+    }
+    public void SpawnMultipleGeese(int count, Vector2 pos) {
+        for (int i = 0; i < count; i++) {
+            SpawnAGoose(pos);
         }
+    }
+    public void SpawnAGoose() {
+        randomSpawnPoint = Random.Range(0, spawnPoints.Length);
+        SpawnAGoose(spawnPoints[randomSpawnPoint].position);
+    }
+    public void SpawnAGoose(Vector2 pos, int monster = -1) {
+        randomMonster = monster == -1 ? Random.Range(0, monsters.Length) : monster;
+        Instantiate(monsters[randomMonster], pos, Quaternion.identity);
     }
 }

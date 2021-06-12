@@ -13,8 +13,8 @@ public static class Loader {
         Island,
         Barn,
         MainMenu,
-
-        Forest
+        Forest,
+        GeeseMiniGame
     }
     private static Action onLoaderCallback;
     private static AsyncOperation loadingAsyncOperation;

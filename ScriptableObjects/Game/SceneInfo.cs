@@ -14,4 +14,6 @@ public class SceneInfo : CustomScriptableObject {
     public int animalCurrentSize;
     public Vector2 entrance;
     public bool open;
+    public int width;
+    public int height;
 }

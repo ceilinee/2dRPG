@@ -26,7 +26,6 @@ public class SceneTransition : CustomMonoBehaviour {
 
     [SerializeField]
     private SignalString playerWillSceneTransition;
-
     public class OnEntityWillEnterSceneTransitionEventArgs : EventArgs {
         public Collider2D entity;
     }
@@ -36,26 +35,25 @@ public class SceneTransition : CustomMonoBehaviour {
         Assert.IsNotNull(playerWillSceneTransition,
             "This variable should be set through the inspector. Please drag SO PlayerWillSceneTransition over!");
     }
-
     protected virtual void Start() {
         gameSaveManager = GameObject.FindGameObjectsWithTag("save")[0];
         animalList = centralController.Get("AnimalList");
         confirmation = centralController.Get("Confirmation").GetComponent<Confirmation>();
     }
 
-    public void PlayerTransition() {
-        playerStorage.initialValue = sceneinfo.entrance;
+    public void PlayerTransition(SceneInfo newScene = null) {
+        playerStorage.initialValue = newScene.entrance;
         gameSaveManager.GetComponent<GameSaveManager>().updateAnimalAndCharacter();
         // characterManager.GetComponent<CharacterManager>().updateCurCharacter();
         // animalList.GetComponent<AnimalList>().updateList();
-        if (!player.dailyScenesVisited.Contains(sceneinfo.id)) {
-            player.dailyScenesVisited.Add(sceneinfo.id);
+        if (!player.dailyScenesVisited.Contains(newScene.id)) {
+            player.dailyScenesVisited.Add(newScene.id);
         }
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "Forest" && inForest) {
-            if (sceneinfo.sceneName == "Forest") {
+            if (newScene.sceneName == "Forest") {
                 forest.LevelUp();
-                playerStorage.initialValue = new Vector2(3 - (forest.width / 2), 6 - (forest.width / 2));
+                playerStorage.initialValue = new Vector2(3 - (forest.width / 2), 6 - (forest.height / 2));
             }
         }
         // TODO: refactor this logic; be able query for mainscene dynamically
@@ -63,25 +61,28 @@ public class SceneTransition : CustomMonoBehaviour {
             mainSceneInfo.entrance = centralController.Get("Player").transform.position + new Vector3(0, -1, 0);
             mainSceneInfo.ForceSerialization();
             //entering forest
-            if (sceneinfo.sceneName == "Forest") {
+            if (newScene.sceneName == "GeeseMiniGame") {
+                playerStorage.initialValue = new Vector2(8 - (newScene.width / 2), 0);
+            }
+            if (newScene.sceneName == "Forest") {
                 StartCoroutine(waitUpdateForest());
                 return;
             }
         }
-        playerWillSceneTransition.Raise(sceneinfo.sceneName);
-        Loader.Load(sceneName: sceneinfo.sceneName);
+        playerWillSceneTransition.Raise(newScene.sceneName);
+        Loader.Load(sceneName: newScene.sceneName);
     }
     protected virtual void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag(TagOfPlayer) && !other.isTrigger) {
             if (confirmation && confirm) {
                 confirmation.initiateConfirmation(
                     "Are you sure you want to leave the " + SceneManager.GetActiveScene().name + "?",
-                    () => PlayerTransition(),
+                    () => PlayerTransition(sceneinfo),
                     () => { },
                     () => { }
                 );
             } else {
-                PlayerTransition();
+                PlayerTransition(sceneinfo);
             }
         } else if (other.CompareTag("pet") && !other.isTrigger) {
             var animal = curAnimals.animalDict[other.gameObject.GetComponent<GenericAnimal>().animalTrait.id];

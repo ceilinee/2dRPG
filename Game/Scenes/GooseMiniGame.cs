@@ -35,6 +35,7 @@ public class GooseMiniGame : CustomMonoBehaviour {
     public Dialogue rangerDialogue;
     private DisplayArea displayArea;
     private AstarPath astarPath;
+    private Spawner spawner;
     private GenerationSharedFunctions functions;
     int width;
     int height;
@@ -50,6 +51,7 @@ public class GooseMiniGame : CustomMonoBehaviour {
         dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
         spawnObject = centralController.Get("SpawnObjects").GetComponent<SpawnObject>();
         spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
+        spawner = centralController.Get("Spawner").GetComponent<Spawner>();
         astarPath = centralController.Get("A*").GetComponent<AstarPath>();
         displayArea = centralController.Get("DisplayArea").GetComponent<DisplayArea>();
         StartCoroutine(GenerationWait());
@@ -65,9 +67,9 @@ public class GooseMiniGame : CustomMonoBehaviour {
             terrainMap = new int[width / 2, height / 2];
         }
 
-        terrainMap = functions.drawMaze(terrainMap, spawnObject);
+        terrainMap = functions.drawMaze(terrainMap, spawnObject, startSpawn: "", endSpawn: "HOME");
         terrainMap = functions.doubleMap(terrainMap);
-        terrainMap = functions.drawRectangle(terrainMap, 3, height - 2, beginning: true);
+        terrainMap = functions.drawRectangle(terrainMap, 10, height - 2, beginning: true);
         for (int x = 0; x <= width; x++) {
             for (int y = 0; y <= height; y++) {
                 grassMap.SetTile(functions.ReturnProperPosition(x, y, 0), grassTile);
@@ -80,6 +82,10 @@ public class GooseMiniGame : CustomMonoBehaviour {
                 }
             }
         }
+        // spawn geese
+        for (int y = 2; y < height - 2; y++) {
+            spawner.SpawnAGoose(functions.ReturnProperPositionV2(2, y), 2);
+        }
         for (int x = 0; x < width; x++) {
             collisionMap.SetTile(functions.ReturnProperPosition(x, 0, 0), collisionTile);
             collisionMap.SetTile(functions.ReturnProperPosition(x, height, 0), collisionTile);
@@ -88,7 +94,7 @@ public class GooseMiniGame : CustomMonoBehaviour {
             collisionMap.SetTile(functions.ReturnProperPosition(0, y, 0), collisionTile);
             collisionMap.SetTile(functions.ReturnProperPosition(width, y, 0), collisionTile);
         }
-        cam.maxPosition = functions.ReturnProperPositionV2(width - 12, height - 6);
+        cam.maxPosition = functions.ReturnProperPositionV2(width - 12, height + 10);
         cam.minPosition = functions.ReturnProperPositionV2(0 + 14, 0 + 8);
         cam.transform.position = cam.minPosition;
         return true;
@@ -113,6 +119,22 @@ public class GooseMiniGame : CustomMonoBehaviour {
         }
         yield return new WaitForEndOfFrame();
         astarPath.Scan();
+        SpawnRandomGeese();
+    }
+    public void SpawnRandomGeese() {
+        int geese = Random.Range(0, width / 2);
+        int attempts = 15;
+        for (int i = 0; i < geese; i++) {
+            // attempt to find a spot where a tree can be planted
+            for (int j = 0; j < attempts; j++) {
+                int x = Random.Range(0, width);
+                int y = Random.Range(0, height);
+                if (functions.isValidTreePlantingSpot(terrainMap, 1, x, y, 1)) {
+                    spawner.SpawnAGoose(functions.ReturnProperPositionV2(x, y), 2);
+                    break;
+                }
+            }
+        }
     }
     public bool GenerateObjects() {
         spawnObject.Spawn();

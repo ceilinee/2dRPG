@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e304a220572147318114032929be6d9, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  itemName: Wood
+  id: 26
+  sprites:
+    down: {fileID: 3712414074784118946, guid: 4358d54dc1fee457f9cc79e70e897462, type: 3}
+    right: {fileID: 3712414074784118946, guid: 4358d54dc1fee457f9cc79e70e897462, type: 3}
+    left: {fileID: 3712414074784118946, guid: 4358d54dc1fee457f9cc79e70e897462, type: 3}
+    up: {fileID: 3712414074784118946, guid: 4358d54dc1fee457f9cc79e70e897462, type: 3}
+  healthBonus: 0
+  antiAge: 0
+  itemDescription: A plain old piece of wood
+  cost: 5
+  date: 0
+  marriage: 0
+  divorce: 0
+  sellCost: 5
+  spawnLocations: []
+  spawnProbability: 
+  pickedUpAtLeastOnce: 0

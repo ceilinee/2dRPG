@@ -140,6 +140,16 @@ public class PlacementController : CustomMonoBehaviour {
         itemBeingPlaced = null;
     }
 
+    public void AddToPlacedItems(Item item, Vector2 position, Direction direction) {
+        var sceneName = "";
+        if (ActiveSceneType() == Loader.Scene.Barn) {
+            sceneName = buildingController.BuildThisBuildingSceneName();
+        } else {
+            sceneName = ActiveScene().name;
+        }
+        placedItems.Add(sceneName, item.id, position, direction);
+    }
+
     // Runs when the player physically places down the item
     private void PlaceObject() {
         if (itemBeingPlaced is BuildingItem) {
@@ -163,15 +173,8 @@ public class PlacementController : CustomMonoBehaviour {
             placeableObject.GetComponent<SpriteRenderer>().sprite = sprite;
             placeableObject.SetActive(true);
 
-            var sceneName = "";
-            if (ActiveSceneType() == Loader.Scene.Barn) {
-                sceneName = buildingController.BuildThisBuildingSceneName();
-            } else {
-                sceneName = ActiveScene().name;
-            }
-
-            placedItems.Add(sceneName, itemBeingPlaced.id, placeableObject.transform.position,
-                            itemBeingPlaced.SpriteToDirection(sprite));
+            AddToPlacedItems(itemBeingPlaced, placeableObject.transform.position,
+                itemBeingPlaced.SpriteToDirection(sprite));
             playerInformation.RemoveCurrentItemFromInventory();
             EndPlacementIfNoItemsLeft();
         }

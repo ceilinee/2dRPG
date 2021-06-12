@@ -49,6 +49,7 @@ public class ForestGeneration : CustomMonoBehaviour {
     public Dialogue rangerDialogue;
     private DisplayArea displayArea;
     private AstarPath astarPath;
+    private Spawner spawner;
     private GenerationSharedFunctions functions;
     int width;
     int height;
@@ -59,15 +60,16 @@ public class ForestGeneration : CustomMonoBehaviour {
         functions.Initiate(width, height);
     }
     public void StartForest() {
+        tmpSize = new Vector3Int(forest.width, forest.height, 0);
         SetWidthHeight();
         maze = forest.maze;
         Player = centralController.Get("Player").transform;
         dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
         spawnObject = centralController.Get("SpawnObjects").GetComponent<SpawnObject>();
         spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
+        spawner = centralController.Get("Spawner").GetComponent<Spawner>();
         astarPath = centralController.Get("A*").GetComponent<AstarPath>();
         displayArea = centralController.Get("DisplayArea").GetComponent<DisplayArea>();
-        tmpSize = new Vector3Int(forest.width, forest.height, 0);
         StartCoroutine(GenerationWait());
         if (forest.level == 0) {
             dialogueManager.startDialog(ranger, rangerDialogue);
@@ -142,6 +144,22 @@ public class ForestGeneration : CustomMonoBehaviour {
         }
         yield return new WaitForEndOfFrame();
         astarPath.Scan();
+        SpawnRandomGeese();
+    }
+    public void SpawnRandomGeese() {
+        int geese = Random.Range(0, width / 2);
+        int attempts = 15;
+        for (int i = 0; i < geese; i++) {
+            // attempt to find a spot where a tree can be planted
+            for (int j = 0; j < attempts; j++) {
+                int x = Random.Range(0, width);
+                int y = Random.Range(0, height);
+                if (functions.isValidTreePlantingSpot(terrainMap, 1, x, y, 1)) {
+                    spawner.SpawnAGoose(functions.ReturnProperPositionV2(x, y), 0);
+                    break;
+                }
+            }
+        }
     }
     public bool GenerateObjects() {
         spawnObject.Spawn();

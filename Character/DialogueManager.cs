@@ -12,6 +12,9 @@ public class DialogueManager : MonoBehaviour {
     public bool progress;
     public Dialogue curDialogue;
     public GameObject character;
+    public bool goose;
+    public Sprite gooseMock;
+    public Dialogue gooseDialogue;
 
     void Update() {
         if (Input.GetKeyUp(KeyCode.Space) && !progress) {
@@ -22,8 +25,18 @@ public class DialogueManager : MonoBehaviour {
         gameObject.SetActive(true);
         dialogueBox.SetActive(true);
         PauseGame();
+        goose = false;
         curDialogue = newDialogue;
         character = newCharacter;
+        StartCoroutine(waitRead());
+    }
+    public void startGooseDialog() {
+        gameObject.SetActive(true);
+        dialogueBox.SetActive(true);
+        PauseGame();
+        curDialogue = gooseDialogue;
+        goose = true;
+        portraitImage.sprite = gooseMock;
         StartCoroutine(waitRead());
     }
     public void PauseGame() {
@@ -33,16 +46,18 @@ public class DialogueManager : MonoBehaviour {
         Time.timeScale = 1;
     }
     IEnumerator waitRead() {
-        dialogueName.text = character.GetComponent<GenericCharacter>().characterTrait.name;
+        dialogueName.text = goose ? "A Goose" : character.GetComponent<GenericCharacter>().characterTrait.name;
         for (int i = 0; i < curDialogue.sentence.Length; i++) {
             progress = false;
             updateDialogueBox(curDialogue.sentence[i]);
             if (i < curDialogue.portrait.Length) {
-                portraitImage.sprite = character.GetComponent<GenericCharacter>().characterTrait.portrait[curDialogue.portrait[i]];
+                portraitImage.sprite = goose ? gooseMock : character.GetComponent<GenericCharacter>().characterTrait.portrait[curDialogue.portrait[i]];
             }
             while (!progress) yield return null;
         }
-        character.GetComponent<GenericCharacter>().conversation = false;
+        if (!goose) {
+            character.GetComponent<GenericCharacter>().conversation = false;
+        }
         dialogueBox.SetActive(false);
         progress = false;
         gameObject.SetActive(false);

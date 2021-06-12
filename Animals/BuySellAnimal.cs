@@ -114,6 +114,12 @@ public class BuySellAnimal : CustomMonoBehaviour {
         }
         return false;
     }
+    public float payForServicePercentage(float percentage) {
+        float money = (float) System.Math.Floor(playerMoney.initialValue * percentage);
+        playerMoney.initialValue -= money;
+        playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
+        return money;
+    }
     public void sellAnimal(Animal newAnimal) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost;

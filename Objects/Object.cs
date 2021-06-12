@@ -5,6 +5,8 @@ using UnityEngine;
 public class Object : CustomMonoBehaviour {
     public Item item;
     public bool playerInRange;
+
+    [Header(Annotation.HeaderMsgDoNotSetInInspector)]
     public GameObject buySellAnimal;
 
     [SerializeField]
