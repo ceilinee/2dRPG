@@ -24,7 +24,8 @@ public class CustomTree : Breakable {
 
     protected override void OnBroken() {
         var wood = Instantiate(woodPrefab, transform.position, transform.rotation);
-        placementController.AddToPlacedItems(
+        var placedItem = placementController.AddToPlacedItems(
             wood.GetComponent<Object>().item, wood.transform.position, Direction.Down);
+        wood.GetComponent<Object>().placedItem = placedItem;
     }
 }

@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: Outfit1
   m_EditorClassIdentifier: 
   id: 0
-  name: style 1
+  name: Pullover
   bodyPartSprite: {fileID: 8062496484374461590, guid: c67b41273d6864754b1c2c38fce39676,
     type: 3}
+  holdingSprite: {fileID: 0}
   bodyAnimation:
     attackDown: {fileID: 7400000, guid: 66af49848eb1f442f94db586c5d85d38, type: 2}
-    attackDownIdle: {fileID: 7400000, guid: 093fa017e73ed4996a5018689b1735ac, type: 2}
     attackLeft: {fileID: 7400000, guid: 2efad3e1dc96e4cff82f3529fc37043f, type: 2}
-    attackLeftIdle: {fileID: 7400000, guid: 46b12e374ac2b4f8994886a362c9d983, type: 2}
     attackRight: {fileID: 7400000, guid: 93aa3ba2e000247a09915ad466cf825d, type: 2}
-    attackRightIdle: {fileID: 7400000, guid: ead1737ffa6124377920d6264aa29a3e, type: 2}
     attackUp: {fileID: 7400000, guid: c34a20d193a964d16ad7a31867b119e9, type: 2}
-    attackUpIdle: {fileID: 7400000, guid: 3d8497a235b13402c9e80abf4c50f0c8, type: 2}
+    holdDown: {fileID: 0}
+    holdDownIdle: {fileID: 0}
+    holdLeft: {fileID: 0}
+    holdLeftIdle: {fileID: 0}
+    holdRight: {fileID: 0}
+    holdRightIdle: {fileID: 0}
+    holdUp: {fileID: 0}
+    holdUpIdle: {fileID: 0}
     idleDown: {fileID: 7400000, guid: f5a9dfdcf5f984419a065eba8a627bd3, type: 2}
     idleLeft: {fileID: 7400000, guid: b180dd32f9b45499996ce681d2a57629, type: 2}
     idleRight: {fileID: 7400000, guid: a9ea2bfcfa8ac46e98251b028e4cf6df, type: 2}

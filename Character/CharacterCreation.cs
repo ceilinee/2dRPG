@@ -31,7 +31,10 @@ public class CharacterCreation : MonoBehaviour {
 
     [Header("The name of the currently selected outfit")]
     public Text outfitName;
+    private int currBottomIdx;
 
+    [Header("The name of the currently selected bottom")]
+    public Text bottomName;
     private int currEyesIdx;
     // We show many colors at a time, so this is the idx of the leftmost shown color
     private int leftEyesColorIdx;
@@ -55,6 +58,7 @@ public class CharacterCreation : MonoBehaviour {
     void Awake() {
         Assert.IsTrue(bodyPartManager.hairStyles.Count > 0, "Must provide at least one hairstyle");
         Assert.IsTrue(bodyPartManager.outfits.Count > 0, "Must provide at least one outfit");
+        Assert.IsTrue(bodyPartManager.bottoms.Count > 0, "Must provide at least one bottom");
         Assert.IsTrue(bodyPartManager.eyes.Count > 0, "Must provide at least one pair of eyes");
         Assert.IsTrue(colors.colorDictionary.Count >= 4, "Must support at least 4 colors");
     }
@@ -64,6 +68,7 @@ public class CharacterCreation : MonoBehaviour {
         currHairstyleIdx = appearance.hairId;
         currHairColorIdx = appearance.hairColorId;
         currOutfitIdx = appearance.outfitId;
+        currBottomIdx = appearance.bottomId;
         currEyesIdx = appearance.eyesId;
         currEyesColorIdx = appearance.eyeColorId;
         currSkinColorIdx = appearance.skinColorId;
@@ -74,6 +79,7 @@ public class CharacterCreation : MonoBehaviour {
         input.GetComponent<InputField>().text = player.playerName;
         RenderHair();
         RenderOutfit();
+        RenderBottom();
         RenderEyes();
         RenderSkin();
     }
@@ -150,6 +156,28 @@ public class CharacterCreation : MonoBehaviour {
         BodyPart currOutfit = bodyPartManager.outfits[currOutfitIdx];
         playerDesign.UpdateOutfit(currOutfit.bodyPartSprite);
         outfitName.text = currOutfit.name;
+    }
+
+    public void BottomNext() {
+        currBottomIdx++;
+        if (currBottomIdx >= bodyPartManager.bottoms.Count) {
+            currBottomIdx = 0;
+        }
+        RenderBottom();
+    }
+
+    public void BottomPrevious() {
+        currBottomIdx--;
+        if (currBottomIdx < 0) {
+            currBottomIdx = bodyPartManager.bottoms.Count - 1;
+        }
+        RenderBottom();
+    }
+
+    private void RenderBottom() {
+        BodyPart currBottom = bodyPartManager.bottoms[currBottomIdx];
+        playerDesign.UpdateBottom(currBottom.bodyPartSprite);
+        bottomName.text = currBottom.name;
     }
 
     public void EyesNext() {

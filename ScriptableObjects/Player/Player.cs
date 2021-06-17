@@ -13,6 +13,7 @@ public class Player : ScriptableObject {
         public int eyesId;
         public int eyeColorId;
         public int skinColorId;
+        public int bottomId;
     }
     public string playerName;
     public bool female;

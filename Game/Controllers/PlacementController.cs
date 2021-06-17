@@ -28,7 +28,7 @@ public class PlacementController : CustomMonoBehaviour {
     private PlayerMovement playerMovement;
 
     [SerializeField]
-    private SpawnObject spawnObject;
+    private ItemDictionary itemDictionary;
 
     [SerializeField]
     private PlayerInformation playerInformation;
@@ -86,22 +86,23 @@ public class PlacementController : CustomMonoBehaviour {
         }
     }
 
+    private string GetVirtualSceneName() {
+        if (ActiveSceneType() == Loader.Scene.Barn) {
+            return buildingController.BuildThisBuildingSceneName();
+        }
+        return ActiveScene().name;
+    }
+
     // Load all items that were placed in the previous save
     private void LoadSavedPlacedItems() {
         // TODO: the logic to get the sceneName is also repeated in PlaceObject
         // Try to figure out a way to abstract this logic; maybe by creating a c# script dedicated to managing scenes?
-        var sceneName = "";
-        if (ActiveSceneType() == Loader.Scene.Barn) {
-            sceneName = buildingController.BuildThisBuildingSceneName();
-        } else {
-            sceneName = ActiveScene().name;
-        }
+        var sceneName = GetVirtualSceneName();
         var itemList = placedItems.GetPlacedItems(sceneName);
-        Debug.Log("Num placed items: " + itemList.Count);
         foreach (PlacedItem placedItem in itemList) {
             var id = placedItem.itemId;
             var prefab = basicItemInfoDict[-1];
-            var item = spawnObject.items.Find(x => x.id == id);
+            var item = itemDictionary.Get(id);
             var placedGameObject = Instantiate(prefab);
             placedGameObject.transform.position = placedItem.itemPosition;
             placedGameObject.GetComponent<Object>().item = item;
@@ -140,14 +141,9 @@ public class PlacementController : CustomMonoBehaviour {
         itemBeingPlaced = null;
     }
 
-    public void AddToPlacedItems(Item item, Vector2 position, Direction direction) {
-        var sceneName = "";
-        if (ActiveSceneType() == Loader.Scene.Barn) {
-            sceneName = buildingController.BuildThisBuildingSceneName();
-        } else {
-            sceneName = ActiveScene().name;
-        }
-        placedItems.Add(sceneName, item.id, position, direction);
+    public PlacedItem AddToPlacedItems(Item item, Vector2 position, Direction direction) {
+        var sceneName = GetVirtualSceneName();
+        return placedItems.Add(sceneName, item.id, position, direction);
     }
 
     // Runs when the player physically places down the item
@@ -173,8 +169,11 @@ public class PlacementController : CustomMonoBehaviour {
             placeableObject.GetComponent<SpriteRenderer>().sprite = sprite;
             placeableObject.SetActive(true);
 
-            AddToPlacedItems(itemBeingPlaced, placeableObject.transform.position,
+            var placedItem = AddToPlacedItems(itemBeingPlaced, placeableObject.transform.position,
                 itemBeingPlaced.SpriteToDirection(sprite));
+
+            placeableObject.GetComponent<Object>().placedItem = placedItem;
+
             playerInformation.RemoveCurrentItemFromInventory();
             EndPlacementIfNoItemsLeft();
         }

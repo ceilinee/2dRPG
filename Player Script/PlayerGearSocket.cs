@@ -31,9 +31,9 @@ public class PlayerGearSocket : MonoBehaviour {
     }
 
     public void SetupAnimations() {
-        string[] animationNames = { "holdDown", "holdDownIdle", "holdLeft", "holdLeftIdle",
+        string[] animationNames = {"holdDown", "holdDownIdle", "holdLeft", "holdLeftIdle",
             "holdRight", "holdRightIdle", "holdUp", "holdUpIdle", "idleDown", "idleLeft", "idleRight", "idleUp",
-            "walkDown", "walkLeft", "walkRight", "walkUp" };
+            "walkDown", "walkLeft", "walkRight", "walkUp", "attackDown", "attackLeft", "attackRight", "attackUp" };
 
         var appearance = player.appearance;
 
@@ -45,6 +45,9 @@ public class PlayerGearSocket : MonoBehaviour {
         } else if (bodyPart == "outfit") {
             BodyPart outfit = bodyPartManager.outfits[appearance.outfitId];
             a = outfit.bodyAnimation;
+        } else if (bodyPart == "bottom") {
+            BodyPart bottom = bodyPartManager.bottoms[appearance.bottomId];
+            a = bottom.bodyAnimation;
         } else if (bodyPart == "eyes") {
             spriteRenderer.color = colors.colorDictionary[appearance.eyeColorId].color;
             BodyPart eyes = bodyPartManager.eyes[appearance.eyesId];

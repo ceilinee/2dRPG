@@ -13,23 +13,28 @@ MonoBehaviour:
   m_Name: Hair5
   m_EditorClassIdentifier: 
   id: 4
-  name: style 5
-  bodyPartSprite: {fileID: 2593520475584375506, guid: 3bf94a6a13e9d4d89a3a54232005dd49,
+  name: Bun
+  bodyPartSprite: {fileID: 5876797112788300512, guid: d8d63ff47e5480d40ae80c9b1e3513bc,
     type: 3}
+  holdingSprite: {fileID: 0}
   bodyAnimation:
-    attackDown: {fileID: 0}
-    attackDownIdle: {fileID: 0}
-    attackLeft: {fileID: 0}
-    attackLeftIdle: {fileID: 0}
-    attackRight: {fileID: 0}
-    attackRightIdle: {fileID: 0}
-    attackUp: {fileID: 0}
-    attackUpIdle: {fileID: 0}
-    idleDown: {fileID: 0}
-    idleLeft: {fileID: 0}
-    idleRight: {fileID: 0}
-    idleUp: {fileID: 0}
-    walkDown: {fileID: 0}
-    walkLeft: {fileID: 0}
-    walkRight: {fileID: 0}
-    walkUp: {fileID: 0}
+    attackDown: {fileID: 7400000, guid: d7129d5304a6f3940888fda661d865b2, type: 2}
+    attackLeft: {fileID: 7400000, guid: ddc562121aa9c364b8b80b3ba96088ed, type: 2}
+    attackRight: {fileID: 7400000, guid: bca4581d40b21c44e91b84457a407fce, type: 2}
+    attackUp: {fileID: 7400000, guid: 46c855354c6c2b647b8d153ab66efe8f, type: 2}
+    holdDown: {fileID: 7400000, guid: 2c370972f7da8504b84a49e5114fec9d, type: 2}
+    holdDownIdle: {fileID: 7400000, guid: cbddc962c2ced384d97eca26a52b108d, type: 2}
+    holdLeft: {fileID: 7400000, guid: 32a0520802d66764594e5a0a57c9a57c, type: 2}
+    holdLeftIdle: {fileID: 7400000, guid: a36c88ce01185d2488c3bf0f3f4e70ca, type: 2}
+    holdRight: {fileID: 7400000, guid: 3fb738e5b97109e44a22764ba6b50c5d, type: 2}
+    holdRightIdle: {fileID: 7400000, guid: 04aeba3ebc561534e8fffde5ecf1de62, type: 2}
+    holdUp: {fileID: 7400000, guid: c9044e0762a994e4d8c96f3e84ef36ba, type: 2}
+    holdUpIdle: {fileID: 7400000, guid: 71c671c4813ff69449daffe3721d56d6, type: 2}
+    idleDown: {fileID: 7400000, guid: 4594fa666bba89b4e9960e900adc5082, type: 2}
+    idleLeft: {fileID: 7400000, guid: b848a693d7b6c994097cc2174cb91658, type: 2}
+    idleRight: {fileID: 7400000, guid: b437c8a4c93e79247b254f1a65c30a0a, type: 2}
+    idleUp: {fileID: 7400000, guid: ef323240e1d717841a41de9a932aa52a, type: 2}
+    walkDown: {fileID: 7400000, guid: 1a06f6079c457ab49bfa0825ae7463c4, type: 2}
+    walkLeft: {fileID: 7400000, guid: ba314990ef16a86428e8a6bdca8ba7cd, type: 2}
+    walkRight: {fileID: 7400000, guid: c5a36fa90ab51bd4d8a75d06e6ade2cc, type: 2}
+    walkUp: {fileID: 7400000, guid: 6a63f470dc3f0a242af58810dbcacbe6, type: 2}

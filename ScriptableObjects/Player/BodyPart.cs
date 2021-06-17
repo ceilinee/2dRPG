@@ -7,6 +7,10 @@ using UnityEngine;
 public class BodyPart : ScriptableObject {
     [System.Serializable]
     public class BodyAnimation {
+        public AnimationClip attackDown;
+        public AnimationClip attackLeft;
+        public AnimationClip attackRight;
+        public AnimationClip attackUp;
         public AnimationClip holdDown;
         public AnimationClip holdDownIdle;
         public AnimationClip holdLeft;

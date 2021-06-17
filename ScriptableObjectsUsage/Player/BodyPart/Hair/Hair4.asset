@@ -13,19 +13,23 @@ MonoBehaviour:
   m_Name: Hair4
   m_EditorClassIdentifier: 
   id: 3
-  name: style 4
+  name: Space Buns
   bodyPartSprite: {fileID: 1723488056442737195, guid: a77d70efdfa6821479dd60bd4b1b9a93,
     type: 3}
   holdingSprite: {fileID: 0}
   bodyAnimation:
-    attackDown: {fileID: 7400000, guid: 0e74fae932b128c48b6a29007a68eb48, type: 2}
-    attackDownIdle: {fileID: 7400000, guid: 2c16bf3ce4d1ca349a856d47a024c3dc, type: 2}
-    attackLeft: {fileID: 7400000, guid: 473b6dd560900db459ae6904c344c557, type: 2}
-    attackLeftIdle: {fileID: 7400000, guid: f5870d698a9772f4f97af2c069238d9e, type: 2}
-    attackRight: {fileID: 7400000, guid: 17a313c53a866034bb460a0e8025c18f, type: 2}
-    attackRightIdle: {fileID: 7400000, guid: 6ff098d3c1f89394b8efa652a1da93a3, type: 2}
-    attackUp: {fileID: 7400000, guid: 10795e2b31048994bb8506362041fa00, type: 2}
-    attackUpIdle: {fileID: 7400000, guid: f8453b504d90d2e4086dbed21513f397, type: 2}
+    attackDown: {fileID: 7400000, guid: 5a14f7f1b241ef14aa31c550131c66a9, type: 2}
+    attackLeft: {fileID: 7400000, guid: 1b95bf30eb983c64a8a421a7bb587464, type: 2}
+    attackRight: {fileID: 7400000, guid: ee0a26880acd47f4fb2c2138628fe21b, type: 2}
+    attackUp: {fileID: 7400000, guid: 430a189b08d5da947aed296191e06a4f, type: 2}
+    holdDown: {fileID: 7400000, guid: 0e74fae932b128c48b6a29007a68eb48, type: 2}
+    holdDownIdle: {fileID: 7400000, guid: 2c16bf3ce4d1ca349a856d47a024c3dc, type: 2}
+    holdLeft: {fileID: 7400000, guid: 473b6dd560900db459ae6904c344c557, type: 2}
+    holdLeftIdle: {fileID: 7400000, guid: f5870d698a9772f4f97af2c069238d9e, type: 2}
+    holdRight: {fileID: 7400000, guid: 17a313c53a866034bb460a0e8025c18f, type: 2}
+    holdRightIdle: {fileID: 7400000, guid: 6ff098d3c1f89394b8efa652a1da93a3, type: 2}
+    holdUp: {fileID: 7400000, guid: 10795e2b31048994bb8506362041fa00, type: 2}
+    holdUpIdle: {fileID: 7400000, guid: f8453b504d90d2e4086dbed21513f397, type: 2}
     idleDown: {fileID: 7400000, guid: cb70beafb67e6df40b3516ec62b2ce91, type: 2}
     idleLeft: {fileID: 7400000, guid: 9a5f66a402e78dc41bb5c1dc440a67a0, type: 2}
     idleRight: {fileID: 7400000, guid: d36e94e079abf7d47884cee8606f09ee, type: 2}

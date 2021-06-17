@@ -51,7 +51,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void Awake() {
         UpdateDirection(initialChangeX, initialChangeY);
-        Assert.IsNotNull(placementController);
     }
 
     // Start is called before the first frame update

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Object : CustomMonoBehaviour {
     public Item item;
+
+    // An instance of the PlacedItem SO this item corresponds to
+    // For an item that is spawned randomly, this field is null
+    [Header(Annotation.HeaderMsgDoNotSetInInspector)]
+    public PlacedItem placedItem;
+
     public bool playerInRange;
 
     [Header(Annotation.HeaderMsgDoNotSetInInspector)]
@@ -21,7 +27,7 @@ public class Object : CustomMonoBehaviour {
     void Update() {
         if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
             buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
-            placedItems.RemoveIfExists(ActiveScene().name, item.id);
+            placedItems.RemoveIfExists(ActiveScene().name, placedItem);
             Destroy(gameObject);
         }
     }

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71b2d56f35324ed39aff326c3aba6f8, type: 3}
+  m_Name: Hair6
+  m_EditorClassIdentifier: 
+  id: 5
+  name: Pigtails
+  bodyPartSprite: {fileID: -6790212276432234046, guid: 802cc49b5c160d9459860dd8de778cc6,
+    type: 3}
+  holdingSprite: {fileID: 0}
+  bodyAnimation:
+    attackDown: {fileID: 7400000, guid: c80451ce7b5a1bb4f8e00e86d7ce7c6b, type: 2}
+    attackLeft: {fileID: 7400000, guid: 9b00490e02e929248a87bbf20058ad01, type: 2}
+    attackRight: {fileID: 7400000, guid: c0bb53a689ef44d42870300ed15008f8, type: 2}
+    attackUp: {fileID: 7400000, guid: b31d564854979fc4ca6a95457cd3f6fc, type: 2}
+    holdDown: {fileID: 7400000, guid: ba6904011a90fa0409575d70af13eaab, type: 2}
+    holdDownIdle: {fileID: 7400000, guid: 7acbcd88a242655448f1a57eae7d52b4, type: 2}
+    holdLeft: {fileID: 7400000, guid: 43c8fd462f1fcbe48a7811752de9bba6, type: 2}
+    holdLeftIdle: {fileID: 7400000, guid: eda36a7c3daab314986b0e7c2ad6e6c6, type: 2}
+    holdRight: {fileID: 7400000, guid: 16fafa2b13d4e3c4f882b96435b33d33, type: 2}
+    holdRightIdle: {fileID: 7400000, guid: 132d32ce066211f44b05667351debfa2, type: 2}
+    holdUp: {fileID: 7400000, guid: 50c27bfeacb4c884e80ca76238abbd86, type: 2}
+    holdUpIdle: {fileID: 7400000, guid: 12a427f71f33dce49af53b58a881ab8a, type: 2}
+    idleDown: {fileID: 7400000, guid: 53379d42a586cb1469f90cd25c5c08d5, type: 2}
+    idleLeft: {fileID: 7400000, guid: 712ee24dafc179c4f88f86f6d9aadc36, type: 2}
+    idleRight: {fileID: 7400000, guid: 295f61ef4e5b5ce4995a7f16fb29ec80, type: 2}
+    idleUp: {fileID: 7400000, guid: 7c6a5f3a21bf90646a598370f77a313a, type: 2}
+    walkDown: {fileID: 7400000, guid: e9828bdc3e15e544d8ed41e3b933e930, type: 2}
+    walkLeft: {fileID: 7400000, guid: be34c705e3523774ebd6229636c0921a, type: 2}
+    walkRight: {fileID: 7400000, guid: b624855a156701b40a18e158ea60d40d, type: 2}
+    walkUp: {fileID: 7400000, guid: 870357cdbd393c446b1c2ed9eeceef57, type: 2}

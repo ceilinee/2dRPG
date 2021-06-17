@@ -74,8 +74,8 @@ public class AnimalBreed : ScriptableObject {
         for (int j = 0; j < breedArray.Length; j++) {
             //go through breed array
             Animal.StringAndAnimalColor breedColor = breedArray[j].coloring;
-            int[] partArray = new int[] { breedColor.body, breedColor.eyes, breedColor.back, breedColor.dots, breedColor.star, breedColor.ears, breedColor.legs, breedColor.face, breedColor.tail };
-            int[] coloringArray = new int[] { coloring.body, coloring.eyes, coloring.back, coloring.dots, coloring.star, coloring.ears, coloring.legs, coloring.face, coloring.tail };
+            int[] partArray = new int[] { breedColor.body, breedColor.eyes, breedColor.back, breedColor.dots, breedColor.star, breedColor.ears, breedColor.legs, breedColor.tail, breedColor.face };
+            int[] coloringArray = new int[] { coloring.body, coloring.eyes, coloring.back, coloring.dots, coloring.star, coloring.ears, coloring.legs, coloring.tail, coloring.face };
             int all2 = -1;
             int all3 = -1;
             for (int i = 0; i < partArray.Length; i++) {

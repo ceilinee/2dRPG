@@ -25,29 +25,39 @@ public class PlacedItem {
 [CreateAssetMenu]
 [System.Serializable]
 public class PlacedItems : ScriptableObject {
-    // Need to subclass List<PlacedItem> and use that as the type of the values in sceneToPlacedItems
+    // Need to compose List<PlacedItem> and use that as the type of the values in sceneToPlacedItems
     // in order to have sceneToPlacedItems serialize properly by the GSM (see https://answers.unity.com/questions/460727/how-to-serialize-dictionary-with-unity-serializati.html)
-    [System.Serializable] public class ItemList : List<PlacedItem> { }
-    [System.Serializable] public class SceneToPlacedItems : SerializableDictionary<string, ItemList> { }
-    public SceneToPlacedItems sceneToPlacedItems = new SceneToPlacedItems();
+    [System.Serializable]
+    public class ListPlacedItem {
+        public List<PlacedItem> placedItems = new List<PlacedItem>();
+        public List<PlacedItem> Get() { return placedItems; }
+    }
+    [System.Serializable] public class SceneToPlacedItems : SerializableDictionary<string, ListPlacedItem> { }
+    public SceneToPlacedItems sceneToPlacedItems;
 
     public List<PlacedItem> GetPlacedItems(string sceneName) {
         if (!sceneToPlacedItems.ContainsKey(sceneName)) {
             return new List<PlacedItem>();
         }
-        return sceneToPlacedItems[sceneName];
+        return sceneToPlacedItems[sceneName].Get();
     }
 
-    public void Add(string sceneName, int itemId, Vector2 itemPosition, Direction direction) {
+    /// Returns the newly created PlacedItem instance
+    public PlacedItem Add(string sceneName, int itemId, Vector2 itemPosition, Direction direction) {
         if (!sceneToPlacedItems.ContainsKey(sceneName)) {
-            sceneToPlacedItems[sceneName] = new ItemList();
+            sceneToPlacedItems[sceneName] = new ListPlacedItem();
         }
-        sceneToPlacedItems[sceneName].Add(new PlacedItem(itemId, itemPosition, direction));
+        var placedItem = new PlacedItem(itemId, itemPosition, direction);
+        sceneToPlacedItems[sceneName].Get().Add(placedItem);
+        return placedItem;
     }
 
-    public void RemoveIfExists(string sceneName, int itemId) {
+    public void RemoveIfExists(string sceneName, PlacedItem placedItem) {
         if (sceneToPlacedItems.ContainsKey(sceneName)) {
-            sceneToPlacedItems[sceneName].RemoveAll(x => x.itemId == itemId);
+            sceneToPlacedItems[sceneName].Get().Remove(placedItem);
+            if (sceneToPlacedItems[sceneName].Get().Count == 0) {
+                sceneToPlacedItems.Remove(sceneName);
+            }
         }
     }
 

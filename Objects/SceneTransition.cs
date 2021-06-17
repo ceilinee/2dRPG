@@ -42,6 +42,9 @@ public class SceneTransition : CustomMonoBehaviour {
     }
 
     public void PlayerTransition(SceneInfo newScene = null) {
+        if (newScene == null && sceneinfo != null) {
+            newScene = sceneinfo;
+        }
         playerStorage.initialValue = newScene.entrance;
         gameSaveManager.GetComponent<GameSaveManager>().updateAnimalAndCharacter();
         // characterManager.GetComponent<CharacterManager>().updateCurCharacter();

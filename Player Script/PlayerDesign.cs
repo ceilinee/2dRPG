@@ -14,6 +14,8 @@ public class PlayerDesign : MonoBehaviour {
 
     [Header("The currently selected outfit")]
     public Image outfit;
+    [Header("The currently selected bottom")]
+    public Image bottom;
 
     [Header("The currently selected eyes")]
     public Image eyes;
@@ -33,6 +35,10 @@ public class PlayerDesign : MonoBehaviour {
     public void UpdateOutfit(Sprite sprite) {
         outfit.sprite = sprite;
     }
+    public void UpdateBottom(Sprite sprite) {
+        Debug.Log(sprite);
+        bottom.sprite = sprite;
+    }
 
     public void UpdateEyes(Sprite sprite, Color color) {
         eyes.sprite = sprite;
@@ -51,6 +57,7 @@ public class PlayerDesign : MonoBehaviour {
             colors.colorDictionary[appearance.hairColorId].color
         );
         UpdateOutfit(bodyPartManager.outfits[appearance.outfitId].bodyPartSprite);
+        UpdateBottom(bodyPartManager.bottoms[appearance.bottomId].bodyPartSprite);
         UpdateEyes(
             bodyPartManager.eyes[appearance.eyesId].bodyPartSprite,
             colors.colorDictionary[appearance.eyeColorId].color

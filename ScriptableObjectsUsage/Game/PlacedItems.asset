@@ -15,4 +15,74 @@ MonoBehaviour:
   sceneToPlacedItems:
     keys:
     - MainScene
-    values: []
+    values:
+    - placedItems:
+      - itemId: 3
+        itemPosition: {x: 27, y: 8}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 27, y: 6}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 27, y: 4}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 24, y: 2}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 22, y: 2}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 20, y: 2}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 18, y: 2}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 16, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 18, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 20, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 22, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 24, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 26, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 26, y: 2}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 38, y: 7}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 38, y: 5}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 38, y: 3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 16, y: -5}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 16, y: -7}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 10, y: -3}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 10, y: -5}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 10, y: -7}
+        direction: 3
+      - itemId: 3
+        itemPosition: {x: 8, y: -3}
+        direction: 3

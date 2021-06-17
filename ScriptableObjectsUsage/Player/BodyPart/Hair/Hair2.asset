@@ -18,14 +18,18 @@ MonoBehaviour:
     type: 3}
   holdingSprite: {fileID: 0}
   bodyAnimation:
-    attackDown: {fileID: 7400000, guid: 0f35970f13f266f40a4c9a56f8362b55, type: 2}
-    attackDownIdle: {fileID: 7400000, guid: 549d9d568a0aefe4cbc2087081770ca0, type: 2}
-    attackLeft: {fileID: 7400000, guid: 18b78fa67302c67489c697658b64bdc5, type: 2}
-    attackLeftIdle: {fileID: 7400000, guid: fd3836c9d1af04448972a6a403e04758, type: 2}
-    attackRight: {fileID: 7400000, guid: 8a194b21438991f4d988d29aa022d78c, type: 2}
-    attackRightIdle: {fileID: 7400000, guid: bd773a132a0915e4fb68fbb6542a1c2c, type: 2}
-    attackUp: {fileID: 7400000, guid: 32c3d60da7a0ba74bbc3573715ccf984, type: 2}
-    attackUpIdle: {fileID: 7400000, guid: 897af89a93806714e8fa4e1ca82ea0fb, type: 2}
+    attackDown: {fileID: 7400000, guid: 62ccb643c87ae614e90e6cb8822a7196, type: 2}
+    attackLeft: {fileID: 7400000, guid: 999580676d6d8124892b50c91f300361, type: 2}
+    attackRight: {fileID: 7400000, guid: 52531f8611e5ddd41ad0087fef34f79f, type: 2}
+    attackUp: {fileID: 7400000, guid: 9653da5056df12d43909d2bc0735a53f, type: 2}
+    holdDown: {fileID: 7400000, guid: 0f35970f13f266f40a4c9a56f8362b55, type: 2}
+    holdDownIdle: {fileID: 7400000, guid: 549d9d568a0aefe4cbc2087081770ca0, type: 2}
+    holdLeft: {fileID: 7400000, guid: 18b78fa67302c67489c697658b64bdc5, type: 2}
+    holdLeftIdle: {fileID: 7400000, guid: fd3836c9d1af04448972a6a403e04758, type: 2}
+    holdRight: {fileID: 7400000, guid: 8a194b21438991f4d988d29aa022d78c, type: 2}
+    holdRightIdle: {fileID: 7400000, guid: bd773a132a0915e4fb68fbb6542a1c2c, type: 2}
+    holdUp: {fileID: 7400000, guid: 32c3d60da7a0ba74bbc3573715ccf984, type: 2}
+    holdUpIdle: {fileID: 7400000, guid: 897af89a93806714e8fa4e1ca82ea0fb, type: 2}
     idleDown: {fileID: 7400000, guid: a5a6173a420fa1f42ad4b2ab5c1b1d32, type: 2}
     idleLeft: {fileID: 7400000, guid: 16a7924e9047bdb4a923b3511abca0c5, type: 2}
     idleRight: {fileID: 7400000, guid: f9a8d704f124a204f8c06bd90dc9b386, type: 2}

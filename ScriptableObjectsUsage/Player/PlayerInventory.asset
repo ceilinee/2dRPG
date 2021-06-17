@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentItem: {fileID: 0}
   items:
-    keys: []
-    values: []
+    keys:
+    - {fileID: 11400000, guid: ce66be650f16c4c658f305b924ba6878, type: 2}
+    values:
+    - 1
   currentItemId: 0
   itemInt:
-    keys: 
-    values: []
+    keys: 05000000
+    values:
+    - 1
   itemIntList: 

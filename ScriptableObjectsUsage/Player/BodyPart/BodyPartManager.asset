@@ -18,10 +18,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfbff1d1e331b4a75a663d270d44f3c9, type: 2}
   - {fileID: 11400000, guid: 4c1b733c718d34f1e8921a1d830eb2fb, type: 2}
   - {fileID: 11400000, guid: 29e6942e75d49431781dbfc239bb9b1c, type: 2}
+  - {fileID: 11400000, guid: b4dcbc6aca298c64a96d125a5967537b, type: 2}
+  - {fileID: 11400000, guid: 5d317574d35116744b5bdc168876e53b, type: 2}
+  - {fileID: 11400000, guid: a0b29eb2e1ec29d48af79be6df28a7fe, type: 2}
   outfits:
   - {fileID: 11400000, guid: ee5208813d5744c89a89863e04c123db, type: 2}
   eyes:
   - {fileID: 11400000, guid: 1b6e3bd9cad504fb59fbb7fd9072dc88, type: 2}
+  bottoms:
+  - {fileID: 11400000, guid: ee5208813d5744c89a89863e04c123db, type: 2}
   bodySprite: {fileID: -1880120661550918566, guid: 549dca70b73f544048781e2281d3fc36,
     type: 3}
   bodyHoldingSprite: {fileID: 6653161357245683487, guid: 84cfbe6f25e1f4470a9062a8fa95f310,
