@@ -9,7 +9,7 @@ public class Animals : ScriptableObject {
     public DictionaryOfAnimals animalDict = new DictionaryOfAnimals();
     public string breedName;
     public void addAnimal(string newAnimalName,
-    string newType, int newId, Vector2 newLocation, int newAge, string newMood,
+    Type newType, int newId, Vector2 newLocation, int newAge, string newMood,
     Animal.StringAndAnimalColor newColoring, bool newFollow, string newGender,
     string newHome, int newCost, bool newPregnant, int newDeliveryDate, int[] newBabyId, float newLove, string newBreed, string scene, bool charOwned, int charId, AnimalColors animalColors, Personality personality, int _momId, int _dadId) {
         Animal newAnimal = new Animal();
@@ -81,7 +81,7 @@ public class Animals : ScriptableObject {
         return sum;
     }
     public float GetTypes() {
-        List<string> types = new List<string>();
+        List<Type> types = new List<Type>();
         foreach (KeyValuePair<int, Animal> kvp in animalDict) {
             if (!types.Contains(kvp.Value.type)) {
                 types.Add(kvp.Value.type);

@@ -30,7 +30,7 @@ public class ListCreator : CustomMonoBehaviour {
     public Animals curAnimals;
     public SceneInfos allBuildings;
     public ItemList buildingItems;
-    public string type;
+    public Type type = Type.NOTSELECTED;
     public bool building = false;
     public bool isItem;
     public bool isShop;
@@ -66,7 +66,7 @@ public class ListCreator : CustomMonoBehaviour {
     public void GetAnimals() {
         List<Animal> selectedAnimalsList = new List<Animal>();
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
-            if (type == "all") {
+            if (type == Type.NOTSELECTED) {
                 if (kvp.Value.age >= 0 || isShop) {
                     selectedAnimalsList.Add(kvp.Value);
                 }
@@ -81,7 +81,7 @@ public class ListCreator : CustomMonoBehaviour {
     public void MatchAnimals(AdoptionRequest request) {
         List<Animal> selectedAnimalsList = new List<Animal>();
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
-            if (request.type == "" || kvp.Value.type == request.type) {
+            if (request.type == Type.NOTSELECTED || kvp.Value.type == request.type) {
                 if (request.personality.personality == "" || request.personality.personality == kvp.Value.personality.personality) {
                     if (animalBreeds.matchRequest(kvp.Value.coloring, request.coloring)) {
                         selectedAnimalsList.Add(kvp.Value);

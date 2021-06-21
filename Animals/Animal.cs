@@ -12,8 +12,7 @@ public class Personality {
 [System.Serializable]
 public class Animal {
     public string animalName;
-    public const string TypeFish = "Fish";
-    public string type;
+    public Type type;
     public int momId;
     public int dadId;
     public string breed;
@@ -104,7 +103,7 @@ public class Animal {
     }
 
     public void createAnimal(string newAnimalName,
-    string newType, int newId, Vector2 newLocation, int newAge, string newMood,
+    Type newType, int newId, Vector2 newLocation, int newAge, string newMood,
     StringAndAnimalColor newColoring, bool newFollow, string newGender,
     string newHome, int newCost, bool newPregnant, int newDeliveryDate, int[] newBabyId, float newLove, string newBreed, string newScene, bool newCharOwned, int newCharId, AnimalColors _animalColor, Personality _personality, int _momId, int _dadId) {
         animalName = newAnimalName;

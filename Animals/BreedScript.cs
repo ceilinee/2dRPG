@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum Type {
+    PIG,
+    LLAMA,
+    FISH,
+    SHEEP,
+    GOOSE,
+    RABBIT,
+    NOTSELECTED
+}
 public class BreedScript : CustomMonoBehaviour {
     public Animal femaleAnimal;
     public GameObject animalModal;
@@ -11,10 +20,11 @@ public class BreedScript : CustomMonoBehaviour {
     public Animals curAnimals;
     public Animals shopAnimals;
     public Animals shopBreedAnimals;
-    public string[] types;
+    public Type[] types;
     public int[] multiplers;
+    [System.Serializable] public class DictionaryOfTypeAndInt : SerializableDictionary<Type, int> { }
     [System.Serializable] public class DictionaryOfStringAndInt : SerializableDictionary<string, int> { }
-    public DictionaryOfStringAndInt typeDictionary = new DictionaryOfStringAndInt();
+    public DictionaryOfTypeAndInt typeDictionary = new DictionaryOfTypeAndInt();
     public Personalities personalityList;
     public AnimalBreed animalBreed;
     public AnimalColors animalColors;
@@ -141,7 +151,7 @@ public class BreedScript : CustomMonoBehaviour {
         return randomNumber;
     }
 
-    public int GetPrice(Animal.StringAndAnimalColor coloring, string type) {
+    public int GetPrice(Animal.StringAndAnimalColor coloring, Type type) {
         if (!typeDictionary.ContainsKey(type)) {
             initDictionary();
         }
@@ -199,7 +209,7 @@ public class BreedScript : CustomMonoBehaviour {
         RectTransform trans = modelAnimal.GetComponent<RectTransform>();
         //Generate tail colouranimalColors.colorDictionary[]
         var tailColorArray = GenerateColorArray("tail");
-        coloring.tail = femaleAnimal.type == "Pig" ? 34 : tailColorArray[Random.Range(0, tailColorArray.Length)];
+        coloring.tail = femaleAnimal.type == Type.PIG ? 34 : tailColorArray[Random.Range(0, tailColorArray.Length)];
         //Generate body colour
         var bodyColorArray = GenerateColorArray("body");
         coloring.body = bodyColorArray[Random.Range(0, bodyColorArray.Length)];
@@ -227,7 +237,7 @@ public class BreedScript : CustomMonoBehaviour {
         trans.Find("LegsSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.legs].color;
 
         var earsColorArray = GenerateColorArray("ears");
-        coloring.ears = femaleAnimal.type == "Fish" || femaleAnimal.type == "Goose" ? 34 : earsColorArray[Random.Range(0, earsColorArray.Length)];
+        coloring.ears = femaleAnimal.type == Type.FISH || femaleAnimal.type == Type.GOOSE ? 34 : earsColorArray[Random.Range(0, earsColorArray.Length)];
         trans.Find("EarsSocket").gameObject.GetComponent<Image>().color = animalColors.colorDictionary[coloring.ears].color;
 
         var backColorArray = GenerateColorArray("back");
@@ -255,11 +265,11 @@ public class BreedScript : CustomMonoBehaviour {
         }
     }
     //Random Animal
-    public int RandomShopAnimal(Animals paramAnimals, string curType = "") {
-        string type = curType != "" ? curType : getType();
+    public int RandomShopAnimal(Animals paramAnimals, Type curType = Type.NOTSELECTED) {
+        Type type = curType != Type.NOTSELECTED ? curType : getType();
         Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
         coloring.body = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
-        coloring.tail = type == "Pig" ? 34 : coloring.body;
+        coloring.tail = type == Type.PIG ? 34 : coloring.body;
         coloring.face = animalColors.FaceArray[Random.Range(0, animalColors.FaceArray.Length)];
         coloring.star = 27;
         coloring.eyes = animalColors.EyesArray[Random.Range(0, animalColors.EyesArray.Length)];
@@ -282,7 +292,7 @@ public class BreedScript : CustomMonoBehaviour {
         if (Random.Range(0, 10) >= 9) {
             coloring.ears = animalColors.ShopArray[Random.Range(0, animalColors.ShopArray.Length)];
         }
-        if (type == "Fish" || type == "Goose") {
+        if (type == Type.FISH || type == Type.GOOSE) {
             coloring.ears = 34;
         }
         int breedId = animalBreed.isBreed(coloring, type);
@@ -338,19 +348,20 @@ public class BreedScript : CustomMonoBehaviour {
         coloring.ears = curTypes[8];
         return coloring;
     }
-    public string getType(List<string> notTypes = null) {
-        List<string> filtered = new List<string>();
+    public Type getType(List<Type> notTypes = null) {
+        List<Type> filtered = new List<Type>();
+        Type[] types = (Type[]) System.Enum.GetValues(typeof(Type));
         for (int i = 0; i < types.Length; i++) {
-            if (notTypes == null) {
+            if (notTypes == null && types[i] != Type.NOTSELECTED) {
                 filtered.Add(types[i]);
-            } else if (!notTypes.Contains(types[i])) {
+            } else if (!notTypes.Contains(types[i]) && types[i] != Type.NOTSELECTED) {
                 filtered.Add(types[i]);
             }
         }
         return filtered.ToArray()[Random.Range(0, filtered.ToArray().Length)];
     }
-    public int RandomBreedAnimal(AnimalBreed.Breed curBreed, Animals paramAnimals, string curType = "") {
-        string type = curType != "" ? curType : getType(curBreed.notIncludeType);
+    public int RandomBreedAnimal(AnimalBreed.Breed curBreed, Animals paramAnimals, Type curType = Type.NOTSELECTED) {
+        Type type = curType != Type.NOTSELECTED ? curType : getType(curBreed.notIncludeType);
         Animal.StringAndAnimalColor breedColoring = curBreed.coloring;
         Animal.StringAndAnimalColor coloring = new Animal.StringAndAnimalColor();
         int color1 = -1;
@@ -384,10 +395,10 @@ public class BreedScript : CustomMonoBehaviour {
                 curTypes[i] = breedTypes[i];
             }
             // for geese and fish's ear trait && pig tail trait, set as 34 - ignore
-            if (i == 8 && (type == "Fish" || type == "Goose")) {
+            if (i == 8 && (type == Type.FISH || type == Type.GOOSE)) {
                 curTypes[i] = 34;
             }
-            if (i == 1 && (type == "Pig")) {
+            if (i == 1 && (type == Type.PIG)) {
                 curTypes[i] = 34;
             }
         }

@@ -126,7 +126,7 @@ public class PlayerInformation : MonoBehaviour {
     public void updateList() {
         Clear();
         friendListView.GetComponent<CharacterListCreator>().GetCharacters();
-        animalListView.GetComponent<ListCreator>().type = "all";
+        animalListView.GetComponent<ListCreator>().type = Type.NOTSELECTED;
         animalListView.GetComponent<ListCreator>().GetAnimals();
         breedListView.GetComponent<ListCreator>().isBreed = true;
         breedListView.GetComponent<ListCreator>().GetBreedItems();

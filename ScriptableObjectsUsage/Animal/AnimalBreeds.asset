@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: AnimalBreeds
   m_EditorClassIdentifier: 
   breedArray:
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
+      body: 8
       tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      eyes: 6
+      dots: 27
+      face: 27
+      legs: 27
+      ears: 27
+      back: 27
+      star: 27
     multiplier: 2
-    notIncludeType:
-    - Pig
+    notIncludeType: 00000000
     breedName: CottonTail
     breedDescription: Cotton Tails are distinct from their white tails
+    userCreated: 0
     coloring:
       body: 31
       tail: 0
@@ -39,21 +39,22 @@ MonoBehaviour:
       ears: 27
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
       body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      tail: 15
+      eyes: 21
+      dots: 27
+      face: 15
+      legs: 15
+      ears: 15
+      back: 15
+      star: 27
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Dutch
     breedDescription: dutchie
+    userCreated: 0
     coloring:
       body: 0
       tail: 32
@@ -64,21 +65,22 @@ MonoBehaviour:
       ears: 32
       back: 32
       star: 27
-  - unlocked: 1
+  - unlocked: 0
     exampleColoring:
-      body: 1
-      tail: 29
-      eyes: 16
-      dots: 24
+      body: 0
+      tail: 0
+      eyes: 0
+      dots: 0
       face: 0
-      legs: 27
-      ears: 34
-      back: 27
-      star: 24
+      legs: 0
+      ears: 0
+      back: 0
+      star: 0
     multiplier: 3
-    notIncludeType: []
+    notIncludeType: 
     breedName: Starburst
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -89,21 +91,22 @@ MonoBehaviour:
       ears: 31
       back: 27
       star: 32
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
       body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      tail: 9
+      eyes: 14
+      dots: 27
+      face: 4
+      legs: 27
+      ears: 34
+      back: 1
+      star: 1
     multiplier: 3
-    notIncludeType: []
+    notIncludeType: 
     breedName: Sunbeam
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -114,21 +117,22 @@ MonoBehaviour:
       ears: 31
       back: 32
       star: 32
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
+      body: 18
+      tail: 18
+      eyes: 28
+      dots: 27
       face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      legs: 27
+      ears: 34
+      back: 27
+      star: 18
     multiplier: 2
-    notIncludeType: []
+    notIncludeType: 
     breedName: Star
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -139,21 +143,22 @@ MonoBehaviour:
       ears: 31
       back: 27
       star: 32
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 7
+      tail: 22
+      eyes: 26
+      dots: 19
+      face: 1
+      legs: 27
+      ears: 27
+      back: 19
+      star: 27
     multiplier: 3
-    notIncludeType: []
+    notIncludeType: 
     breedName: Sunshine
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -176,10 +181,11 @@ MonoBehaviour:
       back: 27
       star: 27
     multiplier: 2
-    notIncludeType: []
+    notIncludeType: 
     breedName: Boots
     breedDescription: Boots are easily identifiable by their leg colour - which is
       the sole visible pattern these little guys have
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -202,9 +208,10 @@ MonoBehaviour:
       back: 27
       star: 27
     multiplier: 2
-    notIncludeType: []
+    notIncludeType: 
     breedName: Spotted
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -215,21 +222,22 @@ MonoBehaviour:
       ears: 31
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
+      body: 19
+      tail: 19
+      eyes: 13
       dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      face: 9
+      legs: 27
+      ears: 34
+      back: 27
+      star: 27
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Winter
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 19
       tail: 19
@@ -242,19 +250,20 @@ MonoBehaviour:
       star: 27
   - unlocked: 1
     exampleColoring:
-      body: 9
-      tail: 27
-      eyes: 7
+      body: 30
+      tail: 17
+      eyes: 28
       dots: 27
       face: 9
-      legs: 18
+      legs: 27
       ears: 34
       back: 27
-      star: 18
+      star: 27
     multiplier: 2
-    notIncludeType: []
+    notIncludeType: 
     breedName: Masked
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -277,9 +286,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 2
-    notIncludeType: []
+    notIncludeType: 
     breedName: Back Patch
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 31
@@ -290,21 +300,22 @@ MonoBehaviour:
       ears: 31
       back: 32
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
+      body: 23
+      tail: 23
+      eyes: 21
       dots: 0
-      face: 0
-      legs: 0
-      ears: 0
+      face: 11
+      legs: 27
+      ears: 27
       back: 0
-      star: 0
+      star: 27
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Moonlight
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 23
       tail: 23
@@ -327,9 +338,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 3
-    notIncludeType: []
+    notIncludeType: 
     breedName: Royale
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 24
       tail: 26
@@ -352,9 +364,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Gold Speckle
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 23
       tail: 23
@@ -377,9 +390,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Peaches and Cream
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 10
       tail: 9
@@ -390,21 +404,22 @@ MonoBehaviour:
       ears: 9
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 6
+      tail: 9
+      eyes: 26
+      dots: 27
+      face: 9
+      legs: 27
+      ears: 34
+      back: 27
+      star: 27
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Cherries and Cream
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 6
       tail: 9
@@ -427,9 +442,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Tea and Cream
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 18
       tail: 9
@@ -440,21 +456,22 @@ MonoBehaviour:
       ears: 9
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 13
+      tail: 8
+      eyes: 28
+      dots: 27
+      face: 8
+      legs: 27
+      ears: 34
+      back: 27
+      star: 27
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Pumpkin Pie
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 13
       tail: 8
@@ -477,9 +494,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Chocolate Lemon Sprinkles
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 14
       tail: 14
@@ -490,21 +508,22 @@ MonoBehaviour:
       ears: 15
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
+      body: 21
+      tail: 22
+      eyes: 22
       dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      face: 4
+      legs: 22
+      ears: 34
+      back: 27
+      star: 22
     multiplier: 6
-    notIncludeType: []
+    notIncludeType: 
     breedName: Sailor
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 21
       tail: 22
@@ -515,21 +534,22 @@ MonoBehaviour:
       ears: 22
       back: 27
       star: 22
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
       body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      tail: 5
+      eyes: 16
+      dots: 27
+      face: 2
+      legs: 5
+      ears: 34
+      back: 27
+      star: 5
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Canadian
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 0
       tail: 5
@@ -552,9 +572,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: S'mores
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 10
       tail: 0
@@ -577,9 +598,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Oreo
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 0
       tail: 23
@@ -590,21 +612,22 @@ MonoBehaviour:
       ears: 23
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 1
+      tail: 20
+      eyes: 13
+      dots: 27
+      face: 10
+      legs: 20
+      ears: 34
+      back: 20
+      star: 27
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Cotton Candy
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 1
       tail: 20
@@ -615,21 +638,22 @@ MonoBehaviour:
       ears: 20
       back: 20
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 16
+      tail: 15
+      eyes: 28
+      dots: 27
+      face: 15
+      legs: 15
+      ears: 34
+      back: 15
+      star: 27
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Lemon Mint
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 16
       tail: 15
@@ -640,21 +664,22 @@ MonoBehaviour:
       ears: 15
       back: 15
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
       body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      tail: 19
+      eyes: 23
+      dots: 19
+      face: 1
+      legs: 19
+      ears: 34
+      back: 27
+      star: 19
     multiplier: 6
-    notIncludeType: []
+    notIncludeType: 
     breedName: Snowflake
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 0
       tail: 19
@@ -677,9 +702,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Snowman
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 0
       tail: 19
@@ -690,21 +716,22 @@ MonoBehaviour:
       ears: 19
       back: 19
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 5
+      tail: 3
+      eyes: 7
+      dots: 3
+      face: 3
+      legs: 27
+      ears: 34
+      back: 27
+      star: 27
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Rose Petals
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 5
       tail: 3
@@ -727,9 +754,10 @@ MonoBehaviour:
       back: 27
       star: 27
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Snow
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 0
       tail: 19
@@ -752,9 +780,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Princess
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 2
       tail: 8
@@ -765,21 +794,22 @@ MonoBehaviour:
       ears: 8
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 11
+      tail: 12
+      eyes: 21
+      dots: 27
+      face: 11
+      legs: 12
+      ears: 34
+      back: 12
+      star: 12
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Sunkissed
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 11
       tail: 12
@@ -790,21 +820,22 @@ MonoBehaviour:
       ears: 12
       back: 12
       star: 12
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
+      body: 8
+      tail: 13
+      eyes: 13
+      dots: 13
       face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      legs: 14
+      ears: 34
+      back: 27
+      star: 27
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Bubble Tea
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 8
       tail: 13
@@ -827,9 +858,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 4
-    notIncludeType: []
+    notIncludeType: 
     breedName: Orange Juice
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 12
       tail: 11
@@ -840,21 +872,22 @@ MonoBehaviour:
       ears: 11
       back: 11
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
+      body: 5
+      tail: 5
+      eyes: 28
       dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      face: 8
+      legs: 28
+      ears: 34
+      back: 27
+      star: 27
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Strawberry
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 5
       tail: 5
@@ -877,9 +910,10 @@ MonoBehaviour:
       back: 27
       star: 29
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Marble
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 0
       tail: 29
@@ -902,9 +936,10 @@ MonoBehaviour:
       back: 27
       star: 18
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Mint Tea
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 16
       tail: 18
@@ -927,9 +962,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 2
-    notIncludeType: []
+    notIncludeType: 
     breedName: Semiformal
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 32
@@ -940,21 +976,22 @@ MonoBehaviour:
       ears: 32
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 8
+      tail: 9
+      eyes: 6
+      dots: 27
+      face: 4
+      legs: 9
+      ears: 34
+      back: 9
+      star: 27
     multiplier: 3
-    notIncludeType: []
+    notIncludeType: 
     breedName: Tuxedo
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 31
       tail: 32
@@ -977,9 +1014,10 @@ MonoBehaviour:
       back: 0
       star: 0
     multiplier: 1
-    notIncludeType: []
+    notIncludeType: 
     breedName: Uniform
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 32
       tail: 32
@@ -990,21 +1028,22 @@ MonoBehaviour:
       ears: 32
       back: 27
       star: 27
-  - unlocked: 0
+  - unlocked: 1
     exampleColoring:
-      body: 0
-      tail: 0
-      eyes: 0
-      dots: 0
-      face: 0
-      legs: 0
-      ears: 0
-      back: 0
-      star: 0
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
     multiplier: 5
-    notIncludeType: []
+    notIncludeType: 
     breedName: Valentine
     breedDescription: 
+    userCreated: 0
     coloring:
       body: 1
       tail: 5
@@ -1058,22 +1097,22 @@ MonoBehaviour:
     - Uniform
     - Valentine
     values:
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
+        body: 8
         tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        eyes: 6
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
       multiplier: 2
-      notIncludeType:
-      - Pig
+      notIncludeType: 00000000
       breedName: CottonTail
       breedDescription: Cotton Tails are distinct from their white tails
+      userCreated: 0
       coloring:
         body: 31
         tail: 0
@@ -1084,21 +1123,22 @@ MonoBehaviour:
         ears: 27
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
         body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        tail: 15
+        eyes: 21
+        dots: 27
+        face: 15
+        legs: 15
+        ears: 15
+        back: 15
+        star: 27
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Dutch
       breedDescription: dutchie
+      userCreated: 0
       coloring:
         body: 0
         tail: 32
@@ -1109,21 +1149,22 @@ MonoBehaviour:
         ears: 32
         back: 32
         star: 27
-    - unlocked: 1
+    - unlocked: 0
       exampleColoring:
-        body: 1
-        tail: 29
-        eyes: 16
-        dots: 24
+        body: 0
+        tail: 0
+        eyes: 0
+        dots: 0
         face: 0
-        legs: 27
-        ears: 34
-        back: 27
-        star: 24
+        legs: 0
+        ears: 0
+        back: 0
+        star: 0
       multiplier: 3
-      notIncludeType: []
+      notIncludeType: 
       breedName: Starburst
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1134,21 +1175,22 @@ MonoBehaviour:
         ears: 31
         back: 27
         star: 32
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
         body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        tail: 9
+        eyes: 14
+        dots: 27
+        face: 4
+        legs: 27
+        ears: 34
+        back: 1
+        star: 1
       multiplier: 3
-      notIncludeType: []
+      notIncludeType: 
       breedName: Sunbeam
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1159,21 +1201,22 @@ MonoBehaviour:
         ears: 31
         back: 32
         star: 32
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
+        body: 18
+        tail: 18
+        eyes: 28
+        dots: 27
         face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        legs: 27
+        ears: 34
+        back: 27
+        star: 18
       multiplier: 2
-      notIncludeType: []
+      notIncludeType: 
       breedName: Star
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1184,21 +1227,22 @@ MonoBehaviour:
         ears: 31
         back: 27
         star: 32
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 7
+        tail: 22
+        eyes: 26
+        dots: 19
+        face: 1
+        legs: 27
+        ears: 27
+        back: 19
+        star: 27
       multiplier: 3
-      notIncludeType: []
+      notIncludeType: 
       breedName: Sunshine
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1221,10 +1265,11 @@ MonoBehaviour:
         back: 27
         star: 27
       multiplier: 2
-      notIncludeType: []
+      notIncludeType: 
       breedName: Boots
       breedDescription: Boots are easily identifiable by their leg colour - which
         is the sole visible pattern these little guys have
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1247,9 +1292,10 @@ MonoBehaviour:
         back: 27
         star: 27
       multiplier: 2
-      notIncludeType: []
+      notIncludeType: 
       breedName: Spotted
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1260,21 +1306,22 @@ MonoBehaviour:
         ears: 31
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
+        body: 19
+        tail: 19
+        eyes: 13
         dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Winter
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 19
         tail: 19
@@ -1287,19 +1334,20 @@ MonoBehaviour:
         star: 27
     - unlocked: 1
       exampleColoring:
-        body: 9
-        tail: 27
-        eyes: 7
+        body: 30
+        tail: 17
+        eyes: 28
         dots: 27
         face: 9
-        legs: 18
+        legs: 27
         ears: 34
         back: 27
-        star: 18
+        star: 27
       multiplier: 2
-      notIncludeType: []
+      notIncludeType: 
       breedName: Masked
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1322,9 +1370,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 2
-      notIncludeType: []
+      notIncludeType: 
       breedName: Back Patch
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 31
@@ -1335,21 +1384,22 @@ MonoBehaviour:
         ears: 31
         back: 32
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
+        body: 23
+        tail: 23
+        eyes: 21
         dots: 0
-        face: 0
-        legs: 0
-        ears: 0
+        face: 11
+        legs: 27
+        ears: 27
         back: 0
-        star: 0
+        star: 27
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Moonlight
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 23
         tail: 23
@@ -1372,9 +1422,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 3
-      notIncludeType: []
+      notIncludeType: 
       breedName: Royale
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 24
         tail: 26
@@ -1397,9 +1448,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Gold Speckle
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 23
         tail: 23
@@ -1422,9 +1474,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Peaches and Cream
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 10
         tail: 9
@@ -1435,21 +1488,22 @@ MonoBehaviour:
         ears: 9
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 6
+        tail: 9
+        eyes: 26
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Cherries and Cream
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 6
         tail: 9
@@ -1472,9 +1526,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Tea and Cream
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 18
         tail: 9
@@ -1485,21 +1540,22 @@ MonoBehaviour:
         ears: 9
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 13
+        tail: 8
+        eyes: 28
+        dots: 27
+        face: 8
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Pumpkin Pie
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 13
         tail: 8
@@ -1522,9 +1578,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Chocolate Lemon Sprinkles
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 14
         tail: 14
@@ -1535,21 +1592,22 @@ MonoBehaviour:
         ears: 15
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
+        body: 21
+        tail: 22
+        eyes: 22
         dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        face: 4
+        legs: 22
+        ears: 34
+        back: 27
+        star: 22
       multiplier: 6
-      notIncludeType: []
+      notIncludeType: 
       breedName: Sailor
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 21
         tail: 22
@@ -1560,21 +1618,22 @@ MonoBehaviour:
         ears: 22
         back: 27
         star: 22
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
         body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        tail: 5
+        eyes: 16
+        dots: 27
+        face: 2
+        legs: 5
+        ears: 34
+        back: 27
+        star: 5
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Canadian
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 0
         tail: 5
@@ -1597,9 +1656,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: S'mores
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 10
         tail: 0
@@ -1622,9 +1682,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Oreo
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 0
         tail: 23
@@ -1635,21 +1696,22 @@ MonoBehaviour:
         ears: 23
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 1
+        tail: 20
+        eyes: 13
+        dots: 27
+        face: 10
+        legs: 20
+        ears: 34
+        back: 20
+        star: 27
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Cotton Candy
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 1
         tail: 20
@@ -1660,21 +1722,22 @@ MonoBehaviour:
         ears: 20
         back: 20
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 16
+        tail: 15
+        eyes: 28
+        dots: 27
+        face: 15
+        legs: 15
+        ears: 34
+        back: 15
+        star: 27
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Lemon Mint
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 16
         tail: 15
@@ -1685,21 +1748,22 @@ MonoBehaviour:
         ears: 15
         back: 15
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
         body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        tail: 19
+        eyes: 23
+        dots: 19
+        face: 1
+        legs: 19
+        ears: 34
+        back: 27
+        star: 19
       multiplier: 6
-      notIncludeType: []
+      notIncludeType: 
       breedName: Snowflake
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 0
         tail: 19
@@ -1722,9 +1786,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Snowman
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 0
         tail: 19
@@ -1735,21 +1800,22 @@ MonoBehaviour:
         ears: 19
         back: 19
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 5
+        tail: 3
+        eyes: 7
+        dots: 3
+        face: 3
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Rose Petals
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 5
         tail: 3
@@ -1772,9 +1838,10 @@ MonoBehaviour:
         back: 27
         star: 27
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Snow
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 0
         tail: 19
@@ -1797,9 +1864,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Princess
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 2
         tail: 8
@@ -1810,21 +1878,22 @@ MonoBehaviour:
         ears: 8
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 11
+        tail: 12
+        eyes: 21
+        dots: 27
+        face: 11
+        legs: 12
+        ears: 34
+        back: 12
+        star: 12
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Sunkissed
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 11
         tail: 12
@@ -1835,21 +1904,22 @@ MonoBehaviour:
         ears: 12
         back: 12
         star: 12
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
+        body: 8
+        tail: 13
+        eyes: 13
+        dots: 13
         face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        legs: 14
+        ears: 34
+        back: 27
+        star: 27
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Bubble Tea
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 8
         tail: 13
@@ -1872,9 +1942,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 4
-      notIncludeType: []
+      notIncludeType: 
       breedName: Orange Juice
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 12
         tail: 11
@@ -1885,21 +1956,22 @@ MonoBehaviour:
         ears: 11
         back: 11
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
+        body: 5
+        tail: 5
+        eyes: 28
         dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        face: 8
+        legs: 28
+        ears: 34
+        back: 27
+        star: 27
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Strawberry
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 5
         tail: 5
@@ -1922,9 +1994,10 @@ MonoBehaviour:
         back: 27
         star: 29
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Marble
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 0
         tail: 29
@@ -1947,9 +2020,10 @@ MonoBehaviour:
         back: 27
         star: 18
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Mint Tea
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 16
         tail: 18
@@ -1972,9 +2046,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 2
-      notIncludeType: []
+      notIncludeType: 
       breedName: Semiformal
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 32
@@ -1985,21 +2060,22 @@ MonoBehaviour:
         ears: 32
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 8
+        tail: 9
+        eyes: 6
+        dots: 27
+        face: 4
+        legs: 9
+        ears: 34
+        back: 9
+        star: 27
       multiplier: 3
-      notIncludeType: []
+      notIncludeType: 
       breedName: Tuxedo
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 31
         tail: 32
@@ -2022,9 +2098,10 @@ MonoBehaviour:
         back: 0
         star: 0
       multiplier: 1
-      notIncludeType: []
+      notIncludeType: 
       breedName: Uniform
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 32
         tail: 32
@@ -2035,21 +2112,22 @@ MonoBehaviour:
         ears: 32
         back: 27
         star: 27
-    - unlocked: 0
+    - unlocked: 1
       exampleColoring:
-        body: 0
-        tail: 0
-        eyes: 0
-        dots: 0
-        face: 0
-        legs: 0
-        ears: 0
-        back: 0
-        star: 0
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
       multiplier: 5
-      notIncludeType: []
+      notIncludeType: 
       breedName: Valentine
       breedDescription: 
+      userCreated: 0
       coloring:
         body: 1
         tail: 5

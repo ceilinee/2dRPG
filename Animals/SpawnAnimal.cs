@@ -10,7 +10,7 @@ public class SpawnAnimal : MonoBehaviour {
     //store gameObject reference
     public List<GameObject> animalList;
     public AnimalMood animalMood;
-    [System.Serializable] public class DictionaryOfAnimals : SerializableDictionary<string, GameObject> { }
+    [System.Serializable] public class DictionaryOfAnimals : SerializableDictionary<Type, GameObject> { }
     public DictionaryOfAnimals animalDictionary = new DictionaryOfAnimals();
     public GameObject animalModal;
     public Animals curAnimals;
@@ -31,7 +31,7 @@ public class SpawnAnimal : MonoBehaviour {
 
     void Start() {
         defineAnimalDictionary();
-        // updateAnimalMood();
+        updateAnimalMood();
         SpawnAll();
     }
     public void updateAnimalMood() {
@@ -42,7 +42,7 @@ public class SpawnAnimal : MonoBehaviour {
         AnimalMood.DictionaryOfMoodArray curarray = new AnimalMood.DictionaryOfMoodArray();
         for (int i = 0; i < 10; i++) {
             animalMood.personalityMoodDict[i] = new AnimalMood.DictionaryOfMoodArray();
-            foreach (KeyValuePair<string, GameObject> kvp in animalDictionary) {
+            foreach (KeyValuePair<Type, GameObject> kvp in animalDictionary) {
                 animalMood.personalityMoodDict[i][kvp.Key] = new AnimalMood.MoodArray();
             }
         }
@@ -50,12 +50,12 @@ public class SpawnAnimal : MonoBehaviour {
         // AssetDatabase.SaveAssets();
     }
     public void defineAnimalDictionary() {
-        animalDictionary["Llama"] = animalList[0];
-        animalDictionary["Goose"] = animalList[1];
-        animalDictionary["Rabbit"] = animalList[2];
-        animalDictionary["Pig"] = animalList[3];
-        animalDictionary["Sheep"] = animalList[4];
-        animalDictionary["Fish"] = animalList[5];
+        animalDictionary[Type.LLAMA] = animalList[0];
+        animalDictionary[Type.GOOSE] = animalList[1];
+        animalDictionary[Type.RABBIT] = animalList[2];
+        animalDictionary[Type.PIG] = animalList[3];
+        animalDictionary[Type.SHEEP] = animalList[4];
+        animalDictionary[Type.FISH] = animalList[5];
     }
     public void SpawnAll() {
         foreach (KeyValuePair<int, Animal> kvp in curAnimals.animalDict) {
@@ -153,7 +153,7 @@ public class SpawnAnimal : MonoBehaviour {
             defineAnimalDictionary();
         }
         GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
-        if (a.type == Animal.TypeFish) {
+        if (a.type == Type.FISH) {
             instance.GetComponent<FishScript>().water = water;
         }
         instance.GetComponent<GenericAnimal>().animalModal = animalModal;

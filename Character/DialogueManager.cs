@@ -52,6 +52,15 @@ public class DialogueManager : CustomMonoBehaviour {
         portraitImage.sprite = gooseMock;
         StartCoroutine(waitRead());
     }
+    IEnumerator TypeText(string message, Text text, float letterPause = 0.03f) {
+        text.text = "";
+        foreach (char letter in message.ToCharArray()) {
+            text.text += letter;
+            // if (typeSound1 && typeSound2)
+            //     SoundManager.instance.RandomizeSfx(typeSound1, typeSound2);
+            yield return new WaitForSecondsRealtime(letterPause);
+        }
+    }
     public void PauseGame() {
         Time.timeScale = 0;
     }
@@ -110,7 +119,8 @@ public class DialogueManager : CustomMonoBehaviour {
         for (int i = 0; i < choiceDialogue.sentence.Length; i++) {
             Debug.Log(choiceDialogue.sentence.Length);
             progress = false;
-            updateDialogueBox(choiceDialogue.sentence[i]);
+            StartCoroutine(TypeText(choiceDialogue.sentence[i], dialogueText));
+            // updateDialogueBox(choiceDialogue.sentence[i]);
             if (i < choiceDialogue.portrait.Length) {
                 portraitImage.sprite = goose ? gooseMock : character.GetComponent<GenericCharacter>().characterTrait.portrait[choiceDialogue.portrait[i]];
             }
@@ -127,7 +137,7 @@ public class DialogueManager : CustomMonoBehaviour {
         for (int i = 0; i < choiceResponse.sentence.Length; i++) {
             Debug.Log(hasSelectedChoice);
             progress = false;
-            updateDialogueBox(choiceResponse.sentence[i]);
+            StartCoroutine(TypeText(choiceResponse.sentence[i], dialogueText));
             if (i < choiceResponse.portrait.Length) {
                 portraitImage.sprite = goose ? gooseMock :
                 character.GetComponent<GenericCharacter>().characterTrait.portrait[choiceResponse.portrait[i]];
@@ -155,7 +165,7 @@ public class DialogueManager : CustomMonoBehaviour {
         } else {
             for (int i = 0; i < dialogue.sentence.Length; i++) {
                 progress = false;
-                updateDialogueBox(dialogue.sentence[i]);
+                StartCoroutine(TypeText(dialogue.sentence[i], dialogueText));
                 if (i < dialogue.portrait.Length) {
                     portraitImage.sprite = goose ? gooseMock : character.GetComponent<GenericCharacter>().characterTrait.portrait[curDialogue.portrait[i]];
                 }

@@ -81,11 +81,11 @@ public class AdoptionInformation : MonoBehaviour {
         star.text = animalColors.colorDictionary[request.coloring.star].ColorName;
         body.text = animalColors.colorDictionary[request.coloring.body].ColorName;
         breed.text = request.breed;
-        type.text = request.type;
-        if (type.text == "") {
+        type.text = StringExtension.ToCamelCase(request.type.ToString());
+        if (request.type == Type.NOTSELECTED) {
             type.text = "Any";
         }
-        if (breed.text == "") {
+        if (request.type == Type.NOTSELECTED) {
             breed.text = "Any";
         }
         eyes.text = animalColors.colorDictionary[request.coloring.eyes].ColorName;

@@ -176,7 +176,7 @@ public class ForestGeneration : CustomMonoBehaviour {
                 int x = Random.Range(width / 8, 7 * width / 8);
                 int y = Random.Range(height / 8, 7 * height / 8);
                 if (functions.isValidTreePlantingSpot(terrainMap, 1, x, y, 1)) {
-                    spawnWildAnimal.generateAnimal(location: functions.ReturnProperPositionV2(x, y), new List<string> { "Fish" }, rarity: (int) System.Math.Floor(forest.level * 0.2));
+                    spawnWildAnimal.generateAnimal(location: functions.ReturnProperPositionV2(x, y), new List<Type> { Type.FISH }, rarity: (int) System.Math.Floor(forest.level * 0.2));
                     break;
                 }
             }

@@ -15,7 +15,7 @@ public class AnimalMood : ScriptableObject {
     public DictionaryOfStringAndSprite reactions;
     public Sprite[] giftReactions;
     public string[] reactionIds;
-    [System.Serializable] public class DictionaryOfMoodArray : SerializableDictionary<string, MoodArray> { }
+    [System.Serializable] public class DictionaryOfMoodArray : SerializableDictionary<Type, MoodArray> { }
     [System.Serializable] public class DictionaryOfPersonalityAndAnimal : SerializableDictionary<int, DictionaryOfMoodArray> { }
     public DictionaryOfPersonalityAndAnimal personalityMoodDict = new DictionaryOfPersonalityAndAnimal();
 

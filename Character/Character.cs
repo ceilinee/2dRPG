@@ -21,7 +21,7 @@ public class Character {
     public bool adoptAnimal;
     public Sprite image;
     public Sprite[] portrait;
-    public string[] preferredAnimals;
+    public Type[] preferredAnimals;
     public string gender;
     public float multiplier = 1f;
     public string[] travelTimes;

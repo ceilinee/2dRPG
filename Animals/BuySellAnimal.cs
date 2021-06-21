@@ -86,7 +86,7 @@ public class BuySellAnimal : CustomMonoBehaviour {
             return false;
         }
         if (playerMoney.initialValue >= newAnimal.shopCost) {
-            if (newAnimal.type == Animal.TypeFish) {
+            if (newAnimal.type == Type.FISH) {
                 newAnimal.home = pondList.GetDefaultPond().locationName;
                 newAnimal.location = pondList.GetDefaultPond().value;
             }

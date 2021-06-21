@@ -35,15 +35,15 @@ public class SpawnWildAnimal : MonoBehaviour {
             }
         }
     }
-    public void generateAnimal(Square square, string type, int rarity = 0) {
+    public void generateAnimal(Square square, Type type, int rarity = 0) {
         Vector2 location = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
         generateAnimal(location, type, rarity);
     }
-    public void generateAnimal(Vector2 location, List<string> notTypes = null, int rarity = 0) {
-        string type = breedScript.GetComponent<BreedScript>().getType(notTypes);
+    public void generateAnimal(Vector2 location, List<Type> notTypes = null, int rarity = 0) {
+        Type type = breedScript.GetComponent<BreedScript>().getType(notTypes);
         generateAnimal(location, type, rarity);
     }
-    public void generateAnimal(Vector2 location, string type, int rarity = 0) {
+    public void generateAnimal(Vector2 location, Type type, int rarity = 0) {
         int random = Random.Range(0, 100);
         int id = 0;
         if (random <= 75 || rarity <= 1) {

@@ -113,10 +113,10 @@ public class VetInformation : CustomMonoBehaviour {
     }
     public void updateList() {
         Clear();
-        breedList.GetComponent<ListCreator>().type = "all";
+        breedList.GetComponent<ListCreator>().type = Type.NOTSELECTED;
         breedList.GetComponent<ListCreator>().GetNewBreedAnimals();
         breedList.GetComponent<ListCreator>().vetInformation = gameObject.GetComponent<VetInformation>();
-        curAnimalList.GetComponent<ListCreator>().type = "all";
+        curAnimalList.GetComponent<ListCreator>().type = Type.NOTSELECTED;
         curAnimalList.GetComponent<ListCreator>().GetAnimals();
         curAnimalList.GetComponent<ListCreator>().vetInformation = gameObject.GetComponent<VetInformation>();
         pharmacyList.GetComponent<ListCreator>().isShop = true;

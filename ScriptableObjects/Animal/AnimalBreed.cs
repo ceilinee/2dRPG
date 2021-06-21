@@ -11,7 +11,7 @@ public class AnimalBreed : ScriptableObject {
         public bool unlocked;
         public Animal.StringAndAnimalColor exampleColoring = new Animal.StringAndAnimalColor();
         public int multiplier;
-        public List<string> notIncludeType = null;
+        public List<Type> notIncludeType = null;
         public string breedName;
         public string breedDescription;
         public bool userCreated;
@@ -20,7 +20,7 @@ public class AnimalBreed : ScriptableObject {
     public Breed[] breedArray;
     [System.Serializable] public class DictionaryOfBreed : SerializableDictionary<string, Breed> { }
     public DictionaryOfBreed breedDictionary = new DictionaryOfBreed();
-    public Breed getRandomBreed(string notInclude = "n/a", string type = "Llama") {
+    public Breed getRandomBreed(string notInclude = "n/a", Type type = Type.NOTSELECTED) {
         System.Random random = new System.Random();
         List<Breed> breed = new List<Breed>();
         for (int i = 0; i < breedDictionary.Count; i++) {
@@ -31,7 +31,7 @@ public class AnimalBreed : ScriptableObject {
         }
         return breed.ToArray()[Random.Range(0, breed.Count)];
     }
-    public Breed getRandomBreed(int rarity, string notInclude = "n/a", string type = "Llama") {
+    public Breed getRandomBreed(int rarity, string notInclude = "n/a", Type type = Type.LLAMA) {
         System.Random random = new System.Random();
         List<Breed> breed = new List<Breed>();
         for (int i = 0; i < breedDictionary.Count; i++) {
@@ -69,7 +69,7 @@ public class AnimalBreed : ScriptableObject {
         }
         breedArray = newList.ToArray();
     }
-    public int isBreed(Animal.StringAndAnimalColor coloring, string type = "Llama") {
+    public int isBreed(Animal.StringAndAnimalColor coloring, Type type = Type.LLAMA) {
         int selected = -1;
         for (int j = 0; j < breedArray.Length; j++) {
             //go through breed array

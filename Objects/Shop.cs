@@ -24,10 +24,10 @@ public class Shop : MonoBehaviour {
         updateSpecialShopWithAllBreeds();
         UpdateShopBuildings(itemDictionary);
         // addToAnimalShop(animals);
-        if (shopAnimals.animalDict.Count < 10) {
+        if (shopAnimals.animalDict.Count < 50) {
             int count = shopAnimals.animalDict.Count;
-            for (int i = 0; i < 10 - count; i++) {
-                breedAnimal.GetComponent<BreedScript>().RandomShopAnimal(paramAnimals: shopAnimals);
+            for (int i = 0; i < 50 - count; i++) {
+                breedAnimal.GetComponent<BreedScript>().RandomShopAnimal(paramAnimals: shopAnimals, Type.FISH);
             }
         }
     }

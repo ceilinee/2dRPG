@@ -129,7 +129,7 @@ public class ShopInformation : MonoBehaviour {
         }
         if (animalListView) {
             animalListView.GetComponent<ListCreator>().isShop = true;
-            animalListView.GetComponent<ListCreator>().type = "all";
+            animalListView.GetComponent<ListCreator>().type = Type.NOTSELECTED;
             animalListView.GetComponent<ListCreator>().shopInformation = gameObject;
             animalListView.GetComponent<ListCreator>().GetAnimals();
         }
@@ -140,7 +140,7 @@ public class ShopInformation : MonoBehaviour {
                 specialBreedText.text = "I sometimes have litters of certain breeds available, check back!";
             }
             specialAnimalListView.GetComponent<ListCreator>().isShop = true;
-            specialAnimalListView.GetComponent<ListCreator>().type = "all";
+            specialAnimalListView.GetComponent<ListCreator>().type = Type.NOTSELECTED;
             specialAnimalListView.GetComponent<ListCreator>().shopInformation = gameObject;
             specialAnimalListView.GetComponent<ListCreator>().GetAnimals();
         }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class AdoptionRequest {
     public int id;
     public int charId;
-    public string type;
+    public Type type;
     public Animal.StringAndAnimalColor coloring;
     public string breed;
     public Personality personality;

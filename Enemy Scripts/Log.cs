@@ -70,8 +70,8 @@ public class Log : Enemy, IFollower {
     }
     IEnumerator caughtByGeese() {
         Debug.Log("Caught");
-        canvasController.background.SetActive(true);
-        canvasController.openCanvas();
+        canvasController.background.SetActive(false);
+        canvasController.openCanvas(false);
         dialogueManager.startGooseDialog();
         while (dialogueManager.gameObject.activeInHierarchy) {
             yield return null;

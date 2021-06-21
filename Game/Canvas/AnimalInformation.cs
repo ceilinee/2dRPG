@@ -123,7 +123,7 @@ public class AnimalInformation : CustomMonoBehaviour {
         if (animalTraitInformation.home != dropdownOptions[target.value]) {
             animalTraitInformation.home = dropdownOptions[target.value];
             var msg = "";
-            if (animalTraitInformation.type == Animal.TypeFish) {
+            if (animalTraitInformation.type == Type.FISH) {
                 VectorPoints pond = pondList.vectorPoints.Find(x => x.locationName == animalTraitInformation.home);
                 Assert.IsNotNull(pond);
                 animalTraitInformation.location = pond.value;
@@ -144,7 +144,7 @@ public class AnimalInformation : CustomMonoBehaviour {
     public void SetupHomeDropdown(Animal animalTrait) {
         dropdownOptions = new List<string>();
         int position = 0;
-        if (animalTrait.type == Animal.TypeFish) {
+        if (animalTrait.type == Type.FISH) {
             for (int i = 0; i < pondList.vectorPoints.Count; ++i) {
                 VectorPoints vector = pondList.vectorPoints[i];
                 dropdownOptions.Add(vector.locationName);
@@ -178,7 +178,7 @@ public class AnimalInformation : CustomMonoBehaviour {
         animalName.text = animalTrait.animalName;
         age.text = animalTrait.age.ToString() + " days old";
         friendship.text = getFriendship(animalTrait);
-        type.text = animalTrait.type;
+        type.text = StringExtension.ToCamelCase(animalTrait.type.ToString());
         personality.text = animalTrait.personality.personality;
         healthBar.fillAmount = animalTrait.health / 100f;
         healthPercentage.text = animalTrait.health.ToString() + "%";
@@ -303,11 +303,11 @@ public class AnimalInformation : CustomMonoBehaviour {
             playerInformation.GetComponent<PlayerInformation>().updateAbout();
         }
     }
-    public void updateList(string newType, string newGender) {
-        if (animalTraitInformation.type == "Fish") {
+    public void updateList(Type newType, string newGender) {
+        if (animalTraitInformation.type == Type.FISH) {
             followButton.SetActive(false);
         }
-        if (animalTraitInformation.type != "Fish" && !followButton.activeInHierarchy) {
+        if (animalTraitInformation.type != Type.FISH && !followButton.activeInHierarchy) {
             followButton.SetActive(true);
         }
         SetFollowText();
