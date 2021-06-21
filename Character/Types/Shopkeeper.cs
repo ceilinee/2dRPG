@@ -53,7 +53,7 @@ public class Shopkeeper : GenericCharacter {
                     selection.SetActive(true);
                 }
             } else if (!shopKeeper && !conversation && !DialogueManager.activeInHierarchy) {
-                dialogue();
+                SelectDialogue();
             }
         }
         if (Input.GetButtonDown("Cancel") && selection.activeInHierarchy) {
@@ -65,14 +65,14 @@ public class Shopkeeper : GenericCharacter {
         selection.transform.Find("Talk").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Talk";
         shopButton = selection.transform.Find("Shop").gameObject.GetComponent<Button>();
         selection.transform.Find("Shop").Find("ConfirmText").gameObject.GetComponent<Text>().text = "Shop";
-        talk.onClick.AddListener(dialogue);
+        talk.onClick.AddListener(SelectDialogue);
         shopButton.onClick.AddListener(openShop);
         subscribed = true;
     }
     public void closeSelection() {
         CanvasController.GetComponent<CanvasController>().closeAllCanvas();
-        talk.onClick.RemoveListener(dialogue);
-        shopButton.onClick.RemoveListener(openShop);
+        if (talk) { talk.onClick.RemoveListener(SelectDialogue); };
+        if (shopButton) { shopButton.onClick.RemoveListener(openShop); };
         subscribed = false;
     }
     public void openShop() {
@@ -108,7 +108,7 @@ public class Shopkeeper : GenericCharacter {
         vetMenu.character = gameObject;
         vetMenu.Open();
     }
-    public void dialogue() {
+    public void SelectDialogue() {
         if (shopKeeper) {
             closeSelection();
         }

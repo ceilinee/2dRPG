@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Alert : MonoBehaviour {
+public class Alert : CustomMonoBehaviour {
     public Text question;
     private int id;
     public Action<string, int> confirmFunction;
@@ -14,10 +14,12 @@ public class Alert : MonoBehaviour {
     public GameObject spawnAnimal;
     public AnimalColors animalColors;
     public GameObject confirmationBackground;
+    public CanvasController canvasController;
     private bool useSubmitName;
 
     void Start() {
         input.GetComponent<InputField>().onEndEdit.AddListener(displayText);
+        canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
     }
     private void displayText(string textInField) {
         print(textInField);
@@ -44,18 +46,21 @@ public class Alert : MonoBehaviour {
         }
     }
     public void submit() {
-        if (useSubmitName) {
-            submitName();
+        if (input.GetComponent<InputField>().text.Length == 0) {
+            canvasController.initiateNotification("The name you pick must be atleast 1 character!", true);
         } else {
-            string name = input.GetComponent<InputField>().text;
-            input.GetComponent<InputField>().text = " ";
-            confirmFunction(name, id);
-            if (confirmationBackground) {
-                confirmationBackground.SetActive(false);
+            if (useSubmitName) {
+                submitName();
+            } else {
+                string name = input.GetComponent<InputField>().text;
+                input.GetComponent<InputField>().text = " ";
+                confirmFunction(name, id);
+                if (confirmationBackground) {
+                    confirmationBackground.SetActive(false);
+                }
+                gameObject.SetActive(false);
             }
-            gameObject.SetActive(false);
         }
-
     }
     public void submitName() {
         string name = input.GetComponent<InputField>().text;

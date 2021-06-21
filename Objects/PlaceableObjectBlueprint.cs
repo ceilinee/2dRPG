@@ -15,14 +15,14 @@ public class PlaceableObjectBlueprint : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (!triggerEntered) {
+        if (!triggerEntered && !other.CompareTag("pet") && !other.CompareTag("placedObjectNoCollider")) {
             triggerEntered = true;
             onTriggerEnter();
         }
     }
 
     private void OnTriggerStay2D(Collider2D other) {
-        if (!triggerEntered) {
+        if (!triggerEntered && !other.CompareTag("pet") && !other.CompareTag("placedObjectNoCollider")) {
             triggerEntered = true;
             onTriggerEnter();
         }

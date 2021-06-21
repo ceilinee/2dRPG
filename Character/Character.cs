@@ -8,7 +8,7 @@ public class ItemArray {
 }
 [System.Serializable]
 public class dialogueArray {
-    public Dialogue[] array;
+    public ChoiceDialogue[] array;
 }
 
 [System.Serializable]
@@ -42,13 +42,13 @@ public class Character {
     public dialogueArray[] characterGiftReceiveSpeechArray;
     public dialogueArray[] characterExSpeechArray;
     public dialogueArray[] characterExGiftReceiveSpeechArray;
-    public Dialogue characterDivorceSpeech;
-    public Dialogue characterBreakUpSpeech;
-    public Dialogue characterMarriageSpeech;
-    public Dialogue characterDatingSpeech;
-    public Dialogue characterConfusionSpeech;
-    public Dialogue characterRejectionSpeech;
-    public Dialogue[] characterEnoughGiftSpeech;
+    public ChoiceDialogue characterDivorceSpeech;
+    public ChoiceDialogue characterBreakUpSpeech;
+    public ChoiceDialogue characterMarriageSpeech;
+    public ChoiceDialogue characterDatingSpeech;
+    public ChoiceDialogue characterConfusionSpeech;
+    public ChoiceDialogue characterRejectionSpeech;
+    public ChoiceDialogue[] characterEnoughGiftSpeech;
     public ItemArray[] giftArray;
     [System.Serializable] public class DictionaryOfItemAndInt : SerializableDictionary<Item, int> { }
     public DictionaryOfItemAndInt giftDictionary = new DictionaryOfItemAndInt();

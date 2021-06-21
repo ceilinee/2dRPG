@@ -7,7 +7,7 @@ using UnityEngine.Assertions;
 [System.Serializable]
 public class ItemList : ScriptableObject {
     // List of Item ids; use ItemDictionary to get the actual Item at runtime
-    public List<int> list;
+    public List<string> list;
 
     // Populated at runtime using `list`
     [Header("Do not populate in inspector!")]
@@ -15,17 +15,17 @@ public class ItemList : ScriptableObject {
 
     // The default list of ids; you may want to use this to store initial values
     // and transfer to `list` When a new game is created
-    public List<int> defaultList;
+    public List<string> defaultList;
 
-    public void Remove(int itemId) {
+    public void Remove(string itemId) {
         Assert.IsTrue(list.Exists(id => id == itemId));
         list.RemoveAll(id => id == itemId);
-        itemList.RemoveAll(item => item.id == itemId);
+        itemList.RemoveAll(item => item.Id == itemId);
     }
 
     // Called when a game save is deleted
     public void Clear() {
-        list = new List<int>(defaultList);
+        list = new List<string>(defaultList);
         itemList = new List<Item>();
     }
 }

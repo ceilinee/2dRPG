@@ -15,12 +15,17 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   items:
     keys:
-    - {fileID: 11400000, guid: ce66be650f16c4c658f305b924ba6878, type: 2}
+    - {fileID: 11400000, guid: 1514464593b4b4881bc90d93a47bc82b, type: 2}
+    - {fileID: 11400000, guid: d8ea161152c2b4ac490bf8319f9d56d4, type: 2}
     values:
+    - 3
     - 1
-  currentItemId: 0
-  itemInt:
-    keys: 05000000
+  currentItemId: 
+  itemString:
+    keys:
+    - Bush
+    - Barn
     values:
+    - 3
     - 1
-  itemIntList: 
+  itemStringList: []

@@ -67,4 +67,7 @@ public class PlayerGearSocket : MonoBehaviour {
     public void SetMoving(bool follow) {
         MyAnimator.SetBool("moving", follow);
     }
+    public void SetAttack(bool attack) {
+        MyAnimator.SetBool("attacking", attack);
+    }
 }

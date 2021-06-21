@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.Assertions;
 
-public class CharacterCreation : MonoBehaviour {
+public class CharacterCreation : CustomMonoBehaviour {
     public GameObject input;
     private Action onSubmit;
     public BodyPartManager bodyPartManager;
@@ -54,7 +54,9 @@ public class CharacterCreation : MonoBehaviour {
     public List<Image> skinColors;
 
     public PlayerDesign playerDesign;
+    private Notification notification;
 
+    private CanvasController canvasController;
     void Awake() {
         Assert.IsTrue(bodyPartManager.hairStyles.Count > 0, "Must provide at least one hairstyle");
         Assert.IsTrue(bodyPartManager.outfits.Count > 0, "Must provide at least one outfit");
@@ -83,7 +85,10 @@ public class CharacterCreation : MonoBehaviour {
         RenderEyes();
         RenderSkin();
     }
-
+    void Start() {
+        notification = centralController.Get("Notification").GetComponent<Notification>();
+        canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
+    }
     public void Open(Action onSubmit) {
         this.onSubmit = onSubmit;
         gameObject.SetActive(true);
@@ -258,17 +263,29 @@ public class CharacterCreation : MonoBehaviour {
 
     public void Save() {
         string name = input.GetComponent<InputField>().text;
-        input.GetComponent<InputField>().text = " ";
-        player.playerName = name;
-        player.setAppearance(
-            bodyPartManager.hairStyles[currHairstyleIdx].id,
-            currHairColorIdx,
-            bodyPartManager.outfits[currOutfitIdx].id,
-            bodyPartManager.eyes[currEyesIdx].id,
-            currEyesColorIdx,
-            currSkinColorIdx
-        );
-        gameObject.SetActive(false);
-        onSubmit();
+        if (name.Length == 0) {
+            notification.initiateNotification("Your name has to be atleast one character!", true);
+        } else {
+            input.GetComponent<InputField>().text = " ";
+            player.playerName = name;
+            player.setAppearance(
+                bodyPartManager.hairStyles[currHairstyleIdx].id,
+                currHairColorIdx,
+                bodyPartManager.outfits[currOutfitIdx].id,
+                bodyPartManager.eyes[currEyesIdx].id,
+                currEyesColorIdx,
+                currSkinColorIdx
+            );
+            gameObject.SetActive(false);
+            onSubmit();
+        }
+    }
+    void Update() {
+        if (Input.GetButtonDown("Cancel")) {
+            Time.timeScale = 1;
+            gameObject.SetActive(false);
+            canvasController.GetComponent<CanvasController>().closeCanvas();
+            Debug.Log("close");
+        }
     }
 }

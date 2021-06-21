@@ -34,7 +34,7 @@ public class BuildingController : CustomMonoBehaviour {
     private ItemDictionary itemDictionary;
     private AstarPath astarPath;
 
-    private PlacementController placementController;
+    private BuildingPlacementController placementController;
 
     // `sceneInfo` contains the scene info for building `building`
     // e.g.: if you have placed 2 barns, they will share the same sceneInfo
@@ -60,7 +60,7 @@ public class BuildingController : CustomMonoBehaviour {
     }
 
     void Start() {
-        placementController = centralController.Get("PlacementController").GetComponent<PlacementController>();
+        placementController = centralController.Get("PlacementController").GetComponent<BuildingPlacementController>();
         buildingsUnderConstruction = new List<BuildingUnderConstruction>();
         astarPath = centralController.Get("A*").GetComponent<AstarPath>();
         if (LoadSavedPlacedBuildings()) {
@@ -112,7 +112,7 @@ public class BuildingController : CustomMonoBehaviour {
         BuildingItem item, GameObject buildingBlueprintInstance, GameObject buildingPrefab) {
         Timestamp completionTime = curTime.DaysFromNow(2);
         var newPlacedBuilding = placedBuildings.Add(
-            item.id, buildingBlueprintInstance.transform.position, completionTime, item.sceneInfo.id);
+            item.Id, buildingBlueprintInstance.transform.position, completionTime, item.sceneInfo.id);
         buildingsUnderConstruction.Add(
             new BuildingUnderConstruction(
                 newPlacedBuilding.buildingId,

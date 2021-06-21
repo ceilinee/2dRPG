@@ -18,7 +18,7 @@ public class Item : ScriptableObject {
     }
 
     public string itemName;
-    public int id;
+    public string Id { get => itemName; }
 
     // Readonly property that gets the sprite in its default orientation
     public Sprite ItemSprite {

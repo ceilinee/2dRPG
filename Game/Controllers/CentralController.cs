@@ -50,10 +50,28 @@ public class CentralController : CustomMonoBehaviour {
         SetCentralController(this);
 
         areaObjects = new List<GameObjectAndMaxMin> { townObjects, farmObjects, beachObjects, forestObjects, town2Objects, suburbObjects };
+        GameObject[] managers = GameObject.FindGameObjectsWithTag("manager");
+        GameObject[] canvas = GameObject.FindGameObjectsWithTag("canvas");
+        GameObject[] canvasDontClose = GameObject.FindGameObjectsWithTag("canvasDontClose");
         foreach (GameObject gameObject in listGameObject) {
             Assert.IsNotNull(gameObject, "Null object in list game object, please double check the inspector!");
             Assert.IsFalse(centralDictionary.ContainsKey(gameObject.name), "Duplicate Key");
             centralDictionary[gameObject.name] = gameObject;
+        }
+        foreach (GameObject gameObject in managers) {
+            if (!centralDictionary.ContainsKey(gameObject.name)) {
+                centralDictionary[gameObject.name] = gameObject;
+            }
+        }
+        foreach (GameObject gameObject in canvas) {
+            if (!centralDictionary.ContainsKey(gameObject.name)) {
+                centralDictionary[gameObject.name] = gameObject;
+            }
+        }
+        foreach (GameObject gameObject in canvasDontClose) {
+            if (!centralDictionary.ContainsKey(gameObject.name)) {
+                centralDictionary[gameObject.name] = gameObject;
+            }
         }
         // FindGameObjectsWithTag only returns Game Objects that are active
         GameObject[] allObjects = GameObject.FindGameObjectsWithTag("decoration");

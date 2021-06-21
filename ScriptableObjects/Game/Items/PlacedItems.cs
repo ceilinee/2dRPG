@@ -5,12 +5,12 @@ using UnityEngine.Assertions;
 
 [System.Serializable]
 public class PlacedItem {
-    public PlacedItem(int itemId, Vector2 itemPosition, Direction direction) {
+    public PlacedItem(string itemId, Vector2 itemPosition, Direction direction) {
         this.itemId = itemId;
         this.itemPosition = itemPosition;
         this.direction = direction;
     }
-    public int itemId;
+    public string itemId;
     public Vector2 itemPosition;
 
     public Direction direction;
@@ -43,7 +43,7 @@ public class PlacedItems : ScriptableObject {
     }
 
     /// Returns the newly created PlacedItem instance
-    public PlacedItem Add(string sceneName, int itemId, Vector2 itemPosition, Direction direction) {
+    public PlacedItem Add(string sceneName, string itemId, Vector2 itemPosition, Direction direction) {
         if (!sceneToPlacedItems.ContainsKey(sceneName)) {
             sceneToPlacedItems[sceneName] = new ListPlacedItem();
         }

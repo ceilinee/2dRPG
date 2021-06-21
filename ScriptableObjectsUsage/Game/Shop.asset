@@ -27,30 +27,52 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d9b4ff9254ea94914b559fc52d3b987e, type: 2}
     - {fileID: 11400000, guid: 43bfad8db6a2f44a9b41240e31b5e175, type: 2}
     values:
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
     - 40
     - 40
   currentItemId: 0
-  itemInt:
-    keys: 050000000400000007000000030000000600000001000000020000000900000008000000650000001c000000
+  itemString:
+    keys:
+    - Carrot
+    - Candy
+    - Pineapple
+    - Bush
+    - Hay
+    - Blueberries
+    - Blueberry Pie
+    - Watermelon
+    - Strawberries
+    - Pink Flowers
+    - Purple Heart Tile
     values:
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
-    - 21
     - 40
     - 40
-  itemIntList: 650000001c000000
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+    - 40
+  itemStringList:
+  - Carrot
+  - Candy
+  - Pineapple
+  - Bush
+  - Hay
+  - Blueberries
+  - Blueberry Pie
+  - Watermelon
+  - Strawberries
+  - Pink Flowers
+  - Purple Heart Tile

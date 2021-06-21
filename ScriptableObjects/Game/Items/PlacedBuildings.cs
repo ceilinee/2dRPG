@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 [System.Serializable]
 public class PlacedBuilding {
-    public PlacedBuilding(int buildingId, int buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
+    public PlacedBuilding(int buildingId, string buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
         this.buildingId = buildingId;
         this.buildingItemId = buildingItemId;
         this.itemPosition = itemPosition;
@@ -17,7 +17,7 @@ public class PlacedBuilding {
     // Unique id for a placed building
     public int buildingId;
     // Multiple placed buildings might share teh same BuildingItem instance
-    public int buildingItemId;
+    public string buildingItemId;
     public Vector2 itemPosition;
 
     public Timestamp completionTime;
@@ -46,7 +46,7 @@ public class PlacedBuildings : ScriptableObject {
     // buildings[buildingEnteredIdx] is the building we are currently in
     // -1 means we are not in a building
     public int buildingEnteredIdx;
-    public PlacedBuilding Add(int buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
+    public PlacedBuilding Add(string buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
         // Each placed building is assigned an id, which is equal to the idx of the building in `buildings`
         var newPlacedBuilding = new PlacedBuilding(buildings.Count, buildingItemId, itemPosition, completionTime, sceneInfoId);
         buildings.Add(newPlacedBuilding);

@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildings:
   - buildingId: 0
-    buildingItemId: 22
-    itemPosition: {x: 25, y: 6}
+    buildingItemId: Barn
+    itemPosition: {x: -16, y: 3}
     completionTime:
-      time: 33600.39
-      days: 2
+      time: 66001.35
+      days: 5
     completed: 1
     sceneInfoId: 1
+    upgrade: 0
   - buildingId: 1
-    buildingItemId: 22
-    itemPosition: {x: 17, y: 8}
+    buildingItemId: Barn
+    itemPosition: {x: 21, y: -4}
     completionTime:
-      time: 35400.73
-      days: 2
+      time: 67203.19
+      days: 5
     completed: 1
     sceneInfoId: 1
-  buildingEnteredIdx: -1
+    upgrade: 0
+  buildingEnteredIdx: 0

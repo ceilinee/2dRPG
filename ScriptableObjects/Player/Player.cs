@@ -32,7 +32,7 @@ public class Player : ScriptableObject {
     public List<int> dailyTalkedTo;
     public List<int> dailyGiftedTo;
     public List<int> dailyScenesVisited;
-    public List<int> dailyCollected;
+    public List<string> dailyCollected;
     public List<int> childrenCharId;
     public Appearance appearance;
 
@@ -72,7 +72,7 @@ public class Player : ScriptableObject {
         dailyQuest = 0;
         earnedMoney = 0;
         dailyTalkedTo = new List<int>();
-        dailyCollected = new List<int>();
+        dailyCollected = new List<string>();
         dailyGiftedTo = new List<int>();
         dailyScenesVisited = new List<int>();
     }

@@ -8,16 +8,18 @@ using UnityEngine.Assertions;
 [System.Serializable]
 public class ItemDictionary : ScriptableObject {
     public List<Item> itemArray;
-    [System.Serializable] public class DictionaryOfItem : SerializableDictionary<int, Item> { }
-    public DictionaryOfItem itemDict = new DictionaryOfItem();
+    [System.Serializable] public class DictionaryOfItem : SerializableDictionary<string, Item> { }
+    public DictionaryOfItem itemDict;
 
     public void updateItemDict() {
+        itemDict = new DictionaryOfItem();
         foreach (Item item in itemArray) {
-            itemDict[item.id] = item;
+            Assert.IsFalse(itemDict.ContainsKey(item.Id), "No two items can have the same id!");
+            itemDict[item.Id] = item;
         }
     }
 
-    public Item Get(int itemId) {
+    public Item Get(string itemId) {
         Assert.IsTrue(itemDict.ContainsKey(itemId), "Missing Item: " + itemId);
         return itemDict[itemId];
     }

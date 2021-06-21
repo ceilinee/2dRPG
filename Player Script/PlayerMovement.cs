@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
     private const int initialChangeY = -1;
 
     [SerializeField]
-    private PlacementController placementController;
+    private PlacementManager placementManager;
 
     private bool holding;
 
@@ -101,10 +101,16 @@ public class PlayerMovement : MonoBehaviour {
     }
     private IEnumerator AttackCo() {
         animator.SetBool("attacking", true);
+        foreach (PlayerGearSocket socket in gearSockets) {
+            socket.SetAttack(true);
+        }
         currentState = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(0.30f);
+        foreach (PlayerGearSocket socket in gearSockets) {
+            socket.SetAttack(false);
+        }
         currentState = PlayerState.walk;
     }
     public void setHold() {
@@ -174,11 +180,13 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    // Called by a signal listener
     public void BeWithinRangeOfInteractable() {
-        placementController.PausePlacement();
+        placementManager.PausePlacement();
     }
 
+    // Called by a signal listener
     public void BeOutsideRangeOfInteractable() {
-        placementController.UnpausePlacement();
+        placementManager.UnpausePlacement();
     }
 }

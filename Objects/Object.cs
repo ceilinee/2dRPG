@@ -25,7 +25,7 @@ public class Object : CustomMonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
+        if (Input.GetKeyDown("f") && playerInRange) {
             buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
             placedItems.RemoveIfExists(ActiveScene().name, placedItem);
             Destroy(gameObject);

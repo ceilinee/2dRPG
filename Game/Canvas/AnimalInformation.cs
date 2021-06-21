@@ -62,8 +62,13 @@ public class AnimalInformation : CustomMonoBehaviour {
         SpawnAnimal = centralController.Get("SpawnAnimal");
     }
     private void saveName(string textInField) {
-        curAnimals.animalDict[animalTraitInformation.id].animalName = textInField;
-        CanvasController.GetComponent<CanvasController>().initiateNotification("Your pet's name has been changed to " + textInField + "!", true);
+        if (textInField.Length == 0) {
+            animalName.text = animalTraitInformation.animalName;
+            CanvasController.GetComponent<CanvasController>().initiateNotification("Your pet's name must be atleast one character!", true);
+        } else {
+            curAnimals.animalDict[animalTraitInformation.id].animalName = textInField;
+            CanvasController.GetComponent<CanvasController>().initiateNotification("Your pet's name has been changed to " + textInField + "!", true);
+        }
     }
     public void Breed(Animal selectedAnimal) {
         breedAnimal.GetComponent<BreedScript>().BreedAnimals(animalTraitInformation, selectedAnimal);

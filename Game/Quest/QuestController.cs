@@ -105,7 +105,7 @@ public class QuestController : MonoBehaviour {
                 break;
             case QuestType.collectItem:
                 List<Item> items = SpawnObject.GetComponent<SpawnObject>().items;
-                List<int> selectedItems = new List<int>();
+                List<string> selectedItems = new List<string>();
                 int count = Random.Range(1, 4);
                 newQuest.reward = 50 * count;
                 newQuest.reputationPoints = 5 * count;
@@ -113,7 +113,7 @@ public class QuestController : MonoBehaviour {
                 string itemString = "";
                 for (int i = 0; i < count; i++) {
                     index = random.Next(items.Count);
-                    selectedItems.Add(items[index].id);
+                    selectedItems.Add(items[index].Id);
                     itemString += items[index].itemName;
                     if (i < count - 1) {
                         itemString += ", ";
@@ -148,7 +148,7 @@ public class QuestController : MonoBehaviour {
                 index = random.Next(items.Count);
                 newQuest.reward = 10 + index;
                 newQuest.reputationPoints = 1;
-                newQuest.giftQuestItemId = items[index].id;
+                newQuest.giftQuestItemId = items[index].Id;
                 newQuest.message = string.Format(charMsg.message, selected.name);
                 break;
             case QuestType.giftAnimal:

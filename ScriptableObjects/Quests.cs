@@ -20,8 +20,8 @@ public class Quest {
     public QuestType type;
     public int[] talkQuestCharId;
     public int giftQuestCharId;
-    public int giftQuestItemId;
-    public int[] collectQuestItemId;
+    public string giftQuestItemId;
+    public string[] collectQuestItemId;
     public int adoptionCount;
     public int giftAnimalCount;
     public int[] animalId;

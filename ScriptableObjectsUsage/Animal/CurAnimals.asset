@@ -13,52 +13,6 @@ MonoBehaviour:
   m_Name: CurAnimals
   m_EditorClassIdentifier: 
   animalDict:
-    keys: ff1e0836
-    values:
-    - animalName: Baby
-      type: Fish
-      momId: 0
-      dadId: 0
-      breed: Masked
-      health: 97
-      sold: 0
-      id: 906501887
-      adoption: 0
-      location: {x: 33.076817, y: 5.28082}
-      target: {x: 0, y: 0}
-      age: 19
-      personality:
-        personality: Loyal
-        multiplier: 1
-        probability: 10
-        id: 3
-      scene: MainScene
-      mood: Feeling content
-      moodId: 2
-      follow: 0
-      characterOwned: 0
-      wild: 0
-      charId: 0
-      gender: Male
-      home: Farm Waterfall Pond
-      cost: 168
-      shopCost: 336
-      presentsDaily: 0
-      pregnant: 0
-      deliveryDate: 0
-      babyId: 
-      love: -62
-      spawnAnimal: {fileID: 0}
-      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
-      walked: 0
-      coloring:
-        body: 12
-        tail: 12
-        eyes: 28
-        dots: 27
-        face: 11
-        legs: 27
-        ears: 34
-        back: 27
-        star: 27
+    keys: 
+    values: []
   breedName: 

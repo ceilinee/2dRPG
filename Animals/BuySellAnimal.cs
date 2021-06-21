@@ -165,7 +165,7 @@ public class BuySellAnimal : CustomMonoBehaviour {
         playerInventory.Additem(item);
         itemAlert.GetComponent<ItemAlert>().startAlert(item);
         if (!item.pickedUpAtLeastOnce) {
-            player.dailyCollected.Add(item.id);
+            player.dailyCollected.Add(item.Id);
             item.pickedUpAtLeastOnce = true;
         }
     }

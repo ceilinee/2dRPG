@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [CreateAssetMenu]
 [System.Serializable]
@@ -8,15 +9,15 @@ public class Inventory : ScriptableObject {
     public Item currentItem = null;
     [System.Serializable] public class DictionaryOfItems : SerializableDictionary<Item, double> { }
     public DictionaryOfItems items = new DictionaryOfItems();
-    public int currentItemId;
-    [System.Serializable] public class DictionaryOfInt : SerializableDictionary<int, double> { }
-    public DictionaryOfInt itemInt = new DictionaryOfInt();
+    public string currentItemId;
+    [System.Serializable] public class DictionaryOfString : SerializableDictionary<string, double> { }
+    public DictionaryOfString itemString = new DictionaryOfString();
     //for adding items easily
-    public List<int> itemIntList;
+    public List<string> itemStringList;
 
-    public double GetItemCount(int id = -1, string itemName = "") {
-        if (id != -1 && itemInt.ContainsKey(id)) {
-            return itemInt[id];
+    public double GetItemCount(string id = "", string itemName = "") {
+        if (id != "" && itemString.ContainsKey(id)) {
+            return itemString[id];
         }
         foreach (KeyValuePair<Item, double> kvp in items) {
             if (kvp.Key.itemName == itemName) {
@@ -25,25 +26,26 @@ public class Inventory : ScriptableObject {
         }
         return 0;
     }
-    public Item GetItem(int id = -1, string itemName = "") {
+    public Item GetItem(string id = "", string itemName = "") {
         foreach (KeyValuePair<Item, double> kvp in items) {
-            if (kvp.Key.itemName == itemName || kvp.Key.id == id) {
+            if (kvp.Key.itemName == itemName || kvp.Key.Id == id) {
                 return kvp.Key;
             }
         }
         return null;
     }
     public void UpdateInventory(ItemDictionary itemDictionary) {
-        foreach (KeyValuePair<int, double> kvp in itemInt) {
+        foreach (KeyValuePair<string, double> kvp in itemString) {
             if (itemDictionary.itemDict.ContainsKey(kvp.Key)) {
                 items[itemDictionary.itemDict[kvp.Key]] = kvp.Value;
             }
         }
-        foreach (int id in itemIntList) {
-            if (itemDictionary.itemDict.ContainsKey(id) && !itemInt.ContainsKey(id)) {
-                items[itemDictionary.itemDict[id]] = 40;
-                itemInt[id] = 40;
-            }
+        foreach (string id in itemStringList) {
+            Assert.IsTrue(
+                itemDictionary.itemDict.ContainsKey(id),
+                $"Item {id} cannot be added to inventory properly");
+            items[itemDictionary.itemDict[id]] = 40;
+            itemString[id] = 40;
         }
         if (itemDictionary.itemDict.ContainsKey(currentItemId)) {
             currentItem = itemDictionary.itemDict[currentItemId];
@@ -61,10 +63,10 @@ public class Inventory : ScriptableObject {
         //is the item a key?
         if (!items.ContainsKey(itemToAdd)) {
             items[itemToAdd] = 1;
-            itemInt[itemToAdd.id] = 1;
+            itemString[itemToAdd.Id] = 1;
         } else {
             items[itemToAdd] += 1;
-            itemInt[itemToAdd.id] += 1;
+            itemString[itemToAdd.Id] += 1;
         }
     }
     public void AddInventory(Inventory inventory) {
@@ -72,40 +74,40 @@ public class Inventory : ScriptableObject {
             Item itemToAdd = kvp.Key;
             if (!items.ContainsKey(itemToAdd)) {
                 items[itemToAdd] = kvp.Value;
-                itemInt[itemToAdd.id] = kvp.Value;
+                itemString[itemToAdd.Id] = kvp.Value;
             } else {
                 items[itemToAdd] += kvp.Value;
-                itemInt[itemToAdd.id] += kvp.Value;
+                itemString[itemToAdd.Id] += kvp.Value;
             }
         }
     }
     public void Clear() {
         items = new DictionaryOfItems();
-        itemInt = new DictionaryOfInt();
+        itemString = new DictionaryOfString();
         currentItem = null;
-        currentItemId = 0;
+        currentItemId = "";
     }
     public void Removeitem(Item itemToAdd) {
         //is the item a key?
         if (items[itemToAdd] == 1) {
             items.Remove(itemToAdd);
-            itemInt.Remove(itemToAdd.id);
+            itemString.Remove(itemToAdd.Id);
             if (currentItem == itemToAdd) {
                 UnsetCurrentItem();
             }
         } else if (items[itemToAdd] > 1) {
             items[itemToAdd] -= 1;
-            itemInt[itemToAdd.id] -= 1;
+            itemString[itemToAdd.Id] -= 1;
         }
     }
     public void UnsetCurrentItem() {
         //is the item a key?
         currentItem = null;
-        currentItemId = 0;
+        currentItemId = "";
     }
     public void RemoveAllItem(Item item) {
         items.Remove(item);
-        itemInt.Remove(item.id);
+        itemString.Remove(item.Id);
         if (currentItem == item) {
             UnsetCurrentItem();
         }

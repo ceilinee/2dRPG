@@ -29,7 +29,7 @@ public class PlayerInformation : MonoBehaviour {
     public PlayerDesignComplex playerDesign;
 
     [SerializeField]
-    private PlacementController placementController;
+    private PlacementManager placementManager;
 
     void Update() {
         if (Input.GetButtonDown("Cancel")) {
@@ -41,7 +41,7 @@ public class PlayerInformation : MonoBehaviour {
                 CanvasController.GetComponent<CanvasController>().closeCanvas();
             }
             if (playerInventory.currentItem != null) {
-                placementController.BeginPlacement(playerInventory.currentItem.id);
+                placementManager.BeginPlacement(playerInventory.currentItem);
             }
         }
         if (gameObject.activeInHierarchy && Time.timeScale != 0) {
@@ -103,10 +103,10 @@ public class PlayerInformation : MonoBehaviour {
     public void selectItem(Item item, GameObject itemObject) {
         if (playerInventory.currentItem == item) {
             DeselectCurrentItem();
-            placementController.EndPlacement();
+            placementManager.EndPlacement();
         } else {
             playerInventory.currentItem = item;
-            playerInventory.currentItemId = item.id;
+            playerInventory.currentItemId = item.Id;
             if (currentlyHeldObject != null) {
                 currentlyHeldObject.GetComponent<ItemDetails>().SetUnselected();
             }

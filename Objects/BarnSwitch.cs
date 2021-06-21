@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarnSwitch : MonoBehaviour {
+public class BarnSwitch : CustomMonoBehaviour {
     public SceneInfo barnInfo;
     public SpriteRenderer barn;
     public SpriteRenderer barnSwitch;
@@ -19,6 +19,7 @@ public class BarnSwitch : MonoBehaviour {
     public GameObject animalList;
     public Animals newAnimals;
     public GameObject confirmationModal;
+    private CanvasController canvasController;
 
     [SerializeField]
     private PlacedBuildings placedBuildings;
@@ -33,6 +34,7 @@ public class BarnSwitch : MonoBehaviour {
         } else {
             closeBarn();
         }
+        canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
     }
     public void closeBarn() {
         barnInfo.open = false;
@@ -64,7 +66,7 @@ public class BarnSwitch : MonoBehaviour {
         // }
         if (Input.GetKeyUp(KeyCode.Space) && playerInRange) {
             //call animals home
-            if (!barnInfo.open) {
+            if (!barnInfo.open && canvasController.openCanvas(openBackground: false)) {
                 Time.timeScale = 0;
                 confirmationModal.GetComponent<Confirmation>().initiateConfirmation(
                 "Call the animals currently inside " + barnInfo.sceneName + " out?",

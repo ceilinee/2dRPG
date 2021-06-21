@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour {
-    public Item[] items;
     public Inventory playerInventory;
     public Inventory vetShop;
     public ItemDictionary itemDictionary;
@@ -15,11 +14,13 @@ public class Shop : MonoBehaviour {
     public ItemList shopBuildings;
     public GameObject breedAnimal;
 
-    // Start is called before the first frame update
-    void Start() {
+
+    private void Awake() {
         itemDictionary.updateItemDict();
+    }
+
+    void Start() {
         UpdateAllInventory();
-        addToShop(items);
         updateSpecialShopWithAllBreeds();
         UpdateShopBuildings(itemDictionary);
         // addToAnimalShop(animals);
@@ -30,6 +31,7 @@ public class Shop : MonoBehaviour {
             }
         }
     }
+
     public void UpdateAllInventory() {
         playerInventory.UpdateInventory(itemDictionary);
         shop.UpdateInventory(itemDictionary);
@@ -39,7 +41,7 @@ public class Shop : MonoBehaviour {
     }
     public void UpdateShopBuildings(ItemDictionary itemDictionary) {
         shopBuildings.itemList.Clear();
-        foreach (int itemId in shopBuildings.list) {
+        foreach (string itemId in shopBuildings.list) {
             shopBuildings.itemList.Add(itemDictionary.Get(itemId));
         }
     }
@@ -75,19 +77,9 @@ public class Shop : MonoBehaviour {
         }
     }
 
-    public void addToShop(Item[] newItems) {
-        for (int i = 0; i < newItems.Length; i++) {
-            shop.Additem(newItems[i]);
-        }
-    }
-
     public void addToAnimalShop(Animal[] newAnimals) {
         for (int i = 0; i < newAnimals.Length; i++) {
             shopAnimals.addExistingAnimal(newAnimals[i]);
         }
-    }
-    // Update is called once per frame
-    void Update() {
-
     }
 }

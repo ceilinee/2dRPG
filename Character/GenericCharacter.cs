@@ -113,10 +113,8 @@ public class GenericCharacter : CustomMonoBehaviour {
         if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
             CanvasController.GetComponent<CanvasController>().background.SetActive(false);
             conversation = true;
-            StartDialogue(characterTrait.characterSpeechArray[characterTrait.friendshipScore / 100]
-            .array[UnityEngine.Random.Range(0, characterTrait.characterSpeechArray[characterTrait.friendshipScore / 100]
-            .array
-            .Length)]);
+            dialogueArray dialogueArray = characterTrait.characterSpeechArray[characterTrait.friendshipScore / 100];
+            StartDialogue(dialogueArray.array[UnityEngine.Random.Range(0, dialogueArray.array.Length)]);
             increaseFriendship(3);
         }
     }

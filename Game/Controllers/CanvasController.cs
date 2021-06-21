@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CanvasController : CustomMonoBehaviour {
+    public GameObject canvas;
     public GameObject topBar;
     public GameObject playerMenu;
     public GameObject dayController;
@@ -23,12 +24,12 @@ public class CanvasController : CustomMonoBehaviour {
     // public GameObject currentlyOpen;
     public Queue openedCanvas;
     public GameObject vetMenu;
-
     // Start is called before the first frame update
     void Start() {
         if (centralController.centralDictionary.ContainsKey("VetMenu")) {
             vetMenu = centralController.centralDictionary["VetMenu"];
         }
+        canvas = centralController.Get("Canvas");
     }
 
     // Update is called once per frame
@@ -40,11 +41,11 @@ public class CanvasController : CustomMonoBehaviour {
             gameObject.SetActive(false);
         }
     }
-    public bool openCanvas() {
+    public bool openCanvas(bool openBackground = true) {
         if (!open) {
             gameObject.SetActive(true);
             closeAllCanvas();
-            if (background) {
+            if (background && openBackground) {
                 background.SetActive(true);
             }
             open = true;
@@ -138,53 +139,12 @@ public class CanvasController : CustomMonoBehaviour {
     //   // }
     // }
     public bool closeAllCanvas() {
-        if (playerMenu) {
-            playerMenu.SetActive(false);
-        }
-        if (animalMenu) {
-            animalMenu.SetActive(false);
-        }
-        if (dialogBox) {
-            dialogBox.SetActive(false);
-        }
-        if (dayController) {
-            dayController.SetActive(false);
-        }
-        if (itemShop) {
-            itemShop.SetActive(false);
-        }
-        if (adoptionInformation) {
-            adoptionInformation.SetActive(false);
-        }
-        if (calendarInformation) {
-            calendarInformation.SetActive(false);
-        }
-        if (buildingShop) {
-            buildingShop.SetActive(false);
-        }
-        if (birthAlert) {
-            birthAlert.SetActive(false);
-        }
-        if (mailInformation) {
-            mailInformation.SetActive(false);
-        }
-        if (confirmation) {
-            confirmation.SetActive(false);
-        }
-        if (background) {
-            background.SetActive(false);
-        }
-        if (selection) {
-            selection.SetActive(false);
-        }
-        if (notification) {
-            notification.SetActive(false);
-        }
-        if (shop) {
-            shop.SetActive(false);
-        }
-        if (vetMenu) {
-            vetMenu.SetActive(false);
+        if (canvas) {
+            foreach (Transform child in canvas.transform) {
+                if (child.gameObject.activeInHierarchy && !child.CompareTag("canvasDontClose")) {
+                    child.gameObject.SetActive(false);
+                }
+            }
         }
         open = false;
         return true;
