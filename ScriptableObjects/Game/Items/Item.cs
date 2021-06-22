@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
+[System.Serializable]
+public enum ItemPrefabType {
+    Object,
+    Barn,
+    Tree,
+    GardenLightWhite
+}
+
 [CreateAssetMenu]
 [System.Serializable]
-
 public class Item : ScriptableObject {
     [System.Serializable]
     public struct Sprites {
@@ -46,6 +53,10 @@ public class Item : ScriptableObject {
     // Once a user picks up this item for the first time, this will be set to true
     // and will never change afterwords
     public bool pickedUpAtLeastOnce;
+
+    // See SO instance ItemPrefabsByType
+    [Tooltip("Describes the corresponding game object")]
+    public ItemPrefabType prefabType;
 
     // Given sprite, return the direction the sprite is associated with
     // Every item has 4 different sprites, representing the 4 different orientations

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
-// using UnityEditor;
+using UnityEditor;
 
 public class SpawnAnimal : MonoBehaviour {
     //store gameObject reference
@@ -46,8 +46,8 @@ public class SpawnAnimal : MonoBehaviour {
                 animalMood.personalityMoodDict[i][kvp.Key] = new AnimalMood.MoodArray();
             }
         }
-        // EditorUtility.SetDirty(animalMood);
-        // AssetDatabase.SaveAssets();
+        EditorUtility.SetDirty(animalMood);
+        AssetDatabase.SaveAssets();
     }
     public void defineAnimalDictionary() {
         animalDictionary[Type.LLAMA] = animalList[0];

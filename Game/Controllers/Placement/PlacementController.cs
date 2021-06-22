@@ -191,14 +191,20 @@ public abstract class PlacementController : CustomMonoBehaviour {
 
     protected void ConvertToBlueprint(GameObject go) {
         var components = go.GetComponentsInChildren<Component>();
-        // Strip all components, except for the transform and sprite renderer
+        var hasCollider = false;
+        // Strip all components, except for the transform, sprite renderer, and collider
         foreach (Component c in components) {
-            if (!(c is SpriteRenderer) && !(c is Transform)) {
+            if (!(c is SpriteRenderer) && !(c is Transform) && !(c is Collider2D)) {
                 Destroy(c);
+            } else if (c is Collider2D) {
+                hasCollider = true;
+                (c as Collider2D).isTrigger = true;
             }
         }
-        go.AddComponent<PolygonCollider2D>();
-        go.GetComponent<PolygonCollider2D>().isTrigger = true;
+        if (!hasCollider) {
+            go.AddComponent<PolygonCollider2D>();
+            go.GetComponent<PolygonCollider2D>().isTrigger = true;
+        }
         go.AddComponent<Rigidbody2D>();
         go.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 

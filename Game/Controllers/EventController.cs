@@ -30,6 +30,7 @@ public class EventController : MonoBehaviour {
         birthModal.GetComponent<Alert>().initiateNameAlert("Your child arrived! What should the baby be called?", saveChildNameFunction, true);
         void saveChildNameFunction(string name) {
             child.name = name;
+            child.unborn = false;
             CanvasController.GetComponent<CanvasController>().closeCanvas();
         }
     }

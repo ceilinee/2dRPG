@@ -36,8 +36,6 @@ public class AccountListCreator : MonoBehaviour {
     public GameObject confirmationModal;
     public GameObject confirmationBackground;
 
-    public PlacedItems placedItems;
-
     public PlacedBuildings placedBuildings;
 
     // Start is called before the first frame update
@@ -80,8 +78,9 @@ public class AccountListCreator : MonoBehaviour {
         playerQuests.Clear();
         availableQuests.Clear();
         animalBreed.Clear();
-        placedItems.Clear();
         placedBuildings.Clear();
+
+        gameSaveManager.GetComponent<GameSaveManager>().ClearSOState();
     }
     public void selectGame0() {
         if (accounts.accountDict.ContainsKey(0)) {
@@ -129,7 +128,6 @@ public class AccountListCreator : MonoBehaviour {
     }
     public void selectGame2() {
         if (accounts.accountDict.ContainsKey(2)) {
-            clearObjects();
             accounts.selectedId = 2;
             gameSaveManager.GetComponent<GameSaveManager>().LoadScriptables();
             Loader.Load(Loader.Scene.MainScene);

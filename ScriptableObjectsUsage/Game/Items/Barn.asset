@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Barn
   m_EditorClassIdentifier: 
   itemName: Barn
-  id: 22
   sprites:
     down: {fileID: -6147083375057536626, guid: 02fb37135019c4fa4b1973fbbfccf66b, type: 3}
     right: {fileID: -6147083375057536626, guid: 02fb37135019c4fa4b1973fbbfccf66b,
@@ -31,5 +30,6 @@ MonoBehaviour:
   spawnLocations: []
   spawnProbability: 
   pickedUpAtLeastOnce: 0
+  prefabType: 1
   sceneInfo: {fileID: 11400000, guid: 6a5db0e69c3af4ba4afd8cb0363eb485, type: 2}
   itemHeldSprite: {fileID: 21300000, guid: 7cea50ef44e5d4d688ec1d9bc07f07f5, type: 3}

@@ -14,20 +14,25 @@ public class PlacementManager : CustomMonoBehaviour {
     private PlacementController currActiveController;
     private ItemPlacementController itemPlacementController;
     private BuildingPlacementController buildingPlacementController;
+    private PrefabPlacementController prefabPlacementController;
 
     private void Awake() {
         itemPlacementController = GetComponent<ItemPlacementController>();
         buildingPlacementController = GetComponent<BuildingPlacementController>();
+        prefabPlacementController = GetComponent<PrefabPlacementController>();
     }
 
     private PlacementController StartController(Item item) {
-        switch (item) {
-            case BuildingItem buildingItem:
+        switch (item.prefabType) {
+            case ItemPrefabType.Object:
+                itemPlacementController.BeginPlacement(item.Id);
+                return itemPlacementController;
+            case ItemPrefabType.Barn:
                 buildingPlacementController.BeginPlacement(item.Id);
                 return buildingPlacementController;
             default:
-                itemPlacementController.BeginPlacement(item.Id);
-                return itemPlacementController;
+                prefabPlacementController.BeginPlacement(item.Id);
+                return prefabPlacementController;
         }
     }
 

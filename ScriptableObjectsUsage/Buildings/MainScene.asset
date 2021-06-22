@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf848c7aafd84a9ca16c2f7d85675d6, type: 3}
   m_Name: MainScene
   m_EditorClassIdentifier: 
+  notes: N/A
   sceneName: MainScene
   id: 0
   cost: 0
   image: {fileID: 0}
   animalMaxSize: 50
   animalCurrentSize: 0
-  entrance: {x: -3.316513, y: -10.37318}
+  entrance: {x: -16.050613, y: 0.7287204}
   open: 0
   width: 0
   height: 0

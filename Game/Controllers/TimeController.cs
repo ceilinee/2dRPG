@@ -178,6 +178,7 @@ public class TimeController : MonoBehaviour {
         int mm = (int) Minutes;
         var newText = hh.ToString("00") + ":" + mm.ToString("00").Substring(0, 1) + "0";
         UpdateTime(newText);
+        animalList.GetComponent<AnimalList>().setAnimalsWake();
         ResumeGame();
         StartCoroutine(fadeOut(NightBackground, 2.0f));
     }

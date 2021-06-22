@@ -13,6 +13,5112 @@ MonoBehaviour:
   m_Name: CurAnimals
   m_EditorClassIdentifier: 
   animalDict:
-    keys: 
-    values: []
+    keys: 1ff20900be2205000eac0d00127a06004c0307007e3c0a00421b0b0051ce05003a2a00009ae00900512c0f00d8de06004f4809002e1a0800ef410e00bf370d00d33b090050f20200c3dd03002f390000768a020058660700c8e60e0063340e008dbc0c00727e080003370200e70b09003fac0c001d44040099b6010053ce0500a2f5030081de02002d0d0d00b8d50e004f3e0800d21b040012ea0e002eb20300b4750200f32d0400bb6a0a0086000500ecc40c00a52b0600f1e48d0002960700f9846c009dfb53006c327b006aed05004cfb0900bca60900cff60b0099ae9300615f4600d23a4e00457149004de14200513e6a0090488300b4ef3600e74f00006d10050028a70b00d6dc080021a3e92bd7c42b2886736a3749d88b2f5579510021cd91249db447017d899916d637711a220b0e1e1e46bc105fbfa43818b4991be6414e346db164257dea242c018ef9225161cb2e2df7143521d8961b5871580f42f1e20fbeaf6620b15fc5275f48d631e73b6736bba58939ae245238880bd8395ea17117c7442812a3a2ab07ae6c4e2e7a76ed0fe4370c01a14646019202e809a4f9d81e45d6f00f4f34a01552e77916baa333153f15fb1893a88d2d
+    values:
+    - animalName: Cutie
+      type: 1
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 85
+      sold: 0
+      id: 651807
+      adoption: 0
+      location: {x: 17.97343, y: -34.47891}
+      target: {x: 0, y: 0}
+      age: 93
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 138
+      shopCost: 276
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: d23a4e00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 3
+        tail: 3
+        eyes: 7
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Starry
+      type: 1
+      momId: 0
+      dadId: 0
+      breed: Star
+      health: 91
+      sold: 0
+      id: 336574
+      adoption: 0
+      location: {x: -1.5245854, y: -31.238255}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 328
+      shopCost: 656
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 707.41455
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 3
+        tail: 3
+        eyes: 16
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 0
+    - animalName: Cream
+      type: 1
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 85
+      sold: 0
+      id: 896014
+      adoption: 0
+      location: {x: 15.097723, y: -17.088879}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 82
+      shopCost: 164
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 16
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Vanilla
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 424466
+      adoption: 0
+      location: {x: 16.91367, y: -37.335354}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 28
+      shopCost: 56
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0.14
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 22
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby Pink
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 85
+      sold: 0
+      id: 459596
+      adoption: 0
+      location: {x: 30.505997, y: 0.72540176}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 90
+      shopCost: 180
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 615f4600
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 28
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Chocolate
+      type: 1
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 670846
+      adoption: 0
+      location: {x: -25.207294, y: -28.569368}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 86
+      shopCost: 172
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 140.11464
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 7
+        tail: 7
+        eyes: 14
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Vanilla
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Spotted
+      health: 91
+      sold: 0
+      id: 727874
+      adoption: 0
+      location: {x: 17.056171, y: -23.766636}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 94
+      shopCost: 188
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 90488300b4ef3600
+      love: 52.932102
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 25
+        dots: 8
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Pumpkin
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 380497
+      adoption: 0
+      location: {x: 15.755659, y: -38.53975}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 86
+      shopCost: 172
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 45714900
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 13
+        eyes: 25
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Boots
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Boots
+      health: 91
+      sold: 0
+      id: 10810
+      adoption: 0
+      location: {x: -42.458313, y: 30.41222}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 206
+      shopCost: 412
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0.19499995
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 22
+        dots: 27
+        face: 0
+        legs: 10
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: Winter
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Winter
+      health: 85
+      sold: 0
+      id: 647322
+      adoption: 0
+      location: {x: 34.60272, y: -23.614574}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 384
+      shopCost: 768
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 16
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: Snowy
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Winter
+      health: 91
+      sold: 0
+      id: 994385
+      adoption: 0
+      location: {x: 11.332966, y: -8.754402}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 408
+      shopCost: 816
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: f1e48d00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 26
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: ' Emerald'
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Winter
+      health: 91
+      sold: 0
+      id: 450264
+      adoption: 0
+      location: {x: 35.02221, y: -14.244915}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 408
+      shopCost: 816
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 3.1850255
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 28
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: ' Snowy'
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Winter
+      health: 91
+      sold: 0
+      id: 608335
+      adoption: 0
+      location: {x: -0.14435992, y: -28.322714}
+      target: {x: 0, y: 0}
+      age: 76
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 594
+      shopCost: 1188
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 13
+        dots: 0
+        face: 0
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: j
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Snow
+      health: 91
+      sold: 0
+      id: 530990
+      adoption: 0
+      location: {x: 15.223001, y: 3.1030025}
+      target: {x: 0, y: 0}
+      age: 74
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 624
+      shopCost: 1248
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 133.3495
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 14
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: o
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Snow
+      health: 85
+      sold: 0
+      id: 934383
+      adoption: 0
+      location: {x: 2.0747259, y: -19.484335}
+      target: {x: 0, y: 0}
+      age: 74
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 568
+      shopCost: 1136
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 4de14200
+      love: 6.285096
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 13
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: Goosey
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 866239
+      adoption: 0
+      location: {x: 28.204235, y: 21.599443}
+      target: {x: 0, y: 0}
+      age: 72
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: c8e60e00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Snowy
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 605139
+      adoption: 0
+      location: {x: -46.98, y: 28.08}
+      target: {x: 0, y: 0}
+      age: 72
+      personality:
+        personality: 
+        multiplier: 0
+        probability: 0
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 1
+      characterOwned: 1
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 58660700
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Pinkie
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 193104
+      adoption: 0
+      location: {x: -23.332104, y: 4.0017295}
+      target: {x: 0, y: 0}
+      age: 72
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 2d0d0d00
+      love: 53.44221
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: ' Frosty'
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 253379
+      adoption: 0
+      location: {x: 14.029298, y: -38.37265}
+      target: {x: 0, y: 0}
+      age: 72
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 6.285096
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Beigy
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 14639
+      adoption: 0
+      location: {x: 37.3718, y: -32.581852}
+      target: {x: 0, y: 0}
+      age: 72
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Swan
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Body
+      health: 91
+      sold: 0
+      id: 166518
+      adoption: 0
+      location: {x: 25.859455, y: -10.119601}
+      target: {x: 0, y: 0}
+      age: 64
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 40
+      shopCost: 80
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 12
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: beigy
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 484952
+      adoption: 0
+      location: {x: 13.425025, y: -6.306201}
+      target: {x: 0, y: 0}
+      age: 64
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 3.1300242
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 976584
+      adoption: 0
+      location: {x: -0.99385625, y: 6.910348}
+      target: {x: 0, y: 0}
+      age: 65
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 666.60974
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Boots
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Boots
+      health: 91
+      sold: 0
+      id: 930915
+      adoption: 0
+      location: {x: 17.961811, y: -9.90162}
+      target: {x: 0, y: 0}
+      age: 61
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 404
+      shopCost: 808
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 21
+        dots: 27
+        face: 27
+        legs: 0
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: GreenEars
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 85
+      sold: 0
+      id: 834701
+      adoption: 0
+      location: {x: -14.273583, y: -32.599022}
+      target: {x: 0, y: 0}
+      age: 61
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 96
+      shopCost: 192
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: a2f50300
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 7
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 28
+        back: 27
+        star: 27
+    - animalName: Starry
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Star
+      health: 91
+      sold: 0
+      id: 556658
+      adoption: 0
+      location: {x: 26.132881, y: -22.4025}
+      target: {x: 0, y: 0}
+      age: 59
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 164
+      shopCost: 328
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: a52b0600
+      love: 0.11500002
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 22
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 7
+    - animalName: ' Snowy'
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 145155
+      adoption: 0
+      location: {x: 23.463268, y: 0.4844141}
+      target: {x: 0, y: 0}
+      age: 59
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 70
+      shopCost: 140
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0.14999999
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 13
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Goldilocks
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 592871
+      adoption: 0
+      location: {x: -4.068923, y: -28.314608}
+      target: {x: 0, y: 0}
+      age: 59
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 152
+      shopCost: 304
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 11
+        tail: 11
+        eyes: 26
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Barbie
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 830527
+      adoption: 0
+      location: {x: 14.680174, y: -33.05605}
+      target: {x: 0, y: 0}
+      age: 59
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 148
+      shopCost: 296
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 26
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 19
+        star: 13
+    - animalName: chocolate
+      type: 1
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 279581
+      adoption: 0
+      location: {x: 37.040684, y: -35.425877}
+      target: {x: 0, y: 0}
+      age: 59
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 70
+      shopCost: 140
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 513e6a00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 27
+        eyes: 22
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: goose
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 112281
+      adoption: 0
+      location: {x: 33.841076, y: 0.8473576}
+      target: {x: 0, y: 0}
+      age: 60
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 30
+      shopCost: 60
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: okok
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Snow
+      health: 91
+      sold: 0
+      id: 380499
+      adoption: 0
+      location: {x: 38.11343, y: 8.478588}
+      target: {x: 0, y: 0}
+      age: 48
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 664
+      shopCost: 1328
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 22
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: princess
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 259490
+      adoption: 0
+      location: {x: 23.320183, y: -23.15977}
+      target: {x: 0, y: 0}
+      age: 53
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 208
+      shopCost: 416
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 26
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 24
+        star: 10
+    - animalName: hi
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Masked
+      health: 91
+      sold: 0
+      id: 188033
+      adoption: 0
+      location: {x: 34.181202, y: -18.412556}
+      target: {x: 0, y: 0}
+      age: 52
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 78
+      shopCost: 156
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 8
+        eyes: 22
+        dots: 27
+        face: 7
+        legs: 27
+        ears: 7
+        back: 27
+        star: 27
+    - animalName: ppiinnkk
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 855341
+      adoption: 0
+      location: {x: 28.249523, y: -11.002946}
+      target: {x: 0, y: 0}
+      age: 44
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 27
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Cutie
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 972216
+      adoption: 0
+      location: {x: 22.737427, y: -24.307817}
+      target: {x: 0, y: 0}
+      age: 45
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 56
+      shopCost: 112
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 25
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Hiss
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 540239
+      adoption: 0
+      location: {x: -19.730042, y: 1.3529811}
+      target: {x: 0, y: 0}
+      age: 45
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 36
+      shopCost: 72
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 6c327b00
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 27
+        eyes: 13
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Aiden
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 269266
+      adoption: 0
+      location: {x: 24.673794, y: 2.0045376}
+      target: {x: 0, y: 0}
+      age: 45
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 117
+      shopCost: 234
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0.8249994
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 26
+        dots: 8
+        face: 1
+        legs: 1
+        ears: 27
+        back: 27
+        star: 8
+    - animalName: Jayden
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sailor
+      health: 91
+      sold: 0
+      id: 977426
+      adoption: 0
+      location: {x: 29.083035, y: -26.195934}
+      target: {x: 0, y: 0}
+      age: 45
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1632
+      shopCost: 3264
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 7.545125
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 27
+        legs: 22
+        ears: 22
+        back: 27
+        star: 22
+    - animalName: Angela
+      type: 3
+      momId: 0
+      dadId: 0
+      breed: Sailor
+      health: 93
+      sold: 0
+      id: 242222
+      adoption: 0
+      location: {x: 15.57843, y: -7.1664124}
+      target: {x: 0, y: 0}
+      age: 45
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 1032
+      shopCost: 2064
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 11.665219
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 27
+        legs: 22
+        ears: 22
+        back: 27
+        star: 22
+    - animalName: iVyZhAnG
+      type: 3
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 161204
+      adoption: 0
+      location: {x: -0.21556391, y: -8.62768}
+      target: {x: 0, y: 0}
+      age: 45
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 68
+      shopCost: 136
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 14
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: asd
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 273907
+      adoption: 0
+      location: {x: 28.734543, y: -22.871786}
+      target: {x: 0, y: 0}
+      age: 43
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 99ae9300
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 23
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: ee
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 682683
+      adoption: 0
+      location: {x: 24.767551, y: -14.091275}
+      target: {x: 0, y: 0}
+      age: 43
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 126
+      shopCost: 252
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 27
+        eyes: 28
+        dots: 22
+        face: 27
+        legs: 11
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: starry
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Star
+      health: 91
+      sold: 0
+      id: 327814
+      adoption: 0
+      location: {x: 29.44801, y: -23.525393}
+      target: {x: 0, y: 0}
+      age: 43
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 156
+      shopCost: 312
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 27
+        eyes: 7
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 8
+    - animalName: spots
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 836844
+      adoption: 0
+      location: {x: 32.025124, y: -5.5466423}
+      target: {x: 0, y: 0}
+      age: 43
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 76
+      shopCost: 152
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 16
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 8
+    - animalName: Test
+      type: 0
+      momId: 556658
+      dadId: 592871
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 404389
+      adoption: 0
+      location: {x: 21.144321, y: -28.291517}
+      target: {x: 0, y: 0}
+      age: 40
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 147
+      shopCost: 294
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 11.780222
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 11
+        tail: 8
+        eyes: 26
+        dots: 27
+        face: 1
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: ' FrostySno'
+      type: 0
+      momId: 994385
+      dadId: 450264
+      breed: Winter
+      health: 91
+      sold: 0
+      id: 9299185
+      adoption: 0
+      location: {x: 20.7496, y: -31.227175}
+      target: {x: 0, y: 0}
+      age: 36
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 408
+      shopCost: 816
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 28
+        dots: 0
+        face: 27
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: minty
+      type: 5
+      momId: 459596
+      dadId: 608335
+      breed: Spotted
+      health: 91
+      sold: 0
+      id: 497154
+      adoption: 0
+      location: {x: 3.2116387, y: -0.0123394765}
+      target: {x: 0, y: 0}
+      age: 36
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 524
+      shopCost: 1048
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 18
+        tail: 19
+        eyes: 28
+        dots: 0
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Wintie
+      type: 5
+      momId: 934383
+      dadId: 530990
+      breed: Snow
+      health: 91
+      sold: 0
+      id: 7111929
+      adoption: 0
+      location: {x: -15.270933, y: -17.81195}
+      target: {x: 0, y: 0}
+      age: 36
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 704
+      shopCost: 1408
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 14
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: hoho
+      type: 0
+      momId: 279581
+      dadId: 930915
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 5503901
+      adoption: 0
+      location: {x: 53.84936, y: -18.776072}
+      target: {x: 0, y: 0}
+      age: 32
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 110
+      shopCost: 220
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 24
+        eyes: 21
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Cuddles
+      type: 0
+      momId: 540239
+      dadId: 930915
+      breed: Boots
+      health: 91
+      sold: 0
+      id: 8073836
+      adoption: 0
+      location: {x: 12.706812, y: -7.717943}
+      target: {x: 0, y: 0}
+      age: 35
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 372
+      shopCost: 744
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 27
+        eyes: 21
+        dots: 27
+        face: 27
+        legs: 0
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: ' Biscuit'
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Tea and Cream
+      health: 91
+      sold: 0
+      id: 388458
+      adoption: 0
+      location: {x: 21.278831, y: -12.7990465}
+      target: {x: 0, y: 0}
+      age: 35
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 264
+      shopCost: 528
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 18
+        tail: 9
+        eyes: 23
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: Milk
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Tea and Cream
+      health: 91
+      sold: 0
+      id: 654156
+      adoption: 0
+      location: {x: 29.659985, y: -3.1924062}
+      target: {x: 0, y: 0}
+      age: 35
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 276
+      shopCost: 552
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 18
+        tail: 9
+        eyes: 16
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: GreenTea
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Tea and Cream
+      health: 91
+      sold: 0
+      id: 632508
+      adoption: 0
+      location: {x: 35.733566, y: -13.938401}
+      target: {x: 0, y: 0}
+      age: 35
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 666
+      shopCost: 1332
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 18
+        tail: 9
+        eyes: 13
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: BlackTea
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Tea and Cream
+      health: 91
+      sold: 0
+      id: 784079
+      adoption: 0
+      location: {x: 36.98535, y: 5.3329024}
+      target: {x: 0, y: 0}
+      age: 35
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 732
+      shopCost: 1464
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 18
+        tail: 9
+        eyes: 6
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: cuutt
+      type: 0
+      momId: 273907
+      dadId: 10810
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 9678489
+      adoption: 0
+      location: {x: 10.104087, y: -38.85331}
+      target: {x: 0, y: 0}
+      age: 27
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 108
+      shopCost: 216
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 8
+        eyes: 23
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: cream boot
+      type: 0
+      momId: 459596
+      dadId: 10810
+      breed: Boots
+      health: 91
+      sold: 0
+      id: 4611937
+      adoption: 0
+      location: {x: 21.534279, y: -4.8130198}
+      target: {x: 0, y: 0}
+      age: 29
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 270
+      shopCost: 540
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 1
+        eyes: 28
+        dots: 27
+        face: 0
+        legs: 8
+        ears: 8
+        back: 27
+        star: 27
+    - animalName: ' more boot'
+      type: 0
+      momId: 651807
+      dadId: 10810
+      breed: Boots
+      health: 91
+      sold: 0
+      id: 5126866
+      adoption: 0
+      location: {x: 19.520473, y: -34.78813}
+      target: {x: 0, y: 0}
+      age: 28
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 150
+      shopCost: 300
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 23
+        dots: 27
+        face: 0
+        legs: 8
+        ears: 9
+        back: 27
+        star: 27
+    - animalName: ' more boo'
+      type: 0
+      momId: 380497
+      dadId: 10810
+      breed: Boots
+      health: 91
+      sold: 0
+      id: 4813125
+      adoption: 0
+      location: {x: 29.518349, y: -11.3024235}
+      target: {x: 0, y: 0}
+      age: 27
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 278
+      shopCost: 556
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 4
+        eyes: 25
+        dots: 27
+        face: 0
+        legs: 8
+        ears: 8
+        back: 27
+        star: 27
+    - animalName: Winter
+      type: 0
+      momId: 934383
+      dadId: 530990
+      breed: Snow
+      health: 91
+      sold: 0
+      id: 4383053
+      adoption: 0
+      location: {x: 16.884132, y: -28.409998}
+      target: {x: 0, y: 0}
+      age: 25
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 648
+      shopCost: 1296
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 13
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 27
+    - animalName: ' rosie'
+      type: 0
+      momId: 279581
+      dadId: 830527
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 6962769
+      adoption: 0
+      location: {x: 27.964146, y: -16.709455}
+      target: {x: 0, y: 0}
+      age: 25
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 164
+      shopCost: 328
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 4
+        tail: 27
+        eyes: 26
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: spots
+      type: 0
+      momId: 727874
+      dadId: 388458
+      breed: Spotted
+      health: 55
+      sold: 0
+      id: 8603792
+      adoption: 0
+      location: {x: 18.084908, y: -34.99569}
+      target: {x: 0, y: 0}
+      age: 25
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 84
+      shopCost: 168
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 23
+        dots: 0
+        face: 8
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Spots
+      type: 0
+      momId: 727874
+      dadId: 388458
+      breed: Spotted
+      health: 91
+      sold: 0
+      id: 3600308
+      adoption: 0
+      location: {x: 25.34713, y: -23.455702}
+      target: {x: 0, y: 0}
+      age: 25
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 98
+      shopCost: 196
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 30
+        dots: 0
+        face: 8
+        legs: 27
+        ears: 8
+        back: 27
+        star: 27
+    - animalName: adasfa
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Marble
+      health: 93
+      sold: 0
+      id: 20455
+      adoption: 0
+      location: {x: 18.460892, y: 6.5328517}
+      target: {x: 0, y: 0}
+      age: 19
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 900
+      shopCost: 1800
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 139.31032
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 29
+        eyes: 6
+        dots: 29
+        face: 13
+        legs: 27
+        ears: 34
+        back: 27
+        star: 29
+    - animalName: asdfas
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Marble
+      health: 91
+      sold: 0
+      id: 331885
+      adoption: 0
+      location: {x: -2.7127833, y: -23.104498}
+      target: {x: 0, y: 0}
+      age: 19
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 820
+      shopCost: 1640
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 29
+        eyes: 23
+        dots: 29
+        face: 0
+        legs: 27
+        ears: 34
+        back: 27
+        star: 29
+    - animalName: asdfa
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Mint Tea
+      health: 91
+      sold: 0
+      id: 763688
+      adoption: 0
+      location: {x: -31.079136, y: 2.513814}
+      target: {x: 0, y: 0}
+      age: 19
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 1460
+      shopCost: 2920
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 16
+        tail: 18
+        eyes: 7
+        dots: 27
+        face: 11
+        legs: 18
+        ears: 34
+        back: 27
+        star: 18
+    - animalName: ' fishy'
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Tuxedo
+      health: 91
+      sold: 0
+      id: 580822
+      adoption: 0
+      location: {x: 29.502216, y: -0.15552476}
+      target: {x: 0, y: 0}
+      age: 19
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 195
+      shopCost: 390
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 9
+        eyes: 6
+        dots: 27
+        face: 4
+        legs: 9
+        ears: 34
+        back: 9
+        star: 27
+    - animalName: Baby
+      type: 5
+      momId: 0
+      dadId: 0
+      breed: Masked
+      health: 91
+      sold: 0
+      id: 736731937
+      adoption: 0
+      location: {x: 26.704704, y: -3.0525599}
+      target: {x: 0, y: 0}
+      age: 24
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 96
+      shopCost: 192
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 7d899916
+      love: -44
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 26
+        dots: 27
+        face: 2
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Cherries and Cream
+      health: 91
+      sold: 0
+      id: 673957079
+      adoption: 0
+      location: {x: 24.871086, y: -7.7559214}
+      target: {x: 0, y: 0}
+      age: 32
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 596
+      shopCost: 1192
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 220b0e1e
+      love: -169
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 6
+        tail: 9
+        eyes: 7
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 91
+      sold: 0
+      id: 929723270
+      adoption: 0
+      location: {x: 32.7807, y: 1.6300043}
+      target: {x: 0, y: 0}
+      age: 23
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 108
+      shopCost: 216
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 9db44701
+      love: -47
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 7
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 13
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Spotted
+      health: 91
+      sold: 0
+      id: 797694025
+      adoption: 0
+      location: {x: -35.368565, y: -9.374252}
+      target: {x: 0, y: 0}
+      age: 22
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 84
+      shopCost: 168
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: d637711a
+      love: -41
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 23
+        dots: 0
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Masked
+      health: 91
+      sold: 0
+      id: 5339477
+      adoption: 0
+      location: {x: 34.78754, y: 9.084695}
+      target: {x: 0, y: 0}
+      age: 30
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Farm Waterfall Pond
+      cost: 240
+      shopCost: 480
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 220b0e1e
+      love: -80
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 16
+        tail: 16
+        eyes: 28
+        dots: 27
+        face: 2
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Star
+      health: 91
+      sold: 0
+      id: 613535009
+      adoption: 0
+      location: {x: 33.659786, y: 2.5071988}
+      target: {x: 0, y: 0}
+      age: 22
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Farm Waterfall Pond
+      cost: 180
+      shopCost: 360
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: d637711a
+      love: -65
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 9
+        tail: 9
+        eyes: 16
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 18
+    - animalName: dfhdfh
+      type: 4
+      momId: 929723270
+      dadId: 613535009
+      breed: Star
+      health: 91
+      sold: 0
+      id: 21476509
+      adoption: 0
+      location: {x: 39.4571, y: 1.2884157}
+      target: {x: 0, y: 0}
+      age: 15
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 328
+      shopCost: 656
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 18
+        tail: 18
+        eyes: 28
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 34
+        back: 27
+        star: 18
+    - animalName: dghd
+      type: 4
+      momId: 736731937
+      dadId: 613535009
+      breed: Masked
+      health: 75
+      sold: 0
+      id: 379160957
+      adoption: 0
+      location: {x: 34.00256, y: 6.713093}
+      target: {x: 0, y: 0}
+      age: 15
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 68
+      shopCost: 136
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 30
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: vanilla
+      type: 4
+      momId: 797694025
+      dadId: 613535009
+      breed: Masked
+      health: 91
+      sold: 0
+      id: 443627478
+      adoption: 0
+      location: {x: 40.364525, y: -0.7572374}
+      target: {x: 0, y: 0}
+      age: 16
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Waterfall Pond
+      cost: 60
+      shopCost: 120
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 8
+        eyes: 23
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: fishy
+      type: 0
+      momId: 673957079
+      dadId: 5339477
+      breed: Masked
+      health: 91
+      sold: 0
+      id: 504236834
+      adoption: 0
+      location: {x: -33.02088, y: -10.6825285}
+      target: {x: 0, y: 0}
+      age: 16
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 248
+      shopCost: 496
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 30
+        tail: 17
+        eyes: 28
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Bbt
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Bubble Tea
+      health: 87
+      sold: 0
+      id: 280774174
+      adoption: 0
+      location: {x: -3.0602431, y: -3.2411356}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 700
+      shopCost: 1400
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 256.37952
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 13
+        eyes: 13
+        dots: 13
+        face: 0
+        legs: 14
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Marble
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Marble
+      health: 91
+      sold: 0
+      id: 950320991
+      adoption: 0
+      location: {x: 7.305964, y: 4.3860173}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 810
+      shopCost: 1620
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 239.27785
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 29
+        eyes: 22
+        dots: 29
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 29
+    - animalName: Valentines
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Valentine
+      health: 87
+      sold: 0
+      id: 463057944
+      adoption: 0
+      location: {x: 25.848785, y: -3.3567486}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1080
+      shopCost: 2160
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 380.41052
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+    - animalName: Gravy
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Pumpkin Pie
+      health: 87
+      sold: 0
+      id: 877543910
+      adoption: 0
+      location: {x: 24.619968, y: -1.5478846}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 348
+      shopCost: 696
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 392.71252
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 13
+        tail: 8
+        eyes: 28
+        dots: 27
+        face: 8
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: Winter
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Snowflake
+      health: 87
+      sold: 0
+      id: 627356013
+      adoption: 0
+      location: {x: 35.753605, y: -15.997758}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1464
+      shopCost: 2928
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 363.0686
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 23
+        dots: 19
+        face: 1
+        legs: 19
+        ears: 34
+        back: 27
+        star: 19
+    - animalName: Snow
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Snow
+      health: 87
+      sold: 0
+      id: 740616829
+      adoption: 0
+      location: {x: 19.289711, y: 2.1960816}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 504
+      shopCost: 1008
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 387.6526
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 7
+        dots: 27
+        face: 1
+        legs: 19
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: goo
+      type: 4
+      momId: 0
+      dadId: 0
+      breed: Tuxedo
+      health: 87
+      sold: 0
+      id: 586780161
+      adoption: 0
+      location: {x: 18.541763, y: -4.8304124}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 495
+      shopCost: 990
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 375.65088
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 7
+        eyes: 25
+        dots: 27
+        face: 24
+        legs: 7
+        ears: 34
+        back: 7
+        star: 27
+    - animalName: Silar
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sailor
+      health: 87
+      sold: 0
+      id: 785080657
+      adoption: 0
+      location: {x: 13.644848, y: -1.1430563}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1272
+      shopCost: 2544
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 383.11816
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 4
+        legs: 22
+        ears: 34
+        back: 27
+        star: 22
+    - animalName: canada
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Canadian
+      health: 87
+      sold: 0
+      id: 890566445
+      adoption: 0
+      location: {x: 26.222397, y: -5.608483}
+      target: {x: 0, y: 0}
+      age: 12
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1180
+      shopCost: 2360
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 385.87085
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 5
+        eyes: 16
+        dots: 27
+        face: 2
+        legs: 5
+        ears: 34
+        back: 27
+        star: 5
+    - animalName: cotton
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Cotton Candy
+      health: 89
+      sold: 0
+      id: 462870561
+      adoption: 0
+      location: {x: 17.36227, y: -3.4863224}
+      target: {x: 0, y: 0}
+      age: 11
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 1080
+      shopCost: 2160
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 364.36987
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 20
+        eyes: 13
+        dots: 27
+        face: 10
+        legs: 20
+        ears: 34
+        back: 20
+        star: 27
+    - animalName: pinky
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sunbeam
+      health: 85
+      sold: 0
+      id: 257454424
+      adoption: 0
+      location: {x: -13.655289, y: -14.886609}
+      target: {x: 0, y: 0}
+      age: 11
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling lonely, would like to go on a walk
+      moodId: sad
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 306
+      shopCost: 612
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 9
+        eyes: 14
+        dots: 27
+        face: 4
+        legs: 27
+        ears: 34
+        back: 1
+        star: 1
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 95
+      sold: 0
+      id: 266531138
+      adoption: 0
+      location: {x: 0.0807399, y: -1.09383}
+      target: {x: 0, y: 0}
+      age: 16
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 106
+      shopCost: 212
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 90.185074
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 10
+        tail: 10
+        eyes: 21
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: Baby
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Star
+      health: 96
+      sold: 0
+      id: 543600574
+      adoption: 0
+      location: {x: -20.975853, y: -20.620405}
+      target: {x: 0, y: 0}
+      age: 11
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 360
+      shopCost: 720
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 10.115184
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 0
+        eyes: 14
+        dots: 27
+        face: 11
+        legs: 27
+        ears: 27
+        back: 27
+        star: 28
+    - animalName: CottonTail
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: CottonTail
+      health: 94
+      sold: 0
+      id: 667246513
+      adoption: 0
+      location: {x: 8.722644, y: 8.600239}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 154
+      shopCost: 308
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 0
+        eyes: 6
+        dots: 27
+        face: 27
+        legs: 27
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: asd
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Dutch
+      health: 94
+      sold: 0
+      id: 836126815
+      adoption: 0
+      location: {x: -13.434676, y: 0.09392811}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Evil
+        multiplier: 1
+        probability: 5
+        id: 9
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 620
+      shopCost: 1240
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 15
+        eyes: 21
+        dots: 27
+        face: 15
+        legs: 15
+        ears: 15
+        back: 15
+        star: 27
+    - animalName: asdc
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sunbeam
+      health: 94
+      sold: 0
+      id: 912735207
+      adoption: 0
+      location: {x: -12.278812, y: 1.8923444}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 330
+      shopCost: 660
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 9
+        eyes: 6
+        dots: 27
+        face: 24
+        legs: 27
+        ears: 27
+        back: 9
+        star: 9
+    - animalName: fsad
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sunshine
+      health: 94
+      sold: 0
+      id: 965322171
+      adoption: 0
+      location: {x: 7.634104, y: -7.333192}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Brilliant
+        multiplier: 2
+        probability: 2
+        id: 8
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 456
+      shopCost: 912
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 7
+        tail: 22
+        eyes: 26
+        dots: 19
+        face: 1
+        legs: 27
+        ears: 27
+        back: 19
+        star: 27
+    - animalName: vasd
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 94
+      sold: 0
+      id: 944907438
+      adoption: 0
+      location: {x: -8.043525, y: -6.8985677}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 104
+      shopCost: 208
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 34
+        eyes: 6
+        dots: 27
+        face: 4
+        legs: 0
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: bfdsb
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Spotted
+      health: 94
+      sold: 0
+      id: 970460040
+      adoption: 0
+      location: {x: 3.4317477, y: -1.3947874}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 132
+      shopCost: 264
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 8
+        tail: 10
+        eyes: 23
+        dots: 13
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: dfsb
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Winter
+      health: 94
+      sold: 0
+      id: 393322846
+      adoption: 0
+      location: {x: -29.011023, y: -11.984583}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Farm Pond
+      cost: 456
+      shopCost: 912
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 19
+        tail: 19
+        eyes: 13
+        dots: 0
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: greg
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Masked
+      health: 96
+      sold: 0
+      id: 304628935
+      adoption: 0
+      location: {x: -17.144619, y: 3.994239}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Lazy
+        multiplier: 1
+        probability: 10
+        id: 4
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 512
+      shopCost: 1024
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 30
+        tail: 7
+        eyes: 13
+        dots: 27
+        face: 0
+        legs: 27
+        ears: 0
+        back: 27
+        star: 27
+    - animalName: greg
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Moonlight
+      health: 94
+      sold: 0
+      id: 128688803
+      adoption: 0
+      location: {x: -8.933459, y: -12.908448}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 520
+      shopCost: 1040
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 23
+        tail: 23
+        eyes: 21
+        dots: 0
+        face: 11
+        legs: 27
+        ears: 27
+        back: 0
+        star: 27
+    - animalName: fewf
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Cherries and Cream
+      health: 94
+      sold: 0
+      id: 776891566
+      adoption: 0
+      location: {x: 7.940964, y: 5.402757}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Introverted
+        multiplier: 1
+        probability: 10
+        id: 0
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1228
+      shopCost: 2456
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 6
+        tail: 9
+        eyes: 26
+        dots: 27
+        face: 9
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: htyh
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Cotton Candy
+      health: 94
+      sold: 0
+      id: 267220602
+      adoption: 0
+      location: {x: 3.64372, y: -4.2159305}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1350
+      shopCost: 2700
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 1
+        tail: 20
+        eyes: 22
+        dots: 27
+        face: 0
+        legs: 20
+        ears: 20
+        back: 20
+        star: 27
+    - animalName: sailor
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sailor
+      health: 94
+      sold: 0
+      id: 17577956
+      adoption: 0
+      location: {x: 14.366389, y: -12.689839}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1632
+      shopCost: 3264
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 13
+        legs: 22
+        ears: 22
+        back: 27
+        star: 22
+    - animalName: sailor
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sailor
+      health: 94
+      sold: 0
+      id: 21382817
+      adoption: 0
+      location: {x: 3.7253115, y: -11.201113}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 1272
+      shopCost: 2544
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 21
+        tail: 22
+        eyes: 22
+        dots: 0
+        face: 8
+        legs: 22
+        ears: 34
+        back: 27
+        star: 22
+    - animalName: asdf
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Canadian
+      health: 94
+      sold: 0
+      id: 166199954
+      adoption: 0
+      location: {x: 6.998057, y: -0.06281804}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1360
+      shopCost: 2720
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 5
+        eyes: 23
+        dots: 27
+        face: 3
+        legs: 5
+        ears: 5
+        back: 27
+        star: 5
+    - animalName: ef
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Snowflake
+      health: 94
+      sold: 0
+      id: 517536164
+      adoption: 0
+      location: {x: -3.542706, y: -24.155346}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Loyal
+        multiplier: 1
+        probability: 10
+        id: 3
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 1512
+      shopCost: 3024
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 0
+        tail: 19
+        eyes: 28
+        dots: 19
+        face: 1
+        legs: 19
+        ears: 19
+        back: 27
+        star: 19
+    - animalName: vwre
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Lemon Mint
+      health: 94
+      sold: 0
+      id: 267441733
+      adoption: 0
+      location: {x: -7.475777, y: -13.824329}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Annoying
+        multiplier: 1
+        probability: 5
+        id: 7
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1295
+      shopCost: 2590
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 16
+        tail: 15
+        eyes: 28
+        dots: 27
+        face: 15
+        legs: 15
+        ears: 34
+        back: 15
+        star: 27
+    - animalName: tntre
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Rose Petals
+      health: 94
+      sold: 0
+      id: 362820687
+      adoption: 0
+      location: {x: 4.96457, y: 8.44859}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Friendly
+        multiplier: 1
+        probability: 15
+        id: 5
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 1016
+      shopCost: 2032
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 5
+        tail: 3
+        eyes: 7
+        dots: 3
+        face: 3
+        legs: 27
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: rt
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Sunkissed
+      health: 94
+      sold: 0
+      id: 377087826
+      adoption: 0
+      location: {x: 3.1690528, y: -9.9658785}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Trusting
+        multiplier: 1
+        probability: 13
+        id: 6
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 820
+      shopCost: 1640
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 11
+        tail: 12
+        eyes: 21
+        dots: 27
+        face: 11
+        legs: 12
+        ears: 34
+        back: 12
+        star: 12
+    - animalName: yth
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Generic
+      health: 94
+      sold: 0
+      id: 355705786
+      adoption: 0
+      location: {x: -3.4152863, y: 4.9572268}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Spoiled
+        multiplier: 1
+        probability: 10
+        id: 1
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Male
+      home: Barn#0
+      cost: 332
+      shopCost: 664
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 5
+        tail: 34
+        eyes: 28
+        dots: 0
+        face: 8
+        legs: 28
+        ears: 27
+        back: 27
+        star: 27
+    - animalName: jyuj
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Strawberry
+      health: 94
+      sold: 0
+      id: 419108159
+      adoption: 0
+      location: {x: 8.970929, y: -14.601189}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 1760
+      shopCost: 3520
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 5
+        tail: 5
+        eyes: 28
+        dots: 0
+        face: 8
+        legs: 28
+        ears: 34
+        back: 27
+        star: 27
+    - animalName: kiuk
+      type: 0
+      momId: 0
+      dadId: 0
+      breed: Strawberry
+      health: 94
+      sold: 0
+      id: 764258451
+      adoption: 0
+      location: {x: 10.624347, y: -4.395275}
+      target: {x: 0, y: 0}
+      age: 5
+      personality:
+        personality: Gentle
+        multiplier: 1
+        probability: 10
+        id: 2
+      scene: MainScene
+      mood: Feeling content
+      moodId: 2
+      follow: 0
+      characterOwned: 0
+      wild: 0
+      charId: 0
+      gender: Female
+      home: Barn#0
+      cost: 2260
+      shopCost: 4520
+      presentsDaily: 0
+      pregnant: 0
+      deliveryDate: 0
+      babyId: 
+      love: 0
+      spawnAnimal: {fileID: 0}
+      animalColors: {fileID: 11400000, guid: 42978568579524ac49f957337b84511b, type: 2}
+      walked: 0
+      coloring:
+        body: 5
+        tail: 5
+        eyes: 28
+        dots: 0
+        face: 8
+        legs: 28
+        ears: 27
+        back: 27
+        star: 27
   breedName: 

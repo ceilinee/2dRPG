@@ -24,7 +24,7 @@ public class PlacedItem {
 /// <summary>
 [CreateAssetMenu]
 [System.Serializable]
-public class PlacedItems : ScriptableObject {
+public class PlacedItems : CustomScriptableObject, Clearable {
     // Need to compose List<PlacedItem> and use that as the type of the values in sceneToPlacedItems
     // in order to have sceneToPlacedItems serialize properly by the GSM (see https://answers.unity.com/questions/460727/how-to-serialize-dictionary-with-unity-serializati.html)
     [System.Serializable]

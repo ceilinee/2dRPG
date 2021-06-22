@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35474dfdd467a403f852bd0c8d9ebbb1, type: 3}
   m_Name: PlacedItems
   m_EditorClassIdentifier: 
+  notes: PlacedItems stores items that the player has placed on the ground. The items
+    are grouped according to their scene. Items all have prefab type `Object`, meaning
+    they are simple decorative items that have no special behavior of their own.
   sceneToPlacedItems:
     keys:
     - MainScene

@@ -30,6 +30,8 @@ public class Breakable : CustomMonoBehaviour, IHittable {
     IEnumerator BreakCo() {
         yield return new WaitForSeconds(0.3f);
         OnBroken();
+        // TODO: send a signal (have a signal for a complex placed item being destroyed / removed)
+        // then in prefab placement controller, remove the placed item from placeditemscomplex
         gameObject.SetActive(false);
     }
 

@@ -88,6 +88,9 @@ public class SceneTransition : CustomMonoBehaviour {
                 PlayerTransition(sceneinfo);
             }
         } else if (other.CompareTag("pet") && !other.isTrigger) {
+            if (!curAnimals.animalDict.ContainsKey(other.gameObject.GetComponent<GenericAnimal>().animalTrait.id)) {
+                return;
+            }
             var animal = curAnimals.animalDict[other.gameObject.GetComponent<GenericAnimal>().animalTrait.id];
             animal.scene = sceneinfo.sceneName;
             animal.location = sceneinfo.entrance;

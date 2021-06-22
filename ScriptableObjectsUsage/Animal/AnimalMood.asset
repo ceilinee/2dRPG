@@ -148,13 +148,7 @@ MonoBehaviour:
   personalityMoodDict:
     keys: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
     values:
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -168,13 +162,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -188,13 +176,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -208,13 +190,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -228,13 +204,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -248,13 +218,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -268,13 +232,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -288,13 +246,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -308,13 +260,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []
@@ -328,13 +274,7 @@ MonoBehaviour:
         giftReactions: []
       - array: []
         giftReactions: []
-    - keys:
-      - Llama
-      - Goose
-      - Rabbit
-      - Pig
-      - Sheep
-      - Fish
+    - keys: 010000000400000005000000000000000300000002000000
       values:
       - array: []
         giftReactions: []

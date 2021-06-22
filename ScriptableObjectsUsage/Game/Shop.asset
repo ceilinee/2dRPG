@@ -26,7 +26,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 906b3d941b25d4ef5ac5e5a4a9346c08, type: 2}
     - {fileID: 11400000, guid: d9b4ff9254ea94914b559fc52d3b987e, type: 2}
     - {fileID: 11400000, guid: 43bfad8db6a2f44a9b41240e31b5e175, type: 2}
+    - {fileID: 11400000, guid: e6acb94f86d8a45c8b48bcf3beca083e, type: 2}
+    - {fileID: 11400000, guid: 72c15fe45b56d465cb4fd52516644826, type: 2}
     values:
+    - 40
+    - 40
     - 40
     - 40
     - 40
@@ -52,7 +56,11 @@ MonoBehaviour:
     - Strawberries
     - Pink Flowers
     - Purple Heart Tile
+    - Tree
+    - GardenLightsWhite
     values:
+    - 40
+    - 40
     - 40
     - 40
     - 40
@@ -76,3 +84,5 @@ MonoBehaviour:
   - Strawberries
   - Pink Flowers
   - Purple Heart Tile
+  - Tree
+  - GardenLightsWhite
