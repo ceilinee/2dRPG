@@ -27,9 +27,14 @@ MonoBehaviour:
     nightTimeColour: {r: 0.227451, g: 0.34901962, b: 0.58431375, a: 0}
     dayTimeColour: {r: 0.8235295, g: 0.85098046, b: 0.9058824, a: 0}
     dawnTimeColour: {r: 0.70875293, g: 0.54509807, b: 0.8980392, a: 0}
-    canvasColour: {r: 0.7429245, g: 0.8254717, b: 0.990566, a: 1}
+    canvasColour: {r: 0.8820755, g: 0.92076945, b: 1, a: 1}
   - name: Blue Tint
     nightTimeColour: {r: 0.10588236, g: 0.34117648, b: 0.4901961, a: 0}
     dayTimeColour: {r: 0.627451, g: 0.8588236, b: 1, a: 0}
     dawnTimeColour: {r: 0.33333334, g: 0.5294118, b: 1, a: 0}
     canvasColour: {r: 0.7411765, g: 0.8235295, b: 0.9921569, a: 1}
+  - name: Purple Dreams
+    nightTimeColour: {r: 0.45098042, g: 0.32941177, b: 0.6313726, a: 0}
+    dayTimeColour: {r: 0.9176471, g: 0.78823537, b: 1, a: 0}
+    dawnTimeColour: {r: 0.8313726, g: 0.57254905, b: 1, a: 0}
+    canvasColour: {r: 0.89019614, g: 0.81568635, b: 1, a: 1}

@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c4b366a1bec4817aee5130be9a7ee2, type: 3}
+  m_Name: Achievements
+  m_EditorClassIdentifier: 
+  curQuests:
+  - id: 0
+    posterCharId: 0
+    type: 1
+    talkQuestCharId: 
+    giftQuestCharId: 0
+    giftQuestItemId: 
+    collectQuestItemId: []
+    adoptionCount: 0
+    giftAnimalCount: 0
+    animalId: 
+    walk: 0
+    talk: 3
+    expirationDate: 0
+    sceneId: 0
+    message: Talk to some Peeps
+    reward: 0
+    multiplier: 0
+    reputationPoints: 0
+    accepted: 0
+    dateAvailable: 0
+    completed: 0
+    redeemed: 0
+    currentProgress: 2 /3
+  - id: 0
+    posterCharId: 0
+    type: 2
+    talkQuestCharId: 
+    giftQuestCharId: 0
+    giftQuestItemId: 
+    collectQuestItemId: []
+    adoptionCount: 0
+    giftAnimalCount: 0
+    animalId: 
+    walk: 2
+    talk: 3
+    expirationDate: 0
+    sceneId: 0
+    message: Talk to some Peeps
+    reward: 0
+    multiplier: 0
+    reputationPoints: 0
+    accepted: 0
+    dateAvailable: 0
+    completed: 0
+    redeemed: 0
+    currentProgress: 0 /2
+  - id: 0
+    posterCharId: 0
+    type: 1
+    talkQuestCharId: 
+    giftQuestCharId: 0
+    giftQuestItemId: 
+    collectQuestItemId: []
+    adoptionCount: 0
+    giftAnimalCount: 0
+    animalId: 
+    walk: 0
+    talk: 3
+    expirationDate: 0
+    sceneId: 0
+    message: Talk to some Peeps
+    reward: 0
+    multiplier: 0
+    reputationPoints: 0
+    accepted: 0
+    dateAvailable: 0
+    completed: 1
+    redeemed: 0
+    currentProgress: 2 /3
+  - id: 0
+    posterCharId: 0
+    type: 7
+    talkQuestCharId: 
+    giftQuestCharId: 0
+    giftQuestItemId: 
+    collectQuestItemId: []
+    adoptionCount: 0
+    giftAnimalCount: 0
+    animalId: 
+    walk: 0
+    talk: 2
+    expirationDate: 0
+    sceneId: 888
+    message: Visit island
+    reward: 0
+    multiplier: 0
+    reputationPoints: 0
+    accepted: 0
+    dateAvailable: 0
+    completed: 0
+    redeemed: 0
+    currentProgress: 1 /1
+  - id: 0
+    posterCharId: 0
+    type: 0
+    talkQuestCharId: 
+    giftQuestCharId: 0
+    giftQuestItemId: 
+    collectQuestItemId: []
+    adoptionCount: 1
+    giftAnimalCount: 0
+    animalId: 
+    walk: 0
+    talk: 2
+    expirationDate: 0
+    sceneId: 0
+    message: Talk to some Peeps
+    reward: 0
+    multiplier: 0
+    reputationPoints: 0
+    accepted: 0
+    dateAvailable: 0
+    completed: 0
+    redeemed: 0
+    currentProgress: 0 /1

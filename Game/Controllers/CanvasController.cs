@@ -22,6 +22,7 @@ public class CanvasController : CustomMonoBehaviour {
     public GameObject adoptionInformation;
     public GameObject background;
     public bool open;
+    public Settings settings;
     // public GameObject currentlyOpen;
     public Queue openedCanvas;
     public GameObject vetMenu;
@@ -32,6 +33,9 @@ public class CanvasController : CustomMonoBehaviour {
             vetMenu = centralController.centralDictionary["VetMenu"];
         }
         canvas = centralController.Get("Canvas");
+        if (settings.filter != null) {
+            ChangeCanvasColor(settings.filter.canvasColour);
+        }
     }
 
     // Update is called once per frame
@@ -43,11 +47,10 @@ public class CanvasController : CustomMonoBehaviour {
             gameObject.SetActive(false);
         }
     }
-    public void ChangeCanvasColor(Color color, Color previousColor) {
+    public void ChangeCanvasColor(Color color) {
         foreach (Transform child in canvas.transform) {
             if (child.gameObject.TryGetComponent(out Image image)) {
-                if (image.color == previousColor) {
-                    Debug.Log("Cahnge color");
+                if (child.gameObject.name.IndexOf("Background") == -1) {
                     child.gameObject.GetComponent<Image>().color = color;
                 }
             }

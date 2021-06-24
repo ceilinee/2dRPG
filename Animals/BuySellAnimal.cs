@@ -60,7 +60,7 @@ public class BuySellAnimal : CustomMonoBehaviour {
     public void redeemQuest(Quest quest) {
         playerMoney.initialValue += quest.reward;
         player.reputation += quest.reputationPoints;
-        player.earnedMoney += quest.reward;
+        player.AddEarnedMoney(quest.reward);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
     public int TotalAnimalCapacity() {
@@ -123,20 +123,20 @@ public class BuySellAnimal : CustomMonoBehaviour {
     public void sellAnimal(Animal newAnimal) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost;
-        player.earnedMoney += newAnimal.cost;
+        player.AddEarnedMoney(newAnimal.cost);
         animalList.GetComponent<AnimalList>().removeAnimal(newAnimal.id);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
     }
     public void adoptOutAnimal(Animal newAnimal, Character character) {
         curAnimals.removeExistingAnimal(newAnimal.id);
         playerMoney.initialValue += newAnimal.cost * character.multiplier;
-        player.earnedMoney += newAnimal.cost * character.multiplier;
+        player.AddEarnedMoney(newAnimal.cost * character.multiplier);
         animalList.GetComponent<AnimalList>().removeAnimal(newAnimal.id);
         playerMoneyText.text = "$" + playerMoney.initialValue.ToString();
         newAnimal.characterOwned = true;
         newAnimal.charId = character.id;
         charAnimals.addExistingAnimal(newAnimal);
-        player.dailyAdoption += 1;
+        player.AddAdoption();
     }
     public bool buyItem(Item item) {
         if (playerMoney.initialValue >= item.cost) {
@@ -165,13 +165,13 @@ public class BuySellAnimal : CustomMonoBehaviour {
         playerInventory.Additem(item);
         itemAlert.GetComponent<ItemAlert>().startAlert(item);
         if (!item.pickedUpAtLeastOnce) {
-            player.dailyCollected.Add(item.Id);
+            player.AddCollected(item.Id);
             item.pickedUpAtLeastOnce = true;
         }
     }
     public void sellItem(Item item) {
         playerMoney.initialValue += item.sellCost;
-        player.earnedMoney += item.sellCost;
+        player.AddEarnedMoney(item.sellCost);
         playerInventory.Removeitem(item);
         if (playerInventory.currentItem == null) {
             target.Find("InventoryHold").GetComponent<PlayerInventory>().removeSprite();

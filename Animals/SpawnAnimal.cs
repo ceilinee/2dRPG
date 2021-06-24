@@ -93,18 +93,18 @@ public class SpawnAnimal : MonoBehaviour {
         }
     }
     public void playerWalkAnimal() {
-        player.dailyWalk += 1;
+        player.AddWalk(1);
     }
     public void playerTalkCharacter(int id) {
-        player.dailyTalk += 1;
-        player.dailyTalkedTo.Add(id);
+        player.AddTalk();
+        player.AddTalkedTo(id);
     }
     public void playerGiftCharacter(int id) {
-        player.dailyGiftCharacter += 1;
-        player.dailyGiftedTo.Add(id);
+        player.AddGiftCharacter(1);
+        player.AddGiftedTo(id);
     }
     public void playerGiftAnimal() {
-        player.dailyGiftAnimal += 1;
+        player.AddGiftAnimal(1);
     }
     public void setAnimalImage(GameObject animalImage, Animal animalTrait) {
         GameObject instance = animalImage;

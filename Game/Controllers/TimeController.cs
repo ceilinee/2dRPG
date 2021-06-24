@@ -50,7 +50,7 @@ public class TimeController : MonoBehaviour {
     // This is a signal that is triggered every hour
     [SerializeField]
     private Signal timeChangeSignal;
-
+    public Settings playerSettings;
     public float Hours {
         get { return time / 3600f; }
     }
@@ -95,6 +95,17 @@ public class TimeController : MonoBehaviour {
             foreach (Transform child in lamps.transform) {
                 child.gameObject.GetComponent<Light2D>().intensity = 0.5f;
             }
+        }
+    }
+    public void SetLightColors(Filter filter) {
+        nightLightColor = filter.nightTimeColour;
+        dawnLightColor = filter.dawnTimeColour;
+        dayLightColor = filter.dayTimeColour;
+        SetColour();
+    }
+    void Start() {
+        if (playerSettings.filter != null) {
+            SetLightColors(playerSettings.filter);
         }
     }
     void CloseLamps() {

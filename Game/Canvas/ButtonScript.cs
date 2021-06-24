@@ -17,6 +17,8 @@ public class ButtonScript : MonoBehaviour {
     public GameObject buyAnimalsTab;
     public GameObject buySpecialAnimalsTab;
     public GameObject accountSelection;
+    public List<GameObject> close;
+    public GameObject open;
 
     // Start is called before the first frame update
     void Start() {
@@ -26,6 +28,12 @@ public class ButtonScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+    }
+    public void Open() {
+        foreach (GameObject go in close) {
+            go.SetActive(false);
+        }
+        open.SetActive(true);
     }
     public void toggleAdoption() {
         adoptionTab.SetActive(true);

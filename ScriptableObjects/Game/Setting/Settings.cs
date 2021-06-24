@@ -13,6 +13,11 @@ public enum Speed {
 public class Settings : ScriptableObject {
     public Speed speed = Speed.CLASSIC;
     public Speed geese = Speed.CLASSIC;
-    public Filter filter;
+    public Filter filter = null;
     public string musicId;
+    public void Clear() {
+        speed = Speed.CLASSIC;
+        geese = Speed.CLASSIC;
+        filter = null;
+    }
 }

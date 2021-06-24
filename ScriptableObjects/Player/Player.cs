@@ -34,6 +34,18 @@ public class Player : ScriptableObject {
     public List<int> dailyScenesVisited;
     public List<string> dailyCollected;
     public List<int> childrenCharId;
+    public int totalAdoption = 0;
+    public int totalTalk = 0;
+    public int totalWalk = 0;
+    public int totalGiftCharacter = 0;
+    public int totalGiftAnimal = 0;
+    public int totalQuest = 0;
+    public float totalEarnedMoney;
+    public List<int> totalExCharId;
+    public List<int> totalTalkedTo;
+    public List<int> totalGiftedTo;
+    public List<int> totalScenesVisited;
+    public List<string> totalCollected;
     public Appearance appearance;
 
     public void divorce() {
@@ -62,6 +74,58 @@ public class Player : ScriptableObject {
         clearDailies();
         playerName = "";
         appearance = new Appearance();
+    }
+    public void AddTalkedTo(int id) {
+        dailyTalkedTo.Add(id);
+        if (!totalTalkedTo.Contains(id)) {
+            totalTalkedTo.Add(id);
+        }
+    }
+    public void AddCollected(string id) {
+        dailyCollected.Add(id);
+        if (!totalCollected.Contains(id)) {
+            totalCollected.Add(id);
+        }
+    }
+    public void AddGiftedTo(int id) {
+        dailyGiftedTo.Add(id);
+        if (!totalGiftedTo.Contains(id)) {
+            totalGiftedTo.Add(id);
+        }
+    }
+    public void AddScenesVisited(int id) {
+        dailyScenesVisited.Add(id);
+        if (!totalScenesVisited.Contains(id)) {
+            totalScenesVisited.Add(id);
+        }
+    }
+    public void AddAdoption(int add = 1) {
+        dailyAdoption += add;
+        totalAdoption += add;
+    }
+    public void AddTalk(int add = 1) {
+        dailyTalk += add;
+        totalTalk += add;
+    }
+    public void AddWalk(int add = 1) {
+        dailyWalk += add;
+        totalWalk += add;
+    }
+    public void AddGiftCharacter(int add = 1) {
+        dailyGiftCharacter += add;
+        totalGiftCharacter += add;
+    }
+    public void AddGiftAnimal(int add = 1) {
+        dailyGiftAnimal += add;
+        totalGiftAnimal += add;
+    }
+    public void AddQuest(int add = 1) {
+        dailyQuest += add;
+        totalQuest += add;
+    }
+    public void AddEarnedMoney(float add = 1) {
+        earnedMoney += add;
+        totalEarnedMoney += add;
     }
     public void clearDailies() {
         dailyAdoption = 0;

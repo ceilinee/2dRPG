@@ -13,6 +13,10 @@ public class SettingsMenu : CustomMonoBehaviour {
     public TimeController TimeController;
     private Speed[] speedEnum;
     private CanvasController CanvasController;
+    public Quests goals;
+    public GoalList incomplete;
+    public GoalList completed;
+    public Player player;
 
     // Start is called before the first frame update
     void Start() {
@@ -26,7 +30,98 @@ public class SettingsMenu : CustomMonoBehaviour {
     }
     public void Open() {
         SetUpDropdowns();
+        SetUpGoals();
         gameObject.SetActive(true);
+    }
+    public void displayGoal(Quest quest) {
+
+    }
+    public void SetUpGoals() {
+        foreach (Quest quest in goals.curQuests) {
+            quest.currentProgress = CalculateGoal(quest, true);
+        }
+        goals.SortQuestsByCompleted();
+        incomplete.Clear();
+        completed.Clear();
+        incomplete.quests = goals.GetIncompletedQuests();
+        completed.quests = goals.GetCompletedQuests();
+        incomplete.PopulateList();
+        completed.PopulateList();
+    }
+    public void setQuestCompletedFunction(Quest quest) {
+        goals.SetQuestCompleted(quest);
+    }
+    public void setQuestIncompletedFunction(Quest quest) {
+        goals.SetQuestIncompleted(quest);
+    }
+
+    public string CalculateGoal(Quest newQuest, bool total = false) {
+        string result = "";
+        switch (newQuest.type) {
+            case QuestType.adoption:
+                int adoption = total ? player.totalAdoption : player.dailyAdoption;
+                result = adoption.ToString() + " /" + newQuest.adoptionCount;
+                float percentage = adoption / newQuest.adoptionCount;
+                if (percentage >= 1.0 && !newQuest.completed) {
+                    setQuestCompletedFunction(newQuest);
+                } else {
+                    setQuestIncompletedFunction(newQuest);
+                }
+                break;
+            case QuestType.talk:
+                int talk = total ? player.totalTalk : player.dailyTalk;
+                result = talk.ToString() + " /" + newQuest.talk;
+                percentage = (float) talk / newQuest.talk;
+                Debug.Log(percentage);
+                if (percentage >= 1.0 && !newQuest.completed) {
+                    setQuestCompletedFunction(newQuest);
+                }
+                break;
+            case QuestType.walk:
+                int walk = total ? player.totalWalk : player.dailyWalk;
+                result = walk.ToString() + " /" + newQuest.walk;
+                percentage = (float) walk / newQuest.walk;
+                if (percentage >= 1.0 && !newQuest.completed) {
+                    setQuestCompletedFunction(newQuest);
+                }
+                break;
+            case QuestType.talkCharacter:
+                List<int> talkedTo = total ? player.totalTalkedTo : player.dailyTalkedTo;
+                result = talkedTo.Count.ToString() + " /" + newQuest.talkQuestCharId.Length;
+                percentage = (float) talkedTo.Count / newQuest.talkQuestCharId.Length;
+                if (percentage >= 1.0 && !newQuest.completed) {
+                    setQuestCompletedFunction(newQuest);
+                }
+                break;
+            case QuestType.giftCharacter:
+                List<int> gifted = total ? player.totalGiftedTo : player.dailyGiftedTo;
+                result = gifted.Count.ToString() + " /" + newQuest.talkQuestCharId.Length;
+                percentage = (float) gifted.Count / newQuest.talkQuestCharId.Length;
+                if (percentage >= 1.0 && !newQuest.completed) {
+                    setQuestCompletedFunction(newQuest);
+                }
+                break;
+            case QuestType.giftAnimal:
+                int giftedAnimal = total ? player.totalGiftAnimal : player.dailyGiftAnimal;
+                result = giftedAnimal.ToString() + " /" + newQuest.talkQuestCharId.Length;
+                percentage = (float) giftedAnimal / newQuest.talkQuestCharId.Length;
+                if (percentage >= 1.0 && !newQuest.completed) {
+                    setQuestCompletedFunction(newQuest);
+                }
+                break;
+            default:
+                List<int> scenesVisited = total ? player.totalScenesVisited : player.dailyScenesVisited;
+                if (!newQuest.completed && !scenesVisited.Contains(newQuest.sceneId)) {
+                    result = "0 /1";
+                } else {
+                    if (!newQuest.completed && !newQuest.completed) {
+                        setQuestCompletedFunction(newQuest);
+                    }
+                    result = "1 /1";
+                }
+                break;
+        }
+        return result;
     }
     public void SetUpDropdowns() {
         SetupSpeedDropdown();
@@ -60,12 +155,9 @@ public class SettingsMenu : CustomMonoBehaviour {
         TimeController.timeScale = (150) + (50) * (target.value);
     }
     public void UpdateFilter(Dropdown target) {
-        CanvasController.ChangeCanvasColor(filters.filters[target.value].canvasColour, playerSettings.filter.canvasColour);
+        CanvasController.ChangeCanvasColor(filters.filters[target.value].canvasColour);
         playerSettings.filter = filters.filters[target.value];
-        TimeController.nightLightColor = playerSettings.filter.nightTimeColour;
-        TimeController.dawnLightColor = playerSettings.filter.dawnTimeColour;
-        TimeController.dayLightColor = playerSettings.filter.dayTimeColour;
-        TimeController.SetColour();
+        TimeController.SetLightColors(playerSettings.filter);
     }
     public void UpdateGeese(Dropdown target) {
         playerSettings.speed = speedEnum[target.value];
@@ -89,7 +181,8 @@ public class SettingsMenu : CustomMonoBehaviour {
         List<string> dropdownOptions = new List<string>();
         for (int i = 0; i < filters.filters.Count; ++i) {
             dropdownOptions.Add(filters.filters[i].name.ToString().ToUpper());
-            if (filters.filters[i] == playerSettings.filter) {
+            if (filters.filters[i].name == playerSettings.filter.name) {
+                Debug.Log("equal filter");
                 position = i;
             }
         }

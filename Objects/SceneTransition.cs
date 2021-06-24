@@ -49,9 +49,7 @@ public class SceneTransition : CustomMonoBehaviour {
         gameSaveManager.GetComponent<GameSaveManager>().updateAnimalAndCharacter();
         // characterManager.GetComponent<CharacterManager>().updateCurCharacter();
         // animalList.GetComponent<AnimalList>().updateList();
-        if (!player.dailyScenesVisited.Contains(newScene.id)) {
-            player.dailyScenesVisited.Add(newScene.id);
-        }
+        player.AddScenesVisited(newScene.id);
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "Forest" && inForest) {
             if (newScene.sceneName == "Forest") {

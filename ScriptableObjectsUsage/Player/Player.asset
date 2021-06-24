@@ -12,29 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49a4413885fe4c73a1bf07a5c3c3eef, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  playerName: Ethan2
+  playerName: Goosey
   female: 0
-  married: 0
-  marriedCharId: -1
-  datingCharId: 
-  reputation: 3
+  married: 1
+  marriedCharId: 0
+  datingCharId: 00000000
+  reputation: 25
   dailyAdoption: 0
-  dailyTalk: 1
+  dailyTalk: 0
   dailyWalk: 0
   dailyGiftCharacter: 0
   dailyGiftAnimal: 0
   dailyQuest: 0
   earnedMoney: 0
   exCharId: 
-  dailyTalkedTo: 11000000
+  dailyTalkedTo: 
   dailyGiftedTo: 
   dailyScenesVisited: 
-  dailyCollected: 
-  childrenCharId: 
+  dailyCollected:
+  - GardenLightsWhite
+  childrenCharId: 6400000065000000
+  totalAdoption: 0
+  totalTalk: 2
+  totalWalk: 0
+  totalGiftCharacter: 0
+  totalGiftAnimal: 0
+  totalQuest: 0
+  totalEarnedMoney: 0
+  totalExCharId: 
+  totalTalkedTo: 1100000000000000
+  totalGiftedTo: 
+  totalScenesVisited: 
+  totalCollected: []
   appearance:
-    hairId: 0
-    hairColorId: 11
+    hairId: 3
+    hairColorId: 4
     outfitId: 0
     eyesId: 0
-    eyeColorId: 0
-    skinColorId: 0
+    eyeColorId: 16
+    skinColorId: 8
+    bottomId: 0

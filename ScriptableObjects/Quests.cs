@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum QuestType {
     adoption,
@@ -37,17 +38,18 @@ public class Quest {
     public int dateAvailable;
     public bool completed = false;
     public bool redeemed = false;
+    public string currentProgress;
 }
 
 [CreateAssetMenu]
 [System.Serializable]
 public class Quests : ScriptableObject {
     public Quest[] curQuests;
-
     public void addQuest(Quest quest) {
         List<Quest> temp = new List<Quest>(curQuests);
         temp.Insert(0, quest);
         curQuests = temp.ToArray();
+        SortQuestsByCompleted();
     }
     public void Clear() {
         curQuests = new Quest[0];
@@ -70,10 +72,29 @@ public class Quests : ScriptableObject {
     }
     public void SetQuestCompleted(Quest quest) {
         for (int i = 0; i < curQuests.Length; i++) {
-            if (curQuests[i].id == quest.id) {
+            if (curQuests[i] == quest) {
                 curQuests[i].completed = true;
             }
         }
+        // SortQuestsByCompleted();
+    }
+    public void SetQuestIncompleted(Quest quest) {
+        for (int i = 0; i < curQuests.Length; i++) {
+            if (curQuests[i] == quest) {
+                curQuests[i].completed = false;
+            }
+        }
+        // SortQuestsByCompleted();
+    }
+    public Quest[] SortQuestsByCompleted() {
+        curQuests = GetIncompletedQuests().Union(GetCompletedQuests()).ToArray();
+        return curQuests;
+    }
+    public Quest[] GetCompletedQuests() {
+        return curQuests.Where(c => c.completed).ToArray();
+    }
+    public Quest[] GetIncompletedQuests() {
+        return curQuests.Where(c => !c.completed).ToArray();
     }
     public void SetQuestRedeemed(Quest quest) {
         for (int i = 0; i < curQuests.Length; i++) {
