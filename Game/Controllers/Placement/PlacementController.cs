@@ -181,6 +181,7 @@ public abstract class PlacementController : CustomMonoBehaviour {
         }
     }
 
+    // Only call this function if `go` has a collider component with isTrigger = true
     protected void AttachPlaceableObjectBlueprintScript(GameObject go) {
         SpriteRenderer[] sprites = go.GetComponentsInChildren<SpriteRenderer>();
         go.AddComponent<PlaceableObjectBlueprint>().SetTriggers(

@@ -8,7 +8,7 @@ public class TimeController : MonoBehaviour {
     public CurTime currentTime;
     // Amount of time that has passed in seconds, in the current day
     private float time;
-    [SerializeField] float timeScale = 60f;
+    [SerializeField] public float timeScale = 60f;
     const float secondsInDay = 86400f;
     public int days;
     public string dateString = "";
@@ -38,10 +38,10 @@ public class TimeController : MonoBehaviour {
     [System.Serializable] public class DictionaryOfIntAndString : SerializableDictionary<int, string> { }
     public DictionaryOfIntAndString seasonDict = new DictionaryOfIntAndString();
     private bool confirmVar = false;
-    [SerializeField] Color nightLightColor;
+    [SerializeField] public Color nightLightColor;
     [SerializeField] AnimationCurve nightTimeCurve;
-    [SerializeField] Color dawnLightColor;
-    [SerializeField] Color dayLightColor = Color.white;
+    [SerializeField] public Color dawnLightColor;
+    [SerializeField] public Color dayLightColor = Color.white;
     [SerializeField] Light2D globalLight;
 
     [SerializeField] Text text;
@@ -132,7 +132,7 @@ public class TimeController : MonoBehaviour {
             NextDay();
         }
     }
-    void SetColour() {
+    public void SetColour() {
         float v = nightTimeCurve.Evaluate(Hours);
         Color c = Color.Lerp(nightLightColor, dawnLightColor, v * 2);
         if (v < .5) {

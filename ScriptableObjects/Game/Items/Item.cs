@@ -8,7 +8,8 @@ public enum ItemPrefabType {
     Object,
     Barn,
     Tree,
-    GardenLightWhite
+    GardenLightWhite,
+    Tile,
 }
 
 [CreateAssetMenu]

@@ -16,10 +16,13 @@ public class PlacementManager : CustomMonoBehaviour {
     private BuildingPlacementController buildingPlacementController;
     private PrefabPlacementController prefabPlacementController;
 
+    private TilePlacementController tilePlacementController;
+
     private void Awake() {
         itemPlacementController = GetComponent<ItemPlacementController>();
         buildingPlacementController = GetComponent<BuildingPlacementController>();
         prefabPlacementController = GetComponent<PrefabPlacementController>();
+        tilePlacementController = GetComponent<TilePlacementController>();
     }
 
     private PlacementController StartController(Item item) {
@@ -30,6 +33,9 @@ public class PlacementManager : CustomMonoBehaviour {
             case ItemPrefabType.Barn:
                 buildingPlacementController.BeginPlacement(item.Id);
                 return buildingPlacementController;
+            case ItemPrefabType.Tile:
+                tilePlacementController.BeginPlacement(item.Id);
+                return tilePlacementController;
             default:
                 prefabPlacementController.BeginPlacement(item.Id);
                 return prefabPlacementController;

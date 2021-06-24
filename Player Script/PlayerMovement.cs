@@ -17,7 +17,7 @@ public enum Direction {
     Down
 }
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : CustomMonoBehaviour {
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
@@ -49,6 +49,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool holding;
 
+    [SerializeField]
+    private Signal playerPickupSignal;
+
+    private SettingsMenu settingsMenu;
     void Awake() {
         UpdateDirection(initialChangeX, initialChangeY);
     }
@@ -57,6 +61,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start() {
         currentState = PlayerState.walk;
         setAnimator();
+        settingsMenu = centralController.Get("SettingsMenu").GetComponent<SettingsMenu>();
         myRigidbody = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", initialChangeX);
         animator.SetFloat("moveY", initialChangeY);
@@ -89,14 +94,18 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
     void Update() {
-        if (Input.GetButtonDown("menu") && !playerMenu.activeInHierarchy) {
-            if (!CanvasController.activeInHierarchy) {
-                CanvasController.SetActive(true);
+        if (Input.GetButtonDown("setting")) {
+            if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
+                settingsMenu.Open();
             }
+        }
+        if (Input.GetButtonDown("menu") && !playerMenu.activeInHierarchy) {
             if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
                 playerMenu.GetComponent<PlayerInformation>().Open();
                 Time.timeScale = 0;
             }
+        } else if (!holding && Input.GetKeyDown(KeyCode.Space)) {
+            playerPickupSignal.Raise();
         }
     }
     private IEnumerator AttackCo() {

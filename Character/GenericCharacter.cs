@@ -296,11 +296,13 @@ public class GenericCharacter : CustomMonoBehaviour {
             }
         }
         if (!playerInRange && Vector3.Distance(target.position, transform.position) <= clickRange) {
+            // player not in range and goal reached
             playerInRange = true;
             speechBubble.SetActive(true);
             SetWakeUpFalse();
             playerInRangeSignal.Raise();
         } else if (playerInRange && Vector3.Distance(target.position, transform.position) > clickRange) {
+            // player in range and goal not reached 
             playerInRange = false;
             speechBubble.SetActive(false);
             SetWakeUpTrue();

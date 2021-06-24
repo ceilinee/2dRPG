@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasController : CustomMonoBehaviour {
     public GameObject canvas;
@@ -24,6 +25,7 @@ public class CanvasController : CustomMonoBehaviour {
     // public GameObject currentlyOpen;
     public Queue openedCanvas;
     public GameObject vetMenu;
+
     // Start is called before the first frame update
     void Start() {
         if (centralController.centralDictionary.ContainsKey("VetMenu")) {
@@ -39,6 +41,16 @@ public class CanvasController : CustomMonoBehaviour {
         } else if (!open && Time.timeScale == 0) {
             Time.timeScale = 1;
             gameObject.SetActive(false);
+        }
+    }
+    public void ChangeCanvasColor(Color color, Color previousColor) {
+        foreach (Transform child in canvas.transform) {
+            if (child.gameObject.TryGetComponent(out Image image)) {
+                if (image.color == previousColor) {
+                    Debug.Log("Cahnge color");
+                    child.gameObject.GetComponent<Image>().color = color;
+                }
+            }
         }
     }
     public bool openCanvas(bool openBackground = true) {

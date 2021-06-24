@@ -24,7 +24,7 @@ public class PlacedItem {
 /// <summary>
 [CreateAssetMenu]
 [System.Serializable]
-public class PlacedItems : CustomScriptableObject, Clearable {
+public class PlacedItems : CustomScriptableObject, IClearable {
     // Need to compose List<PlacedItem> and use that as the type of the values in sceneToPlacedItems
     // in order to have sceneToPlacedItems serialize properly by the GSM (see https://answers.unity.com/questions/460727/how-to-serialize-dictionary-with-unity-serializati.html)
     [System.Serializable]
@@ -59,6 +59,22 @@ public class PlacedItems : CustomScriptableObject, Clearable {
                 sceneToPlacedItems.Remove(sceneName);
             }
         }
+    }
+
+    public List<PlacedItem> RemoveIfExists(string sceneName, Vector2 position) {
+        List<PlacedItem> removed = new List<PlacedItem>();
+        if (sceneToPlacedItems.ContainsKey(sceneName)) {
+            foreach (PlacedItem placedItem in sceneToPlacedItems[sceneName].Get()) {
+                if (placedItem.itemPosition == position) {
+                    removed.Add(placedItem);
+                }
+            }
+            sceneToPlacedItems[sceneName].Get().RemoveAll(x => x.itemPosition == position);
+            if (sceneToPlacedItems[sceneName].Get().Count == 0) {
+                sceneToPlacedItems.Remove(sceneName);
+            }
+        }
+        return removed;
     }
 
     public void Clear() {

@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 using System;
 
 /// <summary>
-/// ItemPlacementController helps the player place basic Item objects.
+/// PrefabPlacementController helps the player place instances of basic prefabs.
 /// <summary>
 public class PrefabPlacementController : PlacementController {
     [SerializeField]
@@ -30,10 +30,12 @@ public class PrefabPlacementController : PlacementController {
     private Inventory playerInventory;
 
     // Load all items that were placed in the previous save
+    // TODO: potential race condition; place two trees, exit the game, then start the game
+    // again (start mainscene directly) the two trees will appear and the placeditemscomplex SO
+    // will be cleared by the GSM *after* this LoadSaved() function runs
     protected override void LoadSaved() {
         var sceneName = GetVirtualSceneName();
         var itemList = placedItemsComplex.GetPlacedItems(sceneName);
-        Debug.Log("Placed complex items: " + itemList.Count);
         foreach (PlacedItem placedItem in itemList) {
             var item = itemDictionary.Get(placedItem.itemId);
             CreatePlacedObject(
@@ -65,13 +67,14 @@ public class PrefabPlacementController : PlacementController {
         created.transform.position = position;
         created.GetComponent<SpriteRenderer>().sprite = sprite;
         // Placed items that cannot be hit / broken can be picked up.
-        // Therefore, we attach the Object.cs script to them.
-        if (created.GetComponent<Breakable>() == null) {
+        // Therefore, we attach the Object.cs script to them (unless they already have it).
+        if (created.GetComponent<Breakable>() == null && created.GetComponent<Object>() == null) {
             Assert.IsTrue(created.GetComponent<Collider2D>() != null,
                 "Talk to Ethan about this (Object script only works if GO has a collider2D trigger)");
             var objectScript = created.AddComponent<Object>();
             objectScript.item = item;
             objectScript.buySellAnimal = buySellAnimal;
+            // TODO: there are some more fields to populate on Object
         }
         return created;
     }

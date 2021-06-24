@@ -79,7 +79,7 @@ public class GameSaveManager : MonoBehaviour {
 
     public void ClearSOState() {
         foreach (ScriptableObject so in objects) {
-            (so as Clearable)?.Clear();
+            (so as IClearable)?.Clear();
         }
     }
 }
