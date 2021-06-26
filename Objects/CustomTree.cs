@@ -17,7 +17,8 @@ public class CustomTree : Breakable {
         Assert.IsNotNull(woodPrefab);
     }
 
-    private void Start() {
+    protected override void Start() {
+        base.Start();
         placementManager = centralController.Get("PlacementController").GetComponent<PlacementManager>();
         Assert.IsNotNull(placementManager);
     }

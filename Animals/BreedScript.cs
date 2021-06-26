@@ -354,7 +354,9 @@ public class BreedScript : CustomMonoBehaviour {
         for (int i = 0; i < types.Length; i++) {
             if (notTypes == null && types[i] != Type.NOTSELECTED) {
                 filtered.Add(types[i]);
-            } else if (!notTypes.Contains(types[i]) && types[i] != Type.NOTSELECTED) {
+            } else if (notTypes != null && !notTypes.Contains(types[i]) && types[i] != Type.NOTSELECTED) {
+                filtered.Add(types[i]);
+            } else if (notTypes == null) {
                 filtered.Add(types[i]);
             }
         }

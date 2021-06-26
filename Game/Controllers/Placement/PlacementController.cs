@@ -59,6 +59,9 @@ public abstract class PlacementController : CustomMonoBehaviour {
     [SerializeField]
     protected BuildingController buildingController;
 
+    [SerializeField]
+    protected Astar astar;
+
     protected string GetVirtualSceneName() {
         if (ActiveSceneType() == Loader.Scene.Barn) {
             return buildingController.BuildThisBuildingSceneName();
@@ -71,14 +74,17 @@ public abstract class PlacementController : CustomMonoBehaviour {
     protected virtual void Awake() {
         Assert.IsNotNull(player);
         Assert.IsNotNull(buildingController);
+        Assert.IsNotNull(astar);
 
-        // By default, this script is disabled
-        // To activate the placement controller, a module must invoke BeginPlacement
-        CurrState = State.Disabled;
         faintRed = new Color(1f, 0f, 0f, 0.25f);
         faintBlue = new Color(0f, 1f, 1f, 0.25f);
         playerMovement = player.GetComponent<PlayerMovement>();
+    }
 
+    protected virtual void Start() {
+        // By default, this script is disabled
+        // To activate the placement controller, a module must invoke BeginPlacement
+        CurrState = State.Disabled;
         LoadSaved();
     }
 
@@ -212,5 +218,11 @@ public abstract class PlacementController : CustomMonoBehaviour {
         SpriteRenderer[] sprites = go.GetComponentsInChildren<SpriteRenderer>();
         SetSpritesToColor(sprites, faintBlue);
         AttachPlaceableObjectBlueprintScript(go);
+    }
+
+    // Returns true iff `go` is in the obstacle layer and has a non-trigger collider
+    protected bool isObstacle(GameObject go) {
+        var collider = go.GetComponent<Collider2D>();
+        return go.layer == LayerObstacle && collider != null && !collider.isTrigger;
     }
 }

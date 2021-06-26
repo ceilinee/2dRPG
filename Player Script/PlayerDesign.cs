@@ -57,11 +57,11 @@ public class PlayerDesign : MonoBehaviour {
             colors.colorDictionary[appearance.hairColorId].color
         );
         UpdateOutfit(bodyPartManager.outfits[appearance.outfitId].bodyPartSprite);
-        UpdateBottom(bodyPartManager.bottoms[appearance.bottomId].bodyPartSprite);
         UpdateEyes(
             bodyPartManager.eyes[appearance.eyesId].bodyPartSprite,
             colors.colorDictionary[appearance.eyeColorId].color
         );
         UpdateBody(colors.colorDictionary[appearance.skinColorId].color);
+        UpdateBottom(bodyPartManager.bottoms[appearance.bottomId].bodyPartSprite);
     }
 }

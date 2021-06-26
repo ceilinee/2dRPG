@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Assertions;
 
 [CreateAssetMenu]
 [System.Serializable]
@@ -22,5 +23,10 @@ public class AnimalColors : ScriptableObject {
         System.Random random = new System.Random();
         int index = random.Next(colorDictionary.Count);
         return colorDictionary.Values.ElementAt(index).id;
+    }
+
+    public Color GetColor(int colorDictKey) {
+        Assert.IsTrue(colorDictionary.ContainsKey(colorDictKey));
+        return colorDictionary[colorDictKey].color;
     }
 }

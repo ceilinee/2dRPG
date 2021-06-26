@@ -29,8 +29,7 @@ MonoBehaviour:
   dailyTalkedTo: 
   dailyGiftedTo: 
   dailyScenesVisited: 
-  dailyCollected:
-  - GardenLightsWhite
+  dailyCollected: []
   childrenCharId: 6400000065000000
   totalAdoption: 0
   totalTalk: 2

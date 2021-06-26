@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724fca069d417493d8ade79e643d05db, type: 3}
   m_Name: FarmToNeighbor
   m_EditorClassIdentifier: 
-  value: {x: 39.3, y: -0.5}
+  locationName: 
+  value: {x: 38, y: -0.5}

@@ -7,7 +7,8 @@ public enum PlayerState {
     walk,
     attack,
     stagger,
-    idle
+    idle,
+    crouch
 }
 
 public enum Direction {
@@ -88,7 +89,7 @@ public class PlayerMovement : CustomMonoBehaviour {
         change.y = Input.GetAxisRaw("Vertical");
         if (!holding && Input.GetKeyDown("f") && currentState != PlayerState.attack) {
             StartCoroutine(AttackCo());
-        } else if (currentState == PlayerState.walk || currentState == PlayerState.idle) {
+        } else if (currentState == PlayerState.walk || currentState == PlayerState.idle || currentState == PlayerState.crouch) {
             UpdateDirection(change.x, change.y);
             UpdateAnimationAndMove();
         }
@@ -104,8 +105,15 @@ public class PlayerMovement : CustomMonoBehaviour {
                 playerMenu.GetComponent<PlayerInformation>().Open();
                 Time.timeScale = 0;
             }
-        } else if (!holding && Input.GetKeyDown(KeyCode.Space)) {
-            playerPickupSignal.Raise();
+        } else if (!holding && Input.GetKey(KeyCode.Space) && currentState != PlayerState.crouch) {
+            currentState = PlayerState.crouch;
+            speed = 3;
+            transform.localScale = new Vector3(1, 0.9f, 1);
+            // playerPickupSignal.Raise();
+        } else if (currentState == PlayerState.crouch && !Input.GetKey(KeyCode.Space)) {
+            currentState = PlayerState.idle;
+            speed = 7;
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
     private IEnumerator AttackCo() {

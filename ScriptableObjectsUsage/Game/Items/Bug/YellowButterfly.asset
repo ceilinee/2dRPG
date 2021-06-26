@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: YellowButterfly
   m_EditorClassIdentifier: 
   itemName: Yellow Butterfly
-  id: 20
   sprites:
     down: {fileID: -2314489558464614992, guid: f8ede096733364725aace6d6f9454672, type: 3}
     right: {fileID: -2314489558464614992, guid: f8ede096733364725aace6d6f9454672,
@@ -31,5 +30,8 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 64000000
+  pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: 581aee6707ffe40d49a9fb02093a203e, type: 2}
   moveSpeed: 1
+  suspectMax: 20

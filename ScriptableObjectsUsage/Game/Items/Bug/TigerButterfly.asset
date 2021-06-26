@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: TigerButterfly
   m_EditorClassIdentifier: 
   itemName: Tiger Butterfly
-  id: 19
   sprites:
     down: {fileID: -2109746712841428476, guid: 2bfe476e63e8240c3ae9d1e089d7fb91, type: 3}
     right: {fileID: -2109746712841428476, guid: 2bfe476e63e8240c3ae9d1e089d7fb91,
@@ -32,5 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 32000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: 4701e0a8280b0444c9737a4bd7bafb8e, type: 2}
   moveSpeed: 1
+  suspectMax: 12

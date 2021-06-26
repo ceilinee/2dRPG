@@ -54,6 +54,7 @@ public class TilePlacementController : PlacementController {
             }
         }
         placementTileMapCollisionCollider.GenerateGeometry();
+        astar.RescanAstarGraph(placementTileMapCollisionCollider.bounds);
     }
 
     protected override void Awake() {
@@ -92,6 +93,7 @@ public class TilePlacementController : PlacementController {
         if (itemBeingPlaced.isCollidable) {
             placementTileMapCollision.SetTile(ToTilemapPos(pos), tileBeingPlaced);
             placementTileMapCollisionCollider.GenerateGeometry();
+            astar.RescanAstarGraph(placementTileMapCollisionCollider.bounds);
         } else {
             placementTileMap.SetTile(ToTilemapPos(pos), tileBeingPlaced);
         }
@@ -171,6 +173,7 @@ public class TilePlacementController : PlacementController {
                 buySellAnimal.GetComponent<BuySellAnimal>().pickUpItem(item);
             }
             placementTileMapCollisionCollider.GenerateGeometry();
+            astar.RescanAstarGraph(placementTileMapCollisionCollider.bounds);
         }
     }
 }

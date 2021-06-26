@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DateController : MonoBehaviour {
+public class DateController : CustomMonoBehaviour {
     public CurTime curtime;
     public Calendar calendar;
     public Events events;
@@ -12,6 +12,8 @@ public class DateController : MonoBehaviour {
     public List<GameObject> summer;
     public List<GameObject> fall;
     public List<GameObject> winter;
+
+    private Astar astar;
 
     // Start is called before the first frame update
     void Start() {
@@ -25,6 +27,7 @@ public class DateController : MonoBehaviour {
         // for(int i =0; i<events.events.Length; i++){
         //   events.eventDict[events.events[i].eventId] = events.events[i];
         // }
+        astar = centralController.Get("A*").GetComponent<Astar>();
         UpdateSeason();
     }
 
@@ -116,5 +119,6 @@ public class DateController : MonoBehaviour {
                 ob.SetActive(true);
             }
         }
+        astar.RescanAstarGraph();
     }
 }

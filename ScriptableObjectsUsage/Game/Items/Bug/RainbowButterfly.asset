@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: RainbowButterfly
   m_EditorClassIdentifier: 
   itemName: Rainbow Butterfly
-  id: 17
   sprites:
     down: {fileID: -3946042121872398495, guid: 0e80af63f783648f8a57dc4ccbf5ddb7, type: 3}
     right: {fileID: -3946042121872398495, guid: 0e80af63f783648f8a57dc4ccbf5ddb7,
@@ -32,5 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 28000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: df7033a329c7a4f6bad14da913e199ec, type: 2}
   moveSpeed: 1
+  suspectMax: 12

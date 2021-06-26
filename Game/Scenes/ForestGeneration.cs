@@ -48,7 +48,7 @@ public class ForestGeneration : CustomMonoBehaviour {
     public GameObject ranger;
     public Dialogue rangerDialogue;
     private DisplayArea displayArea;
-    private AstarPath astarPath;
+    private Astar astar;
     private Spawner spawner;
     private GenerationSharedFunctions functions;
     int width;
@@ -68,7 +68,7 @@ public class ForestGeneration : CustomMonoBehaviour {
         spawnObject = centralController.Get("SpawnObjects").GetComponent<SpawnObject>();
         spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
         spawner = centralController.Get("Spawner").GetComponent<Spawner>();
-        astarPath = centralController.Get("A*").GetComponent<AstarPath>();
+        astar = centralController.Get("A*").GetComponent<Astar>();
         displayArea = centralController.Get("DisplayArea").GetComponent<DisplayArea>();
         StartCoroutine(GenerationWait());
         if (forest.level == 0) {
@@ -143,7 +143,7 @@ public class ForestGeneration : CustomMonoBehaviour {
             yield return null;
         }
         yield return new WaitForEndOfFrame();
-        astarPath.Scan();
+        astar.RescanAstarGraph(true);
         SpawnRandomGeese();
     }
     public void SpawnRandomGeese() {

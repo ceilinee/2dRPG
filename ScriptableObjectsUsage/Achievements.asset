@@ -15,6 +15,29 @@ MonoBehaviour:
   curQuests:
   - id: 0
     posterCharId: 0
+    type: 0
+    talkQuestCharId: 
+    giftQuestCharId: 0
+    giftQuestItemId: 
+    collectQuestItemId: []
+    adoptionCount: 1
+    giftAnimalCount: 0
+    animalId: 
+    walk: 0
+    talk: 2
+    expirationDate: 0
+    sceneId: 0
+    message: Adoption
+    reward: 0
+    multiplier: 0
+    reputationPoints: 0
+    accepted: 0
+    dateAvailable: 0
+    completed: 0
+    redeemed: 0
+    currentProgress: 0 /1
+  - id: 0
+    posterCharId: 0
     type: 1
     talkQuestCharId: 
     giftQuestCharId: 0
@@ -33,7 +56,7 @@ MonoBehaviour:
     reputationPoints: 0
     accepted: 0
     dateAvailable: 0
-    completed: 0
+    completed: 1
     redeemed: 0
     currentProgress: 2 /3
   - id: 0
@@ -50,13 +73,13 @@ MonoBehaviour:
     talk: 3
     expirationDate: 0
     sceneId: 0
-    message: Talk to some Peeps
+    message: Walk some pets
     reward: 0
     multiplier: 0
     reputationPoints: 0
     accepted: 0
     dateAvailable: 0
-    completed: 0
+    completed: 1
     redeemed: 0
     currentProgress: 0 /2
   - id: 0
@@ -102,29 +125,6 @@ MonoBehaviour:
     reputationPoints: 0
     accepted: 0
     dateAvailable: 0
-    completed: 0
+    completed: 1
     redeemed: 0
     currentProgress: 1 /1
-  - id: 0
-    posterCharId: 0
-    type: 0
-    talkQuestCharId: 
-    giftQuestCharId: 0
-    giftQuestItemId: 
-    collectQuestItemId: []
-    adoptionCount: 1
-    giftAnimalCount: 0
-    animalId: 
-    walk: 0
-    talk: 2
-    expirationDate: 0
-    sceneId: 0
-    message: Talk to some Peeps
-    reward: 0
-    multiplier: 0
-    reputationPoints: 0
-    accepted: 0
-    dateAvailable: 0
-    completed: 0
-    redeemed: 0
-    currentProgress: 0 /1

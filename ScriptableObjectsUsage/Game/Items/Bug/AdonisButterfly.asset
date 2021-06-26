@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: AdonisButterfly
   m_EditorClassIdentifier: 
   itemName: Adonis Butterfly
-  id: 13
   sprites:
     down: {fileID: -6834272182752483829, guid: 5024d63a1da444f80a1296b6950fe4ff, type: 3}
     right: {fileID: -6834272182752483829, guid: 5024d63a1da444f80a1296b6950fe4ff,
@@ -32,5 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 0a000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: 9ec39a87a47854df0bc63a8bd9fc5d86, type: 2}
   moveSpeed: 3
+  suspectMax: 10

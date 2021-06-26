@@ -18,9 +18,16 @@ public class Breakable : CustomMonoBehaviour, IHittable {
 
     public bool isBroken;
 
-    void Start() {
+    private Astar astar;
+
+    protected virtual void Start() {
         anim = GetComponent<Animator>();
         Assert.IsNotNull(anim);
+
+        Assert.IsNotNull(GetComponent<Collider2D>());
+
+        astar = centralController.Get("A*").GetComponent<Astar>();
+        Assert.IsNotNull(astar);
     }
 
     // Can choose to override in subclasses
@@ -32,7 +39,9 @@ public class Breakable : CustomMonoBehaviour, IHittable {
         OnBroken();
         // TODO: send a signal (have a signal for a complex placed item being destroyed / removed)
         // then in prefab placement controller, remove the placed item from placeditemscomplex
+        var b = GetComponent<Collider2D>().bounds;
         gameObject.SetActive(false);
+        astar.RescanAstarGraph(b);
     }
 
     public void BeHit(float damage) {

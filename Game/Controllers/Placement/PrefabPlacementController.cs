@@ -69,12 +69,22 @@ public class PrefabPlacementController : PlacementController {
         // Placed items that cannot be hit / broken can be picked up.
         // Therefore, we attach the Object.cs script to them (unless they already have it).
         if (created.GetComponent<Breakable>() == null && created.GetComponent<Object>() == null) {
-            Assert.IsTrue(created.GetComponent<Collider2D>() != null,
+            Assert.IsTrue(created.GetComponent<Collider2D>().isTrigger,
                 "Talk to Ethan about this (Object script only works if GO has a collider2D trigger)");
             var objectScript = created.AddComponent<Object>();
             objectScript.item = item;
             objectScript.buySellAnimal = buySellAnimal;
             // TODO: there are some more fields to populate on Object
+        }
+        if (isObstacle(created)) {
+            var mergedBounds = created.GetComponent<Collider2D>().bounds;
+            foreach (var c in created.GetComponentsInChildren<Collider2D>()) {
+                mergedBounds.Encapsulate(c.bounds);
+            }
+            foreach (var r in created.GetComponentsInChildren<Renderer>()) {
+                mergedBounds.Encapsulate(r.bounds);
+            }
+            astar.RescanAstarGraph(mergedBounds);
         }
         return created;
     }

@@ -52,7 +52,7 @@ MonoBehaviour:
       star: 27
     multiplier: 4
     notIncludeType: 
-    breedName: Dutch
+    breedName: Dutchie
     breedDescription: dutchie
     userCreated: 0
     coloring:
@@ -1054,6 +1054,188 @@ MonoBehaviour:
       ears: 5
       back: 5
       star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 5
+    notIncludeType: 
+    breedName: Fine China
+    breedDescription: 
+    userCreated: 0
+    coloring:
+      body: 0
+      tail: 22
+      eyes: 31
+      dots: 22
+      face: 22
+      legs: 22
+      ears: 22
+      back: 27
+      star: 22
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 5
+    notIncludeType: 0200000004000000
+    breedName: Crowned Princess
+    breedDescription: Defined by a crown of sunshine
+    userCreated: 0
+    coloring:
+      body: 24
+      tail: 24
+      eyes: 31
+      dots: 0
+      face: 0
+      legs: 27
+      ears: 11
+      back: 27
+      star: 0
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 5
+    notIncludeType: 02000000
+    breedName: Cherry Rose
+    breedDescription: A warm, red breed
+    userCreated: 0
+    coloring:
+      body: 6
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 5
+      legs: 7
+      ears: 5
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 5
+    notIncludeType: 02000000
+    breedName: Fairy Blossoms
+    breedDescription: Soft Pink
+    userCreated: 0
+    coloring:
+      body: 2
+      tail: 3
+      eyes: 31
+      dots: 3
+      face: 3
+      legs: 3
+      ears: 3
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 3
+    notIncludeType: 02000000
+    breedName: Himalayan
+    breedDescription: Same face, ears, tail and leg colours
+    userCreated: 0
+    coloring:
+      body: 31
+      tail: 32
+      eyes: 31
+      dots: 27
+      face: 32
+      legs: 32
+      ears: 32
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 5
+    notIncludeType: 02000000
+    breedName: Silk Road
+    breedDescription: Yellow and Blue
+    userCreated: 0
+    coloring:
+      body: 22
+      tail: 11
+      eyes: 31
+      dots: 27
+      face: 11
+      legs: 11
+      ears: 11
+      back: 27
+      star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 5
+    notIncludeType: 02000000
+    breedName: Tennis Ball
+    breedDescription: Yellow and Blue
+    userCreated: 0
+    coloring:
+      body: 15
+      tail: 0
+      eyes: 31
+      dots: 27
+      face: 0
+      legs: 0
+      ears: 0
+      back: 27
+      star: 27
   breedDictionary:
     keys:
     - CottonTail
@@ -1096,6 +1278,14 @@ MonoBehaviour:
     - Tuxedo
     - Uniform
     - Valentine
+    - Fine China
+    - Crowned Princess
+    - Cherry Rose
+    - Fairy Blossoms
+    - Himalayan
+    - Silk Road
+    - Tennis Ball
+    - Dutchie
     values:
     - unlocked: 1
       exampleColoring:
@@ -2137,4 +2327,212 @@ MonoBehaviour:
         legs: 5
         ears: 5
         back: 5
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 5
+      notIncludeType: 
+      breedName: Fine China
+      breedDescription: 
+      userCreated: 0
+      coloring:
+        body: 0
+        tail: 22
+        eyes: 31
+        dots: 22
+        face: 22
+        legs: 22
+        ears: 22
+        back: 27
+        star: 22
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 5
+      notIncludeType: 0200000004000000
+      breedName: Crowned Princess
+      breedDescription: Defined by a crown of sunshine
+      userCreated: 0
+      coloring:
+        body: 24
+        tail: 24
+        eyes: 31
+        dots: 0
+        face: 0
+        legs: 27
+        ears: 11
+        back: 27
+        star: 0
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 5
+      notIncludeType: 02000000
+      breedName: Cherry Rose
+      breedDescription: A warm, red breed
+      userCreated: 0
+      coloring:
+        body: 6
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 5
+        legs: 7
+        ears: 5
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 5
+      notIncludeType: 02000000
+      breedName: Fairy Blossoms
+      breedDescription: Soft Pink
+      userCreated: 0
+      coloring:
+        body: 2
+        tail: 3
+        eyes: 31
+        dots: 3
+        face: 3
+        legs: 3
+        ears: 3
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 3
+      notIncludeType: 02000000
+      breedName: Himalayan
+      breedDescription: Same face, ears, tail and leg colours
+      userCreated: 0
+      coloring:
+        body: 31
+        tail: 32
+        eyes: 31
+        dots: 27
+        face: 32
+        legs: 32
+        ears: 32
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 5
+      notIncludeType: 02000000
+      breedName: Silk Road
+      breedDescription: Yellow and Blue
+      userCreated: 0
+      coloring:
+        body: 22
+        tail: 11
+        eyes: 31
+        dots: 27
+        face: 11
+        legs: 11
+        ears: 11
+        back: 27
+        star: 27
+    - unlocked: 0
+      exampleColoring:
+        body: 1
+        tail: 5
+        eyes: 7
+        dots: 27
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
+        star: 27
+      multiplier: 5
+      notIncludeType: 02000000
+      breedName: Tennis Ball
+      breedDescription: Yellow and Blue
+      userCreated: 0
+      coloring:
+        body: 15
+        tail: 0
+        eyes: 31
+        dots: 27
+        face: 0
+        legs: 0
+        ears: 0
+        back: 27
+        star: 27
+    - unlocked: 1
+      exampleColoring:
+        body: 0
+        tail: 15
+        eyes: 21
+        dots: 27
+        face: 15
+        legs: 15
+        ears: 15
+        back: 15
+        star: 27
+      multiplier: 4
+      notIncludeType: 
+      breedName: Dutchie
+      breedDescription: dutchie
+      userCreated: 0
+      coloring:
+        body: 0
+        tail: 32
+        eyes: 31
+        dots: 27
+        face: 32
+        legs: 32
+        ears: 32
+        back: 32
         star: 27

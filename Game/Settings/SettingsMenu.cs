@@ -64,7 +64,7 @@ public class SettingsMenu : CustomMonoBehaviour {
                 float percentage = adoption / newQuest.adoptionCount;
                 if (percentage >= 1.0 && !newQuest.completed) {
                     setQuestCompletedFunction(newQuest);
-                } else {
+                } else if (percentage < 1.0) {
                     setQuestIncompletedFunction(newQuest);
                 }
                 break;
@@ -75,6 +75,8 @@ public class SettingsMenu : CustomMonoBehaviour {
                 Debug.Log(percentage);
                 if (percentage >= 1.0 && !newQuest.completed) {
                     setQuestCompletedFunction(newQuest);
+                } else if (percentage < 1.0) {
+                    setQuestIncompletedFunction(newQuest);
                 }
                 break;
             case QuestType.walk:
@@ -83,6 +85,8 @@ public class SettingsMenu : CustomMonoBehaviour {
                 percentage = (float) walk / newQuest.walk;
                 if (percentage >= 1.0 && !newQuest.completed) {
                     setQuestCompletedFunction(newQuest);
+                } else if (percentage < 1.0) {
+                    setQuestIncompletedFunction(newQuest);
                 }
                 break;
             case QuestType.talkCharacter:
@@ -91,6 +95,8 @@ public class SettingsMenu : CustomMonoBehaviour {
                 percentage = (float) talkedTo.Count / newQuest.talkQuestCharId.Length;
                 if (percentage >= 1.0 && !newQuest.completed) {
                     setQuestCompletedFunction(newQuest);
+                } else if (percentage < 1.0) {
+                    setQuestIncompletedFunction(newQuest);
                 }
                 break;
             case QuestType.giftCharacter:
@@ -99,6 +105,8 @@ public class SettingsMenu : CustomMonoBehaviour {
                 percentage = (float) gifted.Count / newQuest.talkQuestCharId.Length;
                 if (percentage >= 1.0 && !newQuest.completed) {
                     setQuestCompletedFunction(newQuest);
+                } else if (percentage < 1.0) {
+                    setQuestIncompletedFunction(newQuest);
                 }
                 break;
             case QuestType.giftAnimal:
@@ -107,14 +115,19 @@ public class SettingsMenu : CustomMonoBehaviour {
                 percentage = (float) giftedAnimal / newQuest.talkQuestCharId.Length;
                 if (percentage >= 1.0 && !newQuest.completed) {
                     setQuestCompletedFunction(newQuest);
+                } else if (percentage < 1.0) {
+                    setQuestIncompletedFunction(newQuest);
                 }
                 break;
             default:
                 List<int> scenesVisited = total ? player.totalScenesVisited : player.dailyScenesVisited;
                 if (!newQuest.completed && !scenesVisited.Contains(newQuest.sceneId)) {
                     result = "0 /1";
+                    if (newQuest.completed) {
+                        setQuestIncompletedFunction(newQuest);
+                    }
                 } else {
-                    if (!newQuest.completed && !newQuest.completed) {
+                    if (!newQuest.completed) {
                         setQuestCompletedFunction(newQuest);
                     }
                     result = "1 /1";

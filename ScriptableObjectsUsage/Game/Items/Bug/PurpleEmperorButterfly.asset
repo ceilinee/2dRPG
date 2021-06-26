@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: PurpleEmperorButterfly
   m_EditorClassIdentifier: 
   itemName: Purple Emperor Butterfly
-  id: 16
   sprites:
     down: {fileID: 3638875774585541272, guid: 94d91b5ac3e8149ca95f154469a34058, type: 3}
     right: {fileID: 3638875774585541272, guid: 94d91b5ac3e8149ca95f154469a34058, type: 3}
@@ -31,5 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 05000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: 0d93cca5ed9d44ce4a855161b522b1d1, type: 2}
   moveSpeed: 2
+  suspectMax: 5

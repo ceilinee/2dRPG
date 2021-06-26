@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: ZebraButterfly
   m_EditorClassIdentifier: 
   itemName: Zebra Butterfly
-  id: 21
   sprites:
     down: {fileID: -2588415189043126729, guid: 9870be04e8ca740b399b7f3b031c5983, type: 3}
     right: {fileID: -2588415189043126729, guid: 9870be04e8ca740b399b7f3b031c5983,
@@ -32,5 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 3c000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: 8536662ec2f0d4fe78dcd63375ac5c40, type: 2}
   moveSpeed: 1
+  suspectMax: 12

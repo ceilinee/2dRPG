@@ -21,11 +21,14 @@ public class CharacterCreation : CustomMonoBehaviour {
 
     private int currHairColorIdx;
 
+    [SerializeField]
+    private ColorGroup hairColors;
+
     [Header("The name of the currently selected hairstyle")]
     public Text hairName;
 
     [Header("The currently displayed hair colors")]
-    public List<Image> hairColors;
+    public List<Image> hairColorImages;
 
     private int currOutfitIdx;
 
@@ -41,17 +44,23 @@ public class CharacterCreation : CustomMonoBehaviour {
 
     private int currEyesColorIdx;
 
+    [SerializeField]
+    private ColorGroup eyeColors;
+
     [Header("The name of the currently selected eyes")]
     public Text eyesName;
 
     [Header("The currently displayed eyes colors")]
-    public List<Image> eyesColors;
+    public List<Image> eyesColorImages;
 
     private int leftSkinColorIdx;
     private int currSkinColorIdx;
 
+    [SerializeField]
+    private ColorGroup skinColors;
+
     [Header("The currently displayed skin colors")]
-    public List<Image> skinColors;
+    public List<Image> skinColorImages;
 
     public PlayerDesign playerDesign;
     private Notification notification;
@@ -111,33 +120,33 @@ public class CharacterCreation : CustomMonoBehaviour {
     }
 
     public void HaircolorNext() {
-        leftHairColorIdx += hairColors.Count;
-        if (leftHairColorIdx >= colors.colorDictionary.Count) {
-            leftHairColorIdx %= colors.colorDictionary.Count;
+        leftHairColorIdx += hairColorImages.Count;
+        if (leftHairColorIdx >= hairColors.colorDictKeys.Count) {
+            leftHairColorIdx %= hairColors.colorDictKeys.Count;
         }
         RenderHair();
     }
 
     public void HaircolorPrevious() {
-        leftHairColorIdx -= hairColors.Count;
+        leftHairColorIdx -= hairColorImages.Count;
         if (leftHairColorIdx < 0) {
-            leftHairColorIdx += colors.colorDictionary.Count;
+            leftHairColorIdx += hairColors.colorDictKeys.Count;
         }
         RenderHair();
     }
 
     public void HaircolorSelect(int hairColorIdx) {
-        currHairColorIdx = (leftHairColorIdx + hairColorIdx) % colors.colorDictionary.Count;
+        currHairColorIdx = (leftHairColorIdx + hairColorIdx) % hairColors.colorDictKeys.Count;
         RenderHair();
     }
 
     private void RenderHair() {
         BodyPart currHair = bodyPartManager.hairStyles[currHairstyleIdx];
-        playerDesign.UpdateHair(currHair.bodyPartSprite, colors.colorDictionary[currHairColorIdx].color);
+        playerDesign.UpdateHair(currHair.bodyPartSprite, colors.GetColor(hairColors.colorDictKeys[currHairColorIdx]));
         hairName.text = currHair.name;
-        for (int i = 0; i < hairColors.Count; ++i) {
-            int colorIdx = (leftHairColorIdx + i) % colors.colorDictionary.Count;
-            hairColors[i].color = colors.colorDictionary[colorIdx].color;
+        for (int i = 0; i < hairColorImages.Count; ++i) {
+            int colorIdx = (leftHairColorIdx + i) % hairColors.colorDictKeys.Count;
+            hairColorImages[i].color = colors.GetColor(hairColors.colorDictKeys[colorIdx]);
         }
     }
 
@@ -202,79 +211,79 @@ public class CharacterCreation : CustomMonoBehaviour {
     }
 
     public void EyeColorNext() {
-        leftEyesColorIdx += eyesColors.Count;
-        if (leftEyesColorIdx >= colors.colorDictionary.Count) {
-            leftEyesColorIdx %= colors.colorDictionary.Count;
+        leftEyesColorIdx += eyesColorImages.Count;
+        if (leftEyesColorIdx >= eyeColors.colorDictKeys.Count) {
+            leftEyesColorIdx %= eyeColors.colorDictKeys.Count;
         }
         RenderEyes();
     }
 
     public void EyeColorPrevious() {
-        leftEyesColorIdx -= eyesColors.Count;
+        leftEyesColorIdx -= eyesColorImages.Count;
         if (leftEyesColorIdx < 0) {
-            leftEyesColorIdx += colors.colorDictionary.Count;
+            leftEyesColorIdx += eyeColors.colorDictKeys.Count;
         }
         RenderEyes();
     }
 
     public void EyeColorSelect(int eyeColorIdx) {
-        currEyesColorIdx = (leftEyesColorIdx + eyeColorIdx) % colors.colorDictionary.Count;
+        currEyesColorIdx = (leftEyesColorIdx + eyeColorIdx) % eyeColors.colorDictKeys.Count;
         RenderEyes();
     }
 
     private void RenderEyes() {
         BodyPart currEyes = bodyPartManager.eyes[currEyesIdx];
-        playerDesign.UpdateEyes(currEyes.bodyPartSprite, colors.colorDictionary[currEyesColorIdx].color);
+        playerDesign.UpdateEyes(currEyes.bodyPartSprite, colors.GetColor(eyeColors.colorDictKeys[currEyesColorIdx]));
         eyesName.text = currEyes.name;
-        for (int i = 0; i < eyesColors.Count; ++i) {
-            int colorIdx = (leftEyesColorIdx + i) % colors.colorDictionary.Count;
-            eyesColors[i].color = colors.colorDictionary[colorIdx].color;
+        for (int i = 0; i < eyesColorImages.Count; ++i) {
+            int colorIdx = (leftEyesColorIdx + i) % eyeColors.colorDictKeys.Count; ;
+            eyesColorImages[i].color = colors.GetColor(eyeColors.colorDictKeys[colorIdx]);
         }
     }
 
     public void SkinColorNext() {
-        leftSkinColorIdx += skinColors.Count;
-        if (leftSkinColorIdx >= colors.colorDictionary.Count) {
-            leftSkinColorIdx %= colors.colorDictionary.Count;
+        leftSkinColorIdx += skinColorImages.Count;
+        if (leftSkinColorIdx >= skinColors.colorDictKeys.Count) {
+            leftSkinColorIdx %= skinColors.colorDictKeys.Count;
         }
         RenderSkin();
     }
 
     public void SkinColorPrevious() {
-        leftSkinColorIdx -= skinColors.Count;
+        leftSkinColorIdx -= skinColorImages.Count;
         if (leftSkinColorIdx < 0) {
-            leftSkinColorIdx += colors.colorDictionary.Count;
+            leftSkinColorIdx += skinColors.colorDictKeys.Count;
         }
         RenderSkin();
     }
 
     public void SkinColorSelect(int skinColorIdx) {
-        currSkinColorIdx = (leftSkinColorIdx + skinColorIdx) % colors.colorDictionary.Count;
+        currSkinColorIdx = (leftSkinColorIdx + skinColorIdx) % skinColors.colorDictKeys.Count;
         RenderSkin();
     }
 
     private void RenderSkin() {
-        playerDesign.UpdateBody(colors.colorDictionary[currSkinColorIdx].color);
-        for (int i = 0; i < skinColors.Count; ++i) {
-            int colorIdx = (leftSkinColorIdx + i) % colors.colorDictionary.Count;
-            skinColors[i].color = colors.colorDictionary[colorIdx].color;
+        playerDesign.UpdateBody(colors.GetColor(skinColors.colorDictKeys[currSkinColorIdx]));
+        for (int i = 0; i < skinColorImages.Count; ++i) {
+            int colorIdx = (leftSkinColorIdx + i) % skinColors.colorDictKeys.Count;
+            skinColorImages[i].color = colors.GetColor(skinColors.colorDictKeys[colorIdx]);
         }
     }
 
     public void Save() {
         string name = input.GetComponent<InputField>().text;
         if (name.Length == 0) {
-            notification.initiateNotification("Your name has to be atleast one character!", true);
+            notification.initiateNotification("Your name has to be at least one character!", true);
         } else {
             input.GetComponent<InputField>().text = " ";
             player.playerName = name;
             player.setAppearance(
                 bodyPartManager.hairStyles[currHairstyleIdx].id,
-                currHairColorIdx,
+                hairColors.colorDictKeys[currHairColorIdx],
                 bodyPartManager.outfits[currOutfitIdx].id,
                 bodyPartManager.eyes[currEyesIdx].id,
-                currEyesColorIdx,
-                currSkinColorIdx
+                eyeColors.colorDictKeys[currEyesColorIdx],
+                skinColors.colorDictKeys[currSkinColorIdx]
             );
             gameObject.SetActive(false);
             onSubmit();

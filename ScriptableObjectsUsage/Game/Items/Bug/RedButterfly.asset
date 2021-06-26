@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: RedButterfly
   m_EditorClassIdentifier: 
   itemName: Crimson Butterfly
-  id: 18
   sprites:
     down: {fileID: 2486998737259302273, guid: a9967fdb87f274d16bb5316053c2b225, type: 3}
     right: {fileID: 2486998737259302273, guid: a9967fdb87f274d16bb5316053c2b225, type: 3}
@@ -31,5 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 32000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: fd3fad55b047f4d36a521abffb66109f, type: 2}
   moveSpeed: 1
+  suspectMax: 11

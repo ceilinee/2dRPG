@@ -8,6 +8,7 @@ public class AdoptionController : MonoBehaviour {
     public AnimalColors animalColors;
     public GameObject BreedScript;
     public AnimalBreed animalBreeds;
+    public AnimalBreed finalAnimalBreeds;
     public Personalities personalities;
     public AnimalBreed genericAnimals;
     public GameObject mailController;
@@ -15,6 +16,7 @@ public class AdoptionController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         animalBreeds.updateBreedDictionary();
+        animalBreeds.updateAllBreeds(finalAnimalBreeds);
         genericAnimals.updateBreedDictionary();
     }
     public void startRequest() {

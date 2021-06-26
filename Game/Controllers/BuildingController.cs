@@ -32,7 +32,7 @@ public class BuildingController : CustomMonoBehaviour {
 
     [SerializeField]
     private ItemDictionary itemDictionary;
-    private AstarPath astarPath;
+    private Astar astar;
 
     private BuildingPlacementController placementController;
 
@@ -62,9 +62,9 @@ public class BuildingController : CustomMonoBehaviour {
     void Start() {
         placementController = centralController.Get("PlacementController").GetComponent<BuildingPlacementController>();
         buildingsUnderConstruction = new List<BuildingUnderConstruction>();
-        astarPath = centralController.Get("A*").GetComponent<AstarPath>();
+        astar = centralController.Get("A*").GetComponent<Astar>();
         if (LoadSavedPlacedBuildings()) {
-            astarPath.Scan();
+            astar.RescanAstarGraph();
         };
     }
 
@@ -77,6 +77,7 @@ public class BuildingController : CustomMonoBehaviour {
     // In addition, populate buildingsUnderConstruction with buildings that have yet
     // to been built
     public bool LoadSavedPlacedBuildings() {
+        bool atLeastOneCompleteBuilding = false;
         foreach (PlacedBuilding savedBuilding in placedBuildings.buildings) {
             Assert.IsTrue(itemDictionary.itemDict.ContainsKey(savedBuilding.buildingItemId));
             BuildingItem item = (BuildingItem) itemDictionary.itemDict[savedBuilding.buildingItemId];
@@ -85,6 +86,7 @@ public class BuildingController : CustomMonoBehaviour {
             if (savedBuilding.completed) {
                 buildingObject = Instantiate(buildingInfo.prefab);
                 SetupCompletedBuilding(buildingObject, item, savedBuilding.buildingId);
+                atLeastOneCompleteBuilding = true;
             } else {
                 buildingObject = Instantiate(buildingInfo.blueprintPrefab);
                 placementController.SetSpritesToColor(
@@ -102,7 +104,7 @@ public class BuildingController : CustomMonoBehaviour {
             buildingObject.transform.position = savedBuilding.itemPosition;
             buildingObject.SetActive(true);
         }
-        return true;
+        return atLeastOneCompleteBuilding;
     }
 
     // RegisterBuildingCreation is invoked after a building blueprint has been placed.
@@ -129,6 +131,7 @@ public class BuildingController : CustomMonoBehaviour {
         HashSet<int> removedIdxs = new HashSet<int>();
         for (int i = 0; i < buildingsUnderConstruction.Count; ++i) {
             BuildingUnderConstruction building = buildingsUnderConstruction[i];
+            // TODO: buildings seem to all complete at 00:00 for some reason, please investigate
             if (curTime.isCurrentTimeBigger(building.completionTime)) {
                 removedIdxs.Add(i);
                 var completedBuilding = Instantiate(building.buildingPrefab,
@@ -137,6 +140,7 @@ public class BuildingController : CustomMonoBehaviour {
                 completedBuilding.SetActive(true);
                 Destroy(building.buildingBlueprintInstance);
                 placedBuildings.SetBuildingCompleted(building.buildingId);
+                astar.RescanAstarGraph(completedBuilding.GetComponent<Collider2D>().bounds);
             }
         }
         if (removedIdxs.Count > 0) {

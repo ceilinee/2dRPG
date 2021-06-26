@@ -13,6 +13,8 @@ public class CustomMonoBehaviour : MonoBehaviour {
     // Do not use centralController in Awake as it may not have been initialized
     protected static CentralController centralController;
 
+    public const int LayerObstacle = 13;
+
     // Called in Awake of CentralController.cs
     protected static void SetCentralController(CentralController centralController) {
         CustomMonoBehaviour.centralController = centralController;

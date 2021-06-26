@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: AzureButterfly
   m_EditorClassIdentifier: 
   itemName: Azure Butterfly
-  id: 14
   sprites:
     down: {fileID: 5476502996851308182, guid: c73a081ca35ee4eb3a08744a60f873ac, type: 3}
     right: {fileID: 5476502996851308182, guid: c73a081ca35ee4eb3a08744a60f873ac, type: 3}
@@ -31,5 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2b6af9f088fd4255981c51ef4581214, type: 2}
   spawnProbability: 0a000000
   pickedUpAtLeastOnce: 1
+  prefabType: 0
   animation: {fileID: 7400000, guid: 9a5a92739318c4a33bfea95da2aa2e88, type: 2}
   moveSpeed: 2
+  suspectMax: 12

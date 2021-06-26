@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : ScriptableObject {
     [System.Serializable]
     public class Appearance {
+        // Note that colorIds refer to the keys in SO AnimalColors.colorDictionary
         public int hairId;
         public int hairColorId;
         public int outfitId;

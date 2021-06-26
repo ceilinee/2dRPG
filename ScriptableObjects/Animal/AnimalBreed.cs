@@ -59,6 +59,20 @@ public class AnimalBreed : ScriptableObject {
             breedDictionary[breedArray[i].breedName] = breedArray[i];
         }
     }
+    public void updateAllBreeds(AnimalBreed fullList) {
+        List<Breed> breeds = new List<Breed>();
+        DictionaryOfBreed breedDict = new DictionaryOfBreed();
+        for (int i = 0; i < fullList.breedArray.Length; i++) {
+            Breed curBreed = fullList.breedArray[i];
+            if (breedDictionary.ContainsKey(curBreed.breedName)) {
+                curBreed.unlocked = breedDictionary[curBreed.breedName].unlocked;
+            }
+            breedDict[curBreed.breedName] = curBreed;
+            breeds.Add(curBreed);
+        }
+        breedDictionary = breedDict;
+        breedArray = breeds.ToArray();
+    }
     public void Clear() {
         List<Breed> newList = new List<Breed>();
         for (int j = 0; j < breedArray.Length; j++) {

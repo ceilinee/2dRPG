@@ -19,13 +19,13 @@ public class GenericCharacter : CustomMonoBehaviour {
     public Rigidbody2D myRigidbody;
     public bool shopKeeper;
     public GameObject shop;
-    private Transform target;
+    public Transform target;
     public Player player;
     public GameObject speechBubble;
     private Vector3 randomTarget;
     // private Vector3 previousLocation;
-    private float clickRange = 1;
-    private Animator anim;
+    protected float clickRange = 1;
+    protected Animator anim;
     public bool playerInRange;
     // public GameObject animalModal;
     public Character characterTrait;
@@ -39,16 +39,16 @@ public class GenericCharacter : CustomMonoBehaviour {
     public GearSocket[] gearSockets;
     public SpriteRenderer sprite;
 
-    private AIPath aipath;
+    protected AIPath aipath;
 
     [SerializeField]
-    private Signal playerInRangeSignal;
+    protected Signal playerInRangeSignal;
 
     [SerializeField]
-    private Signal playerOutsideRangeSignal;
+    protected Signal playerOutsideRangeSignal;
 
     [SerializeField]
-    private Signal giftRecievedSignal;
+    protected Signal giftRecievedSignal;
 
     // Whether or not this character has the ability to bring
     // up the player customization modal
@@ -273,21 +273,21 @@ public class GenericCharacter : CustomMonoBehaviour {
     public void ResumeGame() {
         Time.timeScale = 1;
     }
-    public void SetWakeUpTrue() {
+    public virtual void SetWakeUpTrue() {
         if (!anim) {
             anim = GetComponent<Animator>();
         }
         stop = false;
         anim.SetBool("wakeUp", true);
-        aipath.enabled = true;
         aipath.destination = characterTrait.selectedPath.dest.value;
+        aipath.enabled = true;
     }
-    public void SetWakeUpFalse() {
+    public virtual void SetWakeUpFalse() {
         stop = true;
         anim.SetBool("wakeUp", false);
         aipath.enabled = false;
     }
-    public void CheckDistance() {
+    public virtual void CheckDistance() {
         // if don't stop and path exists
         if (!stop && characterTrait.selectedPath.scene != null) {
             changeAnim(aipath.desiredVelocity);

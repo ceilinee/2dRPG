@@ -182,7 +182,7 @@ public class TimeController : MonoBehaviour {
         PauseGame();
         //Get current color
         Color spriteColor = Color.white;
-        NightBackground.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0f);
+        NightBackground.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 1f);
         NextDay();
         time = (secondsInDay / 24) * 8f;
         int hh = (int) Hours;
@@ -203,14 +203,16 @@ public class TimeController : MonoBehaviour {
             counter += Time.deltaTime;
             //Fade from 1 to 0
             float alpha = Mathf.Lerp(1, 0, counter / duration);
-
+            Debug.Log(alpha);
             blackOut.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, alpha);
             yield return null;
         }
         ResumeGame();
     }
+
     IEnumerator waitConfirm() {
         if (CanvasController.GetComponent<CanvasController>().openCanvas()) {
+            NightBackground.gameObject.SetActive(true);
             DayUpdater.SetActive(true);
             DayUpdater.GetComponent<DayUpdater>().updateModal(player);
             while (DayUpdater.activeInHierarchy) yield return null;

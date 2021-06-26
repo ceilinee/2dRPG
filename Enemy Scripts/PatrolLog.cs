@@ -24,6 +24,7 @@ public class PatrolLog : Log {
         }
     }
     public override void CheckDistance() {
+        // TODO: make this also use A* (see parent class log)
         anim.SetBool("wakeUp", true);
         if (Vector3.Distance(target.position, transform.position) <= chaseRadius && Vector3.Distance(target.position, transform.position) > attackRadius) {
             if (currentState == EnemyState.idle || currentState == EnemyState.walk

@@ -70,17 +70,9 @@ public class SpawnObject : MonoBehaviour {
     public void spawnButterfly(Square square, Bug bug) {
         GameObject instance = Instantiate(prefabButterfly);
         instance.GetComponent<Butterfly>().item = bug;
+        instance.GetComponent<Butterfly>().suspectMax = bug.suspectMax;
         instance.GetComponent<Butterfly>().buySellAnimal = buySellAnimal;
         instance.transform.position = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
         spawnedObjects.Add(instance);
-
-    }
-    public void spawnButterfly(Square square, Item item) {
-        GameObject instance = Instantiate(prefabButterfly);
-        instance.GetComponent<Object>().item = item;
-        instance.GetComponent<Object>().buySellAnimal = buySellAnimal;
-        instance.transform.position = new Vector2(Random.Range(square.start.value.x, square.end.value.x), Random.Range(square.start.value.y, square.end.value.y));
-        spawnedObjects.Add(instance);
-
     }
 }
