@@ -50,7 +50,8 @@ public class AnimalInformation : CustomMonoBehaviour {
     public Transform player;
     public Confirmation confirmation;
 
-    [SerializeField] private VectorPointsList pondList;
+    [SerializeField] private VectorPointsList naturalPondList;
+    [SerializeField] private PlacedPonds placedPonds;
 
     void Start() {
         confirmation = centralController.Get("Confirmation").GetComponent<Confirmation>();
@@ -119,19 +120,31 @@ public class AnimalInformation : CustomMonoBehaviour {
         }
         return animalTrait.animalName + " loves you, ♥♥♥♥♥";
     }
+
+    private string UpdateHomeFish(Animal animalTraitInformation) {
+        VectorPoints naturalPond = naturalPondList.vectorPoints.Find(x => x.locationName == animalTraitInformation.home);
+        Vector2 updatedLocation;
+        if (naturalPond == null) {
+            var placedPond = placedPonds.Get(animalTraitInformation.home);
+            Assert.IsNotNull(placedPond);
+            updatedLocation = placedPond.position;
+        } else {
+            updatedLocation = naturalPond.value;
+        }
+        animalTraitInformation.location = updatedLocation;
+        animal.transform.position = updatedLocation;
+        animal.GetComponent<FishScript>().UpdateWater();
+        return animalTraitInformation.animalName + "'s home has been changed to " +
+            animalTraitInformation.home +
+            "! They have been transported over there and are super excited to make new friends!";
+    }
+
     public void updateHome(Dropdown target) {
         if (animalTraitInformation.home != dropdownOptions[target.value]) {
             animalTraitInformation.home = dropdownOptions[target.value];
             var msg = "";
             if (animalTraitInformation.type == Type.FISH) {
-                VectorPoints pond = pondList.vectorPoints.Find(x => x.locationName == animalTraitInformation.home);
-                Assert.IsNotNull(pond);
-                animalTraitInformation.location = pond.value;
-                animal.transform.position = pond.value;
-                animal.GetComponent<FishScript>().UpdateWater();
-                msg = animalTraitInformation.animalName + "'s home has been changed to " +
-                    animalTraitInformation.home +
-                    "! They have been transported over there and are super excited to make new friends!";
+                msg = UpdateHomeFish(animalTraitInformation);
             } else {
                 msg = animalTraitInformation.animalName + "'s home has been changed to " +
                     animalTraitInformation.home + "! They're super excited to make new friends there! When you ring " +
@@ -144,18 +157,28 @@ public class AnimalInformation : CustomMonoBehaviour {
     public void SetupHomeDropdown(Animal animalTrait) {
         dropdownOptions = new List<string>();
         int position = 0;
+        // For fish, the set of possible homes is the union of the set of natural ponds in the
+        // farm area (stored in naturalPondList) with the set of ponds placed by the player
+        // (stored in placePonds)
         if (animalTrait.type == Type.FISH) {
-            for (int i = 0; i < pondList.vectorPoints.Count; ++i) {
-                VectorPoints vector = pondList.vectorPoints[i];
+            for (int i = 0; i < naturalPondList.vectorPoints.Count; ++i) {
+                VectorPoints vector = naturalPondList.vectorPoints[i];
                 dropdownOptions.Add(vector.locationName);
                 if (vector.locationName == animalTrait.home) {
                     position = i;
                 }
             }
+            for (int i = 0; i < placedPonds.ponds.Count; ++i) {
+                var name = placedPonds.ponds[i].name;
+                dropdownOptions.Add(name);
+                if (name == animalTrait.home) {
+                    position = i + naturalPondList.vectorPoints.Count;
+                }
+            }
         } else {
             for (int i = 0; i < placedBuildings.buildings.Count; ++i) {
                 PlacedBuilding building = placedBuildings.buildings[i];
-                if (!building.completed) {
+                if (building.status != PlacedBuilding.Status.Done) {
                     continue;
                 }
                 SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
@@ -178,7 +201,7 @@ public class AnimalInformation : CustomMonoBehaviour {
         animalName.text = animalTrait.animalName;
         age.text = animalTrait.age.ToString() + " days old";
         friendship.text = getFriendship(animalTrait);
-        type.text = StringExtension.ToCamelCase(animalTrait.type.ToString());
+        type.text = animalTrait.GetAnimalType();
         personality.text = animalTrait.personality.personality;
         healthBar.fillAmount = animalTrait.health / 100f;
         healthPercentage.text = animalTrait.health.ToString() + "%";

@@ -4,9 +4,19 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 public class FishScript : GenericAnimal {
-    // Start is called before the first frame update
-    private PolygonCollider2D waterArea;
-    public GameObject water;
+    [Header(Annotation.HeaderMsgDoNotSetInInspector)]
+    [SerializeField]
+    private Collider2D waterArea;
+
+    // This gameobject stores colliders for all the naturally occuring
+    // water bodies / ponds in the farm area
+    // Set externally in SpawnAnimal.cs
+    public GameObject naturalWaterFarm;
+
+    // Used by this script because it stores a list of all the pond GOs
+    // placed by the player
+    // Set externally in SpawnAnimal.cs
+    public PondPlacementController pondPlacementController;
     private int range = 5;
     private int catchRange = 1;
     private int curSuspect = 0;
@@ -23,8 +33,23 @@ public class FishScript : GenericAnimal {
         Assert.IsNotNull(pondList);
     }
 
+    // UpdateWater finds the collider for the body of water the fish is currently in,
+    // with the help of the fish's current transform.position
+    // The fish is either in a natural body of water or a placed pond
     public void UpdateWater() {
-        waterArea = water.GetComponent<Water>().getValidSwimLocation(transform.position);
+        waterArea = naturalWaterFarm.GetComponent<Water>().getValidSwimLocation(transform.position);
+        // If the fish is not in a natural body of water, it must be in a placed pond
+        if (waterArea == null) {
+            foreach (GameObject placedPond in pondPlacementController.placedPondObjects) {
+                waterArea = placedPond.GetComponent<Water>().getValidSwimLocation(transform.position);
+                // TODO: if you assign a fish to a placed pond, waterArea will not be null
+                // however, if they are in a placed pond and you save and restart the game, waterArea is null
+                // for some reason
+                if (waterArea != null) {
+                    break;
+                }
+            }
+        }
         Assert.IsNotNull(waterArea, "Fish's location must be within a body of water!");
         SetRandomPositionFish();
     }

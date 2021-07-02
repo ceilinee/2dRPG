@@ -23,6 +23,7 @@ public class CharacterManager : MonoBehaviour {
     public CurTime curTime;
     public Player player;
     public GameObject spawnAnimal;
+    public ScheduleDictionary scheduleDictionary;
     [System.Serializable] public class DictionaryOfTimeAndLocationList : SerializableDictionary<string, List<CharacterPath>> { }
     public DictionaryOfTimeAndLocationList movementDictionaryObject = new DictionaryOfTimeAndLocationList();
 
@@ -159,8 +160,17 @@ public class CharacterManager : MonoBehaviour {
         foreach (int id in player.childrenCharId) {
             Character characterTrait = curCharacters.characterDict[id];
             //if child is currently in scene, instantiate 
-            if (characterTrait.selectedPath.scene == SceneManager.GetActiveScene().name) {
+            if (characterTrait.travelTimes.Length <= 0) {
+                characterTrait.path = scheduleDictionary.characterPathDict[characterTrait.personality].array;
+                characterTrait.travelTimes = scheduleDictionary.travelTimesDict[characterTrait.personality].array;
+            }
+            //find current path for child
+            characterTrait.selectedPath = FindTime(characterTrait);
+            //instantiate child
+            if (characterTrait.selectedPath.scene == SceneManager.GetActiveScene().name && !characterTrait.unborn) {
                 GameObject instance = instantiateChild(characterTrait);
+                // Character instanceTrait = instance.GetComponent<GenericCharacter>().characterTrait;
+                // characterTrait = instanceTrait;
                 instance.GetComponent<GenericCharacter>().characterTrait = characterTrait;
                 instance.transform.position = characterTrait.location;
                 addToMovementDictionaryObject(characterTrait);
@@ -237,7 +247,7 @@ public class CharacterManager : MonoBehaviour {
                     script.SetWakeUpTrue();
                 }
                 if (script.characterTrait.selectedPath.spawn) {
-                    script.characterTrait.location = script.characterTrait.selectedPath.src.value;
+                    script.characterTrait.location = script.characterTrait.follow ? script.characterTrait.location : script.characterTrait.selectedPath.src.value;
                     characterGameObjectDictionary[movementDictionary[time][i].charId].transform.position = script.characterTrait.location;
                 }
             }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e5f3addf8cb4a448283b4500949eb2, type: 3}
-  m_Name: PondList
+  m_Name: NaturalPondList
   m_EditorClassIdentifier: 
   vectorPoints:
   - {fileID: 11400000, guid: d21e2b108901e4bc59f030301008a772, type: 2}

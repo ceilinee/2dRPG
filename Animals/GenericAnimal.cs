@@ -77,10 +77,10 @@ public class GenericAnimal : AnimalState {
                         }
                         giveGift();
                     } else {
-                        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This wild " + animalTrait.type + " got enough presents today and is backing away!");
+                        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This wild " + animalTrait.GetAnimalType() + " got enough presents today and is backing away!");
                     }
                 } else {
-                    animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " is still wild! Maybe you can earn it's trust by offering some presents.. Your friendship score is currently: " + animalTrait.love);
+                    animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.GetAnimalType() + " is still wild! Maybe you can earn it's trust by offering some presents.. Your friendship score is currently: " + animalTrait.love);
                 }
             }
         }
@@ -140,7 +140,7 @@ public class GenericAnimal : AnimalState {
     public void setAnimalTamed() {
         Debug.Log("tamed");
         animalTrait.wild = false;
-        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.type + " trusts you now! Why don't you get them to follow you and bring them home?");
+        animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.GetAnimalType() + " trusts you now! Why don't you get them to follow you and bring them home?");
         spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
         curAnimals.addExistingAnimal(animalTrait);
     }

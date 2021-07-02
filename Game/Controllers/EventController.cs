@@ -55,6 +55,10 @@ public class EventController : MonoBehaviour {
             child = curChar.childBirthEvent(date);
             childBorn();
         }
+        if (date % 5 == 0) {
+            Debug.Log(date);
+            curChar.AgeChildren();
+        }
     }
 
 }

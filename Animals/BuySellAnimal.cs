@@ -9,7 +9,6 @@ public class BuySellAnimal : CustomMonoBehaviour {
     public GameObject animalList;
     public Transform target;
     public Inventory playerInventory;
-    public SceneInfos playerBuildings;
     public Animals charAnimals;
     public FloatValue playerMoney;
     public Player player;
@@ -65,10 +64,7 @@ public class BuySellAnimal : CustomMonoBehaviour {
     }
     public int TotalAnimalCapacity() {
         int totalAnimalCapacity = 0;
-        foreach (PlacedBuilding building in placedBuildings.buildings) {
-            if (!building.completed) {
-                continue;
-            }
+        foreach (PlacedBuilding building in placedBuildings.GetBuildings(PlacedBuilding.Status.Done)) {
             SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
             totalAnimalCapacity += sceneInfo.animalMaxSize;
         }
@@ -81,7 +77,8 @@ public class BuySellAnimal : CustomMonoBehaviour {
         return totalAnimals < totalAnimalCapacity;
     }
     public bool buyAnimal(Animal newAnimal, Animals newShop) {
-        if (!CanBuyAnimal()) {
+        // TODO: we also want to enforce a threshold on the number of fish you can purchase
+        if (newAnimal.type != Type.FISH && !CanBuyAnimal()) {
             canvasController.initiateNotification("Sorry! Looks like your barns have a capacity of " + totalAnimalCapacity + ", and you already have " + totalAnimals + " animals . Try upgrading your barns or purchasing more!", true);
             return false;
         }
@@ -151,7 +148,6 @@ public class BuySellAnimal : CustomMonoBehaviour {
     public bool buyBuilding(BuildingItem building, ItemList buildings) {
         if (playerMoney.initialValue >= building.cost) {
             playerMoney.initialValue -= building.cost;
-            playerBuildings.AddBuilding(building.sceneInfo.id);
             // TODO: should the person be selling unlimited barns?
             // buildings.Remove(building.id);
             playerInventory.Additem(building);

@@ -23,6 +23,8 @@ public class Barn : CustomMonoBehaviour {
     [SerializeField]
     private Animals curAnimals;
 
+    private GameObject player;
+
     public void Initialize(int buildingId, BuildingItem buildingItem) {
         this.buildingId = buildingId;
         this.buildingItem = buildingItem;
@@ -37,11 +39,18 @@ public class Barn : CustomMonoBehaviour {
 
     private void Start() {
         Assert.IsNotNull(buildingItem, "Need to call Initialize() on this class with the correct arguments");
+        player = centralController.Get("Player");
 
         sceneTransition.SetSceneInfo(buildingItem.sceneInfo);
         sceneTransition.AddPetWillEnterSceneTransitionListener(
             OnPetWillEnterSceneTransition);
+        sceneTransition.animalList = centralController.Get("AnimalList");
+        sceneTransition.gameSaveManager = centralController.Get("GameSaveManager");
 
         barnSwitch.SetBarnId(buildingId);
+        barnSwitch.target = player.transform;
+        barnSwitch.animalList = centralController.Get("AnimalList");
+        barnSwitch.spawnAnimal = centralController.Get("SpawnAnimal");
+        barnSwitch.confirmationModal = centralController.Get("Confirmation");
     }
 }

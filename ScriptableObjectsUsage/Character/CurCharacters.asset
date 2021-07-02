@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: CurCharacters
   m_EditorClassIdentifier: 
   characterDict:
-    keys: 00000000010000000200000006000000110000000f000000280000006400000065000000
+    keys: 00000000010000000200000006000000110000000f0000002800000064000000650000000700000008000000
     values:
     - name: Linie
       moveSpeed: 3
       location: {x: 11.910589, y: -0.6720553}
       scene: 
       id: 0
+      occupation: 
       adoptAnimal: 0
       image: {fileID: -2815382439049205580, guid: 2c469aec78d27438191096eb9c9a88a1,
         type: 3}
@@ -147,11 +148,14 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+      friends: 
+      mood: 1
     - name: Lorrie
       moveSpeed: 3
       location: {x: 13.726608, y: -0.29829985}
       scene: 
       id: 1
+      occupation: 
       adoptAnimal: 0
       image: {fileID: 3813828707654058708, guid: cbdb3658a85af4cf1911f660b70ebaf2,
         type: 3}
@@ -306,11 +310,14 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+      friends: 
+      mood: 0
     - name: Joji
       moveSpeed: 3
-      location: {x: -15.387413, y: 1.9440137}
+      location: {x: -1.2, y: -4.8}
       scene: Barn2
       id: 2
+      occupation: 
       adoptAnimal: 0
       image: {fileID: -1344798583507216916, guid: 80fea3810ae414603a52f028edaf3952,
         type: 3}
@@ -324,7 +331,6 @@ MonoBehaviour:
       - 08:30
       - 09:30
       - 11:30
-      - 12:30
       - 20:30
       path:
       - src: {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
@@ -345,25 +351,19 @@ MonoBehaviour:
         scene: MainScene
         spawn: 0
         charId: 2
-      - src: {fileID: 11400000, guid: 9ea4caa374a40445492579c748ad2fe5, type: 2}
-        dest: {fileID: 11400000, guid: d4b8ce366dcc946798a5cb09eed5c8c6, type: 2}
-        action: 
-        scene: Barn2
-        spawn: 1
-        charId: 2
-      - src: {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+      - src: {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
         dest: {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
         scene: MainScene
-        spawn: 1
+        spawn: 0
         charId: 2
       selectedPath:
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        src: {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
+        dest: {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
-        scene: 
+        scene: MainScene
         spawn: 0
-        charId: 0
+        charId: 2
       friendshipScore: 30
       currentAnimalId: 0
       presentsDaily: 0
@@ -375,7 +375,6 @@ MonoBehaviour:
         - 08:30
         - 09:30
         - 11:30
-        - 12:30
         - 20:30
         values:
         - src: {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
@@ -396,17 +395,11 @@ MonoBehaviour:
           scene: MainScene
           spawn: 0
           charId: 2
-        - src: {fileID: 11400000, guid: 9ea4caa374a40445492579c748ad2fe5, type: 2}
-          dest: {fileID: 11400000, guid: d4b8ce366dcc946798a5cb09eed5c8c6, type: 2}
-          action: 
-          scene: Barn2
-          spawn: 1
-          charId: 2
-        - src: {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        - src: {fileID: 11400000, guid: 4dca86e69eecd4b60a9591b9c5fde5b4, type: 2}
           dest: {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
           action: 
           scene: MainScene
-          spawn: 1
+          spawn: 0
           charId: 2
       characterSpeechArray:
       - array:
@@ -529,11 +522,14 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+      friends: 
+      mood: 1
     - name: Tristan
       moveSpeed: 1.5
       location: {x: -45.09071, y: 27.725912}
       scene: 
       id: 6
+      occupation: 
       adoptAnimal: 0
       image: {fileID: -3838744861709503212, guid: a6031de8056db4440ab5cf3fa96588a6,
         type: 3}
@@ -575,7 +571,7 @@ MonoBehaviour:
         charId: 6
       selectedPath:
         src: {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
-        dest: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        dest: {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
         action: 
         scene: MainScene
         spawn: 0
@@ -789,11 +785,14 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+      friends: 
+      mood: 1
     - name: Shea
       moveSpeed: 3
-      location: {x: -15.387413, y: 1.9440137}
+      location: {x: -1.2, y: -4.8}
       scene: Barn2
       id: 17
+      occupation: 
       adoptAnimal: 0
       image: {fileID: -1344798583507216916, guid: 80fea3810ae414603a52f028edaf3952,
         type: 3}
@@ -841,12 +840,12 @@ MonoBehaviour:
         spawn: 1
         charId: 17
       selectedPath:
-        src: {fileID: 0}
-        dest: {fileID: 0}
+        src: {fileID: 11400000, guid: 68c250d9f3fa2496da36f0b39f70c13a, type: 2}
+        dest: {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
         action: 
-        scene: 
-        spawn: 0
-        charId: 0
+        scene: MainScene
+        spawn: 1
+        charId: 17
       friendshipScore: 15
       currentAnimalId: 0
       presentsDaily: 0
@@ -1012,11 +1011,14 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+      friends: 
+      mood: 0
     - name: Ruby
       moveSpeed: 1.5
       location: {x: -45.07562, y: 27.720808}
       scene: 
       id: 15
+      occupation: 
       adoptAnimal: 0
       image: {fileID: -4975241667841824346, guid: a879f2302e8cbe345bc5f27e74ba1690,
         type: 3}
@@ -1057,11 +1059,11 @@ MonoBehaviour:
         spawn: 0
         charId: 15
       selectedPath:
-        src: {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
-        dest: {fileID: 11400000, guid: 85670cc2281704da385d87206a11ca3f, type: 2}
+        src: {fileID: 11400000, guid: ab6b2295f5bbe486ea82f0851a533ecb, type: 2}
+        dest: {fileID: 11400000, guid: 26f98a50fedbe40cd8116ec3ac05d28d, type: 2}
         action: 
         scene: MainScene
-        spawn: 1
+        spawn: 0
         charId: 15
       friendshipScore: 9
       currentAnimalId: 0
@@ -1272,11 +1274,14 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
+      friends: 
+      mood: 1
     - name: Vet
       moveSpeed: 2
       location: {x: -0.0000001725275, y: 27.420528}
       scene: 
       id: 40
+      occupation: 
       adoptAnimal: 0
       image: {fileID: -4975241667841824346, guid: a879f2302e8cbe345bc5f27e74ba1690,
         type: 3}
@@ -1381,26 +1386,37 @@ MonoBehaviour:
       age: 0
       follow: 0
       personality: 0
-    - name: 
+      friends: 
+      mood: 1
+    - name: Kid1
       moveSpeed: 0
       location: {x: 0, y: 0}
       scene: 
       id: 100
+      occupation: Child1
       adoptAnimal: 0
-      image: {fileID: 0}
+      image: {fileID: -3838744861709503212, guid: a6031de8056db4440ab5cf3fa96588a6,
+        type: 3}
       portrait: []
       preferredAnimals: 
       gender: 
       multiplier: 1
-      travelTimes: []
-      path: []
-      selectedPath:
-        src: {fileID: 0}
-        dest: {fileID: 0}
+      travelTimes:
+      - 00:00
+      path:
+      - src: {fileID: 11400000, guid: 3c0e6392054c04a06b6a3275668fdaac, type: 2}
+        dest: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
         action: 
-        scene: 
-        spawn: 0
-        charId: 0
+        scene: MainScene
+        spawn: 1
+        charId: 100
+      selectedPath:
+        src: {fileID: 11400000, guid: 3c0e6392054c04a06b6a3275668fdaac, type: 2}
+        dest: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 100
       friendshipScore: 0
       currentAnimalId: 0
       presentsDaily: 0
@@ -1408,8 +1424,15 @@ MonoBehaviour:
       date: 0
       talked: 0
       characterMovement:
-        keys: []
-        values: []
+        keys:
+        - 00:00
+        values:
+        - src: {fileID: 11400000, guid: 3c0e6392054c04a06b6a3275668fdaac, type: 2}
+          dest: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 1
+          charId: 100
       characterSpeechArray: []
       characterGiftReceiveSpeechArray: []
       characterExSpeechArray: []
@@ -1461,17 +1484,20 @@ MonoBehaviour:
       giftDictionary:
         keys: []
         values: 
-      child: 0
+      child: 1
       unborn: 1
       birthday: 0
       age: 0
-      follow: 0
+      follow: 1
       personality: 0
-    - name: childe
+      friends: 
+      mood: 1
+    - name: Kid2
       moveSpeed: 0
       location: {x: 0, y: 0}
       scene: MainScene
       id: 101
+      occupation: Child2
       adoptAnimal: 0
       image: {fileID: 0}
       portrait: []
@@ -1548,8 +1574,334 @@ MonoBehaviour:
         keys: []
         values: 
       child: 1
-      unborn: 1
+      unborn: 0
       birthday: 5
       age: 1
       follow: 0
       personality: 3
+      friends: 
+      mood: 0
+    - name: Lorrie
+      moveSpeed: 3
+      location: {x: 39.3, y: -0.5}
+      scene: 
+      id: 7
+      occupation: 
+      adoptAnimal: 0
+      image: {fileID: 3813828707654058708, guid: cbdb3658a85af4cf1911f660b70ebaf2,
+        type: 3}
+      portrait:
+      - {fileID: 8188359060617121934, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: 3682586899303601402, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      preferredAnimals: 
+      gender: Female
+      multiplier: 1
+      travelTimes:
+      - 09:00
+      - 15:50
+      path:
+      - src: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        dest: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 7
+      - src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 7
+      selectedPath:
+        src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 7
+      friendshipScore: 0
+      currentAnimalId: 930357
+      presentsDaily: 0
+      married: 0
+      date: 0
+      talked: 0
+      characterMovement:
+        keys:
+        - 09:00
+        - 15:50
+        values:
+        - src: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+          dest: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 1
+          charId: 7
+        - src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+          dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 0
+          charId: 7
+      characterSpeechArray:
+      - array:
+        - sentence:
+          - Hey there..
+          - I don't think we've met
+          - I'm shopkeeper!
+          portrait: 000000000000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - Hi again
+          - How are you
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - You're not wearing shoes
+          - Weirdo..
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - Trump Sucks
+          - If you like him, I will stab you
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - I like Llamas
+          - Do you like Llamas? I'll sell you 1 for 20$ or 2 for 5$
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+      characterGiftReceiveSpeechArray: []
+      characterExSpeechArray: []
+      characterExGiftReceiveSpeechArray: []
+      characterDivorceSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterBreakUpSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterMarriageSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterDatingSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterConfusionSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterRejectionSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterEnoughGiftSpeech: []
+      giftArray: []
+      giftDictionary:
+        keys: []
+        values: 
+      child: 0
+      unborn: 1
+      birthday: 0
+      age: 0
+      follow: 0
+      personality: 0
+      friends: 
+      mood: 0
+    - name: Lorrie
+      moveSpeed: 3
+      location: {x: 39.3, y: -0.5}
+      scene: 
+      id: 8
+      occupation: 
+      adoptAnimal: 0
+      image: {fileID: 3813828707654058708, guid: cbdb3658a85af4cf1911f660b70ebaf2,
+        type: 3}
+      portrait:
+      - {fileID: 8188359060617121934, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      - {fileID: 3682586899303601402, guid: 0e2b091cbed294a7c9ea2cd29148d1ed, type: 3}
+      preferredAnimals: 
+      gender: Female
+      multiplier: 1
+      travelTimes:
+      - 10:00
+      - 12:50
+      path:
+      - src: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        dest: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 8
+      - src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 8
+      selectedPath:
+        src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 0
+        charId: 8
+      friendshipScore: 0
+      currentAnimalId: 930357
+      presentsDaily: 0
+      married: 0
+      date: 0
+      talked: 0
+      characterMovement:
+        keys:
+        - 10:00
+        - 12:50
+        values:
+        - src: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+          dest: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 1
+          charId: 8
+        - src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+          dest: {fileID: 11400000, guid: 67d08911fd6d849b88463fe9d66018e3, type: 2}
+          action: 
+          scene: MainScene
+          spawn: 0
+          charId: 8
+      characterSpeechArray:
+      - array:
+        - sentence:
+          - Hey there..
+          - I don't think we've met
+          - I'm shopkeeper!
+          portrait: 000000000000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - Hi again
+          - How are you
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - You're not wearing shoes
+          - Weirdo..
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - Trump Sucks
+          - If you like him, I will stab you
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+        - sentence:
+          - I like Llamas
+          - Do you like Llamas? I'll sell you 1 for 20$ or 2 for 5$
+          portrait: 0000000001000000
+          selectable: 0
+          choices: []
+          choiceResponse: []
+          choicesConsequence: 
+      characterGiftReceiveSpeechArray: []
+      characterExSpeechArray: []
+      characterExGiftReceiveSpeechArray: []
+      characterDivorceSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterBreakUpSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterMarriageSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterDatingSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterConfusionSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterRejectionSpeech:
+        sentence: []
+        portrait: 
+        selectable: 0
+        choices: []
+        choiceResponse: []
+        choicesConsequence: 
+      characterEnoughGiftSpeech: []
+      giftArray: []
+      giftDictionary:
+        keys: []
+        values: 
+      child: 0
+      unborn: 1
+      birthday: 0
+      age: 0
+      follow: 0
+      personality: 0
+      friends: 
+      mood: 0

@@ -57,11 +57,11 @@ public class Butterfly : CustomMonoBehaviour {
                 }
             }
             // if too suspeect, disappear
-            if (curSuspect >= suspectMax && overrideSpeed == 0) {
+            if (curSuspect >= suspectMax && overrideSpeed == item.moveSpeed) {
                 overrideSpeed = 4 * item.moveSpeed;
                 setRandomPosition();
             }
-            if (curSuspect < suspectMax && overrideSpeed != 0) {
+            if (curSuspect < suspectMax && overrideSpeed == 4 * item.moveSpeed) {
                 overrideSpeed = item.moveSpeed;
                 setRandomPosition();
             }

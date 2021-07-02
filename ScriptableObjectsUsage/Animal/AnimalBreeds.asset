@@ -52,7 +52,7 @@ MonoBehaviour:
       star: 27
     multiplier: 4
     notIncludeType: 
-    breedName: Dutchie
+    breedName: Dutch
     breedDescription: dutchie
     userCreated: 0
     coloring:
@@ -1186,14 +1186,14 @@ MonoBehaviour:
       star: 27
   - unlocked: 0
     exampleColoring:
-      body: 1
-      tail: 5
-      eyes: 7
+      body: 22
+      tail: 11
+      eyes: 13
       dots: 27
-      face: 4
-      legs: 5
+      face: 11
+      legs: 11
       ears: 34
-      back: 5
+      back: 27
       star: 27
     multiplier: 5
     notIncludeType: 02000000
@@ -1236,6 +1236,32 @@ MonoBehaviour:
       ears: 0
       back: 27
       star: 27
+  - unlocked: 0
+    exampleColoring:
+      body: 1
+      tail: 5
+      eyes: 7
+      dots: 27
+      face: 4
+      legs: 5
+      ears: 34
+      back: 5
+      star: 27
+    multiplier: 6
+    notIncludeType: 02000000
+    breedName: Wish Upon
+    breedDescription: Yellow and Blue
+    userCreated: 0
+    coloring:
+      body: 26
+      tail: 26
+      eyes: 31
+      dots: 25
+      face: 1
+      legs: 27
+      ears: 11
+      back: 27
+      star: 24
   breedDictionary:
     keys:
     - CottonTail
@@ -1285,7 +1311,7 @@ MonoBehaviour:
     - Himalayan
     - Silk Road
     - Tennis Ball
-    - Dutchie
+    - Wish Upon
     values:
     - unlocked: 1
       exampleColoring:
@@ -2460,14 +2486,14 @@ MonoBehaviour:
         star: 27
     - unlocked: 0
       exampleColoring:
-        body: 1
-        tail: 5
-        eyes: 7
+        body: 22
+        tail: 11
+        eyes: 13
         dots: 27
-        face: 4
-        legs: 5
+        face: 11
+        legs: 11
         ears: 34
-        back: 5
+        back: 27
         star: 27
       multiplier: 5
       notIncludeType: 02000000
@@ -2510,29 +2536,29 @@ MonoBehaviour:
         ears: 0
         back: 27
         star: 27
-    - unlocked: 1
+    - unlocked: 0
       exampleColoring:
-        body: 0
-        tail: 15
-        eyes: 21
+        body: 1
+        tail: 5
+        eyes: 7
         dots: 27
-        face: 15
-        legs: 15
-        ears: 15
-        back: 15
+        face: 4
+        legs: 5
+        ears: 34
+        back: 5
         star: 27
-      multiplier: 4
-      notIncludeType: 
-      breedName: Dutchie
-      breedDescription: dutchie
+      multiplier: 6
+      notIncludeType: 02000000
+      breedName: Wish Upon
+      breedDescription: Yellow and Blue
       userCreated: 0
       coloring:
-        body: 0
-        tail: 32
+        body: 26
+        tail: 26
         eyes: 31
-        dots: 27
-        face: 32
-        legs: 32
-        ears: 32
-        back: 32
-        star: 27
+        dots: 25
+        face: 1
+        legs: 27
+        ears: 11
+        back: 27
+        star: 24

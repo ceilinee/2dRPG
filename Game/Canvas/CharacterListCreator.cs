@@ -67,62 +67,10 @@ public class CharacterListCreator : MonoBehaviour {
                 //set image
                 characterItem.image.sprite = curCharactersSorted[i + j].image;
 
-                characterItem.friendship.text = determineFriendship(curCharactersSorted[i + j].friendshipScore);
-                characterItem.friendship.color = determineFriendshipColor(curCharactersSorted[i + j].friendshipScore, curCharactersSorted[i + j].date, curCharactersSorted[i + j].married);
+                characterItem.friendship.text = curCharactersSorted[i + j].determineFriendship();
+                characterItem.friendship.color = curCharactersSorted[i + j].determineFriendshipColor();
             }
             i = i + numberOfItemsInRow - 1;
         }
-    }
-    public string determineFriendship(int friendshipScore) {
-        if (friendshipScore < 100) {
-            return "Nemesis";
-        } else if (friendshipScore < 200) {
-            return "Enemy";
-        } else if (friendshipScore == 200) {
-            return "Stranger";
-        } else if (friendshipScore < 300) {
-            return "❤️";
-
-        } else if (friendshipScore < 400) {
-            return "❤️❤️";
-        } else if (friendshipScore < 500) {
-            return "❤️❤️❤️";
-        } else if (friendshipScore < 600) {
-            return "❤️❤️❤️❤️";
-        } else if (friendshipScore < 700) {
-            return "❤️❤️❤️❤️❤️";
-        } else if (friendshipScore < 800) {
-            return "❤️❤️❤️❤️❤️❤️";
-        } else if (friendshipScore < 900) {
-            return "❤️❤️❤️❤️❤️❤️❤️";
-        } else if (friendshipScore < 1000) {
-            return "❤️❤️❤️❤️❤️❤️❤️❤️";
-        } else if (friendshipScore < 1100) {
-            return "❤️❤️❤️❤️❤️❤❤️❤️❤️";
-        } else {
-            return "❤️❤️❤️❤️❤️❤️❤❤️❤️❤️";
-        }
-    }
-    //determine color of friendship hearts in Player Menu
-    public Color determineFriendshipColor(int friendshipScore, bool date, bool married) {
-        if (date && !married) {
-            return new Color(255 / 255f, 124 / 255f, 191 / 255f); ;
-        }
-        if (friendshipScore < 1200 && married) {
-            return new Color(63 / 255f, 63 / 255f, 113 / 255f); ;
-        }
-        if (friendshipScore < 1300 && married) {
-            return new Color(135 / 255f, 195 / 255f, 135 / 255f); ;
-        }
-        if (friendshipScore < 1400 && married) {
-            return new Color(255 / 255f, 189 / 255f, 95 / 255f); ;
-        }
-        if (friendshipScore < 1500 && married) {
-            return new Color(241 / 255f, 119 / 255f, 31 / 255f); ;
-        }
-        if (friendshipScore >= 1500 && married) {
-            return new Color(195 / 255f, 67 / 255f, 67 / 255f); ;
-        }
-        return new Color(160 / 255f, 91 / 255f, 83 / 255f);
     }
 }

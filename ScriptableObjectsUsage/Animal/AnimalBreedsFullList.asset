@@ -260,7 +260,7 @@ MonoBehaviour:
       back: 27
       star: 27
     multiplier: 2
-    notIncludeType: 
+    notIncludeType: 02000000
     breedName: Masked
     breedDescription: 
     userCreated: 0

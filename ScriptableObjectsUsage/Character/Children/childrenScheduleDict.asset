@@ -13,7 +13,44 @@ MonoBehaviour:
   m_Name: childrenScheduleDict
   m_EditorClassIdentifier: 
   travelTimesDict:
-    keys: 
-    values: []
+    keys: 00000000010000000200000003000000
+    values:
+    - array:
+      - 00:00
+    - array:
+      - 00:00
+    - array:
+      - 00:00
+    - array:
+      - 00:00
   characterPathDict:
-    keys: 
+    keys: 00000000010000000200000003000000
+    values:
+    - array:
+      - src: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        dest: {fileID: 11400000, guid: 3c0e6392054c04a06b6a3275668fdaac, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 0
+    - array:
+      - src: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        dest: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 0
+    - array:
+      - src: {fileID: 11400000, guid: d21e2b108901e4bc59f030301008a772, type: 2}
+        dest: {fileID: 11400000, guid: 124412564c1724a24ba7fa46113f65cf, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 0
+    - array:
+      - src: {fileID: 11400000, guid: 3c0e6392054c04a06b6a3275668fdaac, type: 2}
+        dest: {fileID: 11400000, guid: 7b78cf73994de45df81a2140fc5175b6, type: 2}
+        action: 
+        scene: MainScene
+        spawn: 1
+        charId: 0

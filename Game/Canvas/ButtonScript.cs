@@ -16,6 +16,9 @@ public class ButtonScript : MonoBehaviour {
     public GameObject adoptionAnimalsTab;
     public GameObject buyAnimalsTab;
     public GameObject buySpecialAnimalsTab;
+
+    public GameObject upgradeBuildingTab;
+
     public GameObject accountSelection;
     public List<GameObject> close;
     public GameObject open;
@@ -61,6 +64,9 @@ public class ButtonScript : MonoBehaviour {
         }
         if (buySpecialAnimalsTab) {
             buySpecialAnimalsTab.SetActive(false);
+        }
+        if (upgradeBuildingTab) {
+            upgradeBuildingTab.SetActive(false);
         }
     }
     public void toggleBuyAnimalsButton() {
@@ -140,5 +146,10 @@ public class ButtonScript : MonoBehaviour {
         inventoryTab.SetActive(false);
         aboutTab.SetActive(false);
         breeds.SetActive(true);
+    }
+
+    public void toggleUpgradeBuildingButton() {
+        buyTab.SetActive(false);
+        upgradeBuildingTab.SetActive(true);
     }
 }

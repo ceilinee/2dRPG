@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 using UnityEditor;
 
-public class SpawnAnimal : MonoBehaviour {
+public class SpawnAnimal : CustomMonoBehaviour {
     //store gameObject reference
     public List<GameObject> animalList;
     public AnimalMood animalMood;
@@ -28,6 +28,9 @@ public class SpawnAnimal : MonoBehaviour {
 
     [SerializeField]
     private PlacedBuildings placedBuildings;
+
+    [SerializeField]
+    private PondPlacementController pondPlacementController;
 
     void Start() {
         defineAnimalDictionary();
@@ -154,7 +157,8 @@ public class SpawnAnimal : MonoBehaviour {
         }
         GameObject instance = GameObject.Instantiate(animalDictionary[a.type]) as GameObject;
         if (a.type == Type.FISH) {
-            instance.GetComponent<FishScript>().water = water;
+            instance.GetComponent<FishScript>().naturalWaterFarm = water;
+            instance.GetComponent<FishScript>().pondPlacementController = pondPlacementController;
         }
         instance.GetComponent<GenericAnimal>().animalModal = animalModal;
         // instance.GetComponent<GenericAnimal>().cameraObject = cameraGameObject;

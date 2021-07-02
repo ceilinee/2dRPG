@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 11400000, guid: 04f254bdf8f36424ba8a67be6688c8f5, type: 2}
   end: {fileID: 11400000, guid: a43c38b9ffac94651b2c5d2a96fc90b6, type: 2}
-  types:
-  - Fish
+  types: 02000000
   probability: 64000000

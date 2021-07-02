@@ -26,7 +26,6 @@ public class AccountListCreator : MonoBehaviour {
     public Player player;
     public AnimalBreed animalBreed;
     public ItemList shopBuildings;
-    public SceneInfos playerBuildings;
     public AdoptionRequests adoptionRequests;
     public Mailbox mailbox;
     public Quests playerQuests;
@@ -72,7 +71,6 @@ public class AccountListCreator : MonoBehaviour {
         player.Clear();
         curTime.Clear();
         shopBuildings.Clear();
-        playerBuildings.Clear();
         adoptionRequests.Clear();
         mailbox.Clear();
         playerQuests.Clear();

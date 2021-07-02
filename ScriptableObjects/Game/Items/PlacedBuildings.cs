@@ -2,17 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using System;
 
 [System.Serializable]
 public class PlacedBuilding {
-    public PlacedBuilding(int buildingId, string buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
+    public enum Status {
+        // The building has just been placed (blueprint is placed down)
+        WaitingBuilt,
+        // The building is finished but is currently in the process of upgrading
+        WaitingUpgrade,
+        // The building is built and not being upgraded
+        Done
+    }
+
+    public PlacedBuilding(
+        int buildingId,
+        string buildingItemId,
+        Vector2 itemPosition,
+        Timestamp completionTime,
+        int sceneInfoId
+    ) {
         this.buildingId = buildingId;
         this.buildingItemId = buildingItemId;
         this.itemPosition = itemPosition;
         this.completionTime = completionTime;
-        this.completed = false;
         this.sceneInfoId = sceneInfoId;
         this.upgrade = 0;
+        this.status = Status.WaitingBuilt;
     }
     // Unique id for a placed building
     public int buildingId;
@@ -20,18 +36,36 @@ public class PlacedBuilding {
     public string buildingItemId;
     public Vector2 itemPosition;
 
+    // Only relevant when status is WaitingXXX
     public Timestamp completionTime;
-
-    // Whether or not the building has already been built
-    // depending on what completionTime is
-    public bool completed;
 
     // Id of the corresponding SceneInfo SO
     public int sceneInfoId;
 
     // Barns have different tiers, with 0 being the lowest
     // They can be upgraded from 0 to 1 to 2 etc.
+    // This integer corresponds to the corresponding enum BarnUpgrades.Upgrade
     public int upgrade;
+
+    public Status status;
+
+    public BarnUpgrades.Upgrade GetUpgrade() {
+        return (BarnUpgrades.Upgrade) upgrade;
+    }
+
+    public BarnUpgrades.Upgrade GetNextUpgrade() {
+        Assert.IsTrue(upgrade + 1 < BarnUpgrades.NumUpgrades());
+        return (BarnUpgrades.Upgrade) (upgrade + 1);
+    }
+
+    public bool IsMaxUpgrade() {
+        return upgrade == BarnUpgrades.NumUpgrades() - 1;
+    }
+
+    public void UpgradeToNext() {
+        Assert.IsTrue(upgrade + 1 < BarnUpgrades.NumUpgrades());
+        upgrade++;
+    }
 }
 
 /// <summary>
@@ -56,7 +90,11 @@ public class PlacedBuildings : ScriptableObject {
     public void SetBuildingCompleted(int buildingId) {
         var building = buildings.Find(x => x.buildingId == buildingId);
         Assert.IsNotNull(building);
-        building.completed = true;
+        if (building.status == PlacedBuilding.Status.WaitingUpgrade) {
+            // Complete the upgrade
+            building.UpgradeToNext();
+        }
+        building.status = PlacedBuilding.Status.Done;
     }
 
     // Call this when player enters building `building`
@@ -71,6 +109,10 @@ public class PlacedBuildings : ScriptableObject {
 
     public PlacedBuilding GetBuilding(int buildingId) {
         return buildings.Find(x => x.buildingId == buildingId);
+    }
+
+    public List<PlacedBuilding> GetBuildings(PlacedBuilding.Status status) {
+        return buildings.FindAll(x => x.status == status);
     }
 
     public void Clear() {

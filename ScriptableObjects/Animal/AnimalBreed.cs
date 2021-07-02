@@ -86,6 +86,9 @@ public class AnimalBreed : ScriptableObject {
     public int isBreed(Animal.StringAndAnimalColor coloring, Type type = Type.LLAMA) {
         int selected = -1;
         for (int j = 0; j < breedArray.Length; j++) {
+            if (breedArray[j].notIncludeType.Contains(type)) {
+                continue;
+            }
             //go through breed array
             Animal.StringAndAnimalColor breedColor = breedArray[j].coloring;
             int[] partArray = new int[] { breedColor.body, breedColor.eyes, breedColor.back, breedColor.dots, breedColor.star, breedColor.ears, breedColor.legs, breedColor.tail, breedColor.face };

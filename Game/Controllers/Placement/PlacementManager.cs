@@ -18,11 +18,14 @@ public class PlacementManager : CustomMonoBehaviour {
 
     private TilePlacementController tilePlacementController;
 
+    private PondPlacementController pondPlacementController;
+
     private void Awake() {
         itemPlacementController = GetComponent<ItemPlacementController>();
         buildingPlacementController = GetComponent<BuildingPlacementController>();
         prefabPlacementController = GetComponent<PrefabPlacementController>();
         tilePlacementController = GetComponent<TilePlacementController>();
+        pondPlacementController = GetComponent<PondPlacementController>();
     }
 
     private PlacementController StartController(Item item) {
@@ -36,6 +39,9 @@ public class PlacementManager : CustomMonoBehaviour {
             case ItemPrefabType.Tile:
                 tilePlacementController.BeginPlacement(item.Id);
                 return tilePlacementController;
+            case ItemPrefabType.Pond:
+                pondPlacementController.BeginPlacement(item.Id);
+                return pondPlacementController;
             default:
                 prefabPlacementController.BeginPlacement(item.Id);
                 return prefabPlacementController;

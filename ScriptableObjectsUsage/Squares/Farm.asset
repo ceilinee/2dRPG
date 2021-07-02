@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 11400000, guid: b57239ec6ea394efe980d088f3a8b1c0, type: 2}
   end: {fileID: 11400000, guid: e1596af117a6a4784887eac6b90d1160, type: 2}
-  types:
-  - Llama
-  - Sheep
+  types: 0100000004000000
   probability: 0000000000000000

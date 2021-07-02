@@ -15,6 +15,13 @@ public class Characters : ScriptableObject {
             characterDict[character.id] = character;
         }
     }
+    public void AgeChildren() {
+        foreach (KeyValuePair<int, Character> kvp in characterDict) {
+            if (kvp.Value.child && !kvp.Value.unborn) {
+                kvp.Value.age++;
+            }
+        }
+    }
     public void ClearDailies() {
         foreach (KeyValuePair<int, Character> kvp in characterDict) {
             kvp.Value.talked = false;

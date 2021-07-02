@@ -10,6 +10,7 @@ public enum ItemPrefabType {
     Tree,
     GardenLightWhite,
     Tile,
+    Pond
 }
 
 [CreateAssetMenu]

@@ -2,31 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// SceneInfos represents a group of scene infos
 [CreateAssetMenu]
 [System.Serializable]
 public class SceneInfos : ScriptableObject {
-    public List<int> sceneArray;
     public List<SceneInfo> sceneInfoArray;
-    public List<int> initialSceneArray;
     [System.Serializable] public class DictionaryOfSceneInfo : SerializableDictionary<int, SceneInfo> { }
-    public DictionaryOfSceneInfo sceneDict = new DictionaryOfSceneInfo();
 
-    public void Clear() {
-        resetSceneArray();
-    }
-    public void resetSceneArray() {
-        sceneArray = new List<int>(initialSceneArray);
-    }
-    public void updateSceneDict() {
+    // Maps from scene id to scene info
+    public DictionaryOfSceneInfo sceneDict = new DictionaryOfSceneInfo();
+    public void UpdateSceneDict() {
         foreach (SceneInfo scene in sceneInfoArray) {
             sceneDict[scene.id] = scene;
         }
-    }
-    public void RemoveBuilding(int building) {
-        sceneArray.Remove(building);
-    }
-    public void AddBuilding(int building) {
-        sceneArray.Add(building);
     }
 }

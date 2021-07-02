@@ -36,6 +36,16 @@ public class BuildingController : CustomMonoBehaviour {
 
     private BuildingPlacementController placementController;
 
+    [SerializeField]
+    private SceneInfos allBuildings;
+
+    [SerializeField]
+    private BarnUpgrades barnUpgrades;
+
+    // Stores all the building objects that are placed in the scene
+    [Header(Annotation.HeaderMsgDoNotSetInInspector)]
+    public List<GameObject> buildingObjects;
+
     // `sceneInfo` contains the scene info for building `building`
     // e.g.: if you have placed 2 barns, they will share the same sceneInfo
     public static string BuildBuildingSceneName(SceneInfo sceneInfo, PlacedBuilding building) {
@@ -59,6 +69,11 @@ public class BuildingController : CustomMonoBehaviour {
         return ActiveScene().name + "#" + placedBuildings.buildingEnteredIdx;
     }
 
+    private void Awake() {
+        allBuildings.UpdateSceneDict();
+        barnUpgrades.Initialize();
+    }
+
     void Start() {
         placementController = centralController.Get("PlacementController").GetComponent<BuildingPlacementController>();
         buildingsUnderConstruction = new List<BuildingUnderConstruction>();
@@ -77,17 +92,21 @@ public class BuildingController : CustomMonoBehaviour {
     // In addition, populate buildingsUnderConstruction with buildings that have yet
     // to been built
     public bool LoadSavedPlacedBuildings() {
+        buildingObjects.Clear();
+
         bool atLeastOneCompleteBuilding = false;
         foreach (PlacedBuilding savedBuilding in placedBuildings.buildings) {
             Assert.IsTrue(itemDictionary.itemDict.ContainsKey(savedBuilding.buildingItemId));
             BuildingItem item = (BuildingItem) itemDictionary.itemDict[savedBuilding.buildingItemId];
             var buildingInfo = placementController.GetBuildingInfo(savedBuilding.buildingItemId);
             GameObject buildingObject = null;
-            if (savedBuilding.completed) {
-                buildingObject = Instantiate(buildingInfo.prefab);
-                SetupCompletedBuilding(buildingObject, item, savedBuilding.buildingId);
+            if (savedBuilding.status == PlacedBuilding.Status.Done) {
                 atLeastOneCompleteBuilding = true;
-            } else {
+                buildingObject = Instantiate(
+                    barnUpgrades.Get(savedBuilding.GetUpgrade()).barnPrefab
+                );
+                SetupCompletedBuilding(buildingObject, item, savedBuilding.buildingId);
+            } else if (savedBuilding.status == PlacedBuilding.Status.WaitingBuilt) {
                 buildingObject = Instantiate(buildingInfo.blueprintPrefab);
                 placementController.SetSpritesToColor(
                     buildingObject.GetComponentsInChildren<SpriteRenderer>(), placementController.faintBlue);
@@ -100,9 +119,27 @@ public class BuildingController : CustomMonoBehaviour {
                         buildingInfo.prefab
                     )
                 );
-            }
+            } else if (savedBuilding.status == PlacedBuilding.Status.WaitingUpgrade) {
+                atLeastOneCompleteBuilding = true;
+                buildingObject = Instantiate(
+                    barnUpgrades.Get(savedBuilding.GetUpgrade()).barnPrefab
+                );
+                SetupCompletedBuilding(buildingObject, item, savedBuilding.buildingId);
+
+                buildingsUnderConstruction.Add(
+                    new BuildingUnderConstruction(
+                        savedBuilding.buildingId,
+                        savedBuilding.completionTime,
+                        item,
+                        buildingObject,
+                        barnUpgrades.Get(savedBuilding.GetNextUpgrade()).barnPrefab
+                    )
+                );
+            } else Assert.IsTrue(false);
+
             buildingObject.transform.position = savedBuilding.itemPosition;
             buildingObject.SetActive(true);
+            buildingObjects.Add(buildingObject);
         }
         return atLeastOneCompleteBuilding;
     }
@@ -112,6 +149,8 @@ public class BuildingController : CustomMonoBehaviour {
     // After 2 days, the real house (an instance of buildingPrefab) should be built by this controller
     public void RegisterBuildingCreation(
         BuildingItem item, GameObject buildingBlueprintInstance, GameObject buildingPrefab) {
+        buildingObjects.Add(buildingBlueprintInstance);
+
         Timestamp completionTime = curTime.DaysFromNow(2);
         var newPlacedBuilding = placedBuildings.Add(
             item.Id, buildingBlueprintInstance.transform.position, completionTime, item.sceneInfo.id);
@@ -126,6 +165,26 @@ public class BuildingController : CustomMonoBehaviour {
         );
     }
 
+    // Upgrades placedBuilding
+    public void RegisterBuildingUpgrade(PlacedBuilding placedBuilding) {
+        Timestamp completionTime = curTime.DaysFromNow(2);
+        BuildingItem item = (BuildingItem) itemDictionary.itemDict[placedBuilding.buildingItemId];
+
+        // Update to new completion time
+        placedBuilding.completionTime = completionTime;
+        placedBuilding.status = PlacedBuilding.Status.WaitingUpgrade;
+
+        buildingsUnderConstruction.Add(
+            new BuildingUnderConstruction(
+                placedBuilding.buildingId,
+                completionTime,
+                item,
+                buildingObjects.Find(x => (Vector2) x.transform.position == placedBuilding.itemPosition),
+                barnUpgrades.Get(placedBuilding.GetNextUpgrade()).barnPrefab
+            )
+        );
+    }
+
     // Called by SignalListener
     public void OnTimeUpdate() {
         HashSet<int> removedIdxs = new HashSet<int>();
@@ -136,8 +195,10 @@ public class BuildingController : CustomMonoBehaviour {
                 removedIdxs.Add(i);
                 var completedBuilding = Instantiate(building.buildingPrefab,
                     building.buildingBlueprintInstance.transform.position, building.buildingBlueprintInstance.transform.rotation);
+                buildingObjects.Add(completedBuilding);
                 SetupCompletedBuilding(completedBuilding, building.item, building.buildingId);
                 completedBuilding.SetActive(true);
+                buildingObjects.Remove(building.buildingBlueprintInstance);
                 Destroy(building.buildingBlueprintInstance);
                 placedBuildings.SetBuildingCompleted(building.buildingId);
                 astar.RescanAstarGraph(completedBuilding.GetComponent<Collider2D>().bounds);

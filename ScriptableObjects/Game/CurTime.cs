@@ -149,6 +149,6 @@ public class CurTime : ScriptableObject {
 
     // Determine if the current time is strictly later than t
     public bool isCurrentTimeBigger(Timestamp t) {
-        return days >= t.days || (days == t.days && time > t.time);
+        return days > t.days || (days == t.days && time > t.time);
     }
 }

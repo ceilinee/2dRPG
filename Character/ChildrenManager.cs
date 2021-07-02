@@ -16,7 +16,7 @@ public class ChildrenManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         // run code when personality is updated
-        updateDict();
+        // updateDict();
 
         // generateChild();
     }

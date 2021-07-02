@@ -19,7 +19,7 @@ MonoBehaviour:
   image: {fileID: 0}
   animalMaxSize: 50
   animalCurrentSize: 0
-  entrance: {x: -3.695387, y: -8.971428}
+  entrance: {x: 21.95608, y: -7.332749}
   open: 0
   width: 0
   height: 0

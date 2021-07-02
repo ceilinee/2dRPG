@@ -24,7 +24,7 @@ public class GenericCharacter : CustomMonoBehaviour {
     public GameObject speechBubble;
     private Vector3 randomTarget;
     // private Vector3 previousLocation;
-    protected float clickRange = 1;
+    protected float clickRange = 1.5f;
     protected Animator anim;
     public bool playerInRange;
     // public GameObject animalModal;
@@ -199,7 +199,7 @@ public class GenericCharacter : CustomMonoBehaviour {
         curCharacters.updateCharacter(characterTrait);
     }
     public void increaseFriendship(int points) {
-        characterTrait.friendshipScore += points;
+        characterTrait.friendshipScore += !characterTrait.dateable || characterTrait.friendshipScore + points <= 699 ? points : 0;
         curCharacters.characterDict[characterTrait.id].friendshipScore = characterTrait.friendshipScore;
     }
     public int getLike(Item item) {
@@ -219,6 +219,8 @@ public class GenericCharacter : CustomMonoBehaviour {
             updateCharacterMovement();
         }
         setControllers();
+        CanvasController = centralController.Get("CanvasController");
+        DialogueManager = centralController.Get("DialogueManager");
         characterTrait.image = GetComponent<SpriteRenderer>().sprite;
         myRigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

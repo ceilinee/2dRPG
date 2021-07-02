@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e487cdb6efc51498bacea014e0d64398, type: 3}
+  m_Name: BarnUpgrades
+  m_EditorClassIdentifier: 
+  notes: Stores all the different kinds of barn upgrades. `Upgrades` is like a dictionary
+    with the key being the `Upgrade` field.
+  upgrades:
+  - upgrade: 0
+    barnPrefab: {fileID: 2296936068890886703, guid: 7917410610d474d2ea4f18f4f5a29a44,
+      type: 3}
+    costForThis: 0
+  - upgrade: 1
+    barnPrefab: {fileID: 1684068733490550932, guid: 51845477639e0413a94557c6760d004d,
+      type: 3}
+    costForThis: 1000
+  - upgrade: 2
+    barnPrefab: {fileID: 7712922849106014104, guid: 0d25ec2cc818142689e27df4c3fb200e,
+      type: 3}
+    costForThis: 5000
+  - upgrade: 3
+    barnPrefab: {fileID: 2756188491476788121, guid: c6a446b4fa0e144c4899982dfb245e17,
+      type: 3}
+    costForThis: 10000

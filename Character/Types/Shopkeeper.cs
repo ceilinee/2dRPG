@@ -19,6 +19,7 @@ public class Shopkeeper : GenericCharacter {
     private bool subscribed;
     protected override void Start() {
         base.Start();
+        selection = centralController.Get("Selection");
         if (vet) {
             vetMenu = centralController.centralDictionary["VetMenu"].GetComponent<VetInformation>();
         }

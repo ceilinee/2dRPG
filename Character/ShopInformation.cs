@@ -25,6 +25,10 @@ public class ShopInformation : MonoBehaviour {
     public GameObject spawnAnimal;
     public ShoppingCart sellCart;
     public ShoppingCart shopCart;
+
+    [SerializeField]
+    private UpgradeBuildingsListCreator upgradeBuildingsListCreator;
+
     void Start() {
         thanks.text = "Welcome to my shop! I hope you're having a wonderful day, " + player.playerName + "!";
     }
@@ -49,6 +53,9 @@ public class ShopInformation : MonoBehaviour {
         }
         if (sellListView) {
             sellListView.GetComponent<ListCreator>().Clear();
+        }
+        if (upgradeBuildingsListCreator) {
+            upgradeBuildingsListCreator.Clear();
         }
         // thanks.text = "Nice to see you again, " + player.playerName + "!";
         if (specialAnimalListView) {
@@ -101,6 +108,13 @@ public class ShopInformation : MonoBehaviour {
             thanks.text = "Sorry, " + player.playerName + " but it looks like you don't have enough on you right now..";
         }
     }
+
+    public void ShowUpgradeBuildingText(PlacedBuilding placedBuilding) {
+        // TODO: replace with name of barn once we add support for that
+        thanks.text = $"Thanks for the business! I'll have barn {placedBuilding.buildingId} upgraded from " +
+            $"{placedBuilding.GetUpgrade()} to {placedBuilding.GetNextUpgrade()} for you within 2 days!";
+    }
+
     public void updateList() {
         Clear();
         if (profileSprite) {
@@ -122,6 +136,11 @@ public class ShopInformation : MonoBehaviour {
                 buyListView.GetComponent<ListCreator>().building = true;
                 buyListView.GetComponent<ListCreator>().buildingItems = buildingsForSale;
                 buyListView.GetComponent<ListCreator>().GetBuildingItems();
+
+                upgradeBuildingsListCreator.shopInformation = gameObject;
+                upgradeBuildingsListCreator.building = true;
+                upgradeBuildingsListCreator.buildingItems = buildingsForSale;
+                upgradeBuildingsListCreator.GetBuildingUpgrades();
             }
             if (!building) {
                 buyListView.GetComponent<ListCreator>().GetShopItems();

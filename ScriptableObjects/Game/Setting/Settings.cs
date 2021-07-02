@@ -10,7 +10,7 @@ public enum Speed {
 }
 [CreateAssetMenu]
 [System.Serializable]
-public class Settings : ScriptableObject {
+public class Settings : CustomScriptableObject, IClearable {
     public Speed speed = Speed.CLASSIC;
     public Speed geese = Speed.CLASSIC;
     public Filter filter = null;

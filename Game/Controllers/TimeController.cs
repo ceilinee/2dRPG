@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.UI;
 
-public class TimeController : MonoBehaviour {
+public class TimeController : CustomMonoBehaviour {
     public CurTime currentTime;
     // Amount of time that has passed in seconds, in the current day
     private float time;
@@ -51,6 +51,7 @@ public class TimeController : MonoBehaviour {
     [SerializeField]
     private Signal timeChangeSignal;
     public Settings playerSettings;
+    public SpawnWildAnimal spawnWildAnimal;
     public float Hours {
         get { return time / 3600f; }
     }
@@ -107,6 +108,7 @@ public class TimeController : MonoBehaviour {
         if (playerSettings.filter != null) {
             SetLightColors(playerSettings.filter);
         }
+        spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();
     }
     void CloseLamps() {
         if (lamps) {
@@ -170,6 +172,7 @@ public class TimeController : MonoBehaviour {
             SpawnObject.GetComponent<SpawnObject>().Spawn();
         }
         dateString = "";
+        spawnWildAnimal.Spawn();
         QuestController.GetComponent<QuestController>().increaseDate(days, 1);
         dateController.GetComponent<DateController>().UpdateDays();
         setAnimalsToSleep();

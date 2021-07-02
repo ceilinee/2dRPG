@@ -13,8 +13,7 @@ public class BarnAreas : CustomMonoBehaviour {
         foreach (GameObject area in areas) {
             area.SetActive(false);
         }
-        var barnInfo = placedBuildings.GetBuildingEntered();
-        Debug.Log(barnInfo.buildingId);
-        areas[barnInfo.upgrade].SetActive(true);
+        var placedBuilding = placedBuildings.GetBuildingEntered();
+        areas[(int) placedBuilding.GetUpgrade()].SetActive(true);
     }
 }

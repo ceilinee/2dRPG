@@ -7,16 +7,16 @@ using UnityEngine.Assertions;
 public class ListCreator : CustomMonoBehaviour {
 
     [SerializeField]
-    private Transform SpawnPoint = null;
+    public Transform SpawnPoint = null;
 
     [SerializeField]
-    private GameObject item = null;
+    public GameObject item = null;
 
     [SerializeField]
-    private RectTransform content = null;
+    public RectTransform content = null;
 
     [SerializeField]
-    private int numberOfItems = 3;
+    protected int numberOfItems = 3;
 
     public string[] itemNames = null;
     public Sprite[] itemImages = null;
@@ -48,9 +48,7 @@ public class ListCreator : CustomMonoBehaviour {
     public AnimalBreed.Breed[] selectedBreeds;
     public GameObject buySellAnimal;
 
-    // Use this for initialization
-    void Start() {
-    }
+
     public void Clear() {
         foreach (Transform child in SpawnPoint.transform) {
             // GameObject.Destroy(child.gameObject);
@@ -138,7 +136,7 @@ public class ListCreator : CustomMonoBehaviour {
         numberOfItems = selectedBuildingItems.Length;
         PopulateList();
     }
-    public void PopulateList() {
+    public virtual void PopulateList() {
         //setContent Holder Height;
         int numberOfItemsInRow = 5;
 

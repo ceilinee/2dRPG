@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3596346817794279bcc0f3678069e51, type: 3}
   m_Name: TimeChange
   m_EditorClassIdentifier: 
-  listeners: []
+  notes: 'Raised by TimeController on every exact hour e.g.: 00:00, 07:00, 23:00,
+    etc.'
+  listeners:
+  - {fileID: 0}

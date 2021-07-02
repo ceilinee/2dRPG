@@ -17,7 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a5db0e69c3af4ba4afd8cb0363eb485, type: 2}
   initialSceneArray: 
   sceneDict:
-    keys: 0100000002000000
-    values:
-    - {fileID: 11400000, guid: 6a5db0e69c3af4ba4afd8cb0363eb485, type: 2}
-    - {fileID: 11400000, guid: d1dbab548e94a426d9a0848e0ad7449e, type: 2}
+    keys: 
+    values: []

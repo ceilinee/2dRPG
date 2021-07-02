@@ -69,6 +69,9 @@ public class Animal {
             star = this.star,
         };
     }
+    public string GetAnimalType() {
+        return StringExtension.ToCamelCase(type.ToString());
+    }
     public StringAndAnimalColor coloring = new StringAndAnimalColor();
     // [System.Serializable] public class DictionaryOfStringAndAnimalColor : SerializableDictionary<string, AnimalColor> {}
     // public DictionaryOfStringAndAnimalColor coloring = new DictionaryOfStringAndAnimalColor();
