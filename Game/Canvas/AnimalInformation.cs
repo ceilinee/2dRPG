@@ -181,12 +181,10 @@ public class AnimalInformation : CustomMonoBehaviour {
                 if (building.status != PlacedBuilding.Status.Done) {
                     continue;
                 }
-                SceneInfo sceneInfo = allBuildings.sceneDict[building.sceneInfoId];
-                var buildingSceneName = BuildingController.BuildBuildingSceneName(sceneInfo, building);
-                dropdownOptions.Add(buildingSceneName);
-                if (buildingSceneName == animalTrait.home) {
+                if (building.buildingName == animalTrait.home) {
                     position = i;
                 }
+                dropdownOptions.Add(building.buildingName);
             }
         }
         homeDropdown.ClearOptions();
@@ -308,7 +306,7 @@ public class AnimalInformation : CustomMonoBehaviour {
     public void NotifyDeliveryDate(Animal femaleAnimal) {
         CanvasController.GetComponent<CanvasController>().initiateNotification(
             femaleAnimal.animalName + " will be giving birth on " + curTime.getSeasonInWordsVar(curTime.getSeasonVar(femaleAnimal.deliveryDate)) + " " + curTime.getDateVar(femaleAnimal.deliveryDate).ToString(),
-            true
+            false
         );
         CloseIfPlayerMenuNotOpen();
     }

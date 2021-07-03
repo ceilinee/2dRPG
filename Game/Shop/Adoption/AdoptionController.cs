@@ -20,7 +20,7 @@ public class AdoptionController : MonoBehaviour {
         genericAnimals.updateBreedDictionary();
     }
     public void startRequest() {
-        if (player.reputation <= 300) {
+        if (player.reputation <= 1000) {
             float prob = Random.Range(0f, 1f);
             if (prob < 0.3) {
                 generateRequest(true, false, false);
@@ -31,7 +31,7 @@ public class AdoptionController : MonoBehaviour {
             } else {
                 generateRequest(false, false, true);
             }
-        } else if (player.reputation <= 600) {
+        } else if (player.reputation <= 2000) {
             float prob = Random.Range(0f, 1f);
             if (prob < 0.1) {
                 generateRequest(true, false, false);
@@ -62,7 +62,7 @@ public class AdoptionController : MonoBehaviour {
     public void generateRequest(bool personality, bool generic, bool breed) {
         AdoptionRequest request = new AdoptionRequest();
         Character selectedChar = charList.getRandomCharacter();
-        int id = Random.Range(0, 10000000);
+        int id = Random.Range(0, 100000000);
         request.charId = selectedChar.id;
         request.id = id;
         if (personality) {

@@ -32,6 +32,12 @@ public class BuildingPlacementController : PlacementController {
     [SerializeField]
     private Confirmation confirmation;
 
+    [SerializeField]
+    private GameObject birthAlert;
+
+    [SerializeField]
+    private CanvasController canvasController;
+
     protected override void LoadSaved() {
         // NOOP: the loading of saved buildings is done by BuildingController
     }
@@ -41,6 +47,7 @@ public class BuildingPlacementController : PlacementController {
         Assert.IsTrue(buildingInfoList.Count > 0);
         Assert.IsNotNull(playerInventory);
         Assert.IsNotNull(confirmation);
+        Assert.IsNotNull(birthAlert);
         base.Awake();
     }
 
@@ -57,9 +64,19 @@ public class BuildingPlacementController : PlacementController {
                 placeableObject = Instantiate(placeableObjectBlueprint);
                 Destroy(placeableObject.GetComponent<PlaceableObjectBlueprint>());
                 var prefab = buildingInfoList.Find(x => x.buildingItemId == itemBeingPlaced.Id).prefab;
-                buildingController.RegisterBuildingCreation((BuildingItem) itemBeingPlaced, placeableObject, prefab);
-                playerInformation.RemoveCurrentItemFromInventory();
-                EndPlacementIfNoneLeft();
+
+                canvasController.openCanvas();
+                birthAlert.GetComponent<Alert>().initiateNameAlert(
+                    "What should be the name of this barn?",
+                    barnName => {
+                        canvasController.closeCanvas();
+                        buildingController.RegisterBuildingCreation(
+                            (BuildingItem) itemBeingPlaced, placeableObject, prefab, barnName);
+                        playerInformation.RemoveCurrentItemFromInventory();
+                        EndPlacementIfNoneLeft();
+                    },
+                    true
+                );
             },
             () => { },
             () => { Time.timeScale = 1; }

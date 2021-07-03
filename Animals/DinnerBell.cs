@@ -69,13 +69,12 @@ public class DinnerBell : MonoBehaviour {
             newAnimals.removeExistingAnimal(animal.GetComponent<GenericAnimal>().animalTrait.id);
         }
         foreach (KeyValuePair<int, Animal> kvp in newAnimals.animalDict) {
-            // Currently, home must be of the form Barn#<building id of barn>
             var home = kvp.Value.home;
-            bool doesBelongToHome = home.StartsWith(sceneInfo.sceneName) &&
-                BuildingController.BuildingIdFromBuildingSceneName(home) == placedBuildings.buildingEnteredIdx;
+            bool doesBelongToHome = home == placedBuildings.GetBuildingEntered().buildingName;
             if (doesBelongToHome && !kvp.Value.characterOwned) {
                 kvp.Value.location = sceneInfo.entrance;
-                kvp.Value.scene = home;
+                kvp.Value.scene = BuildingController.BuildBuildingSceneName(
+                    sceneInfo, placedBuildings.GetBuildingEntered());
                 kvp.Value.target = sceneInfo.entrance + new Vector2(0, Random.Range(2, 6));
                 curAnimals.animalDict[kvp.Value.id] = kvp.Value;
                 yield return new WaitForSeconds(Random.Range(0, 5));

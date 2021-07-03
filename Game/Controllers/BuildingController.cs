@@ -85,7 +85,7 @@ public class BuildingController : CustomMonoBehaviour {
 
     // Initialize a barn game object and its children with necessary arguments
     private void SetupCompletedBuilding(GameObject barn, BuildingItem item, int buildingId) {
-        barn.GetComponent<Barn>().Initialize(buildingId, item);
+        barn.GetComponent<Barn>().Initialize(buildingId, item, placedBuildings.GetBuilding(buildingId));
     }
 
     // Load buildings that have been placed.
@@ -148,12 +148,17 @@ public class BuildingController : CustomMonoBehaviour {
     // `buildingBlueprint` represents the foundation of the building
     // After 2 days, the real house (an instance of buildingPrefab) should be built by this controller
     public void RegisterBuildingCreation(
-        BuildingItem item, GameObject buildingBlueprintInstance, GameObject buildingPrefab) {
+        BuildingItem item,
+        GameObject buildingBlueprintInstance,
+        GameObject buildingPrefab,
+        string buildingName = ""
+    ) {
         buildingObjects.Add(buildingBlueprintInstance);
 
         Timestamp completionTime = curTime.DaysFromNow(2);
         var newPlacedBuilding = placedBuildings.Add(
-            item.Id, buildingBlueprintInstance.transform.position, completionTime, item.sceneInfo.id);
+            item.Id, buildingBlueprintInstance.transform.position,
+            completionTime, item.sceneInfo.id, buildingName);
         buildingsUnderConstruction.Add(
             new BuildingUnderConstruction(
                 newPlacedBuilding.buildingId,

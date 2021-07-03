@@ -42,9 +42,6 @@ public class FishScript : GenericAnimal {
         if (waterArea == null) {
             foreach (GameObject placedPond in pondPlacementController.placedPondObjects) {
                 waterArea = placedPond.GetComponent<Water>().getValidSwimLocation(transform.position);
-                // TODO: if you assign a fish to a placed pond, waterArea will not be null
-                // however, if they are in a placed pond and you save and restart the game, waterArea is null
-                // for some reason
                 if (waterArea != null) {
                     break;
                 }

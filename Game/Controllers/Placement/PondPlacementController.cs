@@ -40,8 +40,7 @@ public class PondPlacementController : PlacementController {
     protected override void LoadSaved() {
         placedPondObjects = new List<GameObject>();
         foreach (PlacedPond pond in placedPonds.ponds) {
-            var pondObject = Instantiate(pondPrefab);
-            pondObject.transform.position = pond.position;
+            var pondObject = Instantiate(pondPrefab, pond.position, Quaternion.identity);
             placedPondObjects.Add(pondObject);
         }
     }

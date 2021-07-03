@@ -19,16 +19,18 @@ MonoBehaviour:
     completionTime:
       time: 66001.35
       days: 5
-    completed: 1
     sceneInfoId: 1
     upgrade: 0
+    status: 2
+    buildingName: Right
   - buildingId: 1
     buildingItemId: Barn
     itemPosition: {x: 21, y: -4}
     completionTime:
       time: 67203.19
       days: 5
-    completed: 1
     sceneInfoId: 1
     upgrade: 0
+    status: 2
+    buildingName: Left
   buildingEnteredIdx: 0

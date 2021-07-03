@@ -126,10 +126,9 @@ public class GenericAnimal : AnimalState {
         }
         giftReceivedSignal.Raise();
         increaseFriendship(like * 2);
-        setContextClue(reactions[System.Math.Floor(like).ToString()]);
+        StartCoroutine(ProcessContextClue(reactions[System.Math.Floor(like).ToString()]));
         animalTrait.mood = giftMoods[(int) System.Math.Floor(like)];
         animalTrait.moodId = System.Math.Floor(like).ToString();
-        setContextClue(reactions[System.Math.Floor(like).ToString()]);
     }
     public void increaseFriendship(float points) {
         animalTrait.love += points;
@@ -143,6 +142,11 @@ public class GenericAnimal : AnimalState {
         animalModal.GetComponent<AnimalInformation>().CanvasController.GetComponent<CanvasController>().initiateNotification("This " + animalTrait.GetAnimalType() + " trusts you now! Why don't you get them to follow you and bring them home?");
         spawnAnimal.GetComponent<SpawnAnimal>().wildAnimals.removeExistingAnimal(animalTrait.id);
         curAnimals.addExistingAnimal(animalTrait);
+    }
+    IEnumerator ProcessContextClue(Sprite react) {
+        setContextClue(reactions["processing"]);
+        yield return new WaitForSecondsRealtime(1);
+        setContextClue(react);
     }
     public void setContextClue(Sprite react) {
         if (!contextClue.activeInHierarchy) {
@@ -382,13 +386,17 @@ public class GenericAnimal : AnimalState {
             if (Vector3.Distance(target.position, transform.position) <= clickRange) {
                 playerInRange = true;
                 stop = true;
-                setContextClue(reactions[animalTrait.moodId]);
-                contextOn.Raise();
+                if (!contextClue.activeInHierarchy) {
+                    setContextClue(reactions[animalTrait.moodId]);
+                    contextOn.Raise();
+                }
             } else if (playerInRange == true) {
                 playerInRange = false;
                 stop = false;
-                setContextClueOff();
-                contextOff.Raise();
+                if (contextClue.activeInHierarchy) {
+                    setContextClueOff();
+                    contextOff.Raise();
+                }
             }
         }
     }

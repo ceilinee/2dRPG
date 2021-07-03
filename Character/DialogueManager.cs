@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class DialogueManager : CustomMonoBehaviour {
     public GameObject dialogueBox;
     public Text dialogueText;
     public Text dialogueName;
-    public Image portraitImage;
+    public GameObject portraitImageObject;
+    private Image portraitImage;
     public CanvasController canvasController;
     public bool progress;
     public Dialogue curDialogue;
@@ -21,6 +23,12 @@ public class DialogueManager : CustomMonoBehaviour {
     private Button choice0;
     private Button choice1;
     private Button choice2;
+    private BuySellAnimal buySellAnimal;
+
+    private void Awake() {
+        portraitImage = portraitImageObject.GetComponent<Image>();
+    }
+
     void Update() {
         if (Input.GetKeyUp(KeyCode.Space) && !progress) {
             progress = true;
@@ -32,7 +40,7 @@ public class DialogueManager : CustomMonoBehaviour {
     private void fetchDependencies() {
         selection = centralController.Get("Selection");
         canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
-
+        buySellAnimal = centralController.Get("AnimalBuySell").GetComponent<BuySellAnimal>();
     }
     public void startDialog(GameObject newCharacter, Dialogue newDialogue) {
         gameObject.SetActive(true);
@@ -144,6 +152,9 @@ public class DialogueManager : CustomMonoBehaviour {
             }
             while (!progress) yield return null;
         }
+        if (choiceResponse.itemId.Count != 0) {
+            StartCoroutine(getItem(choiceResponse.GetItemId()));
+        }
         //consequences
         if (!goose && selectedChoice < choiceDialogue.choicesConsequence.Length) {
             character.GetComponent<GenericCharacter>().increaseFriendship(choiceDialogue.choicesConsequence[selectedChoice]);
@@ -172,6 +183,10 @@ public class DialogueManager : CustomMonoBehaviour {
                 while (!progress) yield return null;
             }
         }
+        // give gift if applicable 
+        if (dialogue.itemId.Count != 0) {
+            StartCoroutine(getItem(dialogue.GetItemId()));
+        }
         if (!goose) {
             character.GetComponent<GenericCharacter>().conversation = false;
         }
@@ -182,5 +197,37 @@ public class DialogueManager : CustomMonoBehaviour {
     }
     public void updateDialogueBox(string words) {
         dialogueText.text = words;
+    }
+    IEnumerator getItem(string itemId) {
+        buySellAnimal.pickUpItem(itemId);
+        canvasController.initiateNotification(dialogueName.text + " gave you a " + itemId + "!", false);
+        while (canvasController.notification.activeInHierarchy) yield return null;
+    }
+    public bool IsDialogueBoxActive() {
+        return dialogueBox.activeInHierarchy;
+    }
+
+    // Entrypoint for initiating a simple dialogue popup (with no character talking)
+    // Best used for reading signs, notes, etc.
+    public void StartSimpleDialog(string text, Action OnOpen, Action OnClose) {
+        gameObject.SetActive(true);
+        dialogueBox.SetActive(true);
+        PauseGame();
+        OnOpen();
+        StartCoroutine(SimpleDialogCoro(text, OnClose));
+    }
+
+    private IEnumerator SimpleDialogCoro(string text, Action OnClose) {
+        dialogueName.text = null;
+        portraitImageObject.SetActive(false);
+        dialogueText.text = text;
+        yield return new WaitForEndOfFrame();
+        progress = false;
+        while (!progress) yield return null;
+        dialogueBox.SetActive(false);
+        progress = false;
+        portraitImageObject.SetActive(true);
+        gameObject.SetActive(false);
+        canvasController.closeCanvas();
     }
 }

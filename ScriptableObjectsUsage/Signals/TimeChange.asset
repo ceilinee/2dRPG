@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notes: 'Raised by TimeController on every exact hour e.g.: 00:00, 07:00, 23:00,
     etc.'
-  listeners:
-  - {fileID: 0}
+  listeners: []

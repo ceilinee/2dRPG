@@ -27,9 +27,9 @@ public class SpawnWildAnimal : MonoBehaviour {
     // Start is called before the first frame update
     public void Spawn() {
         foreach (Square square in squares) {
-            for (int i = 0; i < 10; i++) {
-                generateAnimal(square, Type.FISH);
-            }
+            // for (int i = 0; i < 10; i++) {
+            //     generateAnimal(square, Type.FISH);
+            // }
             for (int i = 0; i < square.types.Length; i++) {
                 int random = Random.Range(0, 100);
                 if (random <= square.probability[i]) {

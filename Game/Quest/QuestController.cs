@@ -83,12 +83,11 @@ public class QuestController : MonoBehaviour {
         System.Random random = new System.Random();
         CharMsg charMsg = GetQuestCharAndMsg(newQuest);
         newQuest.posterCharId = charMsg.posterCharId;
-
         switch (newQuest.type) {
             case QuestType.adoption:
                 newQuest.adoptionCount = Random.Range(1, 3);
-                newQuest.reward = 100 * newQuest.adoptionCount;
-                newQuest.reputationPoints = 10 * newQuest.adoptionCount;
+                newQuest.reward = 50 * newQuest.adoptionCount;
+                newQuest.reputationPoints = 5 * newQuest.adoptionCount;
                 newQuest.message = string.Format(charMsg.message, newQuest.adoptionCount);
                 break;
             case QuestType.talk:
@@ -107,8 +106,8 @@ public class QuestController : MonoBehaviour {
                 List<Item> items = SpawnObject.GetComponent<SpawnObject>().items;
                 List<string> selectedItems = new List<string>();
                 int count = Random.Range(1, 4);
-                newQuest.reward = 50 * count;
-                newQuest.reputationPoints = 5 * count;
+                newQuest.reward = 20 * count;
+                newQuest.reputationPoints = 2 * count;
                 int index = random.Next(items.Count);
                 string itemString = "";
                 for (int i = 0; i < count; i++) {

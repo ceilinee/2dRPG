@@ -105,7 +105,7 @@ public class TimeController : CustomMonoBehaviour {
         SetColour();
     }
     void Start() {
-        if (playerSettings.filter != null) {
+        if (playerSettings.HasFilterSet()) {
             SetLightColors(playerSettings.filter);
         }
         spawnWildAnimal = centralController.Get("WildAnimalSpawner").GetComponent<SpawnWildAnimal>();

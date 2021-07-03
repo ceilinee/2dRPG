@@ -13,16 +13,15 @@ public class Water : CustomMonoBehaviour {
             other.gameObject.transform.Find("Water").gameObject.SetActive(false);
         }
     }
+
     public Collider2D getValidSwimLocation(Vector2 curSpot) {
         //find collider that curspot is in
         Collider2D[] colliders = gameObject.GetComponents<Collider2D>();
-        Collider2D selectedCollider = null;
         foreach (Collider2D collider in colliders) {
             if (collider.OverlapPoint(curSpot)) {
-                selectedCollider = collider;
-                break;
+                return collider;
             }
         }
-        return selectedCollider;
+        return null;
     }
 }

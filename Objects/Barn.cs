@@ -25,12 +25,19 @@ public class Barn : CustomMonoBehaviour {
 
     private GameObject player;
 
-    public void Initialize(int buildingId, BuildingItem buildingItem) {
+    [SerializeField]
+    private DescriptionSign sign;
+
+    private PlacedBuilding placedBuilding;
+
+    public void Initialize(int buildingId, BuildingItem buildingItem, PlacedBuilding placedBuilding) {
         this.buildingId = buildingId;
         this.buildingItem = buildingItem;
+        this.placedBuilding = placedBuilding;
     }
 
-    private void OnPetWillEnterSceneTransition(object sender, SceneTransition.OnEntityWillEnterSceneTransitionEventArgs args) {
+    private void OnPetWillEnterSceneTransition(object sender,
+        SceneTransition.OnEntityWillEnterSceneTransitionEventArgs args) {
         Collider2D petCollider = args.entity;
         var animal = curAnimals.animalDict[petCollider.gameObject.GetComponent<GenericAnimal>().animalTrait.id];
         // The animal is entering a virtual barn, so reassign the value of their scene to be <barn scene name>#<building id of barn>
@@ -52,5 +59,9 @@ public class Barn : CustomMonoBehaviour {
         barnSwitch.animalList = centralController.Get("AnimalList");
         barnSwitch.spawnAnimal = centralController.Get("SpawnAnimal");
         barnSwitch.confirmationModal = centralController.Get("Confirmation");
+
+        sign.dialogueManager = centralController.Get("DialogueManager").GetComponent<DialogueManager>();
+        sign.canvasController = centralController.Get("CanvasController").GetComponent<CanvasController>();
+        sign.dialog = $"Barn: {placedBuilding.buildingName}";
     }
 }

@@ -24,6 +24,9 @@ public class Animal {
     public Vector2 target = new Vector2(0, 0);
     public int age;
     public Personality personality = null;
+
+    // For animals in virtual buildings (like barns)
+    // scene is of the form <scene name>#<building id> (e.g.: barn#0)
     public string scene;
     public string mood;
     public string moodId = "1";
@@ -33,8 +36,8 @@ public class Animal {
     public int charId;
     public string gender;
 
-    // Right now, for non-fish, home has the form Barn1#<id of the placed building>
-    // For fish, it's the name of the VectorPoints pond they are in
+    // Right now, for non-fish, home is the name of the building
+    // For fish, it's the name of the pond they are in
     public string home;
     public int cost;
     public int shopCost;

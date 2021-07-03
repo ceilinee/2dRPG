@@ -12,6 +12,19 @@ public class ItemArray {
 [System.Serializable]
 public class dialogueArray {
     public ChoiceDialogue[] array;
+    public ChoiceDialogue getDialogue() {
+        List<ChoiceDialogue> selection = new List<ChoiceDialogue>();
+        for (int i = 0; i < array.Length; i++) {
+            if (array[i].oneTime && !array[i].displayed) {
+                array[i].displayed = true;
+                selection.Add(array[i]);
+            } else {
+                selection.Add(array[i]);
+            }
+        }
+        ChoiceDialogue[] results = selection.ToArray();
+        return results[UnityEngine.Random.Range(0, results.Length)];
+    }
 }
 public enum characterMood {
     THRILLED,

@@ -33,7 +33,7 @@ public class CanvasController : CustomMonoBehaviour {
             vetMenu = centralController.centralDictionary["VetMenu"];
         }
         canvas = centralController.Get("Canvas");
-        if (settings.filter != null) {
+        if (settings.HasFilterSet()) {
             ChangeCanvasColor(settings.filter.canvasColour);
         }
     }

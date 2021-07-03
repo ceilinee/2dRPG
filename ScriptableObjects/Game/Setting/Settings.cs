@@ -20,4 +20,8 @@ public class Settings : CustomScriptableObject, IClearable {
         geese = Speed.CLASSIC;
         filter = null;
     }
+
+    public bool HasFilterSet() {
+        return filter != null && filter.name != null && filter.name != "";
+    }
 }

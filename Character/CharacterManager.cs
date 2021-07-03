@@ -160,10 +160,8 @@ public class CharacterManager : MonoBehaviour {
         foreach (int id in player.childrenCharId) {
             Character characterTrait = curCharacters.characterDict[id];
             //if child is currently in scene, instantiate 
-            if (characterTrait.travelTimes.Length <= 0) {
-                characterTrait.path = scheduleDictionary.characterPathDict[characterTrait.personality].array;
-                characterTrait.travelTimes = scheduleDictionary.travelTimesDict[characterTrait.personality].array;
-            }
+            characterTrait.path = scheduleDictionary.characterPathDict[characterTrait.personality].array;
+            characterTrait.travelTimes = scheduleDictionary.travelTimesDict[characterTrait.personality].array;
             //find current path for child
             characterTrait.selectedPath = FindTime(characterTrait);
             //instantiate child

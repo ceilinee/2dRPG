@@ -16,9 +16,9 @@ MonoBehaviour:
     keys:
     - 0
     - 1
+    - processing
     - 2
     - 3
-    - 4
     - sick
     - pregnant
     - question
@@ -48,8 +48,8 @@ MonoBehaviour:
     - shyangry
     values:
     - {fileID: -7873523860663863126, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
-    - {fileID: -1043614127912016185, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
     - {fileID: 6417081480637259516, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
+    - {fileID: -1043614127912016185, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
     - {fileID: -47307256930472232, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
     - {fileID: 1236968940463846004, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
     - {fileID: 6748126278146393293, guid: 70c3a89ac6b11491d95d01faff062608, type: 3}
@@ -114,10 +114,10 @@ MonoBehaviour:
   - {fileID: 1841834135632042972, guid: 3bf94a6a13e9d4d89a3a54232005dd49, type: 3}
   reactionIds:
   - 0
+  - processing
   - 1
   - 2
   - 3
-  - 4
   - sick
   - pregnant
   - question

@@ -82,7 +82,7 @@ public class BreedRegistration : CustomMonoBehaviour {
                         + (tail.text == "N/A" ? "" : tail.text + " coloured tail")
                           + (star.text == "N/A" ? "." : ", " + star.text + " coloured star.");
 
-        breed.multiplier = 1 + (int) System.Math.Floor(player.reputation / 300);
+        breed.multiplier = System.Math.Min(5, 1 + (int) System.Math.Floor(player.reputation / 300));
         animalBreed.Add(breed);
         gameObject.SetActive(false);
         if (background) {

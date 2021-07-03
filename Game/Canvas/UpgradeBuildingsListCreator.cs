@@ -67,7 +67,7 @@ public class UpgradeBuildingsListCreator : ListCreator {
                 var placedBuilding = donePlacedBuildings[i + j];
                 var sceneInfo = allBuildings.sceneDict[placedBuilding.sceneInfoId];
 
-                itemDetails.itemName.text = sceneInfo.sceneName + " " + placedBuilding.buildingId;
+                itemDetails.itemName.text = placedBuilding.buildingName;
                 itemDetails.itemImage.sprite = sceneInfo.image;
                 itemDetails.price.text = "Upgrade cost: $" + barnUpgrades.Get(placedBuilding.GetNextUpgrade()).costForThis;
                 itemDetails.upgradeStatus.text = "Current upgrade: " + placedBuilding.GetUpgrade();

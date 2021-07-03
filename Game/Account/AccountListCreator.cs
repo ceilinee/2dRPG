@@ -18,6 +18,8 @@ public class AccountListCreator : MonoBehaviour {
     public GameObject male;
     public GameObject female;
     public Animals curAnimals;
+    public Animals wildAnimals;
+    public Animals shopAnimals;
     public Characters curCharacters;
     public Inventory curInventory;
     public FloatValue playerMoney;
@@ -64,6 +66,8 @@ public class AccountListCreator : MonoBehaviour {
     }
     public void clearObjects() {
         curAnimals.Clear();
+        wildAnimals.Clear();
+        shopAnimals.Clear();
         curCharacters.Clear();
         curInventory.Clear();
         playerMoney.Clear();

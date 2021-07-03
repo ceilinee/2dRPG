@@ -20,7 +20,8 @@ public class PlacedBuilding {
         string buildingItemId,
         Vector2 itemPosition,
         Timestamp completionTime,
-        int sceneInfoId
+        int sceneInfoId,
+        string buildingName
     ) {
         this.buildingId = buildingId;
         this.buildingItemId = buildingItemId;
@@ -29,6 +30,7 @@ public class PlacedBuilding {
         this.sceneInfoId = sceneInfoId;
         this.upgrade = 0;
         this.status = Status.WaitingBuilt;
+        this.buildingName = buildingName;
     }
     // Unique id for a placed building
     public int buildingId;
@@ -48,6 +50,8 @@ public class PlacedBuilding {
     public int upgrade;
 
     public Status status;
+
+    public string buildingName;
 
     public BarnUpgrades.Upgrade GetUpgrade() {
         return (BarnUpgrades.Upgrade) upgrade;
@@ -80,9 +84,18 @@ public class PlacedBuildings : ScriptableObject {
     // buildings[buildingEnteredIdx] is the building we are currently in
     // -1 means we are not in a building
     public int buildingEnteredIdx;
-    public PlacedBuilding Add(string buildingItemId, Vector2 itemPosition, Timestamp completionTime, int sceneInfoId) {
+    public PlacedBuilding Add(
+        string buildingItemId,
+        Vector2 itemPosition,
+        Timestamp completionTime,
+        int sceneInfoId,
+        string buildingName
+    ) {
         // Each placed building is assigned an id, which is equal to the idx of the building in `buildings`
-        var newPlacedBuilding = new PlacedBuilding(buildings.Count, buildingItemId, itemPosition, completionTime, sceneInfoId);
+        var newPlacedBuilding = new PlacedBuilding(
+            buildings.Count,
+            buildingItemId, itemPosition, completionTime, sceneInfoId, buildingName);
+
         buildings.Add(newPlacedBuilding);
         return newPlacedBuilding;
     }

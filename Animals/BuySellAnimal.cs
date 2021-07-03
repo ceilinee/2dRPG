@@ -6,6 +6,7 @@ using UnityEngine.Assertions;
 
 public class BuySellAnimal : CustomMonoBehaviour {
     public Animals curAnimals;
+    public ItemDictionary itemDictionary;
     public GameObject animalList;
     public Transform target;
     public Inventory playerInventory;
@@ -156,6 +157,10 @@ public class BuySellAnimal : CustomMonoBehaviour {
             return true;
         }
         return false;
+    }
+    public void pickUpItem(string itemId) {
+        Item item = itemDictionary.Get(itemId);
+        pickUpItem(item);
     }
     public void pickUpItem(Item item) {
         playerInventory.Additem(item);

@@ -30,7 +30,7 @@ public class Notification : MonoBehaviour {
             confirmationBackground.SetActive(false);
         }
     }
-    public void update() {
+    void Update() {
         if (Input.GetButtonDown("Cancel")) {
             if (!onlyCloseSelf) {
                 CanvasController.GetComponent<CanvasController>().closeCanvas();

@@ -111,7 +111,7 @@ public class ShopInformation : MonoBehaviour {
 
     public void ShowUpgradeBuildingText(PlacedBuilding placedBuilding) {
         // TODO: replace with name of barn once we add support for that
-        thanks.text = $"Thanks for the business! I'll have barn {placedBuilding.buildingId} upgraded from " +
+        thanks.text = $"Thanks for the business! I'll have barn {placedBuilding.buildingName} upgraded from " +
             $"{placedBuilding.GetUpgrade()} to {placedBuilding.GetNextUpgrade()} for you within 2 days!";
     }
 
